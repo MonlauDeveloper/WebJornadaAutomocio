@@ -1,81 +1,72 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <img src="{{ asset('images/logoMonlau.png') }}" alt="Logo" class="mx-auto h-8 mb-2">
-                    </a>
-                </div>
+    <div class="flex justify-between h-16 items-center">
+        <div class="flex items-center w-full">
+            <div class="shrink-0 flex items-center">
+                <a href="{{ route('dashboard') }}">
+                    <img src="{{ asset('images/logoMonlau.png') }}" alt="Logo" class="h-8 w-auto">
+                </a>
+            </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')">
-                        {{ __('Alumnos') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('projects.index') }}" :active="request()->routeIs('projects.index')">
-                        {{ __('Proyectos') }}
-                    </x-nav-link>
-                </div>
+            <div class="hidden space-x-4 sm:-my-px sm:ms-10 sm:flex items-center">
+                <x-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')" class="whitespace-nowrap">
+                    {{ __('Alumnos') }}
+                </x-nav-link>
+
+                <x-nav-link href="{{ route('projects.index') }}" :active="request()->routeIs('projects.index')" class="whitespace-nowrap">
+                    {{ __('Proyectos') }}
+                </x-nav-link>
+
+                @if(auth()->user()->idRole === 1)
+                <x-nav-link href="{{ route('mesas.index') }}" :active="request()->routeIs('mesas.index')" class="whitespace-nowrap">
+                    {{ __('Mesas') }}
+                </x-nav-link>
+                @endif
+
                 @if(auth()->user()->idRole === 4)
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('teachers.myStudents') }}" :active="request()->routeIs('teachers.myStudents')">
-                        {{ __('Mis Alumnos') }}
-                    </x-nav-link>
-                </div>
+                <x-nav-link href="{{ route('teachers.myStudents') }}" :active="request()->routeIs('teachers.myStudents')" class="whitespace-nowrap">
+                    {{ __('Mis Alumnos') }}
+                </x-nav-link>
                 @endif
+
                 @if(auth()->user()->idRole === 1)
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('projects.upload_csv') }}" :active="request()->routeIs('projects.upload_csv')">
-                        {{ __('Subir Proyectos') }}
-                    </x-nav-link>
-                </div>
+                <x-nav-link href="{{ route('projects.upload_csv') }}" :active="request()->routeIs('projects.upload_csv')" class="whitespace-nowrap">
+                    {{ __('Subir Proyectos') }}
+                </x-nav-link>
+
+                <x-nav-link href="{{ route('admin.solicitudes') }}" :active="request()->routeIs('admin.solicitudes')" class="whitespace-nowrap">
+                    {{ __('Solicitudes Empresa') }}
+                </x-nav-link>
+
+                <x-nav-link href="{{ route('admin.empresas_aceptadas') }}" :active="request()->routeIs('admin.empresas_aceptadas')" class="whitespace-nowrap">
+                    {{ __('Empresas Aceptadas') }}
+                </x-nav-link>
                 @endif
-                @if(auth()->user()->idRole === 1)
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('admin.solicitudes') }}" :active="request()->routeIs('admin.solicitudes')">
-                        {{ __('Solicitudes Empresa') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('admin.empresas_aceptadas') }}" :active="request()->routeIs('admin.empresas_aceptadas')">
-                        {{ __('Empresas Aceptadas') }}
-                    </x-nav-link>
-                </div>
-                @endif
+
                 @if(auth()->user()->idRole === 3)
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('students.myProject') }}" :active="request()->routeIs('students.myProject')">
-                        {{ __('Mi Proyecto') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="{{ route('students.myProfile') }}" :active="request()->routeIs('students.myProfile')">
-                        {{ __('Mi Currículum') }}
-                    </x-nav-link>
-                </div>
+                <x-nav-link href="{{ route('students.myProject') }}" :active="request()->routeIs('students.myProject')" class="whitespace-nowrap">
+                    {{ __('Mi Proyecto') }}
+                </x-nav-link>
+
+                <x-nav-link href="{{ route('students.myProfile') }}" :active="request()->routeIs('students.myProfile')" class="whitespace-nowrap">
+                    {{ __('Mi Currículum') }}
+                </x-nav-link>
                 @endif
+
                 @if(auth()->user()->idRole === 1)
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link href="{{ route('presentations.index') }}" :active="request()->routeIs('presentations.index')">
-                            {{ __('Gestionar Ponencias') }}
-                        </x-nav-link>
-                    </div>
+                <x-nav-link href="{{ route('presentations.index') }}" :active="request()->routeIs('presentations.index')" class="whitespace-nowrap">
+                    {{ __('Gestionar Ponencias') }}
+                </x-nav-link>
                 @endif
 
                 @if(auth()->user()->idRole === 5)
-                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link href="{{ route('admin.myProfile') }}" :active="request()->routeIs('admin.myProfile')">
-                            {{ __('Editar Datos') }}
-                        </x-nav-link>
-                    </div>
+                <x-nav-link href="{{ route('admin.myProfile') }}" :active="request()->routeIs('admin.myProfile')" class="whitespace-nowrap">
+                    {{ __('Editar Datos') }}
+                </x-nav-link>
                 @endif
-
             </div>
+        </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown -->

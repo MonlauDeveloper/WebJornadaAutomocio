@@ -15,7 +15,7 @@
     <div class="mb-6">
         <form method="GET" action="{{ route('projects.index') }}" class="flex flex-wrap items-center justify-center gap-4">
             <!-- Filtro por especialización -->
-            <select name="specialization" class="border rounded-lg text-gray-700" onchange="this.form.submit()">
+            <select name="specialization" class="border rounded-lg text-gray-700 cursor-pointer" onchange="this.form.submit()">
                 <option value="">Todas las especializaciones</option>
                 @foreach($specializations as $specialization)
                 <option value="{{ $specialization->idSpecialization }}"
@@ -26,7 +26,7 @@
             </select>
 
             <!-- Filtro por curso -->
-            <select name="curso" class="border rounded-lg text-gray-700" onchange="this.form.submit()">
+            <select name="curso" class="border rounded-lg text-gray-700 cursor-pointer" onchange="this.form.submit()">
                 <option value="">Todos los cursos</option>
                 @foreach($cursos as $curso)
                 <option value="{{ $curso }}" {{ request('curso') == $curso ? 'selected' : '' }}>
@@ -35,8 +35,63 @@
                 @endforeach
             </select>
 
+            <!-- Filtro por tipo proyecto -->
+           <div class="relative inline-block text-left" style="min-width: 200px;">
+    
+            <button type="button" 
+    onclick="document.getElementById('menu-tipos').classList.toggle('hidden')"
+    class="w-full rounded-lg text-gray-700 px-4 py-2 bg-white flex items-center justify-between gap-2 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition" style="border: 1px solid gray; transition: border-color 0.3s ease;"> 
+    
+    <span>Tipos de proyecto</span>
+    
+    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+</button>
+
+            <div id="menu-tipos" class="hidden absolute z-10 mt-1 w-full bg-white border border-gray-400 rounded-lg shadow-lg p-3">
+        
+            <div class="flex flex-col gap-2 max-h-60 overflow-y-auto">
+                @foreach($tipos as $id => $nombre)
+                    <label class="inline-flex items-center cursor-pointer hover:bg-gray-100 p-1 rounded">
+                        <input 
+                            type="checkbox" 
+                            name="tipos[]" 
+                            value="{{ $id }}"
+                            class="form-checkbox h-4 w-4 text-blue-600 rounded border-gray-300 focus:ring-blue-500"
+                            {{ (is_array(request('tipos')) && in_array($id, request('tipos'))) ? 'checked' : '' }}
+                        >
+                        <span class="ml-2 text-sm text-gray-700">{{ $nombre }}</span>
+                    </label>
+                @endforeach
+            </div>
+
+            <div class="mt-3 pt-2 border-t text-center">
+                <button type="button" 
+                    onclick="document.getElementById('menu-tipos').classList.add('hidden'); this.form.submit()" 
+                    class="text-xs text-blue-600 font-bold hover:underline">
+                    Aplicar filtro
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('click', function(e) {
+            const menu = document.getElementById('menu-tipos');
+            const button = e.target.closest('button');
+            // Si el clic NO fue en el botón ni dentro del menú, cerramos el menú
+            if (!button && !menu.contains(e.target)) {
+            // Check if menu exists before trying to manipulate its classList
+            if(menu) {
+                menu.classList.add('hidden');
+            }
+            }
+        });
+    </script>
+
             <!-- Filtro por número de tribunal -->
-            <select name="numTribunal" class="border rounded-lg text-gray-700" onchange="this.form.submit()">
+            <select name="numTribunal" class="border rounded-lg text-gray-700 cursor-pointer" onchange="this.form.submit()">
                 <option value="">Todos los tribunales</option>
                 @for ($i = 1; $i <= 20; $i++)
                 <option value="{{ $i }}" {{ request('numTribunal') == $i ? 'selected' : '' }}>
@@ -46,7 +101,7 @@
             </select>
 
             <!-- Filtro por ubicación -->
-            <select name="idUbication" class="border rounded-lg text-gray-700" onchange="this.form.submit()">
+            <select name="idUbication" class="border rounded-lg text-gray-700 cursor-pointer" onchange="this.form.submit()">
                 <option value="">Todas las ubicaciones</option>
                 @foreach($ubications as $ubication)
                     <option value="{{ $ubication->idUbication }}" 

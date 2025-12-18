@@ -20,6 +20,7 @@ class Project extends Model
         'pdfURL',
         'moodleURL',
         'abstract',
+        'idProjectType',
         'idUbication',
         'numTribunal',
     ];
@@ -44,6 +45,10 @@ class Project extends Model
     {
         return $this->belongsTo(Team::class, 'team_id'); // Asumiendo que team_id es el campo de la relación
     }
-
+    public function projectType()
+    {
+    // Un proyecto "pertenece a" un tipo de proyecto
+    return $this->belongsTo(ProjectType::class, 'idProjectType', 'idProjectType');
+    }
 
 }

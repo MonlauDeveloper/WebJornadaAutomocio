@@ -12,9 +12,10 @@ class AddRememberTokenToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->rememberToken()->after('password')->nullable();
-        });
+        // Remember token ya está en la migración de crear users
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->rememberToken()->after('password')->nullable();
+        // });
     }
 
     /**

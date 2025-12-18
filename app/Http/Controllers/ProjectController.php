@@ -19,6 +19,7 @@ class ProjectController extends Controller
         $specializations = \App\Models\Specialization::all();
         $cursos = ['A', 'B', 'C', 'D', 'E', 'F', 'R', 'ONLINE'];
         $ubications = \App\Models\Ubication::whereNotNull('UbicationName')->get(); // Obtener solo ubicaciones con nombre
+        $tipos = \App\Models\ProjectType::pluck('name', 'idProjectType');
     
         $query = Project::query()->with(['students', 'ubication']); // Cargar relación con ubicación
     
@@ -40,6 +41,15 @@ class ProjectController extends Controller
         if ($request->has('curso') && $request->curso) {
             $query->where('curso', $request->curso);
         }
+
+        // Filtrar por tipo proyecto
+        if ($request->has('tipo') && $request->tipo) {
+            $query->where('idProjectType', $request->tipo); 
+        }
+    
+        if ($request->has('tipos')) {
+            $query->whereIn('idProjectType', $request->tipos);
+        }
     
         // Filtrar por número de tribunal
         if ($request->has('numTribunal') && $request->numTribunal) {
@@ -53,7 +63,7 @@ class ProjectController extends Controller
     
         $projects = $query->paginate(6);
     
-        return view('projects.index', compact('projects', 'specializations', 'cursos', 'ubications'));
+        return view('projects.index', compact('projects', 'specializations', 'cursos', 'ubications', 'tipos'));
     }    
 
     //EDITAR TRIBUNAL Y UBICACION
@@ -157,16 +167,17 @@ class ProjectController extends Controller
         
     // Mostrar el formulario de edición
     public function edit(Project $project)
-    {
-        $ubications = Ubication::all();
-        $specializations = Specialization::all();
+{
+    $ubications = Ubication::all();
+    $specializations = Specialization::all();
+    $projectTypes = \App\Models\ProjectType::all(); 
 
-        return view('projects.edit', compact('project', 'ubications', 'specializations'));
-    }
+    return view('projects.edit', compact('project', 'ubications', 'specializations', 'projectTypes'));
+}
 
     public function update(Request $request, Project $project)
     {
-        // Validación
+        // 1. VALIDACIÓN
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'idSpecialization' => 'required|string|max:255',
@@ -178,9 +189,11 @@ class ProjectController extends Controller
             'abstract' => 'nullable|string|max:5000',
             'idUbication' => 'nullable|integer',
             'numTribunal' => 'nullable|integer',
+            // NUEVO: Validamos que el tipo exista en la tabla project_types
+            'idProjectType' => 'nullable|exists:project_types,idProjectType',
         ]);
     
-        // Inicializar variables con los valores actuales del proyecto
+        // Inicializar variables con los valores actuales (para no perderlos si no se suben nuevos)
         $photoName = $project->photoName;
         $videoURL = $project->videoURL;
         $pdfURL = $project->pdfURL;
@@ -193,7 +206,7 @@ class ProjectController extends Controller
             $photo->storeAs('photos', $photoName, 'public');
         }
     
-        // Manejar el enlace de YouTube
+        // Manejar el enlace de YouTube (Si envían uno nuevo, lo actualizamos)
         if ($request->has('videoURL') && $request->videoURL) {
             $videoURL = $request->videoURL;
         }
@@ -210,10 +223,14 @@ class ProjectController extends Controller
             $moodleURL = $request->moodleURL;
         }
     
-        // Actualizar campos del proyecto
+        // 2. ACTUALIZAR CAMPOS
         $project->title = $request->title;
         $project->idSpecialization = $request->idSpecialization;
         $project->curso = $request->curso;
+        
+        // Asignamos el NUEVO campo de Tipo de Proyecto
+        $project->idProjectType = $request->idProjectType; 
+
         $project->photoName = $photoName;
         $project->videoURL = $videoURL;
         $project->pdfURL = $pdfURL;
@@ -265,21 +282,20 @@ class ProjectController extends Controller
         return $nombre;
     }
 
-    public function subirCsv(Request $request)
+      public function subirCsv(Request $request)
     {
         Log::info('Iniciando proceso de subida de CSV');
-
         $validated = $request->validate([
             'csvFile' => 'required|file|mimes:csv,txt|max:2048',
         ]);
 
         if ($request->hasFile('csvFile')) {
             Log::info('Archivo CSV detectado');
-
             $csvFile = $request->file('csvFile');
             $filePath = $csvFile->getRealPath();
 
             // Leer el archivo y asegurarse de que cada línea esté en UTF-8
+
             $csvData = array_map(function($line) {
                 $encoding = mb_detect_encoding($line, 'UTF-8, ISO-8859-1', true);
                 return mb_convert_encoding($line, 'UTF-8', $encoding);
@@ -289,6 +305,7 @@ class ProjectController extends Controller
             $csvData = array_map('str_getcsv', $csvData);
 
             // Limpiar los encabezados eliminando saltos de línea y espacios adicionales
+
             $headers = array_map(function($header) {
                 return trim(preg_replace('/\s+/', ' ', $header));
             }, str_getcsv($csvData[0][0], ';'));
@@ -298,6 +315,7 @@ class ProjectController extends Controller
             Log::info('Encabezados del CSV: ', $headers);
 
             // Verificar que los encabezados contengan las columnas esperadas
+
             $requiredHeaders = [
                 'Correo electrónico', 'El teu nom és:', 'El teu 1r cognom és:',
                 'El meu grup actual és:', 'Títol del projecte'
@@ -329,20 +347,21 @@ class ProjectController extends Controller
 
                 $nombreFoto = $this->normalizarNombreArchivo("{$nombre} {$apellido1} {$apellido2}");
                 $photoUrl = "https://res.cloudinary.com/monlaujornadas/image/upload/FotosOrla2025/{$nombreFoto}.jpg";
-                
-                // Verificar si el proyecto es práctico
+
+                // Verificar si el proyecto es práctic
                 $trabajo = trim(strtolower($trabajo));
                 if (strpos($trabajo, 'teòric') !== false) {
                     Log::info('Proyecto teórico, saltando fila');
                     continue; // Si es teórico, saltar a la siguiente fila
                 }
-                
+
                 if($modalidad == 'Monlautech'){
                     $idSpecialization = 5;
                     preg_match('/Equip (\d+)/', $equipoString, $matches);
                     $equipoId = isset($matches[1]) ? $matches[1] : null;
                     $titulo = $equipoString;
                 } else {
+
                     // Determinar especialización y curso
                     $specializations = [
                         '2CA-CM' => 1, '2CA-CS' => 4, '2CB-CM' => 1, '2CB-CS' => 4, '2CC-CM' => 1, '2CC-CS' => 4,
@@ -351,16 +370,15 @@ class ProjectController extends Controller
                     ];
                     $idSpecialization = $specializations[$curso] ?? 5; // Si no coincide, asignar MonlauTech (id 5)
                 }
-
                 $moodleUrls = [
                     '2CA-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=30056',
                     '2CB-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=40155',
                     '2CC-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=40173',
                     '2CD-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=40249',
                     '2CE-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=40459',
-                    '2CF-CS' => null, 
+                    '2CF-CS' => null,
                     '2CR-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=41440',
-                    'ONLINE' => null, 
+                    'ONLINE' => null,
                     '2CA-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=27831',
                     '2CB-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=27831',
                     '2CC-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=27831',
@@ -373,7 +391,7 @@ class ProjectController extends Controller
                     '2XA-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=31003',
                     '2XB-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=39380',
                 ];
-                
+
                 $moodleURL = isset($moodleUrls[$curso]) ? $moodleUrls[$curso] : null;
 
                 // Determinar el curso basado en el valor de $curso

@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id('idUser'); // Cambia el nombre del id principal
             $table->string('userName'); // Nuevo campo para nombre de usuario
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->foreignId('idRole')->constrained('roles')->onDelete('cascade'); // Relación con la tabla roles
+            $table->foreignId('idRole')->references('idRole')->on('roles')->onDelete('cascade'); // Relación con la tabla roles
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();
