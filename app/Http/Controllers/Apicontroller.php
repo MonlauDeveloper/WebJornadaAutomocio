@@ -295,7 +295,7 @@ class Apicontroller extends Controller
             ['start' => '11:00', 'end' => '13:30']
         ];
         
-        $interval = 5 * 60; // 15 minutos
+        $interval = 15 * 60; // 15 minutos
 
         // 2. Obtener las reservas existentes
         $bookedSlots = DB::table('time_slots')
