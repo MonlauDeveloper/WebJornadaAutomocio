@@ -42,6 +42,7 @@
             @enderror
         </div>
 
+        <!-- Tipo de Proyecto -->
         <div class="mb-4">
             <label for="idProjectType" class="block text-gray-700 font-semibold mb-2">Tipo de Proyecto</label>
             <select name="idProjectType" id="idProjectType" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
@@ -57,6 +58,7 @@
             <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
         </div>
+        
         <!-- Curso -->
         <div class="mb-4">
             <label for="curso" class="block text-gray-700 font-semibold mb-2">Curso</label>

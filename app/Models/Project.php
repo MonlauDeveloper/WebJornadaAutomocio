@@ -20,7 +20,7 @@ class Project extends Model
         'pdfURL',
         'moodleURL',
         'abstract',
-        'idProjectType',
+        // 'idProjectType',
         'idUbication',
         'numTribunal',
     ];
@@ -47,8 +47,8 @@ class Project extends Model
     }
     public function projectType()
     {
-    // Un proyecto "pertenece a" un tipo de proyecto
-    return $this->belongsTo(ProjectType::class, 'idProjectType', 'idProjectType');
+    // Relación Muchos a Muchos 
+        return $this->belongsToMany(ProjectType::class, 'project_project_type', 'idProject', 'idProjectType');
     }
 
 }

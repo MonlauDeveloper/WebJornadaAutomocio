@@ -39,15 +39,15 @@
            <div class="relative inline-block text-left" style="min-width: 200px;">
     
             <button type="button" 
-    onclick="document.getElementById('menu-tipos').classList.toggle('hidden')"
-    class="w-full rounded-lg text-gray-700 px-4 py-2 bg-white flex items-center justify-between gap-2 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition" style="border: 1px solid gray; transition: border-color 0.3s ease;"> 
+                onclick="document.getElementById('menu-tipos').classList.toggle('hidden')"
+                class="w-full rounded-lg text-gray-700 px-4 py-2 bg-white flex items-center justify-between gap-2 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600 transition" style="border: 1px solid gray; transition: border-color 0.3s ease;"> 
     
-    <span>Tipos de proyecto</span>
+                <span>Tipos de proyecto</span>
     
-    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-    </svg>
-</button>
+                <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </button>
 
             <div id="menu-tipos" class="hidden absolute z-10 mt-1 w-full bg-white border border-gray-400 rounded-lg shadow-lg p-3">
         

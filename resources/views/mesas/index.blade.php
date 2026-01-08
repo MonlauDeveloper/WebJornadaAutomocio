@@ -1,143 +1,94 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mx-auto p-6">
-    <h1 class="text-3xl font-semibold text-center text-blue-600 mb-8">Gestión de Mesas</h1>
-
-    <div class="max-w-4xl mx-auto mb-6">
+<div class="container mx-auto p-6 mx-auto p-4 sm:p-6 bg-gray-50 min-h-screen">
+    <div class="flex flex-col md:flex-row justify-betweem items-center mb-8 gap-4">
+        <div>
+            <h1 class="text-3xl font-semibold text-center text-blue-600">Gestión de Mesas</h1>
+            <p class="text-gray-500 text-center">Administra la distribución de empresas en el recinto.</p>
+        </div>
+        <div class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-sm">
+            <span class="text-2xl font-bold">{{ $tables->count() }}</span> Mesas Activas
+        </div>
+    </div>
+    
+    <div class="max-w-6xl mx-auto mb-6">
         @if (session('success'))
-            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded shadow-sm flex justify-between items-center">
-                <div>
-                    <p class="font-bold">¡Operación exitosa!</p>
-                    <p>{{ session('success') }}</p>
+            <div class="bg-green-50 border-l-4 border-green-500 text-green-700 p-4 rounded-md shadow-sm animate-pulse">
+                <div class="flex items-center">
+                    <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
+                    <p class="font-medium ">{{ session('success') }}</p>
                 </div>
             </div>
         @endif
+    </div>
 
-        @if ($errors->any())
-            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded shadow-sm">
-                <p class="font-bold">Error</p>
-                <ul class="list-disc list-inside">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+    <div class="bg-white p-6 rounded-3xl shadow-md border border-gray-300 mb-8 max-w-7xl mx-auto">
+        <h2 class="text-lg font-bold text-gray-700 mb-4 flex items-center">
+            <svg class="h-5 w-5 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+            Asignar Nueva Empresa a Mesa
+        </h2>
+        <form method="POST" action="{{ route('company-tables.store') }}" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
+            @csrf
+            <div>
+                <label class="block text-gray-600 text-xs font-bold uppercase mb-1">Empresa</label>
+                <select name="idCompany" required class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    <option value="" disabled selected>Selecciona empresa...</option>
+                    @foreach($companies as $company)
+                        <option value="{{ $company->idCompany }}">{{ $company->companyName }}</option>
                     @endforeach
-                </ul>
+                </select>
             </div>
-        @endif
+            <div>
+                <label class="block text-gray-600 text-xs font-bold uppercase mb-1">Identificador de Mesa</label>
+                <input type="text" name="tableName" required placeholder="Ej: A-12" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-4 rounded-lg transition duration-200 shadow-lg">
+                Confirmar Asignación
+            </button>
+        </form>
     </div>
 
-    <div class="grid gap-8 max-w-6xl mx-auto">
-        
-        <div class="lg:col-span-1">
-            <div class="bg-white p-6 rounded-lg shadow-lg border border-gray-100 sticky top-6">
-                <h2 class="text-xl font-bold text-gray-800 mb-4 border-b pb-2">Asignar Nueva Mesa</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
+        @forelse($tables as $table)
+            <div class="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
+                <div class="bg-gray-50 p-4 border-b border-gray-100 flex justify-between items-center group-hover:bg-blue-50 transition-colors">
+                    <span class="text-xs font-black text-blue-600 uppercase tracking-widest">Mesa</span>
+                    <span class="bg-white border border-blue-200 text-blue-700 px-2 py-1 rounded text-sm font-bold shadow-sm">
+                        {{ $table->tableName }}
+                    </span>
+                </div>
                 
-                <form method="POST" action="{{ route('company-tables.store') }}" class="space-y-4">
-                    @csrf
+                <div class="p-5">
+                    <h3 class="text-gray-900 font-bold text-lg mb-1 leading-tight">{{ $table->companyName }}</h3>
+                    <p class="text-gray-400 text-sm mb-4">ID Empresa: {{ $table->idCompany }}</p>
                     
-                    <div>
-    <label for="idCompany" class="block text-gray-700 text-sm font-bold mb-2">Seleccionar Empresa</label>
-    
-    <div class="relative">
-        <select name="idCompany" id="idCompany" required
-                class="w-full border rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white">
-            <option value="" disabled selected>-- Elige una empresa --</option>
-            
-            @foreach($companies as $company)
-                <option value="{{ $company->idCompany }}">
-                    {{ $company->companyName }} (ID: {{ $company->idCompany }})
-                </option>
-            @endforeach
-            
-        </select>
-        
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-            </svg>
-        </div>
-    </div>
-</div>
-
-                    <div>
-                        <label for="tableName" class="block text-gray-700 text-sm font-bold mb-2">Nombre Mesa</label>
-                        <input type="text" name="tableName" id="tableName" required placeholder="Ej: Mesa 1"
-                               class="w-full border rounded-lg px-4 py-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all">
+                    <div class="flex items-center text-gray-500 text-xs mb-6">
+                        <svg class="h-4 w-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        Ubicación confirmada
                     </div>
 
-                    <button type="submit" class="w-full bg-blue-600 text-white hover:bg-blue-700 font-bold py-2 px-4 rounded-lg shadow-md transition-colors">
-                        Guardar
-                    </button>
-                </form>
-            </div>
-        </div>
-
-        <div class="lg:col-span-2">
-            <div class="bg-white rounded-lg shadow-lg border border-gray-100 overflow-hidden">
-                <div class="p-4 bg-gray-50 border-b border-gray-200">
-                    <h2 class="text-xl font-bold text-gray-800">Mesas Asignadas Actualmente</h2>
-                </div>
-
-                <div class="overflow-x-auto">
-                    <table class="w-full border-collapse">
-                        <thead>
-                            <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
-                                <th class="py-3 px-6 text-left">ID Mesa</th>
-                                <th class="py-3 px-6 text-left">Nombre Mesa</th>
-                                <th class="py-3 px-6 text-left">Empresa Asignada</th>
-                                <th class="py-3 px-6 text-center">Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-gray-600 text-sm font-light">
-                            @forelse($tables as $table)
-                                <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                    <td class="py-3 px-6 text-left whitespace-nowrap">
-                                        <span class="font-medium">{{ $table->idTable }}</span>
-                                    </td>
-                                    <td class="py-3 px-6 text-left">
-                                        <span class="bg-blue-100 text-blue-800 py-1 px-3 rounded-full text-xs font-bold">
-                                            {{ $table->tableName }}
-                                        </span>
-                                    </td>
-                                    <td class="py-3 px-6 text-left">
-                                        <div class="flex items-center">
-                                            <span class="font-medium">{{ $table->companyName }}</span>
-                                            <span class="text-xs text-gray-400 ml-2">(ID: {{ $table->idCompany }})</span>
-                                        </div>
-                                    </td>
-                                    <td class="py-3 px-6 text-center">
-                                        <div class="flex item-center justify-center space-x-4">
-                                            <a href="{{ route('company-tables.edit', $table->idTable) }}" class="transform hover:text-blue-500 hover:scale-110 transition-transform" title="Editar">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-                                                </svg>
-                                            </a>
-
-                                            <form action="{{ route('company-tables.destroy', $table->idTable) }}" method="POST" onsubmit="return confirm('¿Seguro que quieres liberar esta mesa?');">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="transform hover:text-red-500 hover:scale-110 transition-transform" title="Borrar">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                                    </svg>
-                                                </button>
-                                            </form>
-        
-                                        </div>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="4" class="py-6 text-center text-gray-500">
-                                        No hay mesas asignadas todavía. ¡Usa el formulario para crear la primera!
-                                    </td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-50">
+                        <a href="{{ route('company-tables.edit', $table->idTable) }}" class="text-blue-600 hover:text-blue-800 flex items-center text-sm font-semibold">
+                            <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                            Editar
+                        </a>
+                        
+                        <form action="{{ route('company-tables.destroy', $table->idTable) }}" method="POST" onsubmit="return confirm('¿Liberar esta mesa?');">
+                            @csrf @method('DELETE')
+                            <button type="submit" class="text-red-400 hover:text-red-600 p-2 rounded-full hover:bg-red-50 transition-colors">
+                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        @empty
+            <div class="col-span-full py-20 text-center bg-white rounded-3xl border-2 border-dashed border-gray-200">
+                <svg class="mx-auto h-12 w-12 text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+                <p class="text-gray-500 text-lg">No hay mesas configuradas actualmente.</p>
+            </div>
+        @endforelse
     </div>
 </div>
 @endsection
