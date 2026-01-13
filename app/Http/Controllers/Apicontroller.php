@@ -135,7 +135,6 @@ class Apicontroller extends Controller
             ->select($columns)->first();
         return $speakers;
     }
-    
     public function student(int $id_student)
     {
         $query = DB::table('students')
