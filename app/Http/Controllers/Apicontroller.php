@@ -143,6 +143,18 @@ class Apicontroller extends Controller
             ->first();
         return $query;
     }
+    public function getProjectById(int $id){
+        // Usamos el Modelo Project con sus relaciones (Eager Loading)
+        // Esto traerá automáticamente los datos de las tablas relacionadas
+        $project = \App\Models\Project::with(['students', 'specialization', 'ubication'])
+                ->find($id);
+
+        if (!$project) {
+        return response()->json(['message' => 'Proyecto no encontrado'], 404);
+        }
+
+        return response()->json($project);
+    }
 
     // --- FILTROS ---
     public function projects_filter(int $limit, int $page, $filter, $value, string $order = "title")

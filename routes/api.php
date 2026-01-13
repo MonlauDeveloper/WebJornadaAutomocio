@@ -54,7 +54,7 @@ Route::middleware('auth:sanctum')->group(function () {
 // --- ENDPOINTS PÚBLICOS ---
 
 Route::post('/createToken', [Apicontroller::class, 'login_API']);
-
+Route::get('/project/{id}', [Apicontroller::class, 'getProjectById']);
 
 // =========================================================================
 // 1. RUTAS ESPECÍFICAS (Deben ir ANTES de las genéricas de paginación)

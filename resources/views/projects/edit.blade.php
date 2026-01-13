@@ -43,21 +43,61 @@
         </div>
 
         <!-- Tipo de Proyecto -->
-        <div class="mb-4">
-            <label for="idProjectType" class="block text-gray-700 font-semibold mb-2">Tipo de Proyecto</label>
-            <select name="idProjectType" id="idProjectType" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                <option value="">Selecciona un tipo</option>
-                @foreach($projectTypes as $type)
-                    <option value="{{ $type->idProjectType }}" 
-                        {{ old('idProjectType', $project->idProjectType) == $type->idProjectType ? 'selected' : '' }}>
-                        {{ $type->name }}
-                    </option>
-                @endforeach
-            </select>
-            @error('idProjectType')
-            <span class="text-red-500 text-sm">{{ $message }}</span>
+        <div class="mb-6">
+            <label class="block text-gray-700 font-semibold mb-7">
+                Tipos de Proyecto 
+                <span class="text-sm text-gray-500 font-normal">(Máximo 3 opciones)</span>
+            </label>
+    
+            <div class="border border-gray-300 rounded-lg p-4 bg-white max-h-60 overflow-y-auto shadow-inner">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                    @foreach($projectTypes as $type)
+                       <label class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded cursor-pointer transition">
+                        <input 
+                            type="checkbox" 
+                            name="tipos[]" 
+                            value="{{ $type->idProjectType }}"
+                            class="form-checkbox h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 project-type-checkbox"
+                            onclick="checkLimit(this)"
+                            {{ $project->projectTypes && $project->projectTypes->contains('idProjectType', $type->idProjectType) ? 'checked' : '' }}
+                        >
+                        <span class="text-gray-700 font-medium">{{ $type->name }}</span>
+                        </label>
+                    @endforeach
+                </div>
+            </div>
+    
+            <p id="limit-message" class="text-xs text-gray-500 mt-2 font-semibold">
+                Seleccionados: <span id="count-display">{{ $project->projectTypes ? $project->projectTypes->count() : 0 }}</span>/3
+            </p>
+
+            @error('tipos')
+                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
             @enderror
         </div>
+
+        <script>
+            function checkLimit(checkbox) {
+            const checkboxes = document.querySelectorAll('.project-type-checkbox:checked');
+            const message = document.getElementById('limit-message');
+            const countDisplay = document.getElementById('count-display');
+            const count = checkboxes.length;
+
+            // Actualizamos el número visualmente
+            if(countDisplay) countDisplay.innerText = count;
+
+            if (count > 3) {
+                checkbox.checked = false;
+                if(countDisplay) countDisplay.innerText = "3"; 
+            
+                message.innerHTML = "<span class='text-red-600 font-bold'>¡Máximo 3 tipos permitidos!</span>";
+            
+                setTimeout(() => {
+                    message.innerHTML = "Seleccionados: <span id='count-display'>3</span>/3";
+                }, 2000);
+            }
+        }
+        </script>
         
         <!-- Curso -->
         <div class="mb-4">

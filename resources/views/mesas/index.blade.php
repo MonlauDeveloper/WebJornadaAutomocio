@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mx-auto p-6 mx-auto p-4 sm:p-6 bg-gray-50 min-h-screen">
-    <div class="flex flex-col md:flex-row justify-betweem items-center mb-8 gap-4">
+    <div class="flex flex-col justify-betweem items-center mb-8 gap-4">
         <div>
             <h1 class="text-3xl font-semibold text-center text-blue-600">Gestión de Mesas</h1>
             <p class="text-gray-500 text-center">Administra la distribución de empresas en el recinto.</p>
@@ -52,7 +52,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-7xl mx-auto">
         @forelse($tables as $table)
             <div class="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl transition-shadow duration-300 overflow-hidden group">
-                <div class="bg-gray-50 p-4 border-b border-gray-100 flex justify-between items-center group-hover:bg-blue-50 transition-colors">
+                <div class="bg-gray-50 p-4 border-b border-gray-200 flex justify-between items-center">
                     <span class="text-xs font-black text-blue-600 uppercase tracking-widest">Mesa</span>
                     <span class="bg-white border border-blue-200 text-blue-700 px-2 py-1 rounded text-sm font-bold shadow-sm">
                         {{ $table->tableName }}
