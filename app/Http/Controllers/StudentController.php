@@ -505,7 +505,22 @@ class StudentController extends Controller
         $pdf = PDF::loadView('students.showPDF', compact('student', 'imageBase64'))
                 ->setPaper('a4', 'portrait');
 
-        return $pdf->download('curriculum-' . $student->idStudent . '.pdf');
+        return $pdf->stream('curriculum-' . $student->idStudent . '.pdf');
     }
+    public function descargarProyectoPDF($idProject)
+{
+    // Cargamos el proyecto con TODOS sus estudiantes
+    $project = Project::with('students')->findOrFail($idProject);
+    
+    // Obtenemos la lista completa
+    $students = $project->students; 
 
+    $projectImageBase64 = ''; 
+    // ... (tu lógica de la imagen del proyecto) ...
+
+    $pdf = Pdf::loadView('students.projectPDF', compact('students', 'project', 'projectImageBase64'))
+              ->setPaper('a4', 'portrait');
+
+    return $pdf->stream('Ficha_Proyecto.pdf');
+}
 }

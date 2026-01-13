@@ -35,11 +35,16 @@
 
         <div class="mt-6">
             <p class="font-semibold text-2xl text-blue-500">PDF:</p>
-            @if ($project->pdfURL)
-                <a href="{{ asset('storage/pdfs/' . $project->pdfURL) }}"  class="inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition">Ver PDF</a>
-            @else
-                <span class="text-gray-500">No disponible</span>
-            @endif
+            <div class="mt-6 text-center">            
+        
+                @if ($project->idProject)
+                <a href="{{ route('project.pdf', $project->idProject) }}" class="text-white bg-green-600 hover:bg-green-700 py-3 px-6 rounded-lg">
+                    Descargar Ficha Técnica
+                </a>
+                @else
+                    <span class="text-gray-500">No disponible</span>
+                @endif
+            </div>
         </div>
 
         @if(auth()->user()->idRole === 1 || auth()->user()->idRole === 4)

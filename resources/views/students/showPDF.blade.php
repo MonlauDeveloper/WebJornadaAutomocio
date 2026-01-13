@@ -33,7 +33,7 @@
             background-size: cover; /* Asegura que cubra toda la página */
             background-position: left top; /* Ajusta la alineación */
             background-repeat: no-repeat;
-            opacity: 0.7; /* Ajusta la transparencia */
+            opacity: 0.6; /* Ajusta la transparencia */
             z-index: 1000; /* Envía la imagen al fondo */
         }
 
@@ -47,8 +47,15 @@
             padding: 24px;
         }
 
+        .card {
+            margin-left: 13px; 
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px; border-radius: 12px; margin-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
         .bg-white {
-            background-color: #f9fafb;
+            background-color: #fbf9f9;
         }
 
         .p-6 {
@@ -162,26 +169,33 @@
 
             <h1 class="text-4xl font-bold text-blue-600 mt-4">{{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}</h1>
 
+            <div class="card">
             <p class="text-gray-600 mt-2">
-                <strong>Especialización:</strong> {{ $student->specialization->specialization ?? 'No especificada' }}
+                <strong>Especialización:</strong> 
+                <span class="text-blue-600 font-bold">{{ $student->specialization->specialization ?? 'No especificada' }}</span>
             </p>
-
+                  
             <p class="text-gray-600 mt-2">
-                <strong>Equipo:</strong> {{ $student->team->teamName ?? 'Sin equipo asignado' }}
+                <strong>Equipo:</strong> 
+                <span class="text-black font-medium">{{ $student->team->teamName ?? 'Sin equipo asignado' }}</span>
             </p>
+        </div>    
         </div>
 
         <!-- Currículum -->
         <div class="mt-8">
 
             <!-- Introducción (ocupa toda la línea) -->
-            <div class="bg-white p-6 rounded-lg shadow-lg mb-6">
+            <div class="card">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h3 class="text-xl font-semibold text-blue-600">Sobre mí</h3>
                 <p class="text-gray-700">{{ $student->introduction ?? 'No especificada' }}</p>
             </div>
+            </div>
 
             <!-- Contacto -->
-            <div class="mb-6 bg-white p-6 rounded-lg shadow-lg">
+             <div class="card">
+            <div class=" bg-white p-6 rounded-lg shadow-lg">
                 <h3 class="text-xl font-semibold text-blue-600">Contacto</h3>
                     @forelse($student->contacts as $contact)
                         <p class="text-gray-700">{{ $contact->contact }}</p>
@@ -189,12 +203,13 @@
                         <p class="text-gray-700">No especificado</p>
                     @endforelse
             </div>
-
+</div>
             <!-- Educación y Experiencia en dos columnas -->
+             <div class="card">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
                 <!-- Educación -->
-                <div class="mb-6 bg-white p-6 rounded-lg shadow-lg">
+                <div class=" bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-blue-600">Formación</h3>
                         @forelse($student->educations as $education)
                             <p class="text-gray-700">{{ $education->education }}</p>
@@ -202,9 +217,11 @@
                             <p class="text-gray-700">No especificada</p>
                         @endforelse
                 </div>
-
+</div>
+</div>
                 <!-- Experiencia Laboral -->
-                <div class="mb-6 bg-white p-6 rounded-lg shadow-lg">
+                 <div class="card">
+                <div class=" bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-blue-600">Experiencia Laboral</h3>
                         @forelse($student->workExperiences as $experience)
                             <p class="text-gray-700">{{ $experience->work_experience }}</p>
@@ -214,9 +231,9 @@
                 </div>
 
             </div>
-
             <!-- Idiomas -->
-            <div class="mb-6 bg-white p-6 rounded-lg shadow-lg language-section">
+             <div class="card">
+            <div class=" bg-white p-6 rounded-lg shadow-lg language-section">
                 <h3 class="text-xl font-semibold text-blue-600">Idiomas</h3>
                     @forelse($student->languages as $language)
                         <p class="text-gray-700">{{ $language->language }}</p>
@@ -224,7 +241,7 @@
                         <p class="text-gray-700">No especificado</p>
                     @endforelse
             </div>
-
+</div>
                 
 
         </div>

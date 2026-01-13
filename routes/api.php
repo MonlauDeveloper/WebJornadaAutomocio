@@ -48,7 +48,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // --- AÑADIR ESTA LÍNEA ---
     Route::get('/my-bookings', [Apicontroller::class, 'getMyBookings']);
- 
+
 });
 
 // --- ENDPOINTS PÚBLICOS ---
@@ -60,7 +60,8 @@ Route::get('/project/{id}', [Apicontroller::class, 'getProjectById']);
 // 1. RUTAS ESPECÍFICAS (Deben ir ANTES de las genéricas de paginación)
 // =========================================================================
 
-
+// Sácala de cualquier grupo y ponla así:
+Route::get('/proyecto/{idProject}/pdf', [App\Http\Controllers\StudentController::class, 'descargarProyectoPDF'])->name('project.pdf');
 
 // Detalles individuales
 Route::get('/companie/{id}', [Apicontroller::class, 'companie']);

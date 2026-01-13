@@ -140,7 +140,7 @@
             <label for="pdfURL" class="block text-gray-700 font-semibold mb-2">PDF</label>
             <input type="file" name="pdfURL" id="pdfURL" class="p-3 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
             @if ($project->pdfURL)
-                <p class="mt-2 text-sm text-gray-600">PDF actual: {{ $project->pdfURL }}</p>
+                <p class="mt-2 text-sm text-red-600">PDF actual: {{ $project->pdfURL }}</p>
             @endif
             @error('pdfURL')
                 <span class="text-red-500 text-sm">{{ $message }}</span>

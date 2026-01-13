@@ -20,7 +20,7 @@
             </div>
         </form>
         <div class="text-center mt-6">
-            <a href="{{ asset('storage/csv_uploads/Plantilla_Excel.xlsx') }}" download class="bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition">
+            <a href="{{ asset('storage/csv_uploads/Plantilla_Excel.csv') }}" download class="bg-green-500 text-white py-3 px-6 rounded-lg hover:bg-green-600 transition">
                 Descargar Plantilla
             </a>
         </div>
