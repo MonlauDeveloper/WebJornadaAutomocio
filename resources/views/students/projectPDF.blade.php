@@ -23,7 +23,7 @@
         }
 
         /* Contenedor Estrecho (75%) */
-        .container { width: 75%; margin: 0 auto; padding: 40px 0; }
+        .container { width: 75%; margin: 0 auto; padding: 60px 0; }
 
         .text-blue { color: #2563eb; }
         .font-bold { font-weight: bold; }
@@ -31,9 +31,10 @@
 
         .card {
             margin-left: 19px; 
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 20px; border-radius: 12px; margin-bottom: 10px;
-            border: 1px solid rgba(44, 85, 166, 0.6);
+            background-color: rgba(255, 255, 255, 0.5);
+            padding: 20px; border-radius: 12px; margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            page-break-inside: avoid;
         }
 
         /* Título con doble línea como en tu dibujo */
@@ -45,19 +46,62 @@
 
         .section-title {
             font-size: 1rem; font-weight: bold; color: #1d4ed8;
-            margin-bottom: 8px; border-bottom: 2px solid #e5e7eb; display: block;
+            margin-bottom: 8px; border-bottom: 2px solid #d5d6da; display: block;
         }
 
-        /* Rejilla de procedimiento (4 fotos) */
-        .steps-grid { width: 100%; margin-top: 10px; }
-        .step-item { 
-            width: 23%; display: inline-block; vertical-align: top; 
-            border: 1px solid #ccc; background: white; padding: 5px; text-align: center; font-size: 10px;
-        }
+        /* Estilos para el Procedimiento */
+.proc-row {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.proc-col {
+    width: 48%;
+    display: inline-block;
+    vertical-align: top;
+}
+.step-box {
+    width: 100%;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+.step-header {
+    font-weight: bold;
+    color: #1e40af;
+    font-size: 0.85rem;
+    border-bottom: 1px solid #1e40af;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+.photo-placeholder {
+    width: 45%;
+    height: 65px;
+    background: #f3f4f6;
+    border: 1px dashed #cbd5e1;
+    display: inline-block;
+    text-align: center;
+    line-height: 65px;
+    color: #94a3b8;
+    font-size: 0.7rem;
+    border-radius: 4px;
+}
+.step-description {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0.75rem;
+    padding-left: 8px;
+    text-align: justify;
+}
+.divider-vertical {
+    display: inline-block;
+    width: 1px;
+    background-color: #e5e7eb;
+    height: 180px; /* Ajusta según el contenido */
+    margin: 0 5px;
+}
+        
 
-        /* Tabla comparativa final */
-        .stats-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
-        .stats-table td { border: 1px solid #ddd; padding: 6px; text-align: center; }
+
     </style>
 </head>
 <body>
@@ -119,11 +163,71 @@
 
         <div class="card">
             <h3 class="section-title uppercase">Estado Inicial</h3>
-            <p style="font-size: 0.9rem;">{{ $project->initial_state ?? 'Descripción del estado previo del proyecto.' }}</p>
+            <table width="100%" style="border-collapse: collapse;">
+                <tr>
+                    <td width="35%" align="right" style="vertical-align: top;">
+                        @if($projectImageBase64) 
+                            <img src="{{ $projectImageBase64 }}" 
+                                style="width: 100%; max-width: 180px; border-radius: 8px; border: 1px solid #ddd;">
+                        @else
+                            <div style="width: 150px; height: 100px; background: #f3f4f6; border-radius: 8px;"></div>
+                        @endif
+                    </td>
+                    <td width="65%" style="vertical-align: top; padding-left: 15px;">
+                        <p style="font-size: 0.9rem; text-align: justify; margin: 0;">
+                            {{ $project->initial_state ?? 'Descripción del estado previo del proyecto.' }}
+                        </p>
+                    </td>
+                </tr>
+            </table>
         </div>
         <div class="card">
-            <h3 class="section-title uppercase">Procedimiento</h3>
+    <h3 class="section-title uppercase">Procedimiento Técnico</h3>
+    
+    <div class="proc-row">
+        <div class="proc-col">
+            <div class="step-box">
+                <div class="step-header">PASO 1</div>
+                <div class="photo-placeholder">FOTO TÉCNICA</div>
+                <div class="step-description">
+                    {{ $project->step1_desc ?? 'Descripción detallada del primer proceso técnico realizado en el proyecto.' }}
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #eee; margin: 10px 0;"></div>
+            
+            <div class="step-box">
+                <div class="step-header">PASO 2</div>
+                <div class="photo-placeholder">FOTO TÉCNICA</div>
+                <div class="step-description">
+                    {{ $project->step2_desc ?? 'Montaje de componentes y verificaciones iniciales de seguridad y ajuste.' }}
+                </div>
+            </div>
         </div>
+
+        <div class="divider-vertical"></div>
+
+        <div class="proc-col">
+            <div class="step-box">
+                <div class="step-header">PASO 3</div>
+                <div class="photo-placeholder">FOTO TÉCNICA</div>
+                <div class="step-description">
+                    {{ $project->step3_desc ?? 'Ajustes finales, calibración de sistemas y pruebas dinámicas en banco.' }}
+                </div>
+            </div>
+
+            <div style="border-top: 1px solid #eee; margin: 10px 0;"></div>
+
+            <div class="step-box">
+                <div class="step-header">PASO 4</div>
+                <div class="photo-placeholder">FOTO TÉCNICA</div>
+                <div class="step-description">
+                    {{ $project->step4_desc ?? 'Finalización del acabado estético y comprobación del cumplimiento de objetivos.' }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
         <div class="card" style="margin-top: 20px;">
             <h3 class="section-title uppercase">Estado Final</h3>
 

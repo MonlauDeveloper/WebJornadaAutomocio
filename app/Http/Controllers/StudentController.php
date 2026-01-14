@@ -509,18 +509,37 @@ class StudentController extends Controller
     }
     public function descargarProyectoPDF($idProject)
 {
-    // Cargamos el proyecto con TODOS sus estudiantes
-    $project = Project::with('students')->findOrFail($idProject);
-    
-    // Obtenemos la lista completa
+    // 1. Buscamos el proyecto específico.
+    $project = Project::with(['students', 'specialization'])->findOrFail($idProject);
     $students = $project->students; 
 
-    $projectImageBase64 = ''; 
-    // ... (tu lógica de la imagen del proyecto) ...
+    $projectImageBase64 = null;
+    $initialStateImageBase64 = null; // Inicializamos la nueva variable
 
-    $pdf = Pdf::loadView('students.projectPDF', compact('students', 'project', 'projectImageBase64'))
-              ->setPaper('a4', 'portrait');
+    // 2. Procesamos la imagen
+    if ($project->photoName) {
+        $path = storage_path('app/public/photos/' . $project->photoName);
 
-    return $pdf->stream('Ficha_Proyecto.pdf');
+        if (file_exists($path)) {
+            $imageData = file_get_contents($path);
+            $extension = pathinfo($path, PATHINFO_EXTENSION);
+            
+            $base64 = 'data:image/' . $extension . ';base64,' . base64_encode($imageData);
+            
+            // Asignamos el valor a ambas variables para que la vista las encuentre
+            $projectImageBase64 = $base64;
+            $initialStateImageBase64 = $base64;
+        }
+    }
+
+    // 3. ¡IMPORTANTE! Añadir 'initialStateImageBase64' al compact
+    $pdf = Pdf::loadView('students.projectPDF', compact(
+        'students', 
+        'project', 
+        'projectImageBase64',
+        'initialStateImageBase64' // <--- MODIFICACIÓN AQUÍ
+    ))->setPaper('a4', 'portrait');
+
+    return $pdf->stream('Ficha_' . $project->idProject . '.pdf');
 }
 }
