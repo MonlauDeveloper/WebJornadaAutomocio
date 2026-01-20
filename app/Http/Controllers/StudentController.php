@@ -514,7 +514,7 @@ class StudentController extends Controller
     $students = $project->students; 
 
     $projectImageBase64 = null;
-    $initialStateImageBase64 = null; // Inicializamos la nueva variable
+    $initialStateImageBase64 = null; 
 
     // 2. Procesamos la imagen
     if ($project->photoName) {
@@ -532,12 +532,12 @@ class StudentController extends Controller
         }
     }
 
-    // 3. ¡IMPORTANTE! Añadir 'initialStateImageBase64' al compact
+    // 3. Añadir 'initialStateImageBase64' al compact
     $pdf = Pdf::loadView('students.projectPDF', compact(
         'students', 
         'project', 
         'projectImageBase64',
-        'initialStateImageBase64' // <--- MODIFICACIÓN AQUÍ
+        'initialStateImageBase64'
     ))->setPaper('a4', 'portrait');
 
     return $pdf->stream('Ficha_' . $project->idProject . '.pdf');

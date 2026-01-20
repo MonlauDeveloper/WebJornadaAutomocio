@@ -184,49 +184,6 @@
         <div class="card">
     <h3 class="section-title uppercase">Procedimiento Técnico</h3>
     
-    <div class="proc-row">
-        <div class="proc-col">
-            <div class="step-box">
-                <div class="step-header">PASO 1</div>
-                <div class="photo-placeholder">FOTO TÉCNICA</div>
-                <div class="step-description">
-                    {{ $project->step1_desc ?? 'Descripción detallada del primer proceso técnico realizado en el proyecto.' }}
-                </div>
-            </div>
-            
-            <div style="border-top: 1px solid #eee; margin: 10px 0;"></div>
-            
-            <div class="step-box">
-                <div class="step-header">PASO 2</div>
-                <div class="photo-placeholder">FOTO TÉCNICA</div>
-                <div class="step-description">
-                    {{ $project->step2_desc ?? 'Montaje de componentes y verificaciones iniciales de seguridad y ajuste.' }}
-                </div>
-            </div>
-        </div>
-
-        <div class="divider-vertical"></div>
-
-        <div class="proc-col">
-            <div class="step-box">
-                <div class="step-header">PASO 3</div>
-                <div class="photo-placeholder">FOTO TÉCNICA</div>
-                <div class="step-description">
-                    {{ $project->step3_desc ?? 'Ajustes finales, calibración de sistemas y pruebas dinámicas en banco.' }}
-                </div>
-            </div>
-
-            <div style="border-top: 1px solid #eee; margin: 10px 0;"></div>
-
-            <div class="step-box">
-                <div class="step-header">PASO 4</div>
-                <div class="photo-placeholder">FOTO TÉCNICA</div>
-                <div class="step-description">
-                    {{ $project->step4_desc ?? 'Finalización del acabado estético y comprobación del cumplimiento de objetivos.' }}
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
         <div class="card" style="margin-top: 20px;">
             <h3 class="section-title uppercase">Estado Final</h3>
