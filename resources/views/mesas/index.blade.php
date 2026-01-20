@@ -82,7 +82,6 @@
                                 {{ count($table->interviews ?? []) }} / 9
                             </span>
                         </div>
-
                         <div class="flex justify-end mb-3">
                             <button @click="mostrarHoras = !mostrarHoras" type="button" 
                                 class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-2 py-1 rounded-full font-bold transition-colors uppercase tracking-tight">
