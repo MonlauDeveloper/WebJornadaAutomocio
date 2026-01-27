@@ -5,7 +5,7 @@
         <main class="text-center">
         <!-- Introduction Section -->
            <section class="px-6">
-                    <h1 class="text-4xl font-semibold text-blue-800 mb-4">IV Jornada de la Automoción 2025</h1>
+                    <h1 class="text-4xl font-semibold text-blue-800 mb-4">V Jornada de la Automoción 2025</h1>
                     <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-6">
                         Un evento único para aprender, conectar y crecer. Más de 800 alumnos presentarán sus proyectos
                         finales,
