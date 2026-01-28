@@ -12,8 +12,8 @@
 
         .watermark {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('{{ public_path("images/thumbnail_Fondo_1_CV.png") }}');
-            background-size: cover; background-position: center; opacity: 0.8; z-index: -1000;
+            background-image: url('{{ public_path("images/Curriculum CV Fondo transparente.png") }}');
+            background-size: cover; background-position: center; opacity: 0.8;
         }
 
         .container { width: 75%; margin: 0 auto; padding: 60px 0; }

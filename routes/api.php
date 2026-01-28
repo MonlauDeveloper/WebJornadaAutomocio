@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Apicontroller;
 use App\Http\Controllers\VoteController;
+use App\Http\Controllers\ChatMessageController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -114,4 +115,17 @@ Route::get('/presentations/{limit}/{page}/{order}', [Apicontroller::class, 'pres
 Route::post('/projects/{id}/vote', [VoteController::class, 'store']);
 Route::delete('/projects/{id}/vote', [VoteController::class, 'destroy']);
 Route::post('/my-votes', [VoteController::class, 'myVotes']);
+
+
+Route::prefix('presentations/{id}/chat')->group(function () {
+    Route::middleware('auth:sanctum')->post('/', [ChatMessageController::class, 'store']);
+    // Público (Alumnos e Invitados)
+    Route::post('/', [ChatMessageController::class, 'store']);
+    Route::get('/validated', [ChatMessageController::class, 'getValidated']);
+    // Privado (Solo Profesores)
+    Route::middleware('auth:sanctum')->get('/all', [ChatMessageController::class, 'getAll']);
+});
+ 
+// Moderación
+Route::middleware('auth:sanctum')->post('chat/{messageId}/validate', [ChatMessageController::class, 'validateMessage']);
  

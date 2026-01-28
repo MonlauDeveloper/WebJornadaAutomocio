@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style>
         @page {
-            margin: 0; /* Elimina los márgenes del PDF */
+            margin: 0;
+            /* Elimina los márgenes del PDF */
         }
 
         body {
             font-family: Arial, sans-serif;
-            background-color:rgb(255, 255, 255);
+            background-color: rgb(255, 255, 255);
             margin: 0;
             padding: 0;
             position: relative;
@@ -19,9 +20,9 @@
 
         .language-section {
             page-break-inside: avoid;
-            page-break-before: auto; 
+            page-break-before: auto;
         }
-   
+
 
         .watermark {
             position: fixed;
@@ -29,12 +30,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('{{ public_path("images/thumbnail_Fondo_1_CV.png") }}');
-            background-size: cover; /* Asegura que cubra toda la página */
-            background-position: left top; /* Ajusta la alineación */
+            background-image: url('{{ public_path("images/Curriculum CV Fondo transparente.png") }}');
+            background-size: cover;
+            /* Asegura que cubra toda la página */
+            background-position: left top;
+            /* Ajusta la alineación */
             background-repeat: no-repeat;
-            opacity: 0.6; /* Ajusta la transparencia */
-            z-index: 1000; /* Envía la imagen al fondo */
+            /* Ajusta la transparencia */
+            z-index: 1000;
         }
 
         .text-center {
@@ -42,15 +45,17 @@
         }
 
         .container {
-            width: 75%;
+            width: 85%;
             margin: 0 auto;
-            padding: 24px;
+            padding: 2px;
         }
 
         .card {
-            margin-left: 13px; 
+            margin-left: 13px;
             background-color: rgba(255, 255, 255, 0.85);
-            padding: 20px; border-radius: 12px; margin-bottom: 10px;
+            padding: 1px;
+            border-radius: 12px;
+            margin-bottom: 1px;
             border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
@@ -59,7 +64,7 @@
         }
 
         .p-6 {
-            padding: 4px 24px;
+            padding: 2px 24px;
         }
 
         .rounded-lg {
@@ -109,7 +114,7 @@
         }
 
         .mt-2 {
-            margin-top: 8px;
+            margin-top: 2px;
         }
 
         .mt-8 {
@@ -137,7 +142,7 @@
         .gap-8 {
             gap: 32px;
         }
-        
+
         .h-6 {
             height: 24px;
         }
@@ -153,6 +158,19 @@
         .text-gray-700 {
             color: #374151;
         }
+        .text-justify {
+            text-align: justify;
+        }
+        .cv-list {
+            padding-left: 18px; 
+            margin: 5px 0 0 0;
+            list-style-type: disc;
+            color: #000000;
+        }
+
+        .cv-list li {
+            margin-bottom: 4px;
+        }
     </style>
 </head>
 
@@ -160,89 +178,93 @@
     <div class="watermark"></div>
     <div class="container mx-auto p-6">
         <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-        <div class="avatar-container">
-            <!-- Eliminamos las clases de la imagen y dejamos que el contenedor haga el trabajo -->
-            <img src="{{ $imageBase64 }}" 
-                 alt="{{ $student->name }}"
-                 style="width: auto; height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        </div>
+            <div class="avatar-container">
+                <!-- Eliminamos las clases de la imagen y dejamos que el contenedor haga el trabajo -->
+                <img src="{{ $imageBase64 }}" alt="{{ $student->name }}"
+                    style="width: auto; height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+            </div>
 
-            <h1 class="text-4xl font-bold text-blue-600 mt-4">{{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}</h1>
+            <h1 class="text-4xl font-bold text-blue-600 mt-4">{{ $student->name }} {{ $student->surname1 }}
+                {{ $student->surname2 }}
+            </h1>
 
             <div class="card">
-            <p class="text-gray-600 mt-2">
-                <strong>Especialización:</strong> 
-                <span class="text-blue-600 font-bold">{{ $student->specialization->specialization ?? 'No especificada' }}</span>
-            </p>
-                  
-            <p class="text-gray-600 mt-2">
-                <strong>Equipo:</strong> 
-                <span class="text-black font-medium">{{ $student->team->teamName ?? 'Sin equipo asignado' }}</span>
-            </p>
-        </div>    
+                <p class="text-gray-600 mt-2">
+                    <strong>Especialización:</strong>
+                    <span
+                        class="text-blue-600 font-bold">{{ $student->specialization->specialization ?? 'No especificada' }}</span>
+                </p>
+
+                <p class="text-gray-600 mt-2">
+                    <strong>Equipo:</strong>
+                    <span class="text-black font-medium">{{ $student->team->teamName ?? 'Sin equipo asignado' }}</span>
+                </p>
+                <p class="text-gray-600 mt-2">
+                    <strong>Contacto:</strong>
+                    <span class="text-black font-medium">@forelse($student->contacts as $contact)
+                        {{ $contact->contact }}
+                    @empty
+                            No especificado
+                        @endforelse
+                    </span>
+                </p>
+            </div>
         </div>
 
         <!-- Currículum -->
-        <div class="mt-8">
+        <div class="mt-8 text-justify">
 
             <!-- Introducción (ocupa toda la línea) -->
             <div class="card">
-            <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h3 class="text-xl font-semibold text-blue-600">Sobre mí</h3>
-                <p class="text-gray-700">{{ $student->introduction ?? 'No especificada' }}</p>
-            </div>
-            </div>
-
-            <!-- Contacto -->
-             <div class="card">
-            <div class=" bg-white p-6 rounded-lg shadow-lg">
-                <h3 class="text-xl font-semibold text-blue-600">Contacto</h3>
-                    @forelse($student->contacts as $contact)
-                        <p class="text-gray-700">{{ $contact->contact }}</p>
-                    @empty
-                        <p class="text-gray-700">No especificado</p>
-                    @endforelse
-            </div>
-</div>
-            <!-- Educación y Experiencia en dos columnas -->
-             <div class="card">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                <!-- Educación -->
-                <div class=" bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-xl font-semibold text-blue-600">Formación</h3>
-                        @forelse($student->educations as $education)
-                            <p class="text-gray-700">{{ $education->education }}</p>
-                        @empty
-                            <p class="text-gray-700">No especificada</p>
-                        @endforelse
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold text-blue-600">Sobre mí</h3>
+                    <p class="text-gray-700">{{ $student->introduction ?? 'No especificada' }}</p>
                 </div>
-</div>
-</div>
-                <!-- Experiencia Laboral -->
-                 <div class="card">
+            </div>
+
+            <!-- Educación y Experiencia en dos columnas -->
+            <div class="card">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                    <!-- Educación -->
+                    <div class=" bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-semibold text-blue-600">Formación</h3>
+                        <ul class="cv-list">
+                        @forelse($student->educations as $education)
+                            <li class="text-gray-700">{{ $education->education }}</li>
+                        @empty
+                            <li class="text-gray-700">No especificada</li>
+                        @endforelse
+                    </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Experiencia Laboral -->
+            <div class="card">
                 <div class=" bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-blue-600">Experiencia Laboral</h3>
-                        @forelse($student->workExperiences as $experience)
-                            <p class="text-gray-700">{{ $experience->work_experience }}</p>
-                        @empty
-                            <p class="text-gray-700">No especificada</p>
-                        @endforelse
+                    <ul class="cv-list">
+                    @forelse($student->workExperiences as $experience)
+                        <li class="text-gray-700">{{ $experience->work_experience }}</li>
+                    @empty
+                        <li class="text-gray-700">No especificada</li>
+                    @endforelse
+                </ul>
                 </div>
 
             </div>
             <!-- Idiomas -->
-             <div class="card">
-            <div class=" bg-white p-6 rounded-lg shadow-lg language-section">
-                <h3 class="text-xl font-semibold text-blue-600">Idiomas</h3>
+            <div class="card">
+                <div class=" bg-white p-6 rounded-lg shadow-lg language-section">
+                    <h3 class="text-xl font-semibold text-blue-600">Idiomas</h3>
                     @forelse($student->languages as $language)
                         <p class="text-gray-700">{{ $language->language }}</p>
                     @empty
                         <p class="text-gray-700">No especificado</p>
                     @endforelse
+                </div>
             </div>
-</div>
-                
+
 
         </div>
     </div>

@@ -43,7 +43,7 @@ class Apicontroller extends Controller
 
     public function projects(int $limit, int $page, string $order = "title")
     {
-        $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'numTribunal');
+        $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'numTribunal', 'curso');
         $projects = DB::table('projects')
             ->whereNot('projects.idSpecialization', 5)
             ->offset(($page - 1) * $limit)
@@ -114,12 +114,7 @@ class Apicontroller extends Controller
     }
 
     // --- DETALLES INDIVIDUALES ---
-    public function project(int $id_project)
-    {
-        $querry2 = DB::table('students')->where('idProject', $id_project)->orderBy('name')->get();
-        return $querry2;
-    }
-    
+
     public function companie(int $id_companie)
     {
         return DB::table('companies')->where('idCompany', $id_companie)->join('users', 'companies.idUser', 'users.idUser')->orderBy('companyName')->first();
@@ -144,18 +139,34 @@ class Apicontroller extends Controller
             ->first();
         return $query;
     }
-    public function getProjectById(int $id){
-        // Usamos el Modelo Project con sus relaciones (Eager Loading)
-        // Esto traerá automáticamente los datos de las tablas relacionadas
-        $project = \App\Models\Project::with(['students', 'specialization', 'ubication'])
-                ->find($id);
+public function getProjectById(int $id) {
+    // 1. Buscamos el proyecto con sus relaciones
+    // Nota: He quitado 'curso' de with() porque confirmamos que NO es una tabla aparte
+    $project = \App\Models\Project::with(['students', 'specialization', 'ubication'])
+                ->where('idProject', $id)
+                ->first();
 
-        if (!$project) {
+    if (!$project) {
         return response()->json(['message' => 'Proyecto no encontrado'], 404);
-        }
-
-        return response()->json($project);
     }
+
+    // 2. Extraemos todos los atributos de la base de datos
+    $atributosActuales = $project->getAttributes();
+    $columnasEnDB = array_keys($atributosActuales);
+
+    // 3. Respuesta con sección de Diagnóstico
+    return response()->json([
+        'proyecto' => $project, // El objeto que usará tu App
+        'DEBUG_INFO' => [
+            'mensaje' => 'Si no ves el campo curso dentro de "proyecto", revisa la lista de abajo',
+            'columnas_reales_en_tu_tabla' => $columnasEnDB,
+            'valor_detectado_en_columna_curso' => $project->curso ?? 'NULO O NO EXISTE',
+            'ayuda' => in_array('curso', $columnasEnDB) 
+                        ? 'La columna existe. Si es null, el problema es el dato en la DB.' 
+                        : 'La columna NO existe con el nombre "curso". Revisa si se llama diferente.'
+        ]
+    ]);
+}
 
     // --- FILTROS ---
     public function projects_filter(int $limit, int $page, $filter, $value, string $order = "title")
