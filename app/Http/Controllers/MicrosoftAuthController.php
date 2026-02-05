@@ -43,6 +43,7 @@ class MicrosoftAuthController extends Controller
                 ->stateless()
                 ->with(['tenant' => config('services.microsoft.tenant')])
                 ->user();
+
             $userData = $microsoftUser->user;
  
             // 2. Procesamiento de nombres y limpieza de acentos
@@ -62,6 +63,14 @@ class MicrosoftAuthController extends Controller
             $memberOfResponse = Http::withToken($microsoftUser->token)
                 ->get('https://graph.microsoft.com/v1.0/me/memberOf')
                 ->json();
+
+              //  dd([
+              //  'Socialite_User' => $microsoftUser,
+              //  'Microsoft_Raw_Data' => $userData,
+              //  'Microsoft_Graph_Groups' => $memberOfResponse,
+              //  'Token' => $microsoftUser->token,
+           // ]);
+
             $courses = array_column($memberOfResponse['value'] ?? [], 'displayName');
             // --- MODIFICACIÓN: Lógica de roles permisiva ---
             // Verificamos si es profesor (esto lo mantenemos por si acaso)

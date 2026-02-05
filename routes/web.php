@@ -207,3 +207,7 @@ Route::middleware('idRole:4')->group(function () {
 // Microsoft Routes
 Route::get('auth/microsoft', [MicrosoftAuthController::class, 'redirectToMicrosoft'])->name('microsoft.login');
 Route::get('/callback', [MicrosoftAuthController::class, 'handleMicrosoftCallback']);
+
+
+
+Route::delete('/project-images/{id}', [App\Http\Controllers\ProjectController::class, 'destroyImage'])->name('projects.image.destroy');

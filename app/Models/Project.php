@@ -35,7 +35,7 @@ class Project extends Model
     {
         return $this->belongsTo(Specialization::class, 'idSpecialization'); // idSpecialization es la clave foránea
     }
-    
+
     public function ubication()
     {
         return $this->belongsTo(Ubication::class, 'idUbication');  // Define la relación
@@ -47,8 +47,12 @@ class Project extends Model
     }
     public function projectType()
     {
-    // Relación Muchos a Muchos 
+        // Relación Muchos a Muchos 
         return $this->belongsToMany(ProjectType::class, 'project_project_type', 'idProject', 'idProjectType');
     }
+    public function images()
+{
+    return $this->hasMany(ProjectImage::class, 'idProject', 'idProject');
+}
 
 }

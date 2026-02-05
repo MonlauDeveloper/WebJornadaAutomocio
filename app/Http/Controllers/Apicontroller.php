@@ -95,7 +95,7 @@ class Apicontroller extends Controller
 
     public function dynamictestings(int $limit, int $page, string $order = "title")
     {
-        $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'teams.logo');
+        $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'teams.logo', 'curso');
         $projects = DB::table('projects')
             ->where('projects.idSpecialization', 5)
             ->offset(($page - 1) * $limit)

@@ -202,8 +202,95 @@
                 <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
         </div>
+        
+        <div class="flex flex-col lg:flex-row gap-4 mt-6">
+    <div class="w-full lg:w-1/2">
+        <div class="card p-4 bg-gray-50 rounded-lg border border-gray-300 shadow-sm sticky top-4">
+            <h3 class="text-sm font-bold text-blue-600 mb-4 uppercase border-b pb-2">Subir Imagen</h3>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-700 uppercase">Archivo</label>
+                    <input type="file" name="new_project_image" class="mt-1 block w-full text-xs file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                </div>
 
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 uppercase">Sección</label>
+                        <select name="new_image_fase" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm text-xs">
+                            <option value="header">Portada</option>
+                            <option value="initial">Estado Inicial</option>
+                            <option value="procedimiento">Procedimiento</option>
+                            <option value="final">Estado Final</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 uppercase">Orden</label>
+                        <input type="number" name="new_image_orden" value="1" min="1" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm text-xs">
+                    </div>
+                </div>
+            </div>
+                <p class="text-xs text-gray-500 mt-3 italic">
+                    * Las imágenes aparecerán en la ficha técnica del PDF tras pulsar "Guardar Cambios" *.
+                </p>
 
+        </div>
+    </div>
+
+    <div class="w-full lg:w-1/2">
+        <div class="p-4 bg-white rounded-lg border border-gray-300 shadow-sm flex flex-col">
+            <div class="flex items-center justify-between mb-3 border-b pb-2">
+                <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Imágenes Actuales</h3>
+                <span class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full text-gray-500">{{ $project->images->count() }} archivos</span>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3">
+                @foreach($project->images as $img)
+                    <div class="relative group border rounded-lg p-1 bg-white shadow-sm flex flex-col">
+                        <div class="overflow-hidden rounded-md bg-gray-50 h-32 ">
+                            <img src="{{ asset('storage/project_steps/' . $img->file_path) }}" 
+                                 class="h-auto w-60 object-cover transition-transform duration-300 group-hover:scale-110">
+                        </div>
+                        
+                        <div class="mt-1.5">
+                            @php
+                                $color = match($img->fase) {
+                                    'header' => 'bg-purple-100 text-purple-700',
+                                    'initial' => 'bg-amber-100 text-amber-700',
+                                    'procedimiento' => 'bg-blue-100 text-blue-700',
+                                    'final' => 'bg-green-100 text-green-700',
+                                    default => 'bg-gray-100 text-gray-700'
+                                };
+                                $nombreFase = match($img->fase) {
+                                    'header' => 'PORTADA',
+                                    'initial' => 'INICIAL',
+                                    'procedimiento' => 'PASO ' . ($img->orden ?? ''),
+                                    'final' => 'FINAL',
+                                    default => $img->fase
+                                };
+                            @endphp
+                            <span class="block text-[7px] font-black text-center py-0.5 rounded {{ $color }} uppercase">
+                                {{ $nombreFase }}
+                            </span>
+                        </div>
+
+                        <button type="button" 
+                                onclick="if(confirm('¿Eliminar esta imagen?')) document.getElementById('delete-img-{{ $img->id }}').submit();"
+                                class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full h-5 w-5 flex items-center justify-center hover:bg-red-800 shadow-md border-2 border-white transition-all scale-0 group-hover:scale-100">
+                            <span class="text-[10px]">&times;</span>
+                        </button>
+                    </div>
+                @endforeach
+            </div>
+            
+            
+
+            @if($project->images->isEmpty())
+                <p class="text-[11px] text-gray-400 italic text-center py-4">No hay imágenes cargadas.</p>
+            @endif
+        </div>
+    </div>
+</div>
         <!-- Botón de enviar -->
         <div class="mt-6">
             <button type="submit" class="text-white bg-blue-600 hover:bg-blue-700 py-2.5 px-4 rounded-lg">Guardar Cambios</button>
@@ -218,3 +305,10 @@
     </form>
 </div>
 @endsection
+
+@foreach($project->images as $img)
+                <form id="delete-img-{{ $img->id }}" action="{{ route('projects.image.destroy', $img->id) }}" method="POST" style="display: none;">
+                    @csrf
+                        @method('DELETE')
+                </form>
+            @endforeach

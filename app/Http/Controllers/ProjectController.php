@@ -7,9 +7,12 @@ use App\Models\Ubication;
 use App\Models\Student;
 use App\Models\Specialization;
 use App\Models\Team;
+use App\Models\ProjectImage;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -176,73 +179,90 @@ class ProjectController extends Controller
 }
 
     public function update(Request $request, Project $project)
-    {
-        // 1. VALIDACIÓN
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'idSpecialization' => 'required|string|max:255',
-            'curso' => 'required|string|max:255',
-            'photoName' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
-            'videoURL' => 'nullable|url',
-            'pdfURL' => 'nullable|mimes:pdf|max:5120',
-            'moodleURL' => 'nullable|url',
-            'abstract' => 'nullable|string|max:5000',
-            'idUbication' => 'nullable|integer',
-            'numTribunal' => 'nullable|integer',
-            // NUEVO: Validamos que el tipo exista en la tabla project_types
-            'idProjectType' => 'nullable|exists:project_types,idProjectType',
-        ]);
-    
-        // Inicializar variables con los valores actuales (para no perderlos si no se suben nuevos)
-        $photoName = $project->photoName;
-        $videoURL = $project->videoURL;
-        $pdfURL = $project->pdfURL;
-        $moodleURL = $project->moodleURL;
-    
-        // Manejar la carga de la imagen
-        if ($request->hasFile('photoName') && $request->file('photoName')->isValid()) {
-            $photo = $request->file('photoName');
-            $photoName = time() . '_photo.' . $photo->getClientOriginalExtension();
-            $photo->storeAs('photos', $photoName, 'public');
-        }
-    
-        // Manejar el enlace de YouTube (Si envían uno nuevo, lo actualizamos)
-        if ($request->has('videoURL') && $request->videoURL) {
-            $videoURL = $request->videoURL;
-        }
-    
-        // Manejar la carga del PDF
-        if ($request->hasFile('pdfURL') && $request->file('pdfURL')->isValid()) {
-            $pdf = $request->file('pdfURL');
-            $pdfURL = time() . '_pdf.' . $pdf->getClientOriginalExtension();
-            $pdf->storeAs('pdfs', $pdfURL, 'public');
-        }
-    
-        // Manejar el enlace de Moodle
-        if ($request->has('moodleURL') && $request->moodleURL) {
-            $moodleURL = $request->moodleURL;
-        }
-    
-        // 2. ACTUALIZAR CAMPOS
-        $project->title = $request->title;
-        $project->idSpecialization = $request->idSpecialization;
-        $project->curso = $request->curso;
-        
-        // Asignamos el NUEVO campo de Tipo de Proyecto
-        $project->idProjectType = $request->idProjectType; 
+{
+    // 1. VALIDACIÓN
+    $validated = $request->validate([
+        'title' => 'required|string|max:255',
+        'idSpecialization' => 'required|string|max:255',
+        'curso' => 'required|string|max:255',
+        'photoName' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
+        'videoURL' => 'nullable|url',
+        'pdfURL' => 'nullable|mimes:pdf|max:5120',
+        'moodleURL' => 'nullable|url',
+        'abstract' => 'nullable|string|max:5000',
+        'idUbication' => 'nullable|integer',
+        'numTribunal' => 'nullable|integer',
+        'idProjectType' => 'nullable|exists:project_types,idProjectType',
+        // Validación de la nueva imagen de la ficha técnica
+        'new_project_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
+        'new_image_fase'    => 'nullable|string',
+        'new_image_orden'   => 'nullable|integer',
+    ]);
 
+    // Actualizar datos básicos del proyecto
+    $project->title = $request->title;
+    $project->idSpecialization = $request->idSpecialization;
+    $project->curso = $request->curso;
+    $project->idProjectType = $request->idProjectType;
+    $project->videoURL = $request->videoURL;
+    $project->moodleURL = $request->moodleURL;
+    $project->abstract = $request->abstract;
+    $project->idUbication = $request->idUbication;
+    $project->numTribunal = $request->numTribunal;
+
+    // Manejo de la foto de orla (la que ya tenías)
+    if ($request->hasFile('photoName') && $request->file('photoName')->isValid()) {
+        $photo = $request->file('photoName');
+        $photoName = time() . '_photo.' . $photo->getClientOriginalExtension();
+        $photo->storeAs('photos', $photoName, 'public');
         $project->photoName = $photoName;
-        $project->videoURL = $videoURL;
-        $project->pdfURL = $pdfURL;
-        $project->moodleURL = $moodleURL;
-        $project->abstract = $request->abstract;
-        $project->idUbication = $request->idUbication;
-        $project->numTribunal = $request->numTribunal;
-
-        $project->save();
-    
-        return redirect()->route('projects.index')->with('success', 'Proyecto editado correctamente!');
     }
+
+    // Manejo del PDF (el que ya tenías)
+    if ($request->hasFile('pdfURL') && $request->file('pdfURL')->isValid()) {
+        $pdf = $request->file('pdfURL');
+        $pdfName = time() . '_pdf.' . $pdf->getClientOriginalExtension();
+        $pdf->storeAs('pdfs', $pdfName, 'public');
+        $project->pdfURL = $pdfName;
+    }
+
+    $project->save();
+
+    // --- LÓGICA DE SUSTITUCIÓN DE IMÁGENES DE FICHA TÉCNICA ---
+    if ($request->hasFile('new_project_image') && $request->file('new_project_image')->isValid()) {
+        $faseDestino = $request->new_image_fase;
+
+        // Si la fase NO es "procedimiento", buscamos la imagen anterior para borrarla
+        // (En procedimiento permitimos varias imágenes, en las demás sustituimos)
+        if ($faseDestino !== 'procedimiento') {
+            $fotoAntigua = $project->images()->where('fase', $faseDestino)->first();
+
+            if ($fotoAntigua) {
+                // Borrar archivo físico
+                if (Storage::disk('public')->exists('project_steps/' . $fotoAntigua->file_path)) {
+                    Storage::disk('public')->delete('project_steps/' . $fotoAntigua->file_path);
+                }
+                // Borrar registro de la base de datos
+                $fotoAntigua->delete();
+            }
+        }
+
+        // Guardar la nueva imagen
+        $image = $request->file('new_project_image');
+        $fileName = time() . '_' . $image->getClientOriginalName();
+        $image->storeAs('project_steps', $fileName, 'public');
+
+        // Crear el nuevo registro
+        $project->images()->create([
+            'idProject' => $project->idProject,
+            'file_path' => $fileName,
+            'fase'      => $faseDestino,
+            'orden'     => $request->new_image_orden ?? 1,
+        ]);
+    }
+
+    return redirect()->back()->with('success', '¡Proyecto y ficha técnica actualizados!');
+}
     
 
     // Eliminar un proyecto
@@ -470,4 +490,56 @@ class ProjectController extends Controller
         Log::error('No se pudo procesar el archivo CSV');
         return redirect()->back()->with('error', 'No se pudo procesar el archivo CSV.');
     }
+
+    
+    public function generatePdf($id)
+{
+
+
+    // 1. Buscamos el proyecto con sus imágenes
+    $project = Project::with(['students', 'images', 'specialization'])->findOrFail($id);
+
+    // 2. Filtramos por fase (esto ya lo tienes)
+    $fotoHeader = $project->images->where('fase', 'header')->first();
+    $fotoInitial = $project->images->where('fase', 'initial')->first();
+    $fotoFinal = $project->images->where('fase', 'final')->first();
+    $fotosProcedimiento = $project->images->where('fase', 'procedimiento')->sortBy('orden');
+
+    // 3. Preparamos el array $data (con public_path como hablamos antes)
+    $data = [
+        'project'  => $project,
+        'students' => $project->students,
+        'fotoHeader'  => $fotoHeader ? public_path('storage/project_steps/' . $fotoHeader->file_path) : null,
+        'fotoInitial' => $fotoInitial ? public_path('storage/project_steps/' . $fotoInitial->file_path) : null,
+        'fotoFinal'   => $fotoFinal ? public_path('storage/project_steps/' . $fotoFinal->file_path) : null,
+        'fotosProcedimiento' => $fotosProcedimiento->map(function($img) {
+            return public_path('storage/project_steps/' . $img->file_path);
+        })
+    ];
+
+    // 4. GENERACIÓN DEL PDF CON LAS OPCIONES DE IMAGEN
+    $pdf = Pdf::loadView('pdf.proyecto', $data)
+              ->setPaper('a4', 'portrait')
+              ->setOption([
+                  'isHtml5ParserEnabled' => true, 
+                  'isRemoteEnabled'      => true, // Permite cargar imágenes
+                  'defaultFont'          => 'sans-serif'
+              ]);
+
+    return $pdf->stream('Proyecto_' . $id . '.pdf');
+}
+public function destroyImage($id)
+{
+    $image = ProjectImage::findOrFail($id);
+
+    // 1. Borrar el archivo físico de la carpeta storage/app/public/project_steps
+    if (Storage::disk('public')->exists('project_steps/' . $image->file_path)) {
+        Storage::disk('public')->delete('project_steps/' . $image->file_path);
+    }
+
+    // 2. Eliminar el registro de la base de datos
+    $image->delete();
+
+    return redirect()->back()->with('success', 'Imagen eliminada correctamente.');
+}
 }

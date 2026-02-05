@@ -508,37 +508,40 @@ class StudentController extends Controller
         return $pdf->stream('curriculum-' . $student->idStudent . '.pdf');
     }
     public function descargarProyectoPDF($idProject)
-{
-    // 1. Buscamos el proyecto con sus relaciones
-    $project = Project::with(['students', 'specialization'])->findOrFail($idProject);
-    $students = $project->students; 
+    {
+        // 1. Buscamos el proyecto con sus imágenes y relaciones necesarias
+        $project = Project::with(['students', 'images', 'specialization'])->findOrFail($idProject);
+        $students = $project->students;
 
-    // 2. Inicializamos todas las variables que el PDF usa para que no den error
-    $fotoHeader = null;
-    $fotoInitial = null; 
-    $fotoFinal = null;
-    $fotosProcedimiento = []; // Array vacío por defecto
+        // 2. Obtenemos las imágenes por fase (si existen)
+        $fotoHeaderImg = $project->images->where('fase', 'header')->first();
+        $fotoInitialImg = $project->images->where('fase', 'initial')->first();
+        $fotoFinalImg = $project->images->where('fase', 'final')->first();
+        $fotosProcedimientoImgs = $project->images->where('fase', 'procedimiento')->sortBy('orden');
 
-    // 3. Convertir la foto principal (Header) a Base64
-    if ($project->photoName) {
-        $path = storage_path('app/public/photos/' . $project->photoName);
-        if (file_exists($path)) {
-            $imageData = file_get_contents($path);
-            $extension = pathinfo($path, PATHINFO_EXTENSION);
-            $fotoHeader = 'data:image/' . $extension . ';base64,' . base64_encode($imageData);
-        }
+        // 3. Preparamos rutas absolutas para que DomPDF pueda acceder a los archivos
+        $fotoHeader = $fotoHeaderImg ? public_path('storage/project_steps/' . $fotoHeaderImg->file_path) : ($project->photoName ? public_path('storage/photos/' . $project->photoName) : null);
+        $fotoInitial = $fotoInitialImg ? public_path('storage/project_steps/' . $fotoInitialImg->file_path) : null;
+        $fotoFinal = $fotoFinalImg ? public_path('storage/project_steps/' . $fotoFinalImg->file_path) : null;
+        $fotosProcedimiento = $fotosProcedimientoImgs->map(function ($img) {
+            return public_path('storage/project_steps/' . $img->file_path);
+        })->values();
+
+        // 4. Generar PDF y habilitar carga remota para que las imágenes se rendericen
+        $pdf = Pdf::loadView('students.projectPDF', compact(
+            'students',
+            'project',
+            'fotoHeader',
+            'fotoInitial',
+            'fotoFinal',
+            'fotosProcedimiento'
+        ))->setPaper('a4', 'portrait')
+          ->setOption([
+              'isHtml5ParserEnabled' => true,
+              'isRemoteEnabled' => true,
+              'defaultFont' => 'sans-serif'
+          ]);
+
+        return $pdf->stream('Ficha_' . $project->idProject . '.pdf');
     }
-
-    // 4. PASO CLAVE: Enviamos las variables con los nombres que el PDF espera
-    $pdf = Pdf::loadView('students.projectPDF', compact(
-        'students', 
-        'project', 
-        'fotoHeader',         // Variable que te daba error corregida
-        'fotoInitial', 
-        'fotoFinal',
-        'fotosProcedimiento'
-    ))->setPaper('a4', 'portrait');
-
-    return $pdf->stream('Ficha_' . $project->idProject . '.pdf');
-}
 }
