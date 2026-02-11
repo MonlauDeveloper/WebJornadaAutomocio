@@ -108,11 +108,11 @@
                             <strong>Especialidad:</strong> <span class="text-blue"><?php echo e($project->specialization->specialization); ?></span>
                         </p>
                     </td>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($fotoHeader): ?>
                     <td width="35%" align="right">
-                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($fotoHeader): ?>
-                            <img src="<?php echo e($fotoHeader); ?>" style="width: 160px; border-radius: 10px; border: 3px solid white;">
-                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        <img src="<?php echo e($fotoHeader); ?>" style="width: 160px; border-radius: 10px; border: 3px solid white;">
                     </td>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </tr>
             </table>
         </div>

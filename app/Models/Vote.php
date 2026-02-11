@@ -17,4 +17,8 @@ class Vote extends Model
     {
         return $this->belongsTo(Project::class);
     }
+    public function votes()
+    {
+        return $this->hasMany(Vote::class);
+    }
 }

@@ -37,7 +37,7 @@ class VoteController extends Controller
         // Si se acaba de crear (wasRecentlyCreated es true), todo bien.
         // Si ya existía, significa que ya lo había votado.
         if (!$voto->wasRecentlyCreated) {
-             return response()->json([
+            return response()->json([
                 'success' => false,
                 'message' => 'Ya has votado a este proyecto'
             ], 409); // 409 Conflict
@@ -51,19 +51,19 @@ class VoteController extends Controller
     }
 
     public function myVotes(Request $request)
-{
-    $request->validate([
-        'device_token' => 'required|string',
-    ]);
+    {
+        $request->validate([
+            'device_token' => 'required|string',
+        ]);
 
-    $token = $request->input('device_token');
+        $token = $request->input('device_token');
 
-    // Devuelve solo una lista de IDs, ej: [1, 5, 12]
-    $votedProjectIds = \App\Models\Vote::where('device_token', $token)
-        ->pluck('project_id');
+        // Devuelve solo una lista de IDs, ej: [1, 5, 12]
+        $votedProjectIds = \App\Models\Vote::where('device_token', $token)
+            ->pluck('project_id');
 
-    return response()->json($votedProjectIds);
-}
+        return response()->json($votedProjectIds);
+    }
 
     // --- ACCIÓN DE QUITAR VOTO ---
     public function destroy(Request $request, $projectId)
@@ -76,13 +76,13 @@ class VoteController extends Controller
 
         // 1. Buscar el voto específico y borrarlo
         $deleted = Vote::where('device_token', $token)
-                       ->where('project_id', $projectId)
-                       ->delete();
+            ->where('project_id', $projectId)
+            ->delete();
 
         if ($deleted) {
             // Recalculamos cuántos le quedan para actualizar la UI del móvil
             $votosActuales = Vote::where('device_token', $token)->count();
-            
+
             return response()->json([
                 'success' => true,
                 'message' => 'Voto eliminado correctamente',
@@ -93,6 +93,26 @@ class VoteController extends Controller
                 'success' => false,
                 'message' => 'No habías votado a este proyecto'
             ], 404);
+        }
+    }
+    public function ranking()
+    {
+        try {
+            $ranking = Vote::select('project_id', \DB::raw('count(*) as total_votes'))
+                ->with(['project:id,name'])
+                ->groupBy('project_id')
+                ->orderBy('total_votes', 'desc')
+                ->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => $ranking
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al obtener el ranking: ' . $e->getMessage()
+            ], 500);
         }
     }
 }

@@ -74,7 +74,7 @@
             <!-- Descripción del Proyecto -->
             <div>
                 <label for="abstract" class="block text-lg font-semibold text-blue-500">Descripción del Proyecto</label>
-                <textarea id="abstract" name="abstract" rows="5" maxlength="300" class="mt-2 p-3 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">{{ $project->abstract }}</textarea>
+                <textarea id="abstract" name="abstract" rows="5" maxlength="1500" class="mt-2 p-3 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">{{ $project->abstract }}</textarea>
             </div>
 
             <!-- Botón de Actualización -->

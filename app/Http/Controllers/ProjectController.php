@@ -18,57 +18,58 @@ class ProjectController extends Controller
 {
     // Mostrar la lista de proyectos
     public function index(Request $request)
-    {
-        $specializations = \App\Models\Specialization::all();
-        $cursos = ['A', 'B', 'C', 'D', 'E', 'F', 'R', 'ONLINE'];
-        $ubications = \App\Models\Ubication::whereNotNull('UbicationName')->get(); // Obtener solo ubicaciones con nombre
-        $tipos = \App\Models\ProjectType::pluck('name', 'idProjectType');
-    
-        $query = Project::query()->with(['students', 'ubication']); // Cargar relación con ubicación
-    
-        // Filtrar por especialización
-        if ($request->has('specialization') && $request->specialization) {
-            $query->where('idSpecialization', $request->specialization);
-        }
-    
-        // Filtrar por nombre del alumno
-        if ($request->has('search') && $request->search) {
-            $query->whereHas('students', function ($q) use ($request) {
-                $q->where('name', 'like', '%' . $request->search . '%')
-                    ->orWhere('surname1', 'like', '%' . $request->search . '%')
-                    ->orWhere('surname2', 'like', '%' . $request->search . '%');
-            });
-        }
-    
-        // Filtrar por curso
-        if ($request->has('curso') && $request->curso) {
-            $query->where('curso', $request->curso);
-        }
+{
+    $specializations = \App\Models\Specialization::all();
+    $cursos = ['A', 'B', 'C', 'D', 'E', 'F', 'R', 'ONLINE'];
+    $ubications = \App\Models\Ubication::whereNotNull('UbicationName')->get();
+    $tipos = \App\Models\ProjectType::pluck('name', 'idProjectType');
 
-        // Filtrar por tipo proyecto
-        if ($request->has('tipo') && $request->tipo) {
-            $query->where('idProjectType', $request->tipo); 
-        }
-    
-        if ($request->has('tipos')) {
-            $query->whereIn('idProjectType', $request->tipos);
-        }
-    
-        // Filtrar por número de tribunal
-        if ($request->has('numTribunal') && $request->numTribunal) {
-            $query->where('numTribunal', $request->numTribunal);
-        }
-    
-        // Filtrar por ubicación
-        if ($request->has('idUbication') && $request->idUbication) {
-            $query->where('idUbication', $request->idUbication);
-        }
-    
-        $projects = $query->paginate(6);
-    
-        return view('projects.index', compact('projects', 'specializations', 'cursos', 'ubications', 'tipos'));
-    }    
+    $query = Project::query()->with(['students', 'ubication']);
 
+    // 1. Filtrar por especialización
+    if ($request->filled('specialization')) {
+        $query->where('idSpecialization', $request->specialization);
+    }
+
+    // 2. BUSCADOR (Corregido para ser acumulativo)
+    if ($request->filled('search')) {
+        $search = $request->search;
+        $query->where(function($q) use ($search) {
+            // Busca por título del proyecto
+            $q->where('title', 'like', '%' . $search . '%')
+              // O busca por nombre/apellidos de los alumnos
+              ->orWhereHas('students', function ($sq) use ($search) {
+                  $sq->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('surname1', 'like', '%' . $search . '%')
+                    ->orWhere('surname2', 'like', '%' . $search . '%');
+              });
+        });
+    }
+
+    // 3. Filtrar por curso
+    if ($request->filled('curso')) {
+        $query->where('curso', $request->curso);
+    }
+
+    // 4. Filtrar por tipo proyecto
+    if ($request->filled('tipo')) {
+        $query->where('idProjectType', $request->tipo); 
+    }
+
+    // 5. Filtrar por número de tribunal
+    if ($request->filled('numTribunal')) {
+        $query->where('numTribunal', $request->numTribunal);
+    }
+
+    // 6. Filtrar por ubicación
+    if ($request->filled('idUbication')) {
+        $query->where('idUbication', $request->idUbication);
+    }
+
+    $projects = $query->paginate(6)->withQueryString(); // Importante: mantiene los filtros al cambiar de página
+
+    return view('projects.index', compact('projects', 'specializations', 'cursos', 'ubications', 'tipos'));
+}
     //EDITAR TRIBUNAL Y UBICACION
     public function updateTribunalUbication(Request $request)
     {
@@ -189,7 +190,7 @@ class ProjectController extends Controller
         'videoURL' => 'nullable|url',
         'pdfURL' => 'nullable|mimes:pdf|max:5120',
         'moodleURL' => 'nullable|url',
-        'abstract' => 'nullable|string|max:5000',
+        'abstract' => 'nullable|string|max:1500',
         'idUbication' => 'nullable|integer',
         'numTribunal' => 'nullable|integer',
         'idProjectType' => 'nullable|exists:project_types,idProjectType',
@@ -289,207 +290,140 @@ class ProjectController extends Controller
 
     // Función auxiliar para obtener el valor del CSV o asignar null si no existe
     private function getCsvValue($headerName, $headers, $row) {
-        $headerKey = array_search($headerName, $headers);
-        return ($headerKey !== false && isset($row[$headerKey])) ? mb_convert_encoding($row[$headerKey], 'UTF-8', 'auto') : null;
+    // Normalizamos el nombre que buscamos: minúsculas y solo letras/números
+    $search = preg_replace('/[^a-z0-9]/', '', mb_strtolower($headerName, 'UTF-8'));
+    
+    foreach ($headers as $key => $header) {
+        // Normalizamos cada cabecera del CSV de la misma forma
+        $cleanHeader = preg_replace('/[^a-z0-9]/', '', mb_strtolower($header, 'UTF-8'));
+        
+        if ($cleanHeader === $search) {
+            return (isset($row[$key]) && $row[$key] !== '') ? $row[$key] : null;
+        }
     }
+    return null;
+}
 
-    private function normalizarNombreArchivo($nombre)
-    {
-        $nombre = str_replace(['ñ', 'Ñ'], ['n', 'N'], $nombre);
-        $nombre = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $nombre); // quita tildes
-        $nombre = preg_replace('/[^A-Za-z0-9 ]/', '', $nombre); // elimina caracteres raros
-        $nombre = preg_replace('/\s+/', '_', trim($nombre)); // reemplaza espacios por _
-        return $nombre;
-    }
+    // Busca el valor en la fila comparando nombres de columna de forma "limpia"
+private function obtenerValorDeFila($nombreBuscado, $headersLimpios, $row) {
+    $search = $this->limpiarTextoParaComparar($nombreBuscado);
+    $index = array_search($search, $headersLimpios);
+    
+    return ($index !== false && isset($row[$index])) ? trim($row[$index]) : null;
+}
+
+// Quita todo lo que no sean letras o números para comparar cabeceras sin errores
+private function limpiarTextoParaComparar($texto) {
+    $texto = mb_strtolower($texto, 'UTF-8');
+    // Eliminar tildes
+    $texto = str_replace(['á','é','í','ó','ú','à','è','ì','ò','ù'], ['a','e','i','o','u','a','e','i','o','u'], $texto);
+    // Eliminar cualquier cosa que no sea a-z o 0-9
+    return preg_replace('/[^a-z0-9]/', '', $texto);
+}
+
+private function normalizarNombreArchivo($nombre) {
+    if (empty($nombre)) return "sin_nombre";
+    $nombre = mb_strtolower($nombre, 'UTF-8');
+    $nombre = str_replace(['ñ', 'Ñ'], ['n', 'N'], $nombre);
+    $mapa = ['á'=>'a','é'=>'e','í'=>'i','ó'=>'o','ú'=>'u','à'=>'a','è'=>'e','ì'=>'i','ò'=>'o','ù'=>'u'];
+    $nombre = strtr($nombre, $mapa);
+    $nombre = preg_replace('/[^a-z0-9 ]/', '', $nombre);
+    return preg_replace('/\s+/', '_', trim($nombre));
+}
 
       public function subirCsv(Request $request)
-    {
-        Log::info('Iniciando proceso de subida de CSV');
-        $validated = $request->validate([
-            'csvFile' => 'required|file|mimes:csv,txt|max:2048',
-        ]);
+{
+    Log::info('Iniciando proceso de subida de CSV - Incluyendo Teóricos');
+    $request->validate(['csvFile' => 'required|file|max:5120']);
 
-        if ($request->hasFile('csvFile')) {
-            Log::info('Archivo CSV detectado');
-            $csvFile = $request->file('csvFile');
-            $filePath = $csvFile->getRealPath();
+    if ($request->hasFile('csvFile')) {
+        $path = $request->file('csvFile')->getRealPath();
+        
+        if (($handle = fopen($path, "r")) !== FALSE) {
+            // 1. Leer y limpiar cabeceras
+            $rawHeaders = fgetcsv($handle, 0, ";");
+            if (!$rawHeaders) return redirect()->back()->with('error', 'Archivo vacío.');
 
-            // Leer el archivo y asegurarse de que cada línea esté en UTF-8
+            $headers = array_map(function($h) {
+                return $this->limpiarTextoParaComparar($h);
+            }, $rawHeaders);
 
-            $csvData = array_map(function($line) {
-                $encoding = mb_detect_encoding($line, 'UTF-8, ISO-8859-1', true);
-                return mb_convert_encoding($line, 'UTF-8', $encoding);
-            }, file($filePath));
+            $importados = 0;
 
-            // Convertir cada línea a un array de columnas
-            $csvData = array_map('str_getcsv', $csvData);
+            // 2. Procesar filas
+            while (($row = fgetcsv($handle, 0, ";")) !== FALSE) {
+                
+                // Mapeo flexible de columnas
+                $email     = $this->obtenerValorDeFila('Correo electrónico', $headers, $row);
+                $titulo    = $this->obtenerValorDeFila('Títol del projecte', $headers, $row);
+                $nombre    = $this->obtenerValorDeFila('El teu nom és:', $headers, $row) ?? $this->obtenerValorDeFila('Nombre', $headers, $row);
+                $apellido1 = $this->obtenerValorDeFila('El teu 1r cognom és:', $headers, $row);
+                $apellido2 = $this->obtenerValorDeFila('El teu 2n cognom és:', $headers, $row);
+                $curso     = $this->obtenerValorDeFila('El meu grup actual és:', $headers, $row);
+                $desc      = $this->obtenerValorDeFila('Realitza una petita descripció del que has fet al teu projecte. (UTILITZA VOCAVULARI TÈCNIC)', $headers, $row);
 
-            // Limpiar los encabezados eliminando saltos de línea y espacios adicionales
+                // --- PROTECCIÓN CONTRA FILAS VACÍAS ---
+                if (empty($titulo)) continue;
 
-            $headers = array_map(function($header) {
-                return trim(preg_replace('/\s+/', ' ', $header));
-            }, str_getcsv($csvData[0][0], ';'));
-
-            unset($csvData[0]); // Eliminar encabezados de los datos
-
-            Log::info('Encabezados del CSV: ', $headers);
-
-            // Verificar que los encabezados contengan las columnas esperadas
-
-            $requiredHeaders = [
-                'Correo electrónico', 'El teu nom és:', 'El teu 1r cognom és:',
-                'El meu grup actual és:', 'Títol del projecte'
-            ];
-
-            foreach ($requiredHeaders as $header) {
-                if (!in_array($header, $headers)) {
-                    Log::error("El archivo CSV no contiene la columna requerida: $header");
-                    return redirect()->back()->with('error', "El archivo CSV no contiene la columna requerida: $header");
-                }
-            }
-
-            foreach ($csvData as $row) {
-                $row = array_map('trim', str_getcsv($row[0], ';'));
-
-                // Asegurarse de que los campos estén correctamente codificados en UTF-8
-                $email = $this->getCsvValue('Correo electrónico', $headers, $row);
-                $nombre = $this->getCsvValue('El teu nom és:', $headers, $row);
-                $apellido1 = $this->getCsvValue('El teu 1r cognom és:', $headers, $row);
-                $apellido2 = $this->getCsvValue('El teu 2n cognom és:', $headers, $row);
-                $curso = $this->getCsvValue('El meu grup actual és:', $headers, $row);
-                $modalidad = $this->getCsvValue('Treball és:', $headers, $row);
-                $titulo = $this->getCsvValue('Títol del projecte', $headers, $row);
-                $trabajo = $this->getCsvValue('El treball és:', $headers, $row);
-                $equipoString = $this->getCsvValue("Monlautech - Escull l'equip del que formes part.", $headers, $row);
-                $descripcion = $this->getCsvValue('Realitza una petita descripció del que has fet al teu projecte. (UTILITZA VOCAVULARI TÈCNIC)', $headers, $row);
-                $descripcion = preg_replace('/\s+/', ' ', $descripcion); // Reemplaza saltos de línea, tabulaciones, múltiples espacios por un solo espacio
-                $descripcion = str_replace(["\r", "\n"], ' ', $descripcion);
-
-                $nombreFoto = $this->normalizarNombreArchivo("{$nombre} {$apellido1} {$apellido2}");
-                $photoUrl = "https://res.cloudinary.com/monlaujornadas/image/upload/FotosOrla2025/{$nombreFoto}.jpg";
-
-                // Verificar si el proyecto es práctic
-                $trabajo = trim(strtolower($trabajo));
-                if (strpos($trabajo, 'teòric') !== false) {
-                    Log::info('Proyecto teórico, saltando fila');
-                    continue; // Si es teórico, saltar a la siguiente fila
-                }
-
-                if($modalidad == 'Monlautech'){
-                    $idSpecialization = 5;
-                    preg_match('/Equip (\d+)/', $equipoString, $matches);
-                    $equipoId = isset($matches[1]) ? $matches[1] : null;
-                    $titulo = $equipoString;
-                } else {
-
-                    // Determinar especialización y curso
-                    $specializations = [
-                        '2CA-CM' => 1, '2CA-CS' => 4, '2CB-CM' => 1, '2CB-CS' => 4, '2CC-CM' => 1, '2CC-CS' => 4,
-                        '2CD-CM' => 1, '2CD-CS' => 4, '2CE-CM' => 1, '2CE-CS' => 4, '2CF-CM' => 1, '2CF-CS' => 4,
-                        '2CMA-CM' => 2, '2CMA-CM GM Motos' => 2, '2CR-CM' => 1, '2CR-CS' => 4, '2XA-CM' => 3, '2XB-CM' => 3, 'ONLINE' => 4
-                    ];
-                    $idSpecialization = $specializations[$curso] ?? 5; // Si no coincide, asignar MonlauTech (id 5)
-                }
-                $moodleUrls = [
-                    '2CA-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=30056',
-                    '2CB-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=40155',
-                    '2CC-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=40173',
-                    '2CD-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=40249',
-                    '2CE-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=40459',
-                    '2CF-CS' => null,
-                    '2CR-CS' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=41440',
-                    'ONLINE' => null,
-                    '2CA-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=27831',
-                    '2CB-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=27831',
-                    '2CC-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=27831',
-                    '2CD-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=27831',
-                    '2CE-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=27831',
-                    '2CF-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=27831',
-                    '2CR-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=27831',
-                    '2CMA-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=31464',
-                    '2CMA-CM GM Motos' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=31464',
-                    '2XA-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=31003',
-                    '2XB-CM' => 'https://moodlelm.monlau.com/mod/assign/view.php?id=39380',
+                // --- LÓGICA DE CURSO Y ESPECIALIZACIÓN ---
+                $specializationsMap = [
+                    '2CA-CM' => 1, '2CA-CS' => 4, '2CB-CM' => 1, '2CB-CS' => 4, 
+                    '2CC-CM' => 1, '2CC-CS' => 4, '2CD-CM' => 1, '2CD-CS' => 4, 
+                    '2CE-CM' => 1, '2CE-CS' => 4, '2CF-CM' => 1, '2CF-CS' => 4,
+                    '2CMA-CM' => 2, '2CMA-CM GM Motos' => 2, '2CR-CM' => 1, '2CR-CS' => 4, 
+                    '2XA-CM' => 3, '2XB-CM' => 3, 'ONLINE' => 4
                 ];
+                $idSpecialization = $specializationsMap[$curso] ?? 1;
+                $cursoFormatted = ($curso === 'ONLINE') ? 'ONLINE' : substr($curso, 2, 1);
 
-                $moodleURL = isset($moodleUrls[$curso]) ? $moodleUrls[$curso] : null;
+                try {
+                    // 1. Crear Proyecto (Ahora entran Prácticos y Teóricos)
+                    $project = \App\Models\Project::updateOrCreate(
+                        ['title' => mb_convert_encoding($titulo, 'UTF-8', 'auto')],
+                        [
+                            'idSpecialization' => $idSpecialization,
+                            'curso' => $cursoFormatted ?: 'X',
+                            'abstract' => mb_convert_encoding($desc ?? '', 'UTF-8', 'auto'),
+                        ]
+                    );
 
-                // Determinar el curso basado en el valor de $curso
-                if ($curso === 'ONLINE') {
-                    $cursoFormatted = 'ONLINE';
-                } else {
-                    // Extraer el tercer carácter de especialización si el curso no es ONLINE
-                    $cursoFormatted = substr($curso, 2, 1);
+                    // 2. Crear Usuario y Estudiante
+                    if ($email && $nombre) {
+                        $user = \App\Models\User::updateOrCreate(
+                            ['email' => strtolower($email)],
+                            [
+                                'username' => strtolower(str_replace(" ", "", $nombre . $apellido1)),
+                                'password' => bcrypt('Monlau2025'),
+                                'idRole' => 3, 'status' => 'approved'
+                            ]
+                        );
+
+                        $student = \App\Models\Student::updateOrCreate(
+                            ['idUser' => $user->idUser],
+                            [
+                                'name' => ucfirst($nombre),
+                                'surname1' => ucfirst($apellido1),
+                                'surname2' => $apellido2,
+                                'idProject' => $project->idProject,
+                                'idSpecialization' => $idSpecialization,
+                                'curso' => $cursoFormatted,
+                                'photoName' => "https://res.cloudinary.com/monlaujornadas/image/upload/FotosOrla2025/" . $this->normalizarNombreArchivo("$nombre $apellido1 $apellido2") . ".jpg"
+                            ]
+                        );
+                        $student->cvLink = 'https://jornadaautomocion.alumnes-monlau.com/pdfVer/' . $student->idStudent;
+                        $student->save();
+                    }
+                    $importados++;
+                } catch (\Exception $e) {
+                    Log::error("Error en importación: " . $e->getMessage());
                 }
-
-                // Crear el usuario
-                $user = \App\Models\User::updateOrCreate(
-                    ['email' => strtolower($email)], // Buscar usuario por email
-                    [
-                        'username' => strtolower(str_replace(" ", "", $nombre . $apellido1 . $apellido2)),
-                        'password' => bcrypt('Monlau2025'),
-                        'status' => 'approved',
-                        'idRole' => 3,
-                    ]
-                );
-
-                if (!$user) {
-                    Log::error('Error al crear el usuario');
-                    return redirect()->back()->with('error', 'Error al crear el usuario.');
-                }
-
-                Log::info('Usuario creado: ', ['id' => $user->idUser]);
-
-                // Crear proyecto
-                $project = \App\Models\Project::updateOrCreate(
-                ['title' => $titulo],
-                [
-                    'idSpecialization' => $idSpecialization,
-                    'curso' => $cursoFormatted,
-                    'abstract' => $descripcion,
-                    'moodleURL' => $moodleURL,
-                ]);
-
-                if (!$project) {
-                    Log::error('Error al crear el proyecto');
-                    return redirect()->back()->with('error', 'Error al crear el proyecto.');
-                }
-
-                Log::info('Proyecto creado: ', ['id' => $project->idProject]);
-
-                // Crear estudiante
-                $student = \App\Models\Student::updateOrCreate(
-                ['idUser' => $user->idUser],
-                [
-                    'name' => ucfirst($nombre),
-                    'surname1' => ucfirst($apellido1),
-                    'surname2' => !empty($apellido2) ? ucfirst($apellido2) : null,
-                    'idSpecialization' => $idSpecialization,
-                    'curso' => $cursoFormatted,
-                    'idTeam' => !empty($equipoId) ? $equipoId : null,
-                    'idProject' => $project->idProject,
-                    'photoName' => $photoUrl,
-                ]);
-
-                if (!$student) {
-                    Log::error('Error al crear el Estudiante');
-                    return redirect()->back()->with('error', 'Error al crear el Estudiante.');
-                }
-
-                // Actualizar el cvLink del estudiante
-                $student->cvLink = 'https://jornadaautomocion.alumnes-monlau.com/pdfVer/' . $student->idStudent;
-                $student->save();
-
-                Log::info('Estudiante creado: ', ['id' => $student->idStudent]);
             }
-
-            Log::info('Proceso de subida de CSV completado');
-            return redirect()->route('projects.index')->with('success', 'CSV procesado y datos guardados correctamente.');
+            fclose($handle);
         }
-
-        Log::error('No se pudo procesar el archivo CSV');
-        return redirect()->back()->with('error', 'No se pudo procesar el archivo CSV.');
+        return redirect()->route('projects.index')->with('success', "¡Importación completada! Se han generado $importados proyectos (incluyendo teóricos).");
     }
+    return redirect()->back()->with('error', 'Error al procesar el archivo.');
+}
 
     
     public function generatePdf($id)

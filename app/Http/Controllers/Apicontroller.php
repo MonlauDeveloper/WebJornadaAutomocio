@@ -18,9 +18,9 @@ class Apicontroller extends Controller
         ]);
         $user = User::where('username', $request->user)->first();
         // $user->tokens()->delete(); 
-        
-        if (!$user || !Hash::check($request->password, $user->password)) { 
-             throw ValidationException::withMessages([
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            throw ValidationException::withMessages([
                 'user' => ['The provided credentials are incorrect.'],
             ]);
         }
@@ -28,12 +28,27 @@ class Apicontroller extends Controller
     }
 
     // --- CONTADORES DE PÁGINAS ---
-    public function pages_projects(int $limit) { return ceil(DB::table('projects')->count() / $limit); }
-    public function pages_companies(int $limit) { return ceil(DB::table('companies')->count() / $limit); }
-    public function pages_dinamicTest(int $limit) { return ceil(DB::table('dynamictestings')->count() / $limit); }
-    public function pages_presentations(int $limit) { return ceil(DB::table('presentations')->count() / $limit); }
-    public function pages_students(int $limit) { return ceil(DB::table('students')->count() / $limit); }
-    
+    public function pages_projects(int $limit)
+    {
+        return ceil(DB::table('projects')->count() / $limit);
+    }
+    public function pages_companies(int $limit)
+    {
+        return ceil(DB::table('companies')->count() / $limit);
+    }
+    public function pages_dinamicTest(int $limit)
+    {
+        return ceil(DB::table('dynamictestings')->count() / $limit);
+    }
+    public function pages_presentations(int $limit)
+    {
+        return ceil(DB::table('presentations')->count() / $limit);
+    }
+    public function pages_students(int $limit)
+    {
+        return ceil(DB::table('students')->count() / $limit);
+    }
+
     // --- FUNCIONES DE PAGINACIÓN ---
     private function paginate(string $table, int $limit, int $page, string $order = "title")
     {
@@ -52,7 +67,7 @@ class Apicontroller extends Controller
             ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
             ->select($columns)
             ->get();
-            
+
         foreach ($projects as $p) {
             $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
         }
@@ -74,7 +89,7 @@ class Apicontroller extends Controller
                 ->where('presentations.idPresentation', $p->idPresentation)
                 ->select('ubicationName')
                 ->first()->ubicationName;
-                
+
             $columns_speakers = array('name', 'surname1', 'surname2', 'description');
             $p->speakers = DB::table('speakers')
                 ->join('rel_speakers_presentations', 'speakers.idSpeaker', 'rel_speakers_presentations.idSpeaker')
@@ -86,7 +101,7 @@ class Apicontroller extends Controller
         return $presentations;
     }
 
-    
+
 
     public function students(int $limit, int $page, string $order = "idStudent")
     {
@@ -106,7 +121,7 @@ class Apicontroller extends Controller
             ->join('teams', 'teams.teamName', '=', 'projects.title')
             ->select($columns)
             ->get();
-            
+
         foreach ($projects as $p) {
             $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
         }
@@ -119,7 +134,7 @@ class Apicontroller extends Controller
     {
         return DB::table('companies')->where('idCompany', $id_companie)->join('users', 'companies.idUser', 'users.idUser')->orderBy('companyName')->first();
     }
-    
+
     public function presentation(int $idPresentation)
     {
         $columns = array('name', 'surname1', 'surname2', 'description', 'presentationName', 'topic', 'presentationDate', 'ubicationName');
@@ -139,41 +154,42 @@ class Apicontroller extends Controller
             ->first();
         return $query;
     }
-public function getProjectById(int $id) {
-    // 1. Buscamos el proyecto con sus relaciones
-    // Nota: He quitado 'curso' de with() porque confirmamos que NO es una tabla aparte
-    $project = \App\Models\Project::with(['students', 'specialization', 'ubication'])
-                ->where('idProject', $id)
-                ->first();
+    public function getProjectById(int $id)
+    {
+        // 1. Buscamos el proyecto con sus relaciones
+        // Nota: He quitado 'curso' de with() porque confirmamos que NO es una tabla aparte
+        $project = \App\Models\Project::with(['students', 'specialization', 'ubication'])
+            ->where('idProject', $id)
+            ->first();
 
-    if (!$project) {
-        return response()->json(['message' => 'Proyecto no encontrado'], 404);
+        if (!$project) {
+            return response()->json(['message' => 'Proyecto no encontrado'], 404);
+        }
+
+        // 2. Extraemos todos los atributos de la base de datos
+        $atributosActuales = $project->getAttributes();
+        $columnasEnDB = array_keys($atributosActuales);
+
+        // 3. Respuesta con sección de Diagnóstico
+        return response()->json([
+            'proyecto' => $project, // El objeto que usará tu App
+            'DEBUG_INFO' => [
+                'mensaje' => 'Si no ves el campo curso dentro de "proyecto", revisa la lista de abajo',
+                'columnas_reales_en_tu_tabla' => $columnasEnDB,
+                'valor_detectado_en_columna_curso' => $project->curso ?? 'NULO O NO EXISTE',
+                'ayuda' => in_array('curso', $columnasEnDB)
+                    ? 'La columna existe. Si es null, el problema es el dato en la DB.'
+                    : 'La columna NO existe con el nombre "curso". Revisa si se llama diferente.'
+            ]
+        ]);
     }
-
-    // 2. Extraemos todos los atributos de la base de datos
-    $atributosActuales = $project->getAttributes();
-    $columnasEnDB = array_keys($atributosActuales);
-
-    // 3. Respuesta con sección de Diagnóstico
-    return response()->json([
-        'proyecto' => $project, // El objeto que usará tu App
-        'DEBUG_INFO' => [
-            'mensaje' => 'Si no ves el campo curso dentro de "proyecto", revisa la lista de abajo',
-            'columnas_reales_en_tu_tabla' => $columnasEnDB,
-            'valor_detectado_en_columna_curso' => $project->curso ?? 'NULO O NO EXISTE',
-            'ayuda' => in_array('curso', $columnasEnDB) 
-                        ? 'La columna existe. Si es null, el problema es el dato en la DB.' 
-                        : 'La columna NO existe con el nombre "curso". Revisa si se llama diferente.'
-        ]
-    ]);
-}
 
     // --- FILTROS ---
     public function projects_filter(int $limit, int $page, $filter, $value, string $order = "title")
     {
         if ($filter == "student") {
             $proj_filter = [];
-            $columns = array('projects.idProject','numTribunal', 'abstract', 'moodleURL', 'pdfURL', 'projects.photoName', 'specialization', 'title', 'ubicationName', 'videoURL');
+            $columns = array('projects.idProject', 'numTribunal', 'abstract', 'moodleURL', 'pdfURL', 'projects.photoName', 'specialization', 'title', 'ubicationName', 'videoURL');
             $projects = DB::table('projects')
                 ->offset(($page - 1) * $limit)
                 ->limit($limit)->orderBy($order)
@@ -183,7 +199,7 @@ public function getProjectById(int $id) {
                 ->where('name', 'like', '%' . $value . '%')
                 ->select($columns)
                 ->get();
-                
+
             foreach ($projects as $p) {
                 if (DB::table('students')->where('idProject', $p->idProject)->get()->count() > 0) {
                     $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
@@ -192,7 +208,7 @@ public function getProjectById(int $id) {
             }
             return $proj_filter;
         } else {
-            $columns = array('idProject','numTribunal', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL');
+            $columns = array('idProject', 'numTribunal', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL');
             $projects = DB::table('projects')
                 ->whereLike('projects.' . $filter, '%' . $value . '%')
                 ->offset(($page - 1) * $limit)
@@ -243,27 +259,48 @@ public function getProjectById(int $id) {
     public function myProfile(Request $request)
     {
         $user = $request->user();
-     
+
         if (!$user) {
             return response()->json(['message' => 'No autenticado'], 401);
         }
-     
-        // 1. Buscar en ESTUDIANTES
-        $student = DB::table('students')->where('idUser', $user->idUser)->first();
+
+        // El ID que vincula todo es el idUser del token
+        $userId = $user->idUser;
+
+        // 1. BUSCAR EN TEACHERS (Usando la estructura de tu imagen)
+        $teacher = DB::table('teachers')->where('idUser', $userId)->first();
+        if ($teacher) {
+            return response()->json([
+                'type' => 'teacher',
+                'name' => $teacher->name,
+                'surname1' => $teacher->surname1,
+                'surname2' => $teacher->surname2,
+                'user' => [
+                    'idUser' => $user->idUser,
+                    'username' => $user->username,
+                    'email' => $user->email,
+                    'idRole' => $user->idRole
+                ]
+            ]);
+        }
+
+        // 2. BUSCAR EN ESTUDIANTES
+        $student = DB::table('students')->where('idUser', $userId)->first();
         if ($student) {
+            $student->type = 'student';
             $student->user = [
                 'idUser' => $user->idUser,
                 'username' => $user->username,
                 'email' => $user->email ?? 'alumno@monlau.com',
                 'idRole' => $user->idRole
             ];
-            $student->isTeamLeader = (bool)$student->isTeamLeader;
             return response()->json($student);
         }
-     
-        // 2. Buscar en EMPRESAS
-        $company = DB::table('companies')->where('idUser', $user->idUser)->first();
+
+        // 3. BUSCAR EN EMPRESAS
+        $company = DB::table('companies')->where('idUser', $userId)->first();
         if ($company) {
+            $company->type = 'company';
             $company->user = [
                 'idUser' => $user->idUser,
                 'username' => $user->username,
@@ -272,8 +309,8 @@ public function getProjectById(int $id) {
             ];
             return response()->json($company);
         }
-     
-        return response()->json(['message' => 'Perfil no encontrado. Revisa la tabla students/companies.'], 404);
+
+        return response()->json(['message' => 'Perfil no encontrado en teachers, students ni companies.'], 404);
     }
 
     // --- GESTIÓN DE MESAS (Crear y Listar) ---
@@ -318,7 +355,7 @@ public function getProjectById(int $id) {
             ['start' => '09:30', 'end' => '10:30'],
             ['start' => '11:00', 'end' => '13:30']
         ];
-        
+
         $interval = 10 * 60; // 15 minutos
 
         // 2. Obtener las reservas existentes
@@ -368,7 +405,7 @@ public function getProjectById(int $id) {
     {
         $request->validate([
             'time' => 'required',
-            'username' => 'required' 
+            'username' => 'required'
         ]);
 
         $bookingTime = date('Y-m-d H:i:s', strtotime($request->time));
@@ -444,7 +481,7 @@ public function getProjectById(int $id) {
         // Hacemos JOIN con 'company_tables' y 'companies' para saber con QUIÉN es la cita
         $bookings = DB::table('time_slots')
             ->where('time_slots.idStudent', $student->idStudent)
-            ->where('time_slots.start_time', '>=', now()) 
+            ->where('time_slots.start_time', '>=', now())
             ->join('company_tables', 'time_slots.idTable', '=', 'company_tables.idTable')
             ->join('companies', 'company_tables.idCompany', '=', 'companies.idCompany')
             ->select(
@@ -457,5 +494,5 @@ public function getProjectById(int $id) {
 
         return response()->json($bookings);
     }
- 
+
 }

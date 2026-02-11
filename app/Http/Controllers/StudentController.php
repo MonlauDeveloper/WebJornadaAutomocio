@@ -519,15 +519,15 @@ class StudentController extends Controller
         $fotoFinalImg = $project->images->where('fase', 'final')->first();
         $fotosProcedimientoImgs = $project->images->where('fase', 'procedimiento')->sortBy('orden');
 
-        // 3. Preparamos rutas absolutas para que DomPDF pueda acceder a los archivos
-        $fotoHeader = $fotoHeaderImg ? public_path('storage/project_steps/' . $fotoHeaderImg->file_path) : ($project->photoName ? public_path('storage/photos/' . $project->photoName) : null);
-        $fotoInitial = $fotoInitialImg ? public_path('storage/project_steps/' . $fotoInitialImg->file_path) : null;
-        $fotoFinal = $fotoFinalImg ? public_path('storage/project_steps/' . $fotoFinalImg->file_path) : null;
+        // 3. Preparamos URLs públicas (no rutas absolutas) para que DomPDF pueda acceder
+        $fotoHeader = $fotoHeaderImg ? asset('storage/project_steps/' . $fotoHeaderImg->file_path) : ($project->photoName ? asset('storage/photos/' . $project->photoName) : null);
+        $fotoInitial = $fotoInitialImg ? asset('storage/project_steps/' . $fotoInitialImg->file_path) : null;
+        $fotoFinal = $fotoFinalImg ? asset('storage/project_steps/' . $fotoFinalImg->file_path) : null;
         $fotosProcedimiento = $fotosProcedimientoImgs->map(function ($img) {
-            return public_path('storage/project_steps/' . $img->file_path);
+            return asset('storage/project_steps/' . $img->file_path);
         })->values();
 
-        // 4. Generar PDF y habilitar carga remota para que las imágenes se rendericen
+        // 4. Generar PDF con URLs públicas (DomPDF las descargará vía HTTP)
         $pdf = Pdf::loadView('students.projectPDF', compact(
             'students',
             'project',

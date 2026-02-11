@@ -22,13 +22,13 @@ Route::middleware('auth:sanctum')->group(function () {
     // --- ACCIONES DE MESAS Y RESERVAS ---
 
     // Ver mesas de una empresa
-    Route::get('/companies/{id}/tables', [Apicontroller::class, 'getCompanyTables']); 
+    Route::get('/companies/{id}/tables', [Apicontroller::class, 'getCompanyTables']);
 
     // Ver horarios disponibles de una mesa
     Route::get('/tables/{id}/slots', [Apicontroller::class, 'get_table_slots']);
-    
+
     // Crear mesa manualmente (POST)
-    Route::post('/company-tables', [Apicontroller::class, 'createCompanyTable']); 
+    Route::post('/company-tables', [Apicontroller::class, 'createCompanyTable']);
 
     // Reservar una hora (POST)
     Route::post('/tables/{id}/book', [Apicontroller::class, 'book_table_slot']);
@@ -37,9 +37,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/tables/{id}/cancel', [Apicontroller::class, 'cancel_table_slot']);
 
     // Filtrado de proyectos
-    Route::get('/projects/{limit}/{page}/{filter}/{value}', [Apicontroller::class,'projects_filter']);
-    Route::get('/projects/{limit}/{page}/{filter}/{value}/{order}', [Apicontroller::class,'projects_filter']);
-    Route::get('/projectsFilterPages/{limit}/{filter}/{value}', [Apicontroller::class,'projects_filter_pages']);
+    Route::get('/projects/{limit}/{page}/{filter}/{value}', [Apicontroller::class, 'projects_filter']);
+    Route::get('/projects/{limit}/{page}/{filter}/{value}/{order}', [Apicontroller::class, 'projects_filter']);
+    Route::get('/projectsFilterPages/{limit}/{filter}/{value}', [Apicontroller::class, 'projects_filter_pages']);
 
     Route::get('/mesas', [MesasController::class, 'index'])->name('mesas.index');
 
@@ -89,7 +89,6 @@ Route::get('/projects/{limit}/{page}', [Apicontroller::class, 'projects'])
 Route::get('/projects/{limit}/{page}/{order}', [Apicontroller::class, 'projects'])
     ->whereNumber('limit')->whereNumber('page');
 
-// AQUÍ ESTABA EL CONFLICTO: Añadimos restricción numérica
 Route::get('/companies/{limit}/{page}', [Apicontroller::class, 'companies'])
     ->whereNumber('limit')->whereNumber('page');
 
@@ -115,6 +114,7 @@ Route::get('/presentations/{limit}/{page}/{order}', [Apicontroller::class, 'pres
 Route::post('/projects/{id}/vote', [VoteController::class, 'store']);
 Route::delete('/projects/{id}/vote', [VoteController::class, 'destroy']);
 Route::post('/my-votes', [VoteController::class, 'myVotes']);
+Route::get('/votes/ranking', [VoteController::class, 'ranking']);
 
 
 Route::prefix('presentations/{id}/chat')->group(function () {
@@ -125,7 +125,6 @@ Route::prefix('presentations/{id}/chat')->group(function () {
     // Privado (Solo Profesores)
     Route::middleware('auth:sanctum')->get('/all', [ChatMessageController::class, 'getAll']);
 });
- 
+
 // Moderación
 Route::middleware('auth:sanctum')->post('chat/{messageId}/validate', [ChatMessageController::class, 'validateMessage']);
- 

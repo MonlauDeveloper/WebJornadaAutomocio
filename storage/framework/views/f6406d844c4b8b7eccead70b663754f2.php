@@ -207,15 +207,15 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
         </div>
 
         <!-- Botones -->
-        <div class="mt-6">
-            <button type="submit" class="text-white bg-blue-600 hover:bg-blue-700 py-2.5 px-4 rounded-lg">Guardar Cambios</button>
+        <div class="mt-8 flex flex-row gap-4 pt-6">
+            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition">Guardar Cambios</button>
     </form>
             <form action="<?php echo e(route('students.destroy', $student->idStudent)); ?>" method="POST">
                 <?php echo csrf_field(); ?>
                 <?php echo method_field('DELETE'); ?>
-                <button type="submit" class="mt-2 mb-4 text-white bg-red-800 hover:bg-red-900 py-2.5 px-4 rounded-lg" onclick="return confirm('¿Estás seguro que quieres eliminar este estudiante?');">Eliminar</button>
+                <button type="submit" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition" onclick="return confirm('¿Estás seguro que quieres eliminar este estudiante?');">Eliminar</button>
             </form>
-            <a href="javascript:history.back()" class="mt-2 text-white bg-gray-600 hover:bg-gray-700 py-3 px-6 rounded-lg">Volver Atrás</a>
+            <a href="javascript:history.back()" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition text-center">Volver Atrás</a>
         </div>
 
 </div>

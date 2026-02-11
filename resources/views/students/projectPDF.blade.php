@@ -107,11 +107,11 @@
                             <strong>Especialidad:</strong> <span class="text-blue">{{ $project->specialization->specialization }}</span>
                         </p>
                     </td>
+                    @if($fotoHeader)
                     <td width="35%" align="right">
-                        @if($fotoHeader)
-                            <img src="{{ $fotoHeader }}" style="width: 160px; border-radius: 10px; border: 3px solid white;">
-                        @endif
+                        <img src="{{ $fotoHeader }}" style="width: 160px; border-radius: 10px; border: 3px solid white;">
                     </td>
+                    @endif
                 </tr>
             </table>
         </div>
