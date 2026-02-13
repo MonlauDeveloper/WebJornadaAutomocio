@@ -1490,3 +1490,43 @@
 #0 {main}
 "} 
 [2026-02-11 09:42:05] production.INFO: Iniciando proceso de subida de CSV - Incluyendo Teóricos  
+[2026-02-11 11:16:40] production.INFO: Iniciando proceso de subida de CSV - Incluyendo Teóricos  
+[2026-02-11 11:16:55] production.ERROR: Error en importación: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'title' at row 1 (Connection: mysql, SQL: insert into `projects` (`title`, `idSpecialization`, `curso`, `abstract`) values (Recollida, desmuntatge i reciclatge de bateries d’alt voltatge procedents de vehicles elèctrics i híbrids., 4, B, Creació d'un taller dedicat al reciclatge i a tot el món que engloba la recollida i desmuntatge d'aquesta.))  
+[2026-02-11 11:17:16] production.ERROR: Maximum execution time of 30 seconds exceeded {"userId":1,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Maximum execution time of 30 seconds exceeded at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Hashing/BcryptHasher.php:49)
+[stacktrace]
+#0 {main}
+"} 
+[2026-02-11 11:17:21] production.INFO: Iniciando proceso de subida de CSV - Incluyendo Teóricos  
+[2026-02-11 11:17:35] production.ERROR: Error en importación: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'title' at row 1 (Connection: mysql, SQL: insert into `projects` (`title`, `idSpecialization`, `curso`, `abstract`) values (Recollida, desmuntatge i reciclatge de bateries d’alt voltatge procedents de vehicles elèctrics i híbrids., 4, B, Creació d'un taller dedicat al reciclatge i a tot el món que engloba la recollida i desmuntatge d'aquesta.))  
+[2026-02-11 11:17:53] production.ERROR: Error en importación: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'title' at row 1 (Connection: mysql, SQL: insert into `projects` (`title`, `idSpecialization`, `curso`, `abstract`) values (Diseño y propuesta en marcha de una planta piloto de segunda vida de reciclaje Hidrometalúrgico de Baterías de Vehículos Eléctricos, 4, ONLINE, El proyecto consiste en el diseño integral de una planta industrial piloto dedicada a la economía circular de las baterías de ion-litio.))  
+[2026-02-11 11:17:54] production.ERROR: Maximum execution time of 30 seconds exceeded {"userId":1,"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Maximum execution time of 30 seconds exceeded at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Hashing/BcryptHasher.php:49)
+[stacktrace]
+#0 {main}
+"} 
+[2026-02-11 11:18:49] production.INFO: Iniciando proceso de subida de CSV masivo  
+[2026-02-11 11:18:49] production.INFO: Iniciando proceso de subida de CSV - Incluyendo Teóricos  
+[2026-02-11 11:19:03] production.ERROR: Error en importación: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'title' at row 1 (Connection: mysql, SQL: insert into `projects` (`title`, `idSpecialization`, `curso`, `abstract`) values (Recollida, desmuntatge i reciclatge de bateries d’alt voltatge procedents de vehicles elèctrics i híbrids., 4, B, Creació d'un taller dedicat al reciclatge i a tot el món que engloba la recollida i desmuntatge d'aquesta.))  
+[2026-02-11 11:19:21] production.ERROR: Error en importación: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'title' at row 1 (Connection: mysql, SQL: insert into `projects` (`title`, `idSpecialization`, `curso`, `abstract`) values (Diseño y propuesta en marcha de una planta piloto de segunda vida de reciclaje Hidrometalúrgico de Baterías de Vehículos Eléctricos, 4, ONLINE, El proyecto consiste en el diseño integral de una planta industrial piloto dedicada a la economía circular de las baterías de ion-litio.))  
+[2026-02-11 11:19:27] production.ERROR: Error en importación: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'title' at row 1 (Connection: mysql, SQL: insert into `projects` (`title`, `idSpecialization`, `curso`, `abstract`) values (Como las leyes anticontaminación europeas (NORMA EURO) han afectado al diseño los motores de  combustión interna en vehículo privado, 4, ONLINE, El trabajo consistiría en una breve historia de la evolución de las normativas europeas sobre 
+emisiones contaminantes (NORMA EURO), de las restricciones de emisiones para los 
+fabricantes de automóviles y los nuevos sistemas que han ido inventando los fabricantes para 
+ajustarse a esas restricciones
+Una vez identificados estos sistemas, hacer un análisis técnico de como funcionan estos 
+sistemas, cuales son los problemas mas comunes que tienen y cuales son las reparaciones mas 
+frecuentes.
+Me gustaría también buscar estudios sobre la efectividad real de estos sistemas, como 
+funcionan estas restricciones y si los fabricantes hacen “trampas” para cumplir con la 
+normativa.
+Hablando de trampas me gustaría incluir un apartado sobre polémicas sobre marcas que se 
+han saltado la normativa (el ejemplo que me viene a la mente es la polémica con el grupo VAG 
+hace unos años).
+Un apartado que no se donde lo pondría seria el “abandono” del diésel para turismo particular 
+que parece que esta sucediendo, cuales son sus razones principales y si no existen posibles 
+sistemas para reducir esas emisiones o por otro lado no es “rentable” para las marcas.
+Por ultimo me gustaría acabar hablando del futuro, investigando que nuevas tecnologías se 
+barajan para reducir aun mas las emisione))  
+[2026-02-11 11:19:29] production.ERROR: Error en importación: SQLSTATE[22001]: String data, right truncated: 1406 Data too long for column 'title' at row 1 (Connection: mysql, SQL: insert into `projects` (`title`, `idSpecialization`, `curso`, `abstract`) values (“Influencia de la interacción conductor–transmisión en el rendimiento dinámico de un vehículo deportivo: análisis comparativo entre cambio manual, secuencial y de doble embrague”, 4, ONLINE, Este trabajo analiza la influencia de la interacción conductor–transmisión en el rendimiento dinámico de un vehículo deportivo, considerando tanto factores humanos como mecánicos. Se estudia el impacto del tipo de transmisión (manual, secuencial y de doble embrague) sobre la aceleración, la continuidad del par transmitido y los tiempos por vuelta en conducción al límite. El análisis integra modelos de par–potencia, escalonamiento de relaciones de cambio y tiempos de actuación del conductor, evaluando su efecto sobre la respuesta longitudinal del vehículo. Asimismo, se examinan técnicas de conducción deportiva, como la sincronización de reducciones y la gestión del freno motor, y su repercusión en la estabilidad dinámica. Finalmente, se propone una comparación cuantitativa del rendimiento global, identificando ventajas y limitaciones de cada sistema en un entorno de circuito.))  
+[2026-02-11 11:29:24] production.INFO: Iniciando proceso de subida de CSV - Incluyendo Teóricos  
+[2026-02-11 11:30:13] production.INFO: Iniciando proceso de subida de CSV - Incluyendo Teóricos  
+[2026-02-11 11:30:34] production.INFO: Iniciando proceso de subida de CSV - Incluyendo Teóricos  
+[2026-02-11 11:31:14] production.ERROR: Error en importación: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'sergiohellín' for key 'users.userName_UNIQUE' (Connection: mysql, SQL: insert into `users` (`email`, `username`, `password`, `idRole`, `status`) values (sergiohelcal@campus.monlau.com, sergiohellín, $2y$12$VDc0BwkuP5Otrh8CrL5pjuUoIUZGVdej0gIFp4nFfy5V0WAegf/Hy, 3, approved))  

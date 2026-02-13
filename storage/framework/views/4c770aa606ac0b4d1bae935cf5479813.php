@@ -69,13 +69,13 @@
             <main class="text-center" style="padding-top: 15px !important;">
                 <!-- Introduction Section -->
                 <section class="px-6 mt-8">
-                    <h1 class="text-4xl font-semibold text-blue-800 mb-4">V Jornada de la Automoción 2025</h1>
+                    <h1 class="text-4xl font-semibold text-blue-800 mb-4">V Jornada de la Automoción 2026</h1>
                     <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-6">
                         Un evento único para aprender, conectar y crecer. Más de 800 alumnos presentarán sus proyectos
                         finales,
                         junto con ponencias y demostraciones del mundo de la automoción.
                     </p>
-                    <p class="text-md text-gray-600">¡Te esperamos el martes 27 de mayo en Nürburgreen Indoor!</p>
+                    <p class="text-md text-gray-600">¡Te esperamos el miercoles 27 de mayo en Nürburgreen Indoor!</p>
                 </section>
 
                 <!-- Map Section -->
