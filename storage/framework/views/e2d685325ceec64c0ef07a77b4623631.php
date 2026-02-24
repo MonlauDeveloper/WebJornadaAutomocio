@@ -6,7 +6,7 @@
             <!-- Foto y Nombre -->
             <div class="text-center mt-6">
                 <img class="w-32 h-32 object-cover rounded-full mx-auto"
-                    src="<?php echo e($student->photoName); ?>" alt="<?php echo e($student->name); ?>" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                    src="<?php echo e(asset('storage/' . $student->photoName)); ?>" alt="<?php echo e($student->name); ?>" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
                 <h2 class="text-2xl font-semibold text-gray-800 mt-4">
                     <?php echo e($student->name); ?> <?php echo e($student->surname1); ?> <?php echo e($student->surname2); ?>
 

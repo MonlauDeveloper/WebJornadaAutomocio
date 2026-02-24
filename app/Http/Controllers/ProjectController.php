@@ -194,13 +194,15 @@ class ProjectController extends Controller
             'idUbication' => 'nullable|integer',
             'numTribunal' => 'nullable|integer',
             'idProjectType' => 'nullable|exists:project_types,idProjectType',
-            // Validación de la nueva imagen de la ficha técnica
+            // Validación de la nueva imagen
             'new_project_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
             'new_image_fase' => 'nullable|string',
             'new_image_orden' => 'nullable|integer',
+            // Validación de las descripciones (Array)
+            'image_descriptions' => 'nullable|array',
         ]);
 
-        // Actualizar datos básicos del proyecto
+        // Actualizar datos básicos
         $project->title = $request->title;
         $project->idSpecialization = $request->idSpecialization;
         $project->curso = $request->curso;
@@ -211,49 +213,58 @@ class ProjectController extends Controller
         $project->idUbication = $request->idUbication;
         $project->numTribunal = $request->numTribunal;
 
-        // Manejo de la foto de orla (la que ya tenías)
+        // Manejo de foto principal y PDF
         if ($request->hasFile('photoName') && $request->file('photoName')->isValid()) {
-            $photo = $request->file('photoName');
-            $photoName = time() . '_photo.' . $photo->getClientOriginalExtension();
-            $photo->storeAs('photos', $photoName, 'public');
+            $photoName = time() . '_photo.' . $request->file('photoName')->getClientOriginalExtension();
+            $request->file('photoName')->storeAs('photos', $photoName, 'public');
             $project->photoName = $photoName;
         }
 
-        // Manejo del PDF (el que ya tenías)
         if ($request->hasFile('pdfURL') && $request->file('pdfURL')->isValid()) {
-            $pdf = $request->file('pdfURL');
-            $pdfName = time() . '_pdf.' . $pdf->getClientOriginalExtension();
-            $pdf->storeAs('pdfs', $pdfName, 'public');
+            $pdfName = time() . '_pdf.' . $request->file('pdfURL')->getClientOriginalExtension();
+            $request->file('pdfURL')->storeAs('pdfs', $pdfName, 'public');
             $project->pdfURL = $pdfName;
         }
 
         $project->save();
 
-        // --- LÓGICA DE SUSTITUCIÓN DE IMÁGENES DE FICHA TÉCNICA ---
+        // --- GUARDAR DESCRIPCIONES DE IMÁGENES EXISTENTES ---
+        if ($request->has('image_descriptions')) {
+            foreach ($request->image_descriptions as $imageId => $description) {
+                // Actualizamos la descripción en la tabla pivot/relacionada
+                \DB::table('project_images')
+                    ->where('id', $imageId)
+                    ->update(['description' => $description]);
+            }
+        }
+
+        // --- LÓGICA DE SUBIDA CON LÍMITE DE 6 ---
         if ($request->hasFile('new_project_image') && $request->file('new_project_image')->isValid()) {
+
+            // CAPAR A 6 FOTOS MÁXIMO
+            $totalActual = $project->images()->count();
+            if ($totalActual >= 6) {
+                return redirect()->back()->with('error', 'Límite de 6 imágenes alcanzado. Borra una para subir otra.');
+            }
+
             $faseDestino = $request->new_image_fase;
 
-            // Si la fase NO es "procedimiento", buscamos la imagen anterior para borrarla
-            // (En procedimiento permitimos varias imágenes, en las demás sustituimos)
+            // Sustitución si no es procedimiento
             if ($faseDestino !== 'procedimiento') {
                 $fotoAntigua = $project->images()->where('fase', $faseDestino)->first();
-
                 if ($fotoAntigua) {
-                    // Borrar archivo físico
-                    if (Storage::disk('public')->exists('project_steps/' . $fotoAntigua->file_path)) {
-                        Storage::disk('public')->delete('project_steps/' . $fotoAntigua->file_path);
+                    if (\Storage::disk('public')->exists('project_steps/' . $fotoAntigua->file_path)) {
+                        \Storage::disk('public')->delete('project_steps/' . $fotoAntigua->file_path);
                     }
-                    // Borrar registro de la base de datos
                     $fotoAntigua->delete();
                 }
             }
 
-            // Guardar la nueva imagen
+            // Guardar la nueva
             $image = $request->file('new_project_image');
             $fileName = time() . '_' . $image->getClientOriginalName();
             $image->storeAs('project_steps', $fileName, 'public');
 
-            // Crear el nuevo registro
             $project->images()->create([
                 'idProject' => $project->idProject,
                 'file_path' => $fileName,
@@ -500,4 +511,18 @@ class ProjectController extends Controller
 
         return redirect()->back()->with('success', 'Imagen eliminada correctamente.');
     }
+
+    // Método para eliminar solo la foto principal del proyecto
+    public function destroyPhoto(Project $project)
+{
+    if ($project->photoName && \Storage::disk('public')->exists('photos/' . $project->photoName)) {
+        \Storage::disk('public')->delete('photos/' . $project->photoName);
+    }
+
+    $project->photoName = 'por_defecto/proyecto_default.png';
+    $project->save();
+
+    return redirect()->back()->with('success', 'Foto eliminada. Se ha restaurado la imagen por defecto.');
 }
+}
+

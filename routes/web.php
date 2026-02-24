@@ -211,3 +211,5 @@ Route::get('/callback', [MicrosoftAuthController::class, 'handleMicrosoftCallbac
 
 
 Route::delete('/project-images/{id}', [App\Http\Controllers\ProjectController::class, 'destroyImage'])->name('projects.image.destroy');
+// Ruta específica para borrar la foto principal
+Route::delete('/projects/{project}/photo', [ProjectController::class, 'destroyPhoto'])->name('projects.photo.destroy');

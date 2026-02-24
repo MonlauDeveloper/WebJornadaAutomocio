@@ -1,8 +1,8 @@
 <?php $__env->startSection('content'); ?>
 <div class="container mx-auto p-6">
     <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-        <img class="w-32 h-32 object-cover rounded-full mx-auto" 
-                 src="<?php echo e($student->photoName); ?>" 
+        <img class="w-32 h-27 object-cover rounded-full mx-auto" 
+                 src="<?php echo e(asset('storage/' . $student->photoName)); ?>" 
                  alt="<?php echo e($student->name); ?>"
                  onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
 

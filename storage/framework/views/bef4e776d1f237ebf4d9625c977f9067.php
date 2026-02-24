@@ -7,77 +7,60 @@
         body {
             font-family: 'Helvetica', 'Arial', sans-serif;
             background-color: #ffffff;
-            margin: 0; padding: 0; color: #1f2937; line-height: 1.4;
+            margin: 0; padding: 0; color: #1f2937; line-height: 1.3;
         }
-
         .watermark {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('<?php echo e(public_path("images/Curriculum CV Fondo transparente.png")); ?>');
-            background-size: cover; background-position: center;
+            background-size: cover; background-position: center; z-index: -1000;
         }
-
-        .container { width: 75%; margin: 0 auto; padding: 40px 0; }
+        .container { width: 75%; margin: 0 auto; padding: 20px 0; } 
+        
         .text-blue { color: #2563eb; }
         .font-bold { font-weight: bold; }
         .uppercase { text-transform: uppercase; letter-spacing: 1px; }
-
+        
         .card {
             margin-left: 13px; 
             background-color: rgba(255, 255, 255, 0.5);
-            padding: 20px; border-radius: 12px; margin-bottom: 20px;
+            padding: 12px; 
+            border-radius: 12px; 
+            margin-bottom: 10px; 
             border: 1px solid rgba(255, 255, 255, 0.6);
             page-break-inside: avoid;
         }
-
-        .header-project { text-align: center; margin-bottom: 25px; }
+        
+        .header-project { text-align: center; margin-bottom: 15px; } 
         .header-project h1 { 
             display: inline-block;
-            padding: 10px 30px; font-size: 1.6rem; color: #1e40af;
+            padding: 5px 20px; font-size: 1.4rem; color: #1e40af; 
         }
-
+        
         .section-title {
-            font-size: 1rem; font-weight: bold; color: #1d4ed8;
-            margin-bottom: 8px; border-bottom: 2px solid #d5d6da; display: block;
+            font-size: 0.9rem; font-weight: bold; color: #1d4ed8;
+            margin-bottom: 5px; border-bottom: 2px solid #d5d6da; display: block;
         }
-
-        /* Diseño de pasos de procedimiento */
-        .step-box {
-            width: 48%;
-            display: inline-block;
-            vertical-align: top;
-            margin-bottom: 15px;
-        }
+        
         .step-header {
-            font-weight: bold; color: #1e40af; font-size: 0.8rem;
-            border-bottom: 1px solid #1e40af; margin-bottom: 5px;
+            font-weight: bold; color: #1e40af; font-size: 0.75rem;
+            border-bottom: 1px solid #1e40af; margin-bottom: 3px;
         }
+        
         .img-fase {
-            width: 100%; height: 100px; object-fit: cover;
+            width: 100%; height: 120px; 
+            object-fit: contain;
             border-radius: 6px; border: 1px solid #ddd;
+            background: #fff;
         }
-
-        .budget-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-            font-size: 0.85rem;
+        
+        .desc-tecnica, .card p {
+            font-size: 0.8rem;
+            color: #4b5563;
+            text-align: justify;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            word-break: break-all;
         }
-        .budget-table th {
-            background-color: #1e40af;
-            color: white;
-            padding: 8px;
-            text-align: left;
-            text-transform: uppercase;
-        }
-        .budget-table td {
-            padding: 8px;
-            border-bottom: 1px solid #d5d6da;
-        }
-        .budget-table .total-row {
-            background-color: rgba(37, 99, 235, 0.1);
-            font-weight: bold;
-        }
-        .text-right { text-align: right; }
     </style>
 </head>
 <body>
@@ -91,26 +74,27 @@
         <div class="card">
             <table width="100%">
                 <tr>
-                    <td width="65%" style="vertical-align: top;">
+                    <td width="70%" style="vertical-align: top;">
                         <h3 class="section-title uppercase">Datos del Proyecto</h3>
-                        <p class="font-bold" style="font-size: 0.9rem;">Integrantes:</p>
+                        <p class="font-bold" style="font-size: 0.85rem; margin-bottom: 2px;">Integrantes:</p>
                         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $students->chunk(2); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div style="width: 100%;">
                                 <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <span style="font-size: 0.85rem; display: inline-block; width: 45%;">
+                                    <span style="font-size: 0.8rem; display: inline-block; width: 48%;">
                                         <span class="text-blue">•</span> <?php echo e($student->name); ?> <?php echo e($student->surname1); ?>
 
                                     </span>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </div>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">
+                        <p style="margin-top: 5px; font-size: 0.85rem;">
                             <strong>Especialidad:</strong> <span class="text-blue"><?php echo e($project->specialization->specialization); ?></span>
                         </p>
                     </td>
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($fotoHeader): ?>
-                    <td width="35%" align="right">
-                        <img src="<?php echo e($fotoHeader); ?>" style="width: 160px; border-radius: 10px; border: 3px solid white;">
+                    <?php $imgHeader = $project->images->where('fase', 'header')->first(); ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($imgHeader): ?>
+                    <td width="30%" align="right">
+                        <img src="<?php echo e(public_path('storage/project_steps/' . $imgHeader->file_path)); ?>" style="width: 130px; border-radius: 8px; border: 2px solid white;">
                     </td>
                     <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </tr>
@@ -119,22 +103,23 @@
 
         <div class="card">
             <h3 class="section-title uppercase">Descripción</h3>
-            <p style="font-size: 0.85rem; text-align: justify;"><?php echo e($project->abstract); ?></p>
+            <p style="margin: 0;"><?php echo e($project->abstract); ?></p>
         </div>
 
         <div class="card">
             <h3 class="section-title uppercase">Estado Inicial</h3>
             <table width="100%">
                 <tr>
-                    <td width="40%">
-                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($fotoInitial): ?>
-                            <img src="<?php echo e($fotoInitial); ?>" class="img-fase">
+                    <?php $imgInitial = $project->images->where('fase', 'initial')->first(); ?>
+                    <td width="35%">
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($imgInitial): ?>
+                            <img src="<?php echo e(public_path('storage/project_steps/' . $imgInitial->file_path)); ?>" class="img-fase" style="height: 90px;">
                         <?php else: ?>
-                            <div style="width: 100%; height: 100px; background: #f3f4f6; text-align: center; line-height: 100px; color: #999;">SIN FOTO</div>
+                            <div style="width: 100%; height: 90px; background: #f3f4f6; text-align: center; line-height: 90px; color: #999; font-size: 0.7rem;">SIN FOTO</div>
                         <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </td>
-                    <td width="60%" style="padding-left: 15px; vertical-align: top;">
-                        <p style="font-size: 0.85rem;"><?php echo e($project->initial_description ?? 'Descripción del estado previo.'); ?></p>
+                    <td width="65%" style="padding-left: 15px; vertical-align: top;">
+                        <p style="margin: 0;"><?php echo e($imgInitial->description ?? 'Descripción del estado previo.'); ?></p>
                     </td>
                 </tr>
             </table>
@@ -143,28 +128,59 @@
         <div class="card">
             <h3 class="section-title uppercase">Procedimiento Técnico</h3>
             <div style="width: 100%;">
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $fotosProcedimiento; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $foto): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                    <div class="step-box" style="<?php echo e($index % 2 == 0 ? 'margin-right: 2%;' : ''); ?>">
-                        <div class="step-header">PASO <?php echo e($index + 1); ?></div>
-                        <img src="<?php echo e($foto); ?>" class="img-fase">
-                    </div>
+                <?php 
+                    $pasos = $project->images->where('fase', 'procedimiento')->sortBy('orden')->take(3)->values(); 
+                ?>
+                
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $pasos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                    <table style="width: 100%; margin-bottom: 12px; table-layout: fixed; border-collapse: collapse;">
+                        <tr>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($index == 0 || $index == 2): ?>
+                                <td width="40%" style="vertical-align: top;">
+                                    <div class="step-header">PASO <?php echo e($img->orden ?? ($index + 1)); ?></div>
+                                    <img src="<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>" class="img-fase" style="height: 110px;">
+                                </td>
+                                <td width="60%" style="vertical-align: middle; padding-left: 20px;">
+                                    <div class="desc-tecnica"><?php echo e($img->description); ?></div>
+                                </td>
+                            <?php else: ?>
+                                <td width="60%" style="vertical-align: middle; padding-right: 20px;">
+                                    <div class="desc-tecnica"><?php echo e($img->description); ?></div>
+                                </td>
+                                <td width="40%" style="vertical-align: top;">
+                                    <div class="step-header" style="text-align: right;">PASO <?php echo e($img->orden ?? ($index + 1)); ?></div>
+                                    <img src="<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>" class="img-fase" style="height: 110px;">
+                                </td>
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        </tr>
+                    </table>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                    <p style="font-size: 0.8rem; color: #666;">No se han cargado pasos técnicos.</p>
+                    <p style="font-size: 0.75rem; color: #666;">No se han cargado pasos técnicos.</p>
                 <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
         </div>
 
         <div class="card">
             <h3 class="section-title uppercase">Estado Final</h3>
-            <div style="text-align: center;">
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($fotoFinal): ?>
-                    <img src="<?php echo e($fotoFinal); ?>" style="width: 80%; max-height: 200px; border-radius: 8px;">
-                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-            </div>
+            <?php $imgFinal = $project->images->where('fase', 'final')->first(); ?>
+            <table width="100%">
+                <tr>
+                    <td width="35%">
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($imgFinal): ?>
+                            <img src="<?php echo e(public_path('storage/project_steps/' . $imgFinal->file_path)); ?>" class="img-fase" style="height: 110px;">
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                    </td>
+                    <td width="65%" style="padding-left: 15px; vertical-align: top;">
+                        <p style="margin: 0;"><?php echo e($imgFinal->description ?? 'Descripción del resultado final.'); ?></p>
+                    </td>
+                </tr>
+            </table>
         </div>
-        <div class="card">
+
+        <div class="card" style="margin-bottom: 0;">
             <h3 class="section-title uppercase">Presupuesto</h3>
-            <div style="text-align: center;">
+            <div style="text-align: center; font-size: 0.8rem; color: #4b5563;">
+            </div>
         </div>
     </div>
 </body>

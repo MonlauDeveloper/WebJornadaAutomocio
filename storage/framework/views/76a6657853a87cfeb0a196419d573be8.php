@@ -47,9 +47,12 @@
 <div id="gridView" class="<?php echo e(request('view') == 'list' ? 'hidden' : ''); ?> grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
     <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
-        <div class="mb-4">
-            <img class="w-32 h-32 object-cover rounded-full mx-auto" src="<?php echo e($student->photoName); ?>" alt="<?php echo e($student->name); ?>" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
-        </div>
+        <div class="w-32 h-32 overflow-hidden rounded-full mx-auto bg-gray-100 border-2 border-gray-200 shadow-sm">
+    <img class="w-full h-auto object-contain" 
+         src="<?php echo e(asset('storage/' . $student->photoName)); ?>" 
+         alt="<?php echo e($student->name); ?>"
+         onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+</div>
         <h2 class="text-2xl font-bold text-blue-500 text-center"><?php echo e($student->name); ?> <?php echo e($student->surname1); ?> <?php echo e($student->surname2); ?></h2>
         <p class="text-gray-600 mt-2 text-center"><?php echo e(Str::limit($student->introduction, 100)); ?></p>
         <div class="mt-4 text-center">
@@ -79,8 +82,13 @@
             <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <tr class="border">
                 <td class="border p-3 text-center">
-                    <img class="w-16 h-16 object-cover rounded-full mx-auto" src="<?php echo e($student->photoName); ?>" alt="<?php echo e($student->name); ?>" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
-                </td>
+    <div class="w-16 h-16 overflow-hidden rounded-full mx-auto bg-gray-50 border border-gray-100 shadow-sm">
+        <img class="w-full h-full object-contain" 
+             src="<?php echo e(asset('storage/' . $student->photoName)); ?>" 
+             alt="<?php echo e($student->name); ?>" 
+             onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+    </div>
+</td>
                 <td class="border p-3"><?php echo e($student->name); ?> <?php echo e($student->surname1); ?> <?php echo e($student->surname2); ?></td>
                 <td class="border p-3 text-center"><?php echo e($student->curso); ?></td>
                 <td class="border p-3 text-center">

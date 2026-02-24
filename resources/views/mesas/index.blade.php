@@ -132,7 +132,7 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-between items-center pt-5 mt-4 border-t border-gray-100">
+                    <div class="flex justify-between items-center pt-2 mt-1 border-t border-gray-100">
                         <a href="{{ route('company-tables.edit', $table->idTable) }}" class="text-blue-500 hover:text-blue-700 flex items-center text-sm font-semibold transition-colors">
                             <svg class="h-4 w-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
                             Editar

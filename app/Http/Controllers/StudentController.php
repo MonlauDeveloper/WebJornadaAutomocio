@@ -56,7 +56,7 @@ class StudentController extends Controller
         }
 
         // Determinar el número de elementos por página según la vista seleccionada
-        $perPage = $request->has('view') && $request->view === 'list' ? 12 : 6;
+        $perPage = $request->has('view') && $request->view === 'list' ? 12 : 9;
 
         $students = $query->with('specialization', 'team')->paginate($perPage);
 
@@ -457,27 +457,31 @@ class StudentController extends Controller
     public function verPDF($idStudent)
     {
         $student = Student::with(['team', 'specialization', 'project'])->findOrFail($idStudent);
-    
-        // Intenta cargar la imagen
-        try {
-            $imageUrl = $student->photoName ?? 'https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';
-    
-            // Obtener contenido de la imagen
-            $imageContent = file_get_contents($imageUrl);
-    
-            // Convertir a base64
+
+        // 1. Construir la ruta física en el servidor (más rápido y seguro)
+        $path = storage_path('app/public/' . $student->photoName);
+
+        // 2. Verificar existencia y convertir a Base64
+        if (!empty($student->photoName) && file_exists($path)) {
+            $imageContent = file_get_contents($path);
+            $mime = mime_content_type($path);
+            $imageBase64 = 'data:' . $mime . ';base64,' . base64_encode($imageContent);
+        } else {
+            // Imagen por defecto si la del alumno no existe
+            $defaultPath = public_path('storage/photos/por_defecto/user_default.png');
+            $imageContent = file_exists($defaultPath) ? file_get_contents($defaultPath) : '';
             $imageBase64 = 'data:image/png;base64,' . base64_encode($imageContent);
-    
-        } catch (\Exception $e) {
-            // Si falla, usar imagen por defecto
-            $imageBase64 = 'data:image/png;base64,' . base64_encode(
-                file_get_contents(public_path('storage/photos/por_defecto/user_default.png'))
-            );
         }
-    
+
         $pdf = PDF::loadView('students.showPDF', compact('student', 'imageBase64'))
-                  ->setPaper('a4', 'portrait');
-    
+            ->setPaper('a4', 'portrait')
+            ->setOption(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
+
+        // Ejemplo de redimensionamiento rápido si usas Intervention Image
+        $imgManager = new \Intervention\Image\ImageManager(new \Intervention\Image\Drivers\Gd\Driver());
+        $image = $imgManager->read($path)->cover(300, 300); // Reduce a 300x300px
+        $imageBase64 = $image->toJpeg(80)->toDataUri();
+
         return $pdf->stream('curriculum-' . $student->idStudent . '.pdf');
     }
 
@@ -485,25 +489,24 @@ class StudentController extends Controller
     {
         $student = Student::with(['team', 'specialization', 'project'])->findOrFail($idStudent);
 
-        // Intenta cargar la imagen
-        try {
-            $imageUrl = $student->photoName ?? 'https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';
+        // 1. Construir la ruta física en el servidor (más rápido y seguro)
+        $path = storage_path('app/public/' . $student->photoName);
 
-            // Obtener contenido de la imagen
-            $imageContent = file_get_contents($imageUrl);
-
-            // Convertir a base64
+        // 2. Verificar existencia y convertir a Base64
+        if (!empty($student->photoName) && file_exists($path)) {
+            $imageContent = file_get_contents($path);
+            $mime = mime_content_type($path);
+            $imageBase64 = 'data:' . $mime . ';base64,' . base64_encode($imageContent);
+        } else {
+            // Imagen por defecto si la del alumno no existe
+            $defaultPath = public_path('storage/photos/por_defecto/user_default.png');
+            $imageContent = file_exists($defaultPath) ? file_get_contents($defaultPath) : '';
             $imageBase64 = 'data:image/png;base64,' . base64_encode($imageContent);
-
-        } catch (\Exception $e) {
-            // Si falla, usar imagen por defecto
-            $imageBase64 = 'data:image/png;base64,' . base64_encode(
-                file_get_contents(public_path('storage/photos/por_defecto/user_default.png'))
-            );
         }
 
         $pdf = PDF::loadView('students.showPDF', compact('student', 'imageBase64'))
-                ->setPaper('a4', 'portrait');
+            ->setPaper('a4', 'portrait')
+            ->setOption(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
 
         return $pdf->stream('curriculum-' . $student->idStudent . '.pdf');
     }
@@ -536,11 +539,11 @@ class StudentController extends Controller
             'fotoFinal',
             'fotosProcedimiento'
         ))->setPaper('a4', 'portrait')
-          ->setOption([
-              'isHtml5ParserEnabled' => true,
-              'isRemoteEnabled' => true,
-              'defaultFont' => 'sans-serif'
-          ]);
+            ->setOption([
+                'isHtml5ParserEnabled' => true,
+                'isRemoteEnabled' => true,
+                'defaultFont' => 'sans-serif'
+            ]);
 
         return $pdf->stream('Ficha_' . $project->idProject . '.pdf');
     }

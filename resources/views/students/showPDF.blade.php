@@ -179,7 +179,6 @@
     <div class="container mx-auto p-6">
         <div class="bg-white p-6 rounded-lg shadow-lg text-center">
             <div class="avatar-container">
-                <!-- Eliminamos las clases de la imagen y dejamos que el contenedor haga el trabajo -->
                 <img src="{{ $imageBase64 }}" alt="{{ $student->name }}"
                     style="width: auto; height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
             </div>

@@ -126,7 +126,7 @@
                 <img class="w-full h-48 object-cover rounded-lg" src="{{ asset('storage/photos/' . $project->photoName) }}" alt="{{ $project->title }}">
             </div>
             <h2 class="text-2xl font-bold text-blue-500">{{ $project->title }}</h2>
-            <p class="text-gray-600 mt-2">{{ Str::limit($project->abstract, 100) }}</p>
+            <p class="text-gray-600 mt-2 break-words">{{ Str::limit($project->abstract, 100) }}</p>
 
             @if(auth()->user()->idRole === 1)
                 <!-- Formulario para actualizar Tribunal -->

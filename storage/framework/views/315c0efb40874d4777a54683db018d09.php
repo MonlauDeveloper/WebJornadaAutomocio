@@ -1,4 +1,10 @@
 <?php $__env->startSection('content'); ?>
+    <style>
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.3s ease-out; }
+        #pdf-paper { box-sizing: border-box; box-shadow: 0 0 40px rgba(0,0,0,0.3); word-wrap: break-word; }
+    </style>
+
     <div class="container mx-auto p-6">
         <h1 class="text-3xl font-semibold text-center text-blue-600 mb-8">Editar Proyecto</h1>
 
@@ -7,7 +13,6 @@
             <?php echo csrf_field(); ?>
             <?php echo method_field('PUT'); ?>
 
-            <!-- Título -->
             <div class="mb-4">
                 <label for="title" class="block text-gray-700 font-semibold mb-2">Título del Proyecto</label>
                 <input type="text" name="title" id="title" value="<?php echo e(old('title', $project->title)); ?>"
@@ -24,13 +29,12 @@ endif;
 unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
-            <!-- Resumen -->
             <div class="mb-4">
                 <label for="abstract" class="block text-gray-700 font-semibold mb-2">Descripción</label>
                 <textarea name="abstract" id="abstract" rows="4"
                     class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-                    maxlength="300"><?php echo e(old('abstract', $project->abstract)); ?></textarea>
-                <p class="text-gray-500 text-xs mt-1">Máximo 300 caracteres</p>
+                    style="word-break: break-all;" maxlength="400"><?php echo e(old('abstract', $project->abstract)); ?></textarea>
+                <p class="text-gray-500 text-xs mt-1">Máximo 400 caracteres</p>
                 <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['abstract'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -43,7 +47,7 @@ endif;
 unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
-            <!-- Especialización -->
+
             <div class="mb-4">
                 <label for="idSpecialization" class="block text-gray-700 font-semibold mb-2">Especialización</label>
                 <select name="idSpecialization" id="idSpecialization"
@@ -67,7 +71,6 @@ endif;
 unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
-            <!-- Tipo de Proyecto -->
             <div class="mb-6">
                 <label class="block text-gray-700 font-semibold mb-7">
                     Tipos de Proyecto
@@ -80,9 +83,7 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
                             <label class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded cursor-pointer transition">
                                 <input type="checkbox" name="tipos[]" value="<?php echo e($type->idProjectType); ?>"
                                     class="form-checkbox h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 project-type-checkbox"
-                                    onclick="checkLimit(this)">
-                                    <?php echo e($project->projectTypes && $project->projectTypes->contains('idProjectType', $type->idProjectType) ? 'checked' : ''); ?>
-
+                                    onclick="checkLimit(this)" <?php echo e($project->projectTypes && $project->projectTypes->contains('idProjectType', $type->idProjectType) ? 'checked' : ''); ?>>
                                 <span class="text-gray-700 font-medium ml-3"><?php echo e($type->name); ?></span>
                             </label>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
@@ -106,42 +107,13 @@ endif;
 unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
-            <script>
-                function checkLimit(checkbox) {
-                    const checkboxes = document.querySelectorAll('.project-type-checkbox:checked');
-                    const message = document.getElementById('limit-message');
-                    const countDisplay = document.getElementById('count-display');
-                    const count = checkboxes.length;
-
-                    // Actualizamos el número visualmente
-                    if (countDisplay) countDisplay.innerText = count;
-
-                    if (count > 3) {
-                        checkbox.checked = false;
-                        if (countDisplay) countDisplay.innerText = "3";
-
-                        message.innerHTML = "<span class='text-red-600 font-bold'>¡Máximo 3 tipos permitidos!</span>";
-
-                        setTimeout(() => {
-                            message.innerHTML = "Seleccionados: <span id='count-display'>3</span>/3";
-                        }, 2000);
-                    }
-                }
-            </script>
-
-            <!-- Curso -->
             <div class="mb-4">
                 <label for="curso" class="block text-gray-700 font-semibold mb-2">Curso</label>
                 <select name="curso" id="curso"
                     class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                    <option value="A" <?php echo e(old('curso', $project->curso) == 'A' ? 'selected' : ''); ?>>A</option>
-                    <option value="B" <?php echo e(old('curso', $project->curso) == 'B' ? 'selected' : ''); ?>>B</option>
-                    <option value="C" <?php echo e(old('curso', $project->curso) == 'C' ? 'selected' : ''); ?>>C</option>
-                    <option value="D" <?php echo e(old('curso', $project->curso) == 'D' ? 'selected' : ''); ?>>D</option>
-                    <option value="E" <?php echo e(old('curso', $project->curso) == 'E' ? 'selected' : ''); ?>>E</option>
-                    <option value="F" <?php echo e(old('curso', $project->curso) == 'F' ? 'selected' : ''); ?>>F</option>
-                    <option value="R" <?php echo e(old('curso', $project->curso) == 'R' ? 'selected' : ''); ?>>R</option>
-                    <option value="ONLINE" <?php echo e(old('curso', $project->curso) == 'ONLINE' ? 'selected' : ''); ?>>ONLINE</option>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = ['A', 'B', 'C', 'D', 'E', 'F', 'R', 'ONLINE']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($c); ?>" <?php echo e(old('curso', $project->curso) == $c ? 'selected' : ''); ?>><?php echo e($c); ?></option>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </select>
                 <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['curso'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -155,17 +127,41 @@ endif;
 unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
-            <!-- Imagen -->
             <div class="mb-4">
-                <label for="photoName" class="block text-gray-700 font-semibold mb-2">Foto del Proyecto</label>
-                <input type="file" id="photoName" name="photoName"
-                    class="p-3 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <label for="photoName" class="block text-gray-700 font-semibold mb-2">Foto del Proyecto (Portada
+                    Orla)</label>
+                <div class="flex items-center gap-4">
+                    <input type="file" id="photoName" name="photoName"
+                        class="p-3 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->photoName && $project->photoName !== 'por_defecto/proyecto_default.png'): ?>
+                        <button type="button"
+                            onclick="if(confirm('¿Quieres eliminar esta foto y restaurar la imagen por defecto?')) document.getElementById('delete-main-photo-form').submit();"
+                            class="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white p-3 rounded-lg border border-blue-200 transition flex items-center justify-center"
+                            title="Restaurar foto por defecto">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path>
+                            </svg>
+                        </button>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                </div>
+
                 <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->photoName): ?>
-                    <p class="mt-2 text-sm text-gray-600">Archivo actual: <?php echo e($project->photoName); ?></p>
+                    <div class="mt-3 flex items-center gap-4 p-2 border rounded-lg bg-gray-50">
+                        <?php
+                            $isCloudinary = str_contains($project->photoName, 'cloudinary.com');
+                            $photoUrl = $isCloudinary ? $project->photoName : asset('storage/photos/' . $project->photoName);
+                        ?>
+                        <img src="<?php echo e($photoUrl); ?>" alt="Foto actual" class="h-16 w-16 object-cover rounded border">
+                        <div class="flex flex-col">
+                            <span class="text-[10px] font-bold text-blue-600 uppercase">Archivo actual:</span>
+                            <span class="text-[10px] text-gray-500 truncate max-w-xs"><?php echo e($project->photoName); ?></span>
+                        </div>
+                    </div>
                 <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
-            <!-- Video -->
             <div class="mb-4">
                 <label for="videoURL" class="block text-gray-700 font-semibold mb-2">Vídeo URL</label>
                 <input type="text" name="videoURL" id="videoURL" value="<?php echo e(old('videoURL', $project->videoURL)); ?>"
@@ -182,28 +178,6 @@ endif;
 unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
-            <!-- PDF -->
-            <!--  
-            <div class="mb-4">
-                <label for="pdfURL" class="block text-gray-700 font-semibold mb-2">PDF</label>
-                <input type="file" name="pdfURL" id="pdfURL" class="p-3 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->pdfURL): ?>
-                    <p class="mt-2 text-sm text-red-600">PDF actual: <?php echo e($project->pdfURL); ?></p>
-                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['pdfURL'];
-$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
-if ($__bag->has($__errorArgs[0])) :
-if (isset($message)) { $__messageOriginal = $message; }
-$message = $__bag->first($__errorArgs[0]); ?>
-                    <span class="text-red-500 text-sm"><?php echo e($message); ?></span>
-                <?php unset($message);
-if (isset($__messageOriginal)) { $message = $__messageOriginal; }
-endif;
-unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-            </div>
-            -->
-
-            <!-- Moodle URL -->
             <div class="mb-4">
                 <label for="moodleURL" class="block text-gray-700 font-semibold mb-2">URL de Moodle</label>
                 <input type="url" name="moodleURL" id="moodleURL" value="<?php echo e(old('moodleURL', $project->moodleURL)); ?>"
@@ -220,14 +194,14 @@ endif;
 unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
-            <!-- Ubicación -->
             <div class="mb-4">
                 <label for="idUbication" class="block text-gray-700 font-semibold mb-2">Ubicación</label>
                 <select name="idUbication" id="idUbication"
                     class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $ubications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ubication): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <option value="<?php echo e($ubication->idUbication); ?>" <?php echo e(old('idUbication', $project->idUbication) == $ubication->idUbication ? 'selected' : ''); ?>>
-                            <?php echo e($ubication->ubicationName); ?> <!-- Aquí el cambio -->
+                            <?php echo e($ubication->ubicationName); ?>
+
                         </option>
                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </select>
@@ -243,32 +217,15 @@ endif;
 unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
-            <!-- Tribunal -->
             <div class="mb-4">
                 <label for="numTribunal" class="block text-gray-700 font-semibold mb-2">Número de Tribunal</label>
                 <select name="numTribunal" id="numTribunal"
                     class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                    <option value="1" <?php echo e(old('numTribunal', $project->numTribunal) == '1' ? 'selected' : ''); ?>>1</option>
-                    <option value="2" <?php echo e(old('numTribunal', $project->numTribunal) == '2' ? 'selected' : ''); ?>>2</option>
-                    <option value="3" <?php echo e(old('numTribunal', $project->numTribunal) == '3' ? 'selected' : ''); ?>>3</option>
-                    <option value="4" <?php echo e(old('numTribunal', $project->numTribunal) == '4' ? 'selected' : ''); ?>>4</option>
-                    <option value="5" <?php echo e(old('numTribunal', $project->numTribunal) == '5' ? 'selected' : ''); ?>>5</option>
-                    <option value="6" <?php echo e(old('numTribunal', $project->numTribunal) == '6' ? 'selected' : ''); ?>>6</option>
-                    <option value="7" <?php echo e(old('numTribunal', $project->numTribunal) == '7' ? 'selected' : ''); ?>>7</option>
-                    <option value="8" <?php echo e(old('numTribunal', $project->numTribunal) == '8' ? 'selected' : ''); ?>>8</option>
-                    <option value="9" <?php echo e(old('numTribunal', $project->numTribunal) == '9' ? 'selected' : ''); ?>>9</option>
-                    <option value="10" <?php echo e(old('numTribunal', $project->numTribunal) == '10' ? 'selected' : ''); ?>>10</option>
-                    <option value="11" <?php echo e(old('numTribunal', $project->numTribunal) == '11' ? 'selected' : ''); ?>>11</option>
-                    <option value="12" <?php echo e(old('numTribunal', $project->numTribunal) == '12' ? 'selected' : ''); ?>>12</option>
-                    <option value="13" <?php echo e(old('numTribunal', $project->numTribunal) == '13' ? 'selected' : ''); ?>>13</option>
-                    <option value="14" <?php echo e(old('numTribunal', $project->numTribunal) == '14' ? 'selected' : ''); ?>>14</option>
-                    <option value="15" <?php echo e(old('numTribunal', $project->numTribunal) == '15' ? 'selected' : ''); ?>>15</option>
-                    <option value="16" <?php echo e(old('numTribunal', $project->numTribunal) == '16' ? 'selected' : ''); ?>>16</option>
-                    <option value="17" <?php echo e(old('numTribunal', $project->numTribunal) == '17' ? 'selected' : ''); ?>>17</option>
-                    <option value="18" <?php echo e(old('numTribunal', $project->numTribunal) == '18' ? 'selected' : ''); ?>>18</option>
-                    <option value="19" <?php echo e(old('numTribunal', $project->numTribunal) == '19' ? 'selected' : ''); ?>>19</option>
-                    <option value="20" <?php echo e(old('numTribunal', $project->numTribunal) == '20' ? 'selected' : ''); ?>>20</option>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php for($i = 1; $i <= 20; $i++): ?>
+                        <option value="<?php echo e($i); ?>" <?php echo e(old('numTribunal', $project->numTribunal) == $i ? 'selected' : ''); ?>><?php echo e($i); ?>
 
+                        </option>
+                    <?php endfor; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </select>
                 <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['numTribunal'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -282,122 +239,281 @@ endif;
 unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
-            <div class="mb-4">
-                <label for="imagenProject" class="block text-gray-700 font-semibold mb-2">Subir Imagen</label>
-                <div class="card p-4 bg-gray-50 rounded-lg border border-gray-300 shadow-sm sticky top-4">
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-semibold text-gray-700 uppercase mb-3">Archivo</label>
-                            <input type="file" name="new_project_image"
-                                class="mt-1 block w-full text-sm file:mr-4 file:py-1 file:px-3 file:rounded-full file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+            <div class="mb-6">
+                <label class="block text-gray-700 font-bold mb-3 flex items-center">
+                    <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                    Galería y Pasos del Proyecto
+                </label>
+
+                <?php $totalFotos = $project->images->count(); ?>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="lg:col-span-1 bg-white p-5 rounded-lg border border-gray-300 shadow-sm h-fit">
+                        <div class="flex justify-between items-center mb-4 border-b pb-2">
+                            <h3 class="text-sm font-bold text-gray-800 uppercase">Nueva Imagen</h3>
+                            <span class="text-[10px] font-bold <?php echo e($totalFotos >= 6 ? 'text-red-500' : 'text-green-600'); ?>">
+                                <?php echo e($totalFotos); ?>/6
+                            </span>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-3">
-                            <div>
-                                <label class="block text-sm font-semibold text-gray-700 uppercase mt-2">Sección</label>
-                                <select name="new_image_fase"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm text-sm">
-                                    <option value="header">Portada</option>
-                                    <option value="initial">Estado Inicial</option>
-                                    <option value="procedimiento">Procedimiento</option>
-                                    <option value="final">Estado Final</option>
-                                </select>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($totalFotos >= 6): ?>
+                            <div class="bg-red-50 border border-red-200 text-red-700 p-2 rounded text-[10px] mb-4">
+                                <strong>Límite alcanzado.</strong> Borra una imagen para subir otra.
                             </div>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+                        <div class="space-y-4 <?php echo e($totalFotos >= 6 ? 'opacity-40 pointer-events-none' : ''); ?>">
                             <div>
-                                <label class="block text-sm font-semibold text-gray-700 uppercase mt-2">Orden</label>
-                                <input type="number" name="new_image_orden" value="1" min="1"
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm text-sm">
+                                <label class="block text-xs font-bold text-gray-500 uppercase mb-2">1. Archivo</label>
+                                <input type="file" name="new_project_image" <?php echo e($totalFotos >= 6 ? 'disabled' : ''); ?>
+
+                                    class="block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white cursor-pointer">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">2. Sección</label>
+                                    <select name="new_image_fase" class="block w-full rounded border-gray-300 text-xs">
+                                        <option value="header">Portada</option>
+                                        <option value="initial">E. Inicial</option>
+                                        <option value="procedimiento">Procedimiento</option>
+                                        <option value="final">E. Final</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">3. Orden</label>
+                                    <input type="number" name="new_image_orden" value="1" min="1" max="3"
+                                        class="block w-full rounded border-gray-300 text-xs">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <p class="text-xs text-gray-500 mt-1 mb-4 italic">
-                        * Las imágenes aparecerán en la ficha técnica del PDF tras pulsar "Guardar Cambios" *.
-                    </p>
-                    <div class="p-4 bg-white rounded-lg border border-gray-300 shadow-sm flex flex-col">
-                        <div class="flex items-center justify-between mb-3 border-b pb-2">
-                            <h3 class="text-xs font-bold text-gray-500 uppercase tracking-wider">Imágenes Actuales</h3>
-                            <span
-                                class="text-[10px] bg-gray-100 px-2 py-0.5 rounded-full text-gray-500"><?php echo e($project->images->count()); ?>
 
-                                archivos</span>
+
+                    <div class="lg:col-span-2 bg-gray-50 p-5 rounded-lg border border-gray-300">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-sm font-bold text-gray-600 uppercase">Imágenes guardadas</h3>
+                            <button type="button" onclick="openPreviewModal()"
+                                class="bg-amber-500 hover:bg-amber-600 text-white text-[10px] font-bold py-1.5 px-3 rounded shadow-sm transition flex items-center gap-2 uppercase">
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                </svg>
+                                Previsualizar PDF
+                            </button>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-3 mt-8">
+                        <div class="grid grid-cols-3 gap-3">
                             <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $project->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <div class="relative group border rounded-lg p-1 bg-white shadow-sm flex flex-col">
-                                    <div class="overflow-hidden rounded-md bg-gray-50 h-32 ">
+                                <div class="relative bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col">
+                                    <div class="rounded overflow-hidden aspect-video bg-gray-100 mb-2">
                                         <img src="<?php echo e(asset('storage/project_steps/' . $img->file_path)); ?>"
-                                            class="h-auto w-60 object-cover transition-transform duration-300 group-hover:scale-110">
+                                            class="w-full h-full object-cover">
                                     </div>
 
-                                    <div class="mt-1.5">
-                                        <?php
-                                            $color = match ($img->fase) {
-                                                'header' => 'bg-purple-100 text-purple-700',
-                                                'initial' => 'bg-amber-100 text-amber-700',
-                                                'procedimiento' => 'bg-blue-100 text-blue-700',
-                                                'final' => 'bg-green-100 text-green-700',
-                                                default => 'bg-gray-100 text-gray-700'
-                                            };
-                                            $nombreFase = match ($img->fase) {
-                                                'header' => 'PORTADA',
-                                                'initial' => 'INICIAL',
-                                                'procedimiento' => 'PASO ' . ($img->orden ?? ''),
-                                                'final' => 'FINAL',
-                                                default => $img->fase
-                                            };
-                                        ?>
-                                        <span
-                                            class="block text-[7px] font-black text-center py-0.5 rounded <?php echo e($color); ?> uppercase">
-                                            <?php echo e($nombreFase); ?>
+                                    <?php
+                                        $badgeColor = match ($img->fase) {
+                                            'header' => 'bg-purple-100 text-purple-700 border-purple-200',
+                                            'initial' => 'bg-amber-100 text-amber-700 border-amber-200',
+                                            'procedimiento' => 'bg-blue-100 text-blue-700 border-blue-200',
+                                            'final' => 'bg-green-100 text-green-700 border-green-200',
+                                            default => 'bg-gray-100 text-gray-600'
+                                        };
+                                        $label = match ($img->fase) {
+                                            'header' => 'PORTADA',
+                                            'initial' => 'ESTADO INICIAL',
+                                            'procedimiento' => 'PASO ' . ($img->orden ?? ''),
+                                            'final' => 'ESTADO FINAL',
+                                            default => strtoupper($img->fase)
+                                        };
+                                    ?>
 
-                                        </span>
-                                    </div>
+                                    <span class="block text-[7px] font-bold text-center py-0.5 rounded border <?php echo e($badgeColor); ?> uppercase mb-2">
+                                        <?php echo e($label); ?>
+
+                                    </span>
+
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($img->fase !== 'header'): ?>
+                                        <textarea name="image_descriptions[<?php echo e($img->id); ?>]" rows="3"
+                                            class="w-full text-[9px] border-gray-200 rounded p-1 leading-tight"
+                                            placeholder="Descripción técnica..."><?php echo e($img->description); ?></textarea>
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
                                     <button type="button"
-                                        onclick="if(confirm('¿Eliminar esta imagen?')) document.getElementById('delete-img-<?php echo e($img->id); ?>').submit();"
-                                        class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full h-5 w-5 flex items-center justify-center hover:bg-red-800 shadow-md border-2 border-white transition-all scale-0 group-hover:scale-100">
+                                        onclick="if(confirm('¿Eliminar imagen?')) document.getElementById('delete-img-<?php echo e($img->id); ?>').submit();"
+                                        class="absolute -top-1.5 -right-1.5 bg-red-500 text-white rounded-full h-4 w-4 flex items-center justify-center border border-white shadow hover:bg-red-700">
                                         <span class="text-[10px]">&times;</span>
                                     </button>
                                 </div>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->images->isEmpty()): ?>
-                                <p class="text-[11px] text-gray-400 italic text-center py-4">No hay imágenes cargadas.</p>
-                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
                     </div>
                 </div>
-                <!-- Botón de enviar -->
-                <div class="mt-8 flex flex-row gap-4 pt-6">
-            
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition">
-                Guardar Cambios
-            </button>
+            </div>
 
-            <button type="button" 
-                onclick="if(confirm('Si eliminas el proyecto también eliminarás a los estudiantes asociados. ¿Estás seguro?')) document.getElementById('delete-project-form').submit();" 
-                class="bg-red-800 hover:bg-red-900 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition">
-                Eliminar Proyecto
-            </button>
+            <div class="mt-8 flex flex-row gap-4 pt-6 border-t">
+                <button type="submit"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition">
+                    Guardar Cambios
+                </button>
 
-            <a href="javascript:history.back()" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition text-center">
-                Volver Atrás
-            </a>
+                <button type="button"
+                    onclick="if(confirm('Si eliminas el proyecto también eliminarás a los asociados. ¿Proceder?')) document.getElementById('delete-project-form').submit();"
+                    class="bg-red-800 hover:bg-red-900 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition">
+                    Eliminar Proyecto
+                </button>
+
+                <a href="javascript:history.back()"
+                    class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition text-center">
+                    Volver Atrás
+                </a>
+            </div>
+        </form>
+
+        <div id="previewModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black bg-opacity-70 flex items-center justify-center p-4">
+    <div class="relative bg-white w-full max-w-4xl rounded-lg shadow-2xl overflow-hidden animate-fade-in flex flex-col" style="max-height: 95vh;">
+        
+        <div class="bg-gray-100 px-6 py-4 flex justify-between items-center border-b">
+            <h2 class="text-lg font-bold text-gray-700 uppercase tracking-tight">Vista Previa de la Ficha Técnica</h2>
+            <button onclick="closePreviewModal()" class="text-gray-500 hover:text-red-500 text-3xl font-bold transition-colors">&times;</button>
         </div>
 
-    </form>
+        <div class="p-8 bg-gray-200 overflow-y-auto flex-grow shadow-inner">
+            <div id="pdf-paper" class="bg-white mx-auto p-12 text-gray-900 relative shadow-2xl" style="width: 210mm; min-height: 297mm; font-family: 'Helvetica', Arial, sans-serif;">
+                
+                <div class="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center p-10">
+                    <img src="<?php echo e(asset('images/Curriculum CV Fondo transparente.png')); ?>" class="w-full">
+                </div>
 
-    
-    <form id="delete-project-form" action="<?php echo e(route('projects.destroy', $project->idProject)); ?>" method="POST" class="hidden">
-        <?php echo csrf_field(); ?>
-        <?php echo method_field('DELETE'); ?>
-    </form>
+                <div class="flex justify-between items-start mb-10 border-b-2 border-gray-100 pb-6 relative z-10">
+                    <div class="w-2/3">
+                        <h1 id="modal-preview-title" class="text-3xl font-bold text-blue-800 uppercase italic leading-tight">
+                            <?php echo e($project->title); ?>
 
-    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $project->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-        <form id="delete-img-<?php echo e($img->id); ?>" action="<?php echo e(route('projects.image.destroy', $img->id)); ?>" method="POST" class="hidden">
-            <?php echo csrf_field(); ?>
-            <?php echo method_field('DELETE'); ?>
-        </form>
-    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                        </h1>
+                        <p class="text-[10px] text-gray-400 mt-2 tracking-widest uppercase">Ficha Técnica de Proyecto</p>
+                    </div>
+                    <div class="w-1/3 flex justify-end">
+                        <?php $portada = $project->images->where('fase', 'header')->first(); ?>
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($portada): ?>
+                            <div class="border-4 border-white shadow-lg transform rotate-2 overflow-hidden w-40 bg-gray-100">
+                                <img src="<?php echo e(asset('storage/project_steps/' . $portada->file_path)); ?>" class="w-full h-auto object-cover">
+                            </div>
+                        <?php else: ?>
+                            <div class="w-40 h-28 border-2 border-dashed border-gray-200 flex items-center justify-center text-[10px] text-gray-300 italic text-center px-4">
+                                Sin imagen de portada seleccionada
+                            </div>
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                    </div>
+                </div>
+
+                <div class="mb-8 border border-gray-100 p-4 rounded bg-blue-50 bg-opacity-30 relative z-10">
+                    <h3 class="text-blue-700 font-bold border-b border-blue-100 mb-2 uppercase text-[10px] tracking-widest">Resumen del Proyecto</h3>
+                    <p id="modal-preview-abstract" class="text-sm text-justify leading-relaxed break-words italic">
+                        <?php echo e($project->abstract); ?>
+
+                    </p>
+                </div>
+
+                <div id="modal-preview-steps" class="space-y-8 relative z-10">
+                    <?php $pasos = $project->images->where('fase', 'procedimiento')->sortBy('orden')->take(3)->values(); ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $pasos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <div class="flex gap-6 items-center <?php echo e($index % 2 != 0 ? 'flex-row-reverse' : ''); ?>">
+                            <div class="w-2/5 border p-1 rounded bg-white shadow-sm">
+                                <span class="text-[9px] font-bold text-blue-700 block border-b mb-1 uppercase tracking-tighter">Paso Técnico <?php echo e($img->orden ?? ($index + 1)); ?></span>
+                                <img src="<?php echo e(asset('storage/project_steps/' . $img->file_path)); ?>" class="w-full h-36 object-contain bg-gray-50">
+                            </div>
+                            <div class="w-3/5">
+                                <p class="text-[11px] text-gray-600 text-justify italic step-desc-preview" data-id="<?php echo e($img->id); ?>">
+                                    <?php echo e($img->description ?? 'Sin descripción técnica...'); ?>
+
+                                </p>
+                            </div>
+                        </div>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                </div>
+
+                <?php $final = $project->images->where('fase', 'final')->first(); ?>
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($final): ?>
+                    <div class="mt-12 pt-8 border-t-2 border-dashed border-gray-100 relative z-10">
+                        <div class="flex items-center gap-6">
+                            <div class="w-3/4">
+                                <h3 class="text-green-700 font-bold uppercase text-[10px] tracking-widest mb-2 flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                                    Resultado Final y Conclusión
+                                </h3>
+                                <p class="text-[11px] text-gray-500 italic step-desc-preview" data-id="<?php echo e($final->id); ?>">
+                                    <?php echo e($final->description ?? 'El proyecto se ha completado según los objetivos previstos...'); ?>
+
+                                </p>
+                            </div>
+                            <div class="w-1/4">
+                                <img src="<?php echo e(asset('storage/project_steps/' . $final->file_path)); ?>" class="w-full border-2 border-white shadow-md rounded-sm">
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+            </div>
+        </div>
+
+        <div class="bg-gray-100 px-6 py-3 text-right border-t text-[10px] text-gray-400 uppercase tracking-widest font-semibold italic">
+            Simulación de documento dinámico • Generado automáticamente para revisión
+        </div>
+    </div>
+</div>
+
+        <form id="delete-project-form" action="<?php echo e(route('projects.destroy', $project->idProject)); ?>" method="POST" class="hidden"><?php echo csrf_field(); ?> <?php echo method_field('DELETE'); ?></form>
+        <form id="delete-main-photo-form" action="<?php echo e(route('projects.photo.destroy', $project->idProject)); ?>" method="POST" class="hidden"><?php echo csrf_field(); ?> <?php echo method_field('DELETE'); ?></form>
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $project->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <form id="delete-img-<?php echo e($img->id); ?>" action="<?php echo e(route('projects.image.destroy', $img->id)); ?>" method="POST" class="hidden"><?php echo csrf_field(); ?> <?php echo method_field('DELETE'); ?></form>
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+    </div>
+
+    <script>
+        function checkLimit(checkbox) {
+            const checkboxes = document.querySelectorAll('.project-type-checkbox:checked');
+            if (checkboxes.length > 3) {
+                checkbox.checked = false;
+                alert('¡Máximo 3 tipos!');
+            }
+            const display = document.getElementById('count-display');
+            if(display) display.innerText = document.querySelectorAll('.project-type-checkbox:checked').length;
+        }
+
+        function openPreviewModal() {
+            document.getElementById('modal-preview-title').innerText = document.getElementById('title').value || 'SIN TÍTULO';
+            document.getElementById('modal-preview-abstract').innerText = document.getElementById('abstract').value || 'Sin descripción...';
+
+            document.querySelectorAll('textarea[name^="image_descriptions"]').forEach(textarea => {
+                const idMatch = textarea.name.match(/\[(\d+)\]/);
+                if (idMatch) {
+                    const id = idMatch[1];
+                    const targetP = document.querySelector(`.step-desc-preview[data-id="${id}"]`);
+                    if (targetP) targetP.innerText = textarea.value;
+                }
+            });
+
+            const modal = document.getElementById('previewModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePreviewModal() {
+            const modal = document.getElementById('previewModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('previewModal');
+            if (event.target == modal) closePreviewModal();
+        }
+    </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /var/www/jornada-automocion-api/resources/views/projects/edit.blade.php ENDPATH**/ ?>
