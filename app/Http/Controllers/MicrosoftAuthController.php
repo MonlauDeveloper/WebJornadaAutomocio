@@ -89,13 +89,6 @@ class MicrosoftAuthController extends Controller
             // 4. Gestión del Usuario en Base de Datos (Evitar duplicados de username)
             $user = User::where('email', $email)->first();
 
-           // dd([
-           // 'token_de_microsoft' => $microsoftUser->token,
-            //'email_real_microsoft' => $microsoftUser->email,
-           // 'nombre_completo' => $microsoftUser->name,
-           // 'todo_lo_que_envia_microsoft' => $microsoftUser->user // Aquí verás givenName, surname, jobTitle, etc.
-       // ]);
-
             if (!$user) {
                 $user = new User();
                 $user->email = $email;
