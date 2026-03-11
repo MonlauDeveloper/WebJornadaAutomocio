@@ -101,8 +101,6 @@ class Apicontroller extends Controller
         return $presentations;
     }
 
-
-
     public function students(int $limit, int $page, string $order = "idStudent")
     {
         return Apicontroller::paginate('students', $limit, $page, $order);
@@ -156,8 +154,6 @@ class Apicontroller extends Controller
     }
     public function getProjectById(int $id)
     {
-        // 1. Buscamos el proyecto con sus relaciones
-        // Nota: He quitado 'curso' de with() porque confirmamos que NO es una tabla aparte
         $project = \App\Models\Project::with(['students', 'specialization', 'ubication'])
             ->where('idProject', $id)
             ->first();
@@ -166,13 +162,11 @@ class Apicontroller extends Controller
             return response()->json(['message' => 'Proyecto no encontrado'], 404);
         }
 
-        // 2. Extraemos todos los atributos de la base de datos
         $atributosActuales = $project->getAttributes();
         $columnasEnDB = array_keys($atributosActuales);
 
-        // 3. Respuesta con sección de Diagnóstico
         return response()->json([
-            'proyecto' => $project, // El objeto que usará tu App
+            'proyecto' => $project,
             'DEBUG_INFO' => [
                 'mensaje' => 'Si no ves el campo curso dentro de "proyecto", revisa la lista de abajo',
                 'columnas_reales_en_tu_tabla' => $columnasEnDB,
@@ -189,28 +183,27 @@ class Apicontroller extends Controller
     {
         if ($filter == "student") {
             $proj_filter = [];
-            $columns = array('projects.idProject', 'numTribunal', 'abstract', 'moodleURL', 'pdfURL', 'projects.photoName', 'specialization', 'title', 'ubicationName', 'videoURL');
+            $columns = array('projects.idProject', 'numTribunal', 'abstract', 'moodleURL', 'pdfURL', 'projects.photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'curso');
             $projects = DB::table('projects')
                 ->offset(($page - 1) * $limit)
                 ->limit($limit)->orderBy($order)
                 ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
                 ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
                 ->join('students', 'projects.idProject', 'students.idProject')
-                ->where('name', 'like', '%' . $value . '%')
+                ->where('students.name', 'like', '%' . $value . '%')
+                ->orWhere('students.surname1', 'like', '%' . $value . '%')
                 ->select($columns)
                 ->get();
 
             foreach ($projects as $p) {
-                if (DB::table('students')->where('idProject', $p->idProject)->get()->count() > 0) {
-                    $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
-                    array_push($proj_filter, $p);
-                }
+                $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
+                $proj_filter[] = $p;
             }
             return $proj_filter;
         } else {
-            $columns = array('idProject', 'numTribunal', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL');
+            $columns = array('idProject', 'numTribunal', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'curso');
             $projects = DB::table('projects')
-                ->whereLike('projects.' . $filter, '%' . $value . '%')
+                ->where('projects.' . $filter, 'like', '%' . $value . '%')
                 ->offset(($page - 1) * $limit)
                 ->limit($limit)->orderBy($order)
                 ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
@@ -222,6 +215,53 @@ class Apicontroller extends Controller
             }
             return $projects;
         }
+    }
+
+    // NUEVA FUNCIÓN: Búsqueda Global corregida con agrupación de condiciones
+    public function search_projects_global(Request $request, $query)
+    {
+        $isMonlauTech = $request->query('monlauTech', '0');
+
+        $columns = array(
+            'projects.idProject', 
+            'projects.numTribunal', 
+            'projects.abstract', 
+            'projects.moodleURL', 
+            'projects.pdfURL', 
+            'projects.photoName', 
+            'specializations.specialization', 
+            'projects.title', 
+            'ubications.ubicationName', 
+            'projects.videoURL', 
+            'projects.curso'
+        );
+        
+        $projectsQuery = DB::table('projects')
+            ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
+            ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
+            ->leftJoin('students', 'projects.idProject', '=', 'students.idProject')
+            ->where(function($q) use ($query) {
+                $q->where('projects.title', 'like', '%' . $query . '%')
+                  ->orWhere('students.name', 'like', '%' . $query . '%')
+                  ->orWhere('students.surname1', 'like', '%' . $query . '%');
+            });
+
+        if ($isMonlauTech == '1') {
+            $projectsQuery->where('projects.idSpecialization', 5);
+        } else {
+            $projectsQuery->where('projects.idSpecialization', '!=', 5);
+        }
+
+        $projects = $projectsQuery->select($columns)
+            ->distinct()
+            ->limit(50)
+            ->get();
+
+        foreach ($projects as $p) {
+            $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
+        }
+        
+        return response()->json($projects);
     }
 
     public function projects_filter_pages(int $limit, string $filter, string $value)
@@ -246,7 +286,7 @@ class Apicontroller extends Controller
         } else {
             $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL');
             $projects = DB::table('projects')
-                ->whereLike('projects.' . $filter, '%' . $value . '%')
+                ->where('projects.' . $filter, 'like', '%' . $value . '%')
                 ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
                 ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
                 ->select($columns)
@@ -264,10 +304,8 @@ class Apicontroller extends Controller
             return response()->json(['message' => 'No autenticado'], 401);
         }
 
-        // El ID que vincula todo es el idUser del token
         $userId = $user->idUser;
 
-        // 1. BUSCAR EN TEACHERS (Usando la estructura de tu imagen)
         $teacher = DB::table('teachers')->where('idUser', $userId)->first();
         if ($teacher) {
             return response()->json([
@@ -284,7 +322,6 @@ class Apicontroller extends Controller
             ]);
         }
 
-        // 2. BUSCAR EN ESTUDIANTES
         $student = DB::table('students')->where('idUser', $userId)->first();
         if ($student) {
             $student->type = 'student';
@@ -297,7 +334,6 @@ class Apicontroller extends Controller
             return response()->json($student);
         }
 
-        // 3. BUSCAR EN EMPRESAS
         $company = DB::table('companies')->where('idUser', $userId)->first();
         if ($company) {
             $company->type = 'company';
@@ -313,7 +349,7 @@ class Apicontroller extends Controller
         return response()->json(['message' => 'Perfil no encontrado en teachers, students ni companies.'], 404);
     }
 
-    // --- GESTIÓN DE MESAS (Crear y Listar) ---
+    // --- GESTIÓN DE MESAS ---
     public function createCompanyTable(Request $request)
     {
         $request->validate([
@@ -344,38 +380,41 @@ class Apicontroller extends Controller
         return response()->json($tables);
     }
 
-    // --- GESTIÓN DE HORARIOS Y RESERVAS (Integrado con 2 tramos) ---
-
+    // --- GESTIÓN DE HORARIOS Y RESERVAS ---
     public function get_table_slots($idTable)
     {
-        // 1. Configuración de TRAMOS HORARIOS
-        // 09:30 a 10:30 (Primer bloque)
-        // 11:00 a 13:30 (Segundo bloque)
         $ranges = [
             ['start' => '09:30', 'end' => '10:30'],
             ['start' => '11:00', 'end' => '13:30']
         ];
 
-        $interval = 10 * 60; // 15 minutos
+        $interval = 10 * 60; 
 
-        // 2. Obtener las reservas existentes
         $bookedSlots = DB::table('time_slots')
             ->where('idTable', $idTable)
             ->join('students', 'time_slots.idStudent', '=', 'students.idStudent')
             ->join('users', 'students.idUser', '=', 'users.idUser')
-            ->select('time_slots.start_time', 'users.username')
+            ->select(
+                'time_slots.start_time', 
+                'users.username', 
+                'time_slots.idStudent', 
+                'students.name', 
+                'students.surname1'
+            )
             ->get();
 
-        // Mapa rápido: '09:30' => 'usuario1'
         $bookedMap = [];
         foreach ($bookedSlots as $slot) {
             $timeKey = date('H:i', strtotime($slot->start_time));
-            $bookedMap[$timeKey] = $slot->username;
+            $bookedMap[$timeKey] = [
+                'username' => $slot->username,
+                'idStudent' => $slot->idStudent,
+                'fullName' => trim($slot->name . ' ' . $slot->surname1)
+            ];
         }
 
-        // 3. Generar la lista de huecos recorriendo los tramos
         $slots = [];
-        $today = date('Y-m-d'); // Fecha de hoy
+        $today = date('Y-m-d'); 
 
         foreach ($ranges as $range) {
             $currentTime = strtotime($today . ' ' . $range['start']);
@@ -383,15 +422,14 @@ class Apicontroller extends Controller
 
             while ($currentTime < $endTime) {
                 $timeStr = date('H:i', $currentTime);
-                // Formato ISO
                 $isoDate = date('Y-m-d\TH:i:s', $currentTime);
-
                 $isBooked = array_key_exists($timeStr, $bookedMap);
 
                 $slots[] = [
                     'time' => $isoDate,
                     'isBooked' => $isBooked,
-                    'bookedBy' => $isBooked ? $bookedMap[$timeStr] : null
+                    'bookedBy' => $isBooked ? ($bookedMap[$timeStr]['fullName'] ?: $bookedMap[$timeStr]['username']) : null,
+                    'idStudent' => $isBooked ? $bookedMap[$timeStr]['idStudent'] : null
                 ];
 
                 $currentTime += $interval;
@@ -409,18 +447,6 @@ class Apicontroller extends Controller
         ]);
 
         $bookingTime = date('Y-m-d H:i:s', strtotime($request->time));
-
-        // 1. Verificar si ya está ocupado
-        $exists = DB::table('time_slots')
-            ->where('idTable', $idTable)
-            ->where('start_time', $bookingTime)
-            ->exists();
-
-        if ($exists) {
-            return response()->json(['message' => 'Este horario ya está reservado.'], 409);
-        }
-
-        // 2. Obtener ID del estudiante usando el username
         $user = User::where('username', $request->username)->first();
 
         if (!$user) {
@@ -433,7 +459,42 @@ class Apicontroller extends Controller
             return response()->json(['message' => 'Este usuario no es un alumno válido'], 403);
         }
 
-        // 3. Insertar reserva
+        $exists = DB::table('time_slots')
+            ->where('idTable', $idTable)
+            ->where('start_time', $bookingTime)
+            ->exists();
+
+        if ($exists) {
+            return response()->json(['message' => 'Este horario ya está reservado por otro alumno.'], 409);
+        }
+
+        $studentBusy = DB::table('time_slots')
+            ->where('idStudent', $student->idStudent)
+            ->where('start_time', $bookingTime)
+            ->exists();
+
+        if ($studentBusy) {
+            return response()->json(['message' => 'Ya tienes una entrevista programada a esta hora.'], 409);
+        }
+
+        $targetTable = DB::table('company_tables')->where('idTable', $idTable)->first();
+        
+        if (!$targetTable) {
+             return response()->json(['message' => 'La mesa no existe.'], 404);
+        }
+        
+        $targetCompanyId = $targetTable->idCompany;
+
+        $alreadyBookedCompany = DB::table('time_slots')
+            ->join('company_tables', 'time_slots.idTable', '=', 'company_tables.idTable')
+            ->where('time_slots.idStudent', $student->idStudent)
+            ->where('company_tables.idCompany', $targetCompanyId)
+            ->exists();
+
+        if ($alreadyBookedCompany) {
+            return response()->json(['message' => 'Ya tienes una reserva con esta empresa. Solo se permite una.'], 409);
+        }
+
         DB::table('time_slots')->insert([
             'idTable' => $idTable,
             'start_time' => $bookingTime,
@@ -442,16 +503,33 @@ class Apicontroller extends Controller
             'updated_at' => now()
         ]);
 
-        return response()->json(['message' => 'Reserva confirmada'], 200);
+        return response()->json(['message' => 'Reserva confirmada', 'success' => true], 200);
     }
 
     public function cancel_table_slot(Request $request, $idTable)
     {
         $request->validate([
-            'time' => 'required'
+            'time' => 'required',
+            'reason' => 'nullable|string' 
         ]);
 
         $bookingTime = date('Y-m-d H:i:s', strtotime($request->time));
+        $slot = DB::table('time_slots')
+            ->where('idTable', $idTable)
+            ->where('start_time', $bookingTime)
+            ->first();
+
+        if (!$slot) {
+            return response()->json(['message' => 'No se encontró la reserva para cancelar'], 404);
+        }
+
+        DB::table('cancellations')->insert([
+            'idTable' => $idTable,
+            'idStudent' => $slot->idStudent,
+            'reservation_time' => $bookingTime,
+            'reason' => $request->reason ?? 'Sin motivo especificado',
+            'cancelled_at' => now()
+        ]);
 
         $deleted = DB::table('time_slots')
             ->where('idTable', $idTable)
@@ -459,40 +537,35 @@ class Apicontroller extends Controller
             ->delete();
 
         if ($deleted) {
-            return response()->json(['message' => 'Reserva cancelada'], 200);
+            return response()->json(['message' => 'Reserva cancelada y motivo registrado'], 200);
         } else {
-            return response()->json(['message' => 'No se encontró la reserva para cancelar'], 404);
+            return response()->json(['message' => 'Error al eliminar la reserva'], 500);
         }
     }
-    // --- OBTENER MIS RESERVAS (Para restaurar notificaciones) ---
+
     public function getMyBookings(Request $request)
     {
         $user = $request->user();
-
-        // 1. Obtener el ID de estudiante del usuario logueado
-        // (Si entra una Empresa o Admin, no tendrá idStudent, devolvemos array vacío)
         $student = DB::table('students')->where('idUser', $user->idUser)->first();
 
         if (!$student) {
             return response()->json([]);
         }
 
-        // 2. Buscar reservas FUTURAS (start_time >= ahora)
-        // Hacemos JOIN con 'company_tables' y 'companies' para saber con QUIÉN es la cita
         $bookings = DB::table('time_slots')
             ->where('time_slots.idStudent', $student->idStudent)
-            ->where('time_slots.start_time', '>=', now())
             ->join('company_tables', 'time_slots.idTable', '=', 'company_tables.idTable')
             ->join('companies', 'company_tables.idCompany', '=', 'companies.idCompany')
             ->select(
-                'time_slots.start_time',     // Fecha y hora ISO (YYYY-MM-DD HH:mm:ss)
-                'companies.companyName',     // Nombre de la empresa (ej: Porsche)
-                'company_tables.tableName'   // Nombre de la mesa (ej: Mesa 1)
+                'time_slots.start_time',
+                'time_slots.idTable',
+                'companies.idCompany',
+                'companies.companyName',
+                'company_tables.tableName'
             )
             ->orderBy('time_slots.start_time', 'asc')
             ->get();
 
         return response()->json($bookings);
     }
-
 }

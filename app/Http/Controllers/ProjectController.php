@@ -24,20 +24,19 @@ class ProjectController extends Controller
         $ubications = \App\Models\Ubication::whereNotNull('UbicationName')->get();
         $tipos = \App\Models\ProjectType::pluck('name', 'idProjectType');
 
-        $query = Project::query()->with(['students', 'ubication']);
+        // Cargamos también la relación 'projectTypes' para evitar consultas extra en la vista
+        $query = Project::query()->with(['students', 'ubication', 'projectTypes']);
 
         // 1. Filtrar por especialización
         if ($request->filled('specialization')) {
             $query->where('idSpecialization', $request->specialization);
         }
 
-        // 2. BUSCADOR (Corregido para ser acumulativo)
+        // 2. BUSCADOR (Acumulativo)
         if ($request->filled('search')) {
             $search = $request->search;
             $query->where(function ($q) use ($search) {
-                // Busca por título del proyecto
                 $q->where('title', 'like', '%' . $search . '%')
-                    // O busca por nombre/apellidos de los alumnos
                     ->orWhereHas('students', function ($sq) use ($search) {
                         $sq->where('name', 'like', '%' . $search . '%')
                             ->orWhere('surname1', 'like', '%' . $search . '%')
@@ -51,9 +50,12 @@ class ProjectController extends Controller
             $query->where('curso', $request->curso);
         }
 
-        // 4. Filtrar por tipo proyecto
-        if ($request->filled('tipo')) {
-            $query->where('idProjectType', $request->tipo);
+        // 4. FILTRO POR TIPO PROYECTO (MÚLTIPLE)
+        // Cambiamos 'tipo' por 'tipos' que es el nombre del array en tu vista
+        if ($request->filled('tipos') && is_array($request->tipos)) {
+            $query->whereHas('projectTypes', function ($q) use ($request) {
+                $q->whereIn('project_types.idProjectType', $request->tipos);
+            });
         }
 
         // 5. Filtrar por número de tribunal
@@ -66,7 +68,8 @@ class ProjectController extends Controller
             $query->where('idUbication', $request->idUbication);
         }
 
-        $projects = $query->paginate(6)->withQueryString(); // Importante: mantiene los filtros al cambiar de página
+        // Importante: withQueryString() mantiene los filtros al cambiar de página
+        $projects = $query->paginate(6)->withQueryString();
 
         return view('projects.index', compact('projects', 'specializations', 'cursos', 'ubications', 'tipos'));
     }
@@ -116,6 +119,7 @@ class ProjectController extends Controller
             'pdfURL' => 'nullable|url',
             'moodleURL' => 'nullable|url',
             'abstract' => 'nullable|string',
+            'conclusion' => 'nullable|string',
         ]);
 
         $photoName = null;
@@ -180,101 +184,108 @@ class ProjectController extends Controller
     }
 
     public function update(Request $request, Project $project)
-    {
-        // 1. VALIDACIÓN
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'idSpecialization' => 'required|string|max:255',
-            'curso' => 'required|string|max:255',
-            'photoName' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
-            'videoURL' => 'nullable|url',
-            'pdfURL' => 'nullable|mimes:pdf|max:5120',
-            'moodleURL' => 'nullable|url',
-            'abstract' => 'nullable|string|max:1500',
-            'idUbication' => 'nullable|integer',
-            'numTribunal' => 'nullable|integer',
-            'idProjectType' => 'nullable|exists:project_types,idProjectType',
-            // Validación de la nueva imagen
-            'new_project_image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:5120',
-            'new_image_fase' => 'nullable|string',
-            'new_image_orden' => 'nullable|integer',
-            // Validación de las descripciones (Array)
-            'image_descriptions' => 'nullable|array',
+{
+    $action = $request->input('action');
+
+    // --- ACCIÓN 1: Actualizar descripción de una imagen específica ---
+    if (str_starts_with($action, 'update_text_')) {
+        $imageId = str_replace('update_text_', '', $action);
+
+        // Subimos a 500 para dar margen a caracteres especiales/saltos de línea
+        $request->validate([
+            "image_descriptions.$imageId" => 'nullable|string|max:500'
         ]);
 
-        // Actualizar datos básicos
-        $project->title = $request->title;
-        $project->idSpecialization = $request->idSpecialization;
-        $project->curso = $request->curso;
-        $project->idProjectType = $request->idProjectType;
-        $project->videoURL = $request->videoURL;
-        $project->moodleURL = $request->moodleURL;
-        $project->abstract = $request->abstract;
-        $project->idUbication = $request->idUbication;
-        $project->numTribunal = $request->numTribunal;
+        \App\Models\ProjectImage::where('id', $imageId)
+            ->where('idProject', $project->idProject)
+            ->update(['description' => $request->input("image_descriptions.$imageId")]);
 
-        // Manejo de foto principal y PDF
-        if ($request->hasFile('photoName') && $request->file('photoName')->isValid()) {
-            $photoName = time() . '_photo.' . $request->file('photoName')->getClientOriginalExtension();
-            $request->file('photoName')->storeAs('photos', $photoName, 'public');
-            $project->photoName = $photoName;
-        }
-
-        if ($request->hasFile('pdfURL') && $request->file('pdfURL')->isValid()) {
-            $pdfName = time() . '_pdf.' . $request->file('pdfURL')->getClientOriginalExtension();
-            $request->file('pdfURL')->storeAs('pdfs', $pdfName, 'public');
-            $project->pdfURL = $pdfName;
-        }
-
-        $project->save();
-
-        // --- GUARDAR DESCRIPCIONES DE IMÁGENES EXISTENTES ---
-        if ($request->has('image_descriptions')) {
-            foreach ($request->image_descriptions as $imageId => $description) {
-                // Actualizamos la descripción en la tabla pivot/relacionada
-                \DB::table('project_images')
-                    ->where('id', $imageId)
-                    ->update(['description' => $description]);
-            }
-        }
-
-        // --- LÓGICA DE SUBIDA CON LÍMITE DE 6 ---
-        if ($request->hasFile('new_project_image') && $request->file('new_project_image')->isValid()) {
-
-            // CAPAR A 6 FOTOS MÁXIMO
-            $totalActual = $project->images()->count();
-            if ($totalActual >= 6) {
-                return redirect()->back()->with('error', 'Límite de 6 imágenes alcanzado. Borra una para subir otra.');
-            }
-
-            $faseDestino = $request->new_image_fase;
-
-            // Sustitución si no es procedimiento
-            if ($faseDestino !== 'procedimiento') {
-                $fotoAntigua = $project->images()->where('fase', $faseDestino)->first();
-                if ($fotoAntigua) {
-                    if (\Storage::disk('public')->exists('project_steps/' . $fotoAntigua->file_path)) {
-                        \Storage::disk('public')->delete('project_steps/' . $fotoAntigua->file_path);
-                    }
-                    $fotoAntigua->delete();
-                }
-            }
-
-            // Guardar la nueva
-            $image = $request->file('new_project_image');
-            $fileName = time() . '_' . $image->getClientOriginalName();
-            $image->storeAs('project_steps', $fileName, 'public');
-
-            $project->images()->create([
-                'idProject' => $project->idProject,
-                'file_path' => $fileName,
-                'fase' => $faseDestino,
-                'orden' => $request->new_image_orden ?? 1,
-            ]);
-        }
-
-        return redirect()->back()->with('success', '¡Proyecto y ficha técnica actualizados!');
+        return redirect()->back()->with('success', 'Descripción de la imagen actualizada.');
     }
+
+    // --- ACCIÓN 2: Subida de nueva imagen con COMPRESIÓN V3 ---
+    if ($action === 'upload_image') {
+        $request->validate([
+            'new_project_image' => 'required|image|max:20480', // Aceptamos hasta 20MB
+        ]);
+
+        if ($project->images()->count() >= 6) {
+            return redirect()->back()->with('error', 'Límite de 6 imágenes alcanzado.');
+        }
+
+        $file = $request->file('new_project_image');
+        $fase = $request->input('new_image_fase', 'procedimiento');
+        $fileName = time() . '_' . $file->getClientOriginalName();
+
+        // Borrar anterior si es fase única
+        if (in_array($fase, ['header', 'initial', 'final'])) {
+            $oldImg = $project->images()->where('fase', $fase)->first();
+            if ($oldImg) {
+                \Storage::disk('public')->delete('project_steps/' . $oldImg->file_path);
+                $oldImg->delete();
+            }
+        }
+
+        // Lógica de Compresión Intervention V3
+        $manager = new \Intervention\Image\ImageManager(new \Intervention\Image\Drivers\Gd\Driver());
+        $image = $manager->read($file);
+        $image->scale(width: 1200);
+        $image->toJpeg(80)->save(storage_path('app/public/project_steps/' . $fileName));
+
+        $project->images()->create([
+            'file_path' => $fileName,
+            'fase' => $fase,
+            'orden' => $request->input('new_image_orden', 1),
+            'description' => ''
+        ]);
+
+        return redirect()->back()->with('success', 'Imagen optimizada y añadida.');
+    }
+
+    // --- ACCIÓN POR DEFECTO: Guardar Cambios Generales (Botón Azul) ---
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'abstract' => 'nullable|string|max:1500',
+        'tipos' => 'nullable|array|max:3',
+        'photoName' => 'nullable|image|max:20480',
+        'image_descriptions.*' => 'nullable|string|max:500', // Validamos todos los textos
+    ]);
+
+    $project->title = $request->title;
+    $project->abstract = $request->abstract;
+    $project->conclusion = $request->conclusion;
+    $project->videoURL = $request->videoURL;
+    $project->moodleURL = $request->moodleURL;
+
+    // Manejo de Foto de Portada con COMPRESIÓN
+    if ($request->hasFile('photoName')) {
+        if ($project->photoName && $project->photoName !== 'por_defecto/proyecto_default.png') {
+            \Storage::disk('public')->delete('photos/' . $project->photoName);
+        }
+        $photo = $request->file('photoName');
+        $photoPath = time() . '_portada.jpg';
+
+        $manager = new \Intervention\Image\ImageManager(new \Intervention\Image\Drivers\Gd\Driver());
+        $manager->read($photo)->scale(width: 1200)->toJpeg(80)->save(storage_path('app/public/photos/' . $photoPath));
+        
+        $project->photoName = $photoPath;
+    }
+
+    $project->save();
+
+    // Guardado masivo de descripciones (esto hace que el botón azul sea infalible)
+    if ($request->has('image_descriptions')) {
+        foreach ($request->input('image_descriptions') as $id => $desc) {
+            \App\Models\ProjectImage::where('id', $id)
+                ->where('idProject', $project->idProject)
+                ->update(['description' => $desc]);
+        }
+    }
+
+    $project->projectTypes()->sync($request->input('tipos', []));
+
+    return redirect()->back()->with('success', '¡Todo el proyecto ha sido actualizado y las imágenes optimizadas!');
+}
 
 
     // Eliminar un proyecto
@@ -467,6 +478,7 @@ class ProjectController extends Controller
 
         // 1. Buscamos el proyecto con sus imágenes
         $project = Project::with(['students', 'images', 'specialization'])->findOrFail($id);
+        $project = Project::with(['students', 'images', 'specialization', 'projectTypes'])->findOrFail($id);
 
         // 2. Filtramos por fase (esto ya lo tienes)
         $fotoHeader = $project->images->where('fase', 'header')->first();
@@ -514,15 +526,15 @@ class ProjectController extends Controller
 
     // Método para eliminar solo la foto principal del proyecto
     public function destroyPhoto(Project $project)
-{
-    if ($project->photoName && \Storage::disk('public')->exists('photos/' . $project->photoName)) {
-        \Storage::disk('public')->delete('photos/' . $project->photoName);
+    {
+        if ($project->photoName && \Storage::disk('public')->exists('photos/' . $project->photoName)) {
+            \Storage::disk('public')->delete('photos/' . $project->photoName);
+        }
+
+        $project->photoName = 'por_defecto/proyecto_default.png';
+        $project->save();
+
+        return redirect()->back()->with('success', 'Foto eliminada. Se ha restaurado la imagen por defecto.');
     }
-
-    $project->photoName = 'por_defecto/proyecto_default.png';
-    $project->save();
-
-    return redirect()->back()->with('success', 'Foto eliminada. Se ha restaurado la imagen por defecto.');
-}
 }
 

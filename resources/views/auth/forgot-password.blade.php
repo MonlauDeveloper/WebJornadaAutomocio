@@ -1,24 +1,26 @@
 <x-guest-layout>
-    <div class="h-screen bg-cover bg-center relative" style="background-image: url('/images/imagenFondo.webp')">
+    <div class="h-screen bg-cover bg-center relative flex items-center justify-center" style="background-image: url('/images/imagenFondo.webp')">
         <div class="absolute inset-0 bg-blue-500 bg-opacity-50"></div> 
 
-        <div class="flex items-center justify-center h-full relative z-10">
-            <div class="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-md">
-                <img src="{{ asset('images/logoMonlau.png') }}" alt="Logo" class="mx-auto w-40 mb-4">
+        <div class="relative z-10 w-full max-w-[420px] px-4">
+            <div class="bg-white bg-opacity-95 p-6 md:p-8 rounded-[2.5rem] shadow-lg transition-all">
                 
-                <form method="POST" action="{{ route('password.email') }}" class="space-y-4">
+                <div class="flex justify-center mb-6">
+                    <img src="{{ asset('images/logoMonlau2026(2).png') }}" alt="Logo" class="w-full max-w-[220px] h-auto object-contain">
+                </div>
+                
+                <form method="POST" action="{{ route('password.email') }}" class="space-y-5">
                     @csrf
                     
-                    <h2 class="text-2xl font-bold text-center text-gray-800">Recuperar Contraseña</h2>
+                    <h2 class="text-xl font-bold text-center text-gray-800 uppercase tracking-tight">Recuperar Contraseña</h2>
 
-                    <p class="text-sm text-center text-gray-600">
+                    <p class="text-xs text-center text-gray-500 leading-relaxed px-2">
                         Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.
                     </p>
 
-                    <!-- Mensaje de error -->
                     @if ($errors->any())
-                        <div class="mb-4 text-sm text-red-600">
-                            <ul>
+                        <div class="text-[11px] text-red-600 bg-red-50 p-3 rounded-xl">
+                            <ul class="list-disc list-inside">
                                 @foreach ($errors->all() as $error)
                                     <li>{{ $error }}</li>
                                 @endforeach
@@ -26,12 +28,17 @@
                         </div>
                     @endif
 
-                    <!-- Campo Email -->
-                    <div class="space-y-2">
-                        <x-label for="email" value="{{ __('Email') }}" class="block text-sm font-medium text-gray-600" />
+                    @if (session('status'))
+                        <div class="text-[11px] text-green-600 bg-green-50 p-3 rounded-xl text-center font-bold">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+
+                    <div class="space-y-1">
+                        <x-label for="email" value="{{ __('Email') }}" class="block text-xs font-semibold text-gray-600 ml-4 uppercase" />
                         <x-input 
                             id="email" 
-                            class="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" 
+                            class="block w-full px-5 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm bg-gray-50" 
                             type="email" 
                             name="email" 
                             :value="old('email')" 
@@ -41,26 +48,19 @@
                         />
                     </div>
 
-                    <!-- Botón de Enviar -->
-                    <button 
-                        type="submit" 
-                        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition">
-                        Enviar enlace
-                    </button>
+                    <div class="pt-2">
+                        <button 
+                            type="submit" 
+                            class="w-full bg-[#0051bb] hover:bg-[#004199] text-white font-bold py-3.5 rounded-full transition-all active:scale-[0.98] shadow-md uppercase text-[11px] tracking-widest">
+                            Enviar enlace
+                        </button>
+                    </div>
 
-                    <!-- Enlace a Iniciar Sesión -->
-                    <p class="text-sm text-center text-gray-600">
+                    <p class="text-[11px] text-center text-gray-500 pt-2">
                         ¿Recuerdas tu contraseña? 
-                        <a href="{{ route('login') }}" class="text-blue-500 hover:underline">Iniciar sesión</a>
+                        <a href="{{ route('login') }}" class="text-blue-600 font-bold hover:underline">Iniciar sesión</a>
                     </p>
                 </form>
-
-                <!-- Mensaje de estado -->
-                @if (session('status'))
-                    <div class="mt-4 text-sm text-green-600">
-                        {{ session('status') }}
-                    </div>
-                @endif
             </div>
         </div>
     </div>

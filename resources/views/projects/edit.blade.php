@@ -2,9 +2,27 @@
 
 @section('content')
     <style>
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-fade-in { animation: fadeIn 0.3s ease-out; }
-        #pdf-paper { box-sizing: border-box; box-shadow: 0 0 40px rgba(0,0,0,0.3); word-wrap: break-word; }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        #pdf-paper {
+            box-sizing: border-box;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+            word-wrap: break-word;
+        }
     </style>
 
     <div class="container mx-auto p-6">
@@ -17,8 +35,9 @@
 
             <div class="mb-4">
                 <label for="title" class="block text-gray-700 font-semibold mb-2">Título del Proyecto</label>
-                <input type="text" name="title" id="title" value="{{ old('title', $project->title) }}"
+                <input type="text" name="title" id="title" value="{{ old('title', $project->title) }}" maxlength="100"
                     class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
+                    <p class="text-gray-500 text-xs mt-1">Máximo 100 caracteres</p>
                 @error('title')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
@@ -28,8 +47,8 @@
                 <label for="abstract" class="block text-gray-700 font-semibold mb-2">Descripción</label>
                 <textarea name="abstract" id="abstract" rows="4"
                     class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-                    style="word-break: break-all;" maxlength="400">{{ old('abstract', $project->abstract) }}</textarea>
-                <p class="text-gray-500 text-xs mt-1">Máximo 400 caracteres</p>
+                    style="word-break: break-all;" maxlength="300">{{ old('abstract', $project->abstract) }}</textarea>
+                <p class="text-gray-500 text-xs mt-1">Máximo 300 caracteres</p>
                 @error('abstract')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror
@@ -205,25 +224,45 @@
                         <div class="space-y-4 {{ $totalFotos >= 6 ? 'opacity-40 pointer-events-none' : '' }}">
                             <div>
                                 <label class="block text-xs font-bold text-gray-500 uppercase mb-2">1. Archivo</label>
-                                <input type="file" name="new_project_image" {{ $totalFotos >= 6 ? 'disabled' : '' }}
+                                <input type="file" name="new_project_image" id="file_input_project" {{ $totalFotos >= 6 ? 'disabled' : '' }}
                                     class="block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white cursor-pointer">
                             </div>
 
-                            <div class="grid grid-cols-2 gap-3">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
                                 <div>
                                     <label class="block text-xs font-bold text-gray-500 uppercase mb-2">2. Sección</label>
-                                    <select name="new_image_fase" class="block w-full rounded border-gray-300 text-xs">
+                                    <select name="new_image_fase" id="image_fase_selector"
+                                        class="block w-full rounded border-gray-300 text-xs shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                        onchange="updateStepNumber(this)">
                                         <option value="header">Portada</option>
-                                        <option value="initial">E. Inicial</option>
-                                        <option value="procedimiento">Procedimiento</option>
-                                        <option value="final">E. Final</option>
+                                        <option value="initial">Estado Inicial</option>
+                                        <option value="procedimiento" data-orden="1">Paso Técnico 1</option>
+                                        <option value="procedimiento" data-orden="2">Paso Técnico 2</option>
+                                        <option value="procedimiento" data-orden="3">Paso Técnico 3</option>
+                                        <option value="final">Estado Final</option>
                                     </select>
                                 </div>
-                                <div>
-                                    <label class="block text-xs font-bold text-gray-500 uppercase mb-2">3. Orden</label>
-                                    <input type="number" name="new_image_orden" value="1" min="1" max="3"
-                                        class="block w-full rounded border-gray-300 text-xs">
+
+                                <input type="hidden" name="new_image_orden" id="new_image_orden" value="1">
+
+                                <div class="w-full">
+                                    <button type="submit" name="action" value="upload_image"
+                                        class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded text-xs transition shadow-sm uppercase">
+                                        Subir esta Imagen
+                                    </button>
                                 </div>
+                            </div>
+
+                            <div id="save-warning"
+                                class="hidden mt-3 p-2 bg-amber-50 border border-amber-200 rounded animate-pulse text-center">
+                                <p class="text-[9px] text-amber-700 font-bold uppercase flex items-center justify-center">
+                                    <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                    ¡Archivo listo! Pulsa "Subir esta Imagen" arriba.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -233,16 +272,18 @@
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-sm font-bold text-gray-600 uppercase">Imágenes guardadas</h3>
                             <button type="button" onclick="openPreviewModal()"
-                                class="bg-amber-500 hover:bg-amber-600 text-white text-[10px] font-bold py-1.5 px-3 rounded shadow-sm transition flex items-center gap-2 uppercase">
+                                class="bg-blue-500 hover:bg-blue-700 text-white text-[10px] font-bold py-1.5 px-3 rounded shadow-sm transition flex items-center gap-2 uppercase">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                 </svg>
                                 Previsualizar PDF
                             </button>
                         </div>
 
-                        <div class="grid grid-cols-3 gap-3">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                             @foreach($project->images as $img)
                                 <div class="relative bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col">
                                     <div class="rounded overflow-hidden aspect-video bg-gray-100 mb-2">
@@ -267,19 +308,27 @@
                                         };
                                     @endphp
 
-                                    <span class="block text-[7px] font-bold text-center py-0.5 rounded border {{ $badgeColor }} uppercase mb-2">
+                                    <span
+                                        class="block text-[7px] font-bold text-center py-0.5 rounded border {{ $badgeColor }} uppercase mb-2">
                                         {{ $label }}
                                     </span>
 
                                     @if($img->fase !== 'header')
-                                        <textarea name="image_descriptions[{{ $img->id }}]" rows="3"
-                                            class="w-full text-[9px] border-gray-200 rounded p-1 leading-tight"
-                                            placeholder="Descripción técnica...">{{ $img->description }}</textarea>
+                                        <div class="mt-auto">
+                                            <textarea name="image_descriptions[{{ $img->id }}]" rows="3" maxlength="300"
+                                                class="w-full text-[9px] border-gray-200 rounded p-1 leading-tight focus:ring-1 focus:ring-blue-400"
+                                                placeholder="Descripción técnica...">{{ $img->description }}</textarea>
+
+                                            <button type="button" onclick="saveImageText(this, {{ $img->id }})"
+                                                class="mt-1 w-full bg-blue-500 hover:bg-blue-600 text-white text-[8px] font-bold py-1 rounded transition uppercase">
+                                                <span class="btn-text">Guardar texto</span>
+                                            </button>
+                                        </div>
                                     @endif
 
                                     <button type="button"
                                         onclick="if(confirm('¿Eliminar imagen?')) document.getElementById('delete-img-{{ $img->id }}').submit();"
-                                        class="absolute -top-1.5 -right-1.5 bg-red-500 text-white rounded-full h-4 w-4 flex items-center justify-center border border-white shadow hover:bg-red-700">
+                                        class="absolute -top-1.5 -right-1.5 bg-red-500 text-white rounded-full h-4 w-4 flex items-center justify-center border border-white shadow hover:bg-red-700 transition-colors">
                                         <span class="text-[10px]">&times;</span>
                                     </button>
                                 </div>
@@ -289,117 +338,167 @@
                 </div>
             </div>
 
-            <div class="mt-8 flex flex-row gap-4 pt-6 border-t">
-                <button type="submit"
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition">
-                    Guardar Cambios
-                </button>
+            <div class="mb-4 p-4 border rounded-lg bg-gray-50">
+                <label for="conclusion" class="block text-gray-700 font-semibold mb-2">Conclusión Final</label>
+                <textarea name="conclusion" id="conclusion" rows="4"
+                    class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
+                    placeholder="Escribe aquí el resultado final del proyecto..."
+                    maxlength="300">{{ old('conclusion', $project->conclusion) }}</textarea>
+            </div>
 
-                <button type="button"
-                    onclick="if(confirm('Si eliminas el proyecto también eliminarás a los asociados. ¿Proceder?')) document.getElementById('delete-project-form').submit();"
-                    class="bg-red-800 hover:bg-red-900 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition">
-                    Eliminar Proyecto
-                </button>
+            <div class="mt-8 pt-6 border-t">
+                <div class="flex flex-row flex-wrap gap-3 items-center">
 
-                <a href="javascript:history.back()"
-                    class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition text-center">
-                    Volver Atrás
-                </a>
+                    <button type="submit"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
+                        Guardar Cambios
+                    </button>
+
+                    @if ($project->idProject)
+                        <a href="{{ route('project.pdf', $project->idProject) }}"
+                            class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow text-center">
+                            Descargar PDF
+                        </a>
+                    @endif
+
+                    <a href="javascript:history.back()"
+                        class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded shadow text-center">
+                        Volver
+                    </a>
+
+                    <button type="button"
+                        onclick="if(confirm('¿Eliminar proyecto y asociados?')) document.getElementById('delete-project-form').submit();"
+                        class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded shadow">
+                        Eliminar Proyecto
+                    </button>
+
+                </div>
             </div>
         </form>
 
-        <div id="previewModal" class="fixed inset-0 z-50 hidden overflow-y-auto bg-black bg-opacity-70 flex items-center justify-center p-4">
-    <div class="relative bg-white w-full max-w-4xl rounded-lg shadow-2xl overflow-hidden animate-fade-in flex flex-col" style="max-height: 95vh;">
-        
-        <div class="bg-gray-100 px-6 py-4 flex justify-between items-center border-b">
-            <h2 class="text-lg font-bold text-gray-700 uppercase tracking-tight">Vista Previa de la Ficha Técnica</h2>
-            <button onclick="closePreviewModal()" class="text-gray-500 hover:text-red-500 text-3xl font-bold transition-colors">&times;</button>
-        </div>
+        <div id="previewModal"
+            class="fixed inset-0 z-50 hidden overflow-y-auto bg-black bg-opacity-70 flex items-center justify-center p-4">
+            <div class="relative bg-white w-full max-w-4xl rounded-lg shadow-2xl overflow-hidden animate-fade-in flex flex-col"
+                style="max-height: 95vh;">
 
-        <div class="p-8 bg-gray-200 overflow-y-auto flex-grow shadow-inner">
-            <div id="pdf-paper" class="bg-white mx-auto p-12 text-gray-900 relative shadow-2xl" style="width: 210mm; min-height: 297mm; font-family: 'Helvetica', Arial, sans-serif;">
-                
-                <div class="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center p-10">
-                    <img src="{{ asset('images/Curriculum CV Fondo transparente.png') }}" class="w-full">
+                <div class="bg-gray-100 px-6 py-4 flex justify-between items-center border-b">
+                    <h2 class="text-lg font-bold text-gray-700 uppercase tracking-tight">Vista Previa de la Ficha
+                        Técnica</h2>
+                    <button onclick="closePreviewModal()"
+                        class="text-gray-500 hover:text-red-500 text-3xl font-bold transition-colors">&times;</button>
                 </div>
 
-                <div class="flex justify-between items-start mb-10 border-b-2 border-gray-100 pb-6 relative z-10">
-                    <div class="w-2/3">
-                        <h1 id="modal-preview-title" class="text-3xl font-bold text-blue-800 uppercase italic leading-tight">
-                            {{ $project->title }}
-                        </h1>
-                        <p class="text-[10px] text-gray-400 mt-2 tracking-widest uppercase">Ficha Técnica de Proyecto</p>
-                    </div>
-                    <div class="w-1/3 flex justify-end">
-                        @php $portada = $project->images->where('fase', 'header')->first(); @endphp
-                        @if($portada)
-                            <div class="border-4 border-white shadow-lg transform rotate-2 overflow-hidden w-40 bg-gray-100">
-                                <img src="{{ asset('storage/project_steps/' . $portada->file_path) }}" class="w-full h-auto object-cover">
+                <div class="p-8 bg-gray-200 overflow-y-auto flex-grow shadow-inner">
+                    <div id="pdf-paper" class="bg-white mx-auto p-12 text-gray-900 relative shadow-2xl"
+                        style="width: 210mm; min-height: 297mm; font-family: 'Helvetica', Arial, sans-serif;">
+
+                        <div class="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center p-10">
+                            <img src="{{ asset('images/Curriculum CV Fondo transparente.png') }}" class="w-full">
+                        </div>
+
+                        <div class="flex justify-between items-start mb-10 border-b-2 border-gray-100 pb-6 relative z-10">
+                            <div class="w-2/3">
+                                <h1 id="modal-preview-title"
+                                    class="text-3xl font-bold text-blue-800 uppercase italic leading-tight">
+                                    {{ $project->title }}
+                                </h1>
+                                <p class="text-[10px] text-gray-400 mt-2 tracking-widest uppercase">Ficha Técnica de
+                                    Proyecto</p>
                             </div>
-                        @else
-                            <div class="w-40 h-28 border-2 border-dashed border-gray-200 flex items-center justify-center text-[10px] text-gray-300 italic text-center px-4">
-                                Sin imagen de portada seleccionada
+                            <div class="w-1/3 flex justify-end">
+                                @php $portada = $project->images->where('fase', 'header')->first(); @endphp
+                                @if($portada)
+                                    <div
+                                        class="border-4 border-white shadow-lg transform rotate-2 overflow-hidden w-40 bg-gray-100">
+                                        <img src="{{ asset('storage/project_steps/' . $portada->file_path) }}"
+                                            class="w-full h-auto object-cover">
+                                    </div>
+                                @else
+                                    <div
+                                        class="w-40 h-28 border-2 border-dashed border-gray-200 flex items-center justify-center text-[10px] text-gray-300 italic text-center px-4">
+                                        Sin imagen de portada seleccionada
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="mb-8 border border-gray-100 p-4 rounded bg-blue-50 bg-opacity-30 relative z-10">
+                            <h3
+                                class="text-blue-700 font-bold border-b border-blue-100 mb-2 uppercase text-[10px] tracking-widest">
+                                Resumen del Proyecto</h3>
+                            <p id="modal-preview-abstract" class="text-sm text-justify leading-relaxed break-words italic">
+                                {{ $project->abstract }}
+                            </p>
+                        </div>
+
+                        <div id="modal-preview-steps" class="space-y-8 relative z-10">
+                            @php $pasos = $project->images->where('fase', 'procedimiento')->sortBy('orden')->take(3)->values(); @endphp
+                            @foreach($pasos as $index => $img)
+                                <div class="flex gap-6 items-center {{ $index % 2 != 0 ? 'flex-row-reverse' : '' }}">
+                                    <div class="w-2/5 border p-1 rounded bg-white shadow-sm">
+                                        <span
+                                            class="text-[9px] font-bold text-blue-700 block border-b mb-1 uppercase tracking-tighter">Paso
+                                            Técnico {{ $img->orden ?? ($index + 1) }}</span>
+                                        <img src="{{ asset('storage/project_steps/' . $img->file_path) }}"
+                                            class="w-full h-36 object-contain bg-gray-50">
+                                    </div>
+                                    <div class="w-3/5">
+                                        <p class="text-[11px] text-gray-600 text-justify italic step-desc-preview"
+                                            data-id="{{ $img->id }}">
+                                            {{ $img->description ?? 'Sin descripción técnica...' }}
+                                        </p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        @php $final = $project->images->where('fase', 'final')->first(); @endphp
+                        @if($final)
+                            <div class="mt-12 pt-8 border-t-2 border-dashed border-gray-100 relative z-10">
+                                <div class="flex items-center gap-6">
+                                    <div class="w-3/4">
+                                        <h3
+                                            class="text-green-700 font-bold uppercase text-[10px] tracking-widest mb-2 flex items-center gap-2">
+                                            <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                                            Estado final
+                                        </h3>
+                                        <p class="text-[11px] text-gray-500 italic step-desc-preview"
+                                            data-id="{{ $final->id }}">
+                                            {{ $final->description ?? 'El proyecto se ha completado según los objetivos previstos...' }}
+                                        </p>
+                                    </div>
+                                    <div class="w-1/4">
+                                        <img src="{{ asset('storage/project_steps/' . $final->file_path) }}"
+                                            class="w-full border-2 border-white shadow-md rounded-sm">
+                                    </div>
+                                </div>
+                                <h3
+                                    class="text-green-700 font-bold uppercase text-[10px] tracking-widest mb-2 flex items-center gap-2">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                                    Conclusión final
+                                </h3>
+                                <p id="modal-preview-conclusion" class="text-[11px] text-gray-500 italic">
+                                    {{ $project->conclusion ?? 'El proyecto se ha completado según los objetivos previstos...' }}
+                                </p>
                             </div>
                         @endif
                     </div>
                 </div>
 
-                <div class="mb-8 border border-gray-100 p-4 rounded bg-blue-50 bg-opacity-30 relative z-10">
-                    <h3 class="text-blue-700 font-bold border-b border-blue-100 mb-2 uppercase text-[10px] tracking-widest">Resumen del Proyecto</h3>
-                    <p id="modal-preview-abstract" class="text-sm text-justify leading-relaxed break-words italic">
-                        {{ $project->abstract }}
-                    </p>
+                <div
+                    class="bg-gray-100 px-6 py-3 text-right border-t text-[10px] text-gray-400 uppercase tracking-widest font-semibold italic">
+                    Simulación de documento dinámico • Generado automáticamente para revisión
                 </div>
-
-                <div id="modal-preview-steps" class="space-y-8 relative z-10">
-                    @php $pasos = $project->images->where('fase', 'procedimiento')->sortBy('orden')->take(3)->values(); @endphp
-                    @foreach($pasos as $index => $img)
-                        <div class="flex gap-6 items-center {{ $index % 2 != 0 ? 'flex-row-reverse' : '' }}">
-                            <div class="w-2/5 border p-1 rounded bg-white shadow-sm">
-                                <span class="text-[9px] font-bold text-blue-700 block border-b mb-1 uppercase tracking-tighter">Paso Técnico {{ $img->orden ?? ($index + 1) }}</span>
-                                <img src="{{ asset('storage/project_steps/' . $img->file_path) }}" class="w-full h-36 object-contain bg-gray-50">
-                            </div>
-                            <div class="w-3/5">
-                                <p class="text-[11px] text-gray-600 text-justify italic step-desc-preview" data-id="{{ $img->id }}">
-                                    {{ $img->description ?? 'Sin descripción técnica...' }}
-                                </p>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-
-                @php $final = $project->images->where('fase', 'final')->first(); @endphp
-                @if($final)
-                    <div class="mt-12 pt-8 border-t-2 border-dashed border-gray-100 relative z-10">
-                        <div class="flex items-center gap-6">
-                            <div class="w-3/4">
-                                <h3 class="text-green-700 font-bold uppercase text-[10px] tracking-widest mb-2 flex items-center gap-2">
-                                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                                    Resultado Final y Conclusión
-                                </h3>
-                                <p class="text-[11px] text-gray-500 italic step-desc-preview" data-id="{{ $final->id }}">
-                                    {{ $final->description ?? 'El proyecto se ha completado según los objetivos previstos...' }}
-                                </p>
-                            </div>
-                            <div class="w-1/4">
-                                <img src="{{ asset('storage/project_steps/' . $final->file_path) }}" class="w-full border-2 border-white shadow-md rounded-sm">
-                            </div>
-                        </div>
-                    </div>
-                @endif
             </div>
         </div>
 
-        <div class="bg-gray-100 px-6 py-3 text-right border-t text-[10px] text-gray-400 uppercase tracking-widest font-semibold italic">
-            Simulación de documento dinámico • Generado automáticamente para revisión
-        </div>
-    </div>
-</div>
-
-        <form id="delete-project-form" action="{{ route('projects.destroy', $project->idProject) }}" method="POST" class="hidden">@csrf @method('DELETE')</form>
-        <form id="delete-main-photo-form" action="{{ route('projects.photo.destroy', $project->idProject) }}" method="POST" class="hidden">@csrf @method('DELETE')</form>
+        <form id="delete-project-form" action="{{ route('projects.destroy', $project->idProject) }}" method="POST"
+            class="hidden">@csrf @method('DELETE')</form>
+        <form id="delete-main-photo-form" action="{{ route('projects.photo.destroy', $project->idProject) }}" method="POST"
+            class="hidden">@csrf @method('DELETE')</form>
         @foreach($project->images as $img)
-            <form id="delete-img-{{ $img->id }}" action="{{ route('projects.image.destroy', $img->id) }}" method="POST" class="hidden">@csrf @method('DELETE')</form>
+            <form id="delete-img-{{ $img->id }}" action="{{ route('projects.image.destroy', $img->id) }}" method="POST"
+                class="hidden">@csrf @method('DELETE')</form>
         @endforeach
     </div>
 
@@ -411,7 +510,7 @@
                 alert('¡Máximo 3 tipos!');
             }
             const display = document.getElementById('count-display');
-            if(display) display.innerText = document.querySelectorAll('.project-type-checkbox:checked').length;
+            if (display) display.innerText = document.querySelectorAll('.project-type-checkbox:checked').length;
         }
 
         function openPreviewModal() {
@@ -443,6 +542,55 @@
         window.onclick = function (event) {
             const modal = document.getElementById('previewModal');
             if (event.target == modal) closePreviewModal();
+        }
+
+        function saveImageText(button, imageId) {
+            // Buscamos el textarea que está justo antes del botón
+            const textarea = button.closest('div').querySelector('textarea');
+            const text = textarea.value;
+            const originalText = button.innerHTML;
+
+            // Feedback visual de que está guardando
+            button.disabled = true;
+            button.innerHTML = "Guardando...";
+
+            // Enviamos los datos mediante Fetch (AJAX)
+            fetch("{{ route('projects.update', $project->idProject) }}", {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    action: 'update_text_' + imageId,
+                    image_descriptions: {
+                        [imageId]: text
+                    },
+                    _method: 'PUT' // Importante porque tu ruta es PUT
+                })
+            })
+                .then(response => {
+                    if (response.ok) {
+                        button.innerHTML = "¡Guardado!";
+                        button.classList.replace('bg-blue-500', 'bg-green-500');
+                        setTimeout(() => {
+                            button.innerHTML = originalText;
+                            button.classList.replace('bg-green-500', 'bg-blue-500');
+                            button.disabled = false;
+                        }, 2000);
+                    } else {
+                        alert("Error al guardar el texto.");
+                        button.innerHTML = originalText;
+                        button.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("Error de conexión.");
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                });
         }
     </script>
 @endsection

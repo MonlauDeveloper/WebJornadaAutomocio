@@ -48,7 +48,11 @@
         @foreach($students as $student)
         <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all">
             <div class="mb-4">
-                <img class="w-32 h-32 object-cover rounded-full mx-auto" src="{{ $student->photoName }}" alt="{{ $student->name }}" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                <div class="w-32 h-32 overflow-hidden rounded-full mx-auto bg-gray-100 border-2 border-gray-200 shadow-sm">
+                        <img class="w-full h-auto object-contain" src="{{ asset('storage/' . $student->photoName) }}"
+                            alt="{{ $student->name }}"
+                            onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                    </div>
             </div>
             <h2 class="text-2xl font-bold text-blue-500 text-center">{{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}</h2>
             

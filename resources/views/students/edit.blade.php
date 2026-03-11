@@ -130,16 +130,26 @@
         </div>
 
         <!-- Botones -->
-        <div class="mt-8 flex flex-row gap-4 pt-6">
-            <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition">Guardar Cambios</button>
-    </form>
-            <form action="{{ route('students.destroy', $student->idStudent) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition" onclick="return confirm('¿Estás seguro que quieres eliminar este estudiante?');">Eliminar</button>
-            </form>
-            <a href="javascript:history.back()" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2.5 px-6 rounded-lg shadow-sm transition text-center">Volver Atrás</a>
-        </div>
+        <div class="mt-8 pt-6 border-t">
+    <div class="flex flex-row flex-wrap gap-4">
+        
+        <button type="submit" form="tu-formulario-de-edicion" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
+            Guardar Cambios
+        </button>
 
+        <form action="{{ route('students.destroy', $student->idStudent) }}" method="POST" class="inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="bg-red-800 hover:bg-red-900 text-white font-bold py-2 px-4 rounded shadow" 
+                onclick="return confirm('¿Eliminar este estudiante?');">
+                Eliminar
+            </button>
+        </form>
+
+        <a href="javascript:history.back()" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded shadow text-center">
+            Volver
+        </a>
+
+    </div>
 </div>
 @endsection

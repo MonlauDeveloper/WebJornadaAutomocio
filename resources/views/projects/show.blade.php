@@ -22,17 +22,22 @@
             <img class="w-3xl h-auto object-cover rounded-lg mt-4 mx-auto"
                 src="{{ asset('storage/photos/' . $project->photoName) }}" alt="{{ $project->title }}">
 
-            <p class="text-gray-600 mt-4 text-lg max-w-3xl mx-auto leading-relaxed">{{ $project->abstract }}</p>
+            <p class="text-gray-600 mt-4 text-lg max-w-3xl mx-auto leading-relaxed break-words">{{ $project->abstract }}</p>
 
-            <div class="w-3/4 mt-6 mx-auto">
-                <p class="font-semibold text-2xl text-blue-500">Vídeo:</p>
+            <div class="w-full max-w-3xl mt-8 mx-auto">
+                <p class="font-bold text-xl text-gray-800 border-b border-gray-100 pb-2">Vídeo de presentación</p>
+
                 @if ($project->videoURL)
-                    <!-- Mostrar el video de YouTube -->
-                    <iframe width="80%" height="480" style="margin-left: 10%" src="{{ $project->videoURL }}" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
+                    <div class="aspect-video w-full rounded-xl overflow-hidden bg-black mt-4 shadow-sm">
+                        <iframe class="w-full h-full" src="{{ $project->embed_video_url }}" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                 @else
-                    <span class="text-gray-500">No disponible</span>
+                    <div class="bg-gray-50 rounded-lg p-6 mt-4 text-center border border-dashed border-gray-200">
+                        <p class="text-gray-500 italic">Vídeo no disponible</p>
+                    </div>
                 @endif
             </div>
 
@@ -73,23 +78,23 @@
                 <ul class="mt-4 space-y-4">
                     @foreach ($project->students as $student)
                         <li class="flex items-center">
-    <a href="{{ route('students.show', $student->idStudent) }}" class="flex items-center hover:underline">
-        <div class="w-12 h-12 overflow-hidden rounded-full mr-4 bg-gray-100 border border-gray-200 shadow-sm">
-            <img class="w-full h-full object-cover object-top" 
-                 src="{{ asset('storage/' . $student->photoName) }}" 
-                 alt="{{ $student->name }}"
-                 onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
-        </div>
-        <div class="flex-1">
-            <p class="font-semibold text-lg text-gray-800">
-                {{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}
-            </p>
-        </div>
-    </a>
-    @if ($student->isTeamLeader)
-        <span class="text-sm text-green-600 font-medium ml-2">(Líder del Proyecto)</span>
-    @endif
-</li>
+                            <a href="{{ route('students.show', $student->idStudent) }}" class="flex items-center hover:underline">
+                                <div
+                                    class="w-12 h-12 overflow-hidden rounded-full mr-4 bg-gray-100 border border-gray-200 shadow-sm">
+                                    <img class="w-full h-full object-cover object-top"
+                                        src="{{ asset('storage/' . $student->photoName) }}" alt="{{ $student->name }}"
+                                        onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                                </div>
+                                <div class="flex-1">
+                                    <p class="font-semibold text-lg text-gray-800">
+                                        {{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}
+                                    </p>
+                                </div>
+                            </a>
+                            @if ($student->isTeamLeader)
+                                <span class="text-sm text-green-600 font-medium ml-2">(Líder del Proyecto)</span>
+                            @endif
+                        </li>
                     @endforeach
                 </ul>
             @else

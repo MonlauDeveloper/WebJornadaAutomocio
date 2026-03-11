@@ -18,14 +18,13 @@
     </div>
     
     {{-- Mensaje de confirmación --}}
-    <div class="max-w-3xl mx-auto mb-12">
-        @if (session('success'))
-            <div class="bg-white border-l-4 border-green-500 text-green-700 p-5 rounded-xl shadow-md flex items-center justify-center">
-                <svg class="h-6 w-6 text-green-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/></svg>
-                <p class="font-bold text-lg ml-2">{{ session('success') }}</p>
-            </div>
-        @endif
-    </div>
+    <div class="mb-6">
+    @if (session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative text-center" role="alert">
+            <span class="block sm:inline font-medium">{{ session('success') }}</span>
+        </div>
+    @endif
+</div>
 
     {{-- Formulario de Asignación --}}
     <div class="bg-white p-8 rounded-3xl shadow-md border border-gray-300 mb-16 max-w-6xl mx-auto">

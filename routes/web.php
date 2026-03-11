@@ -43,7 +43,7 @@ Route::get('/register-empresa', function () {
 Route::get('projects/subircsv', function () {
     return view('projects.upload_csv');
 })->name('projects.upload_csv')
-  ->middleware(['idRole:1', 'check.status']);
+    ->middleware(['idRole:1', 'check.status']);
 
 Route::post('projects/subircsv', [ProjectController::class, 'subirCsv'])
     ->name('projects.subircsv')
@@ -58,12 +58,16 @@ Route::resource('projects', ProjectController::class)
     ->only(['index', 'show'])
     ->middleware(['auth', 'check.status']);
 Route::resource('projects', ProjectController::class)
-    ->only(['create', 'edit', 'store', 'update', 'destroy'])
+    ->only(['create', 'edit', 'store', 'destroy'])
     ->middleware(['idRole:1,4', 'check.status']);
+
+Route::put('projects/{project}', [ProjectController::class, 'update'])
+    ->name('projects.update')
+    ->middleware(['auth', 'idRole:1,3,4', 'check.status']);
 
 // --- RUTAS DE ADMINISTRACIÓN (Role 1) ---
 Route::middleware(['auth', 'idRole:1'])->group(function () {
-    
+
     // Gestión de Empresas y Solicitudes
     Route::get('/admin/empresas-aceptadas', [AdminController::class, 'indexAceptadas'])->name('admin.empresas_aceptadas');
     Route::get('/admin/crear/empresa', [AdminController::class, 'create'])->name('admin.create');
@@ -94,7 +98,7 @@ Route::middleware(['auth', 'idRole:1'])->group(function () {
             ->orderBy('companyName', 'asc')
             ->get();
 
-        return view('mesas.index', compact('tables', 'companies')); 
+        return view('mesas.index', compact('tables', 'companies'));
     })->name('mesas.index');
 
     // 2. Guardar nueva mesa
@@ -117,12 +121,12 @@ Route::middleware(['auth', 'idRole:1'])->group(function () {
     // 3. Ver formulario de Edición (Cargando empresas para el select)
     Route::get('/mesas/{id}/edit', function ($id) {
         $table = DB::table('company_tables')->where('idTable', $id)->first();
-        
+
         $companies = DB::table('companies')
             ->select('idCompany', 'companyName')
             ->orderBy('companyName', 'asc')
             ->get();
-        
+
         return view('mesas.edit', compact('table', 'companies'));
     })->name('company-tables.edit');
 
@@ -143,7 +147,7 @@ Route::middleware(['auth', 'idRole:1'])->group(function () {
 
         return redirect()->route('mesas.index')->with('success', 'Mesa actualizada correctamente.');
     })->name('company-tables.update');
-    
+
     // 5. Borrar mesa
     Route::delete('/mesas/{id}', function ($id) {
         DB::table('company_tables')->where('idTable', $id)->delete();
@@ -151,9 +155,9 @@ Route::middleware(['auth', 'idRole:1'])->group(function () {
     })->name('company-tables.destroy');
 
     // -----------------------------------------------------
-    
+
     // Rutas extra de estudiantes para admin
-    Route::get('/student/create', [StudentController::class, 'create'])->name('students.create');  
+    Route::get('/student/create', [StudentController::class, 'create'])->name('students.create');
     Route::post('/student/subir', [StudentController::class, 'store'])->name('students.store');
     Route::get('/students/edit/{idStudent}', [StudentController::class, 'edit'])->name('students.edit');
     Route::put('/students/update/{idStudent}', [StudentController::class, 'update'])->name('students.update');
@@ -209,7 +213,7 @@ Route::get('auth/microsoft', [MicrosoftAuthController::class, 'redirectToMicroso
 Route::get('/callback', [MicrosoftAuthController::class, 'handleMicrosoftCallback']);
 
 
-
-Route::delete('/project-images/{id}', [App\Http\Controllers\ProjectController::class, 'destroyImage'])->name('projects.image.destroy');
-// Ruta específica para borrar la foto principal
-Route::delete('/projects/{project}/photo', [ProjectController::class, 'destroyPhoto'])->name('projects.photo.destroy');
+Route::middleware(['auth', 'check.status'])->group(function () {
+    Route::delete('/project-images/{id}', [ProjectController::class, 'destroyImage'])->name('projects.image.destroy');
+    Route::delete('/projects/{project}/photo', [ProjectController::class, 'destroyPhoto'])->name('projects.photo.destroy');
+});

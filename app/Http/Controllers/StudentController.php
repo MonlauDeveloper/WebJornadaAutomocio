@@ -11,6 +11,7 @@ use App\Models\Contact;
 use App\Models\Specialization;
 use App\Models\Ubication;
 use App\Models\Project;
+use App\Models\ProjectType;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -274,7 +275,12 @@ class StudentController extends Controller
         // Verificar si algún campo del proyecto está vacío o nulo
         $projectIncomplete = $project->photoName === null || $project->videoURL === null || $project->pdfURL === null || $project->abstract === null;
 
-        return view('students.myProject', compact('project', 'projectIncomplete'));
+        // Obtener datos necesarios para el formulario
+        $specializations = Specialization::all();
+        $projectTypes = ProjectType::all();
+        $ubications = Ubication::all();
+
+        return view('students.myProject', compact('project', 'projectIncomplete', 'specializations', 'projectTypes', 'ubications'));
     }
 
     public function updateProject(Request $request)

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,125 +8,140 @@
     @vite('resources/css/app.css')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="{{ asset('images/favi2020.png') }}">
-
 </head>
+
 <body class="h-screen bg-cover bg-center relative" style="background-image: url('/images/imagenFondo.webp')">
     <div class="absolute inset-0 bg-blue-500 bg-opacity-50"></div>
-    
-    <div class="flex items-center justify-center h-full relative z-10">
-        <div class="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-md max-h-[80vh] overflow-y-auto">
-            <img src="{{ asset('images/logoMonlau.png') }}" alt="Logo" class="mx-auto w-40 mb-2">
-            
+
+    <div class="flex items-center justify-center h-full relative z-10 px-4">
+        <div class="bg-white bg-opacity-95 p-6 md:p-8 rounded-[2.5rem] shadow-2xl w-full max-w-[440px] max-h-[90vh] overflow-y-auto transition-all custom-scrollbar">
+
+            <div class="flex justify-center mb-4">
+                <img src="{{ asset('images/logoMonlau2026(2).png') }}" alt="Logo"
+                    class="w-full max-w-[180px] h-auto object-contain">
+            </div>
+
             <form action="{{ route('register') }}" method="POST" class="space-y-4">
                 @csrf
-                
-                <h2 class="text-2xl font-bold text-center text-gray-800">Crear cuenta de Empresa</h2>
-                
-                <!-- Datos Empresa -->
-                <div class="space-y-2">
-                    <label for="companyName" class="block text-sm font-medium text-gray-600">Nombre de la Empresa</label>
-                    <input type="text" id="companyName" name="companyName" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Introduce el nombre de tu empresa">
-                </div>
-                
-                <div class="space-y-2">
-                    <label for="companyWeb" class="block text-sm font-medium text-gray-600">Web de la Empresa</label>
-                    <input type="url" id="companyWeb" name="companyWeb" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Introduce la web de tu empresa">
-                </div>
-                
-                <!-- Datos Asistente -->
-                <div class="space-y-2">
-                    <label for="asistenteNombre" class="block text-sm font-medium text-gray-600">Nombre del Asistente</label>
-                    <input type="text" id="asistenteNombre" name="asistenteNombre" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Introduce tu nombre">
-                </div>
-                
-                <div class="space-y-2">
-                    <label for="asistenteApellidos" class="block text-sm font-medium text-gray-600">Apellidos del Asistente</label>
-                    <input type="text" id="asistenteApellidos" name="asistenteApellidos" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Introduce tus apellidos">
-                </div>
-                
-                <div class="space-y-2">
-                    <label for="telefonoAsistente" class="block text-sm font-medium text-gray-600">Teléfono del Asistente</label>
-                    <input type="tel" id="telefonoAsistente" name="telefonoAsistente" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Introduce tu teléfono">
-                </div>
-                
-                <div class="space-y-2">
-                    <label for="email" class="block text-sm font-medium text-gray-600">Email del Asistente</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Introduce tu email">
-                </div>
-                
-                <div class="space-y-2">
-                    <label for="cargoAsistente" class="block text-sm font-medium text-gray-600">Cargo del Asistente</label>
-                    <input type="text" id="cargoAsistente" name="cargoAsistente" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Introduce tu cargo">
-                </div>
-                
-                 <!-- Campo Contraseña -->
-                 <div class="space-y-2">
-                    <label for="password" class="block text-sm font-medium text-gray-600">Contraseña</label>
-                    <div class="relative">
-                        <x-input 
-                            id="password" 
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" 
-                            type="password" 
-                            name="password" 
-                            placeholder="Introduce tu contraseña"
-                            required 
-                            autocomplete="current-password" />
-                        <span 
-                            class="absolute inset-y-0 right-4 flex items-center text-gray-500 cursor-pointer"
-                            onclick="togglePassword('password', 'eyeIcon1')">
-                            <i id="eyeIcon1" class="fas fa-eye-slash"></i> 
-                        </span>
+
+                <h2 class="text-xl font-bold text-center text-gray-800 uppercase tracking-tight">Crear cuenta de Empresa</h2>
+
+                <div class="space-y-3">
+                    <div class="space-y-1">
+                        <label for="companyName" class="block text-[11px] font-bold text-gray-500 ml-4 uppercase">Nombre Empresa</label>
+                        <input type="text" id="companyName" name="companyName" required
+                            class="w-full px-5 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm bg-gray-50"
+                            placeholder="Nombre de tu empresa">
+                    </div>
+
+                    <div class="space-y-1">
+                        <label for="companyWeb" class="block text-[11px] font-bold text-gray-500 ml-4 uppercase">Web Empresa</label>
+                        <input type="url" id="companyWeb" name="companyWeb" required
+                            class="w-full px-5 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm bg-gray-50"
+                            placeholder="Web de tu empresa">
+                    </div>
+
+                    <hr class="border-gray-100 my-2">
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="space-y-1">
+                            <label for="asistenteNombre" class="block text-[11px] font-bold text-gray-500 ml-4 uppercase">Nombre del asistente</label>
+                            <input type="text" id="asistenteNombre" name="asistenteNombre" required
+                                class="w-full px-5 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm bg-gray-50"
+                                placeholder="Tu nombre">
+                        </div>
+                        <div class="space-y-1">
+                            <label for="asistenteApellidos" class="block text-[11px] font-bold text-gray-500 ml-4 uppercase">Apellidos</label>
+                            <input type="text" id="asistenteApellidos" name="asistenteApellidos" required
+                                class="w-full px-5 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm bg-gray-50"
+                                placeholder="Tus apellidos">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label for="email" class="block text-[11px] font-bold text-gray-500 ml-4 uppercase">Email del asistente</label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full px-5 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm bg-gray-50"
+                            placeholder="email@empresa.com">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="space-y-1">
+                            <label for="telefonoAsistente" class="block text-[11px] font-bold text-gray-500 ml-4 uppercase">Teléfono</label>
+                            <input type="tel" id="telefonoAsistente" name="telefonoAsistente" required
+                                class="w-full px-5 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm bg-gray-50"
+                                placeholder="Introduce tu teléfono">
+                        </div>
+                        <div class="space-y-1">
+                            <label for="cargoAsistente" class="block text-[11px] font-bold text-gray-500 ml-4 uppercase">Cargo</label>
+                            <input type="text" id="cargoAsistente" name="cargoAsistente" required
+                                class="w-full px-5 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm bg-gray-50"
+                                placeholder="Introduce tu cargo">
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label for="password" class="block text-[11px] font-bold text-gray-500 ml-4 uppercase">Contraseña</label>
+                        <div class="relative">
+                            <x-input id="password"
+                                class="w-full px-5 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm bg-gray-50"
+                                type="password" name="password" placeholder="Introduce tu contraseña" required />
+                            <span class="absolute inset-y-0 right-5 flex items-center text-gray-400 cursor-pointer hover:text-blue-500"
+                                onclick="togglePassword('password', 'eyeIcon1')">
+                                <i id="eyeIcon1" class="fas fa-eye-slash"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="space-y-1">
+                        <label for="password_confirmation" class="block text-[11px] font-bold text-gray-500 ml-4 uppercase">Confirmar contraseña</label>
+                        <div class="relative">
+                            <x-input type="password" id="password_confirmation" name="password_confirmation"
+                                class="w-full px-5 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm bg-gray-50"
+                                placeholder="Repite tu contraseña" required />
+                            <span class="absolute inset-y-0 right-5 flex items-center text-gray-400 cursor-pointer hover:text-blue-500"
+                                onclick="togglePassword('password_confirmation', 'eyeIcon2')">
+                                <i id="eyeIcon2" class="fas fa-eye-slash"></i>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Campo Verificar Contraseña -->
-                <div class="space-y-2">
-                    <label for="password_confirmation" class="block text-sm font-medium text-gray-600">Confirmar Contraseña</label>
-                    <div class="relative">
-                        <x-input 
-                            type="password" 
-                            id="password_confirmation" 
-                            name="password_confirmation" 
-                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" 
-                            placeholder="Repite tu contraseña"
-                            required autocomplete="new-password">
-                        </x-input>
-                        <span 
-                            class="absolute inset-y-0 right-4 flex items-center text-gray-500 cursor-pointer"
-                            onclick="togglePassword('password_confirmation', 'eyeIcon2')">
-                            <i id="eyeIcon2" class="fas fa-eye-slash"></i> 
-                        </span>
-                    </div>
+                <x-validation-errors class="mb-1 text-xs" />
+
+                <div class="pt-2">
+                    <button type="submit"
+                        class="w-full bg-[#0051bb] hover:bg-[#004199] text-white font-bold py-3 rounded-full transition-all active:scale-[0.98] shadow-md uppercase text-[11px] tracking-widest">
+                        Registrar Empresa
+                    </button>
                 </div>
-                
-                <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-lg transition">Registrarse</button>
-                
-                <!-- Enlace a Login -->
-                <p class="text-sm text-center text-gray-600">
-                    ¿Ya tienes una cuenta? 
-                    <a href="{{ route('login') }}" class="text-blue-500 hover:underline">Iniciar sesión</a>
-                </p>
-                <p class="text-sm text-center text-gray-600">
-                    <a href="{{ route('register') }}" class="text-blue-500 hover:underline">Crear cuenta de usuario</a>
-                </p>
+
+                <div class="flex flex-col space-y-2 pt-2">
+                    <p class="text-[11px] text-center text-gray-500  tracking-tighter">
+                        ¿Ya tienes una cuenta?
+                        <a href="{{ route('login') }}" class="text-blue-600 font-bold hover:underline">Iniciar sesión</a>
+                    </p>
+                    <p class="text-[11px] text-center text-gray-500  tracking-tighter">
+                        <a href="{{ route('register') }}" class="text-blue-600 font-bold hover:underline">Crear cuenta de usuario</a>
+                    </p>
+                </div>
             </form>
         </div>
     </div>
-    
+
     <script>
         function togglePassword(passwordId, eyeIconId) {
             const passwordInput = document.getElementById(passwordId);
             const eyeIcon = document.getElementById(eyeIconId);
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                eyeIcon.classList.remove('fa-eye-slash');
-                eyeIcon.classList.add('fa-eye');
+                eyeIcon.classList.replace('fa-eye-slash', 'fa-eye');
             } else {
                 passwordInput.type = 'password';
-                eyeIcon.classList.remove('fa-eye');
-                eyeIcon.classList.add('fa-eye-slash');
+                eyeIcon.classList.replace('fa-eye', 'fa-eye-slash');
             }
         }
     </script>
 </body>
+
 </html>

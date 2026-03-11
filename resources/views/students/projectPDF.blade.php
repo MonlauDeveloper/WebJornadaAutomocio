@@ -14,30 +14,32 @@
             background-image: url('{{ public_path("images/Curriculum CV Fondo transparente.png") }}');
             background-size: cover; background-position: center; z-index: -1000;
         }
-        .container { width: 75%; margin: 0 auto; padding: 20px 0; } 
+        .container { 
+            width: 75%; 
+            margin: 0 auto; 
+            padding: 10px 0; 
+        } 
         
         .text-blue { color: #2563eb; }
         .font-bold { font-weight: bold; }
         .uppercase { text-transform: uppercase; letter-spacing: 1px; }
         
         .card {
-            margin-left: 13px; 
-            background-color: rgba(255, 255, 255, 0.5);
-            padding: 12px; 
-            border-radius: 12px; 
-            margin-bottom: 10px; 
-            border: 1px solid rgba(255, 255, 255, 0.6);
+            margin-left: 23px; 
+            padding: 5px 2px; 
+            margin-bottom: 8px; 
             page-break-inside: avoid;
         }
         
-        .header-project { text-align: center; margin-bottom: 15px; } 
+        .header-project { text-align: center; margin-bottom: 12px; } 
         .header-project h1 { 
             display: inline-block;
             padding: 5px 20px; font-size: 1.4rem; color: #1e40af; 
+            border-bottom: 2px solid #1e40af;
         }
         
         .section-title {
-            font-size: 0.9rem; font-weight: bold; color: #1d4ed8;
+            font-size: 0.85rem; font-weight: bold; color: #1d4ed8;
             margin-bottom: 5px; border-bottom: 2px solid #d5d6da; display: block;
         }
         
@@ -47,19 +49,40 @@
         }
         
         .img-fase {
-            width: 100%; height: 120px; 
+            width: 100%; height: 110px; 
             object-fit: contain;
             border-radius: 6px; border: 1px solid #ddd;
             background: #fff;
         }
         
         .desc-tecnica, .card p {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #4b5563;
             text-align: justify;
             word-wrap: break-word;
-            overflow-wrap: break-word;
-            word-break: break-all;
+        }
+
+        .badge-tipo {
+            background-color: #f3f4f6;
+            color: #1e40af;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-right: 5px;
+            border: 0.5px solid #d1d5db;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .indent-content {
+            padding-left: 15px;
+        }
+
+        .conclusion-box {
+            background-color: #f9fafb;
+            border-left: 3px solid #2563eb;
+            padding: 10px;
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -76,24 +99,42 @@
                 <tr>
                     <td width="70%" style="vertical-align: top;">
                         <h3 class="section-title uppercase">Datos del Proyecto</h3>
-                        <p class="font-bold" style="font-size: 0.85rem; margin-bottom: 2px;">Integrantes:</p>
-                        @foreach($students->chunk(2) as $chunk)
-                            <div style="width: 100%;">
-                                @foreach($chunk as $student)
-                                    <span style="font-size: 0.8rem; display: inline-block; width: 48%;">
-                                        <span class="text-blue">•</span> {{ $student->name }} {{ $student->surname1 }}
-                                    </span>
-                                @endforeach
-                            </div>
-                        @endforeach
-                        <p style="margin-top: 5px; font-size: 0.85rem;">
-                            <strong>Especialidad:</strong> <span class="text-blue">{{ $project->specialization->specialization }}</span>
+                        
+                        <p class="font-bold" style="font-size: 0.82rem; margin-bottom: 4px;">Participantes:</p>
+                        <div class="indent-content"> 
+                            @foreach($students->chunk(2) as $chunk)
+                                <div style="width: 100%; margin-bottom: 2px;">
+                                    @foreach($chunk as $student)
+                                        <span style="font-size: 0.78rem; display: inline-block; width: 48%;">
+                                            <span class="text-blue">•</span> {{ $student->name }} {{ $student->surname1 }}
+                                        </span>
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <p style="margin-top: 6px; font-size: 0.82rem;">
+                            <strong>Especialidad:</strong> 
+                            <span class="text-blue" style="vertical-align: middle;">{{ $project->specialization->specialization }}</span>
                         </p>
+                        
+                        <div style="margin-top: 2px; font-size: 0.82rem;">
+                            <p><strong style="vertical-align: middle;">Tipo de proyecto:</strong> 
+                            <span class="indent-content" style=" padding-left: 5px;">
+                                @forelse($project->projectTypes as $tipo)
+                                    <span class="badge-tipo">{{ $tipo->name }}</span>
+                                @empty
+                                    <span class="text-blue">No definido</span>
+                                @endforelse
+                            </span></p>
+                        </div>
                     </td>
+                    
                     @php $imgHeader = $project->images->where('fase', 'header')->first(); @endphp
                     @if($imgHeader)
-                    <td width="30%" align="right">
-                        <img src="{{ public_path('storage/project_steps/' . $imgHeader->file_path) }}" style="width: 130px; border-radius: 8px; border: 2px solid white;">
+                    <td width="30%" align="right" style="vertical-align: top;">
+                        <img src="{{ public_path('storage/project_steps/' . $imgHeader->file_path) }}" 
+                             style="width: 190px; height: 120px; object-fit: cover; border-radius: 8px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                     </td>
                     @endif
                 </tr>
@@ -110,14 +151,14 @@
             <table width="100%">
                 <tr>
                     @php $imgInitial = $project->images->where('fase', 'initial')->first(); @endphp
-                    <td width="35%">
+                    <td width="30%">
                         @if($imgInitial)
-                            <img src="{{ public_path('storage/project_steps/' . $imgInitial->file_path) }}" class="img-fase" style="height: 90px;">
+                            <img src="{{ public_path('storage/project_steps/' . $imgInitial->file_path) }}" class="img-fase" style="height: 85px;">
                         @else
-                            <div style="width: 100%; height: 90px; background: #f3f4f6; text-align: center; line-height: 90px; color: #999; font-size: 0.7rem;">SIN FOTO</div>
+                            <div style="width: 100%; height: 85px; background: #f3f4f6; text-align: center; line-height: 85px; color: #999; font-size: 0.6rem; border-radius: 6px;">SIN FOTO</div>
                         @endif
                     </td>
-                    <td width="65%" style="padding-left: 15px; vertical-align: top;">
+                    <td width="70%" style="padding-left: 15px; vertical-align: top;">
                         <p style="margin: 0;">{{ $imgInitial->description ?? 'Descripción del estado previo.' }}</p>
                     </td>
                 </tr>
@@ -126,37 +167,35 @@
 
         <div class="card">
             <h3 class="section-title uppercase">Procedimiento Técnico</h3>
-            <div style="width: 100%;">
-                @php 
-                    $pasos = $project->images->where('fase', 'procedimiento')->sortBy('orden')->take(3)->values(); 
-                @endphp
-                
-                @forelse($pasos as $index => $img)
-                    <table style="width: 100%; margin-bottom: 12px; table-layout: fixed; border-collapse: collapse;">
-                        <tr>
-                            @if($index == 0 || $index == 2)
-                                <td width="40%" style="vertical-align: top;">
-                                    <div class="step-header">PASO {{ $img->orden ?? ($index + 1) }}</div>
-                                    <img src="{{ public_path('storage/project_steps/' . $img->file_path) }}" class="img-fase" style="height: 110px;">
-                                </td>
-                                <td width="60%" style="vertical-align: middle; padding-left: 20px;">
-                                    <div class="desc-tecnica">{{ $img->description }}</div>
-                                </td>
-                            @else
-                                <td width="60%" style="vertical-align: middle; padding-right: 20px;">
-                                    <div class="desc-tecnica">{{ $img->description }}</div>
-                                </td>
-                                <td width="40%" style="vertical-align: top;">
-                                    <div class="step-header" style="text-align: right;">PASO {{ $img->orden ?? ($index + 1) }}</div>
-                                    <img src="{{ public_path('storage/project_steps/' . $img->file_path) }}" class="img-fase" style="height: 110px;">
-                                </td>
-                            @endif
-                        </tr>
-                    </table>
-                @empty
-                    <p style="font-size: 0.75rem; color: #666;">No se han cargado pasos técnicos.</p>
-                @endforelse
-            </div>
+            @php 
+                $pasos = $project->images->where('fase', 'procedimiento')->sortBy('orden')->take(3)->values(); 
+            @endphp
+            
+            @forelse($pasos as $index => $img)
+                <table style="width: 100%; margin-bottom: 8px; table-layout: fixed; border-collapse: collapse;">
+                    <tr>
+                        @if($index % 2 == 0)
+                            <td width="35%" style="vertical-align: top;">
+                                <div class="step-header">PASO {{ $img->orden ?? ($index + 1) }}</div>
+                                <img src="{{ public_path('storage/project_steps/' . $img->file_path) }}" class="img-fase" style="height: 90px;">
+                            </td>
+                            <td width="65%" style="vertical-align: middle; padding-left: 15px;">
+                                <div class="desc-tecnica">{{ $img->description }}</div>
+                            </td>
+                        @else
+                            <td width="65%" style="vertical-align: middle; padding-right: 15px;">
+                                <div class="desc-tecnica" style="text-align: justify;">{{ $img->description }}</div>
+                            </td>
+                            <td width="35%" style="vertical-align: top;">
+                                <div class="step-header" style="text-align: right;">PASO {{ $img->orden ?? ($index + 1) }}</div>
+                                <img src="{{ public_path('storage/project_steps/' . $img->file_path) }}" class="img-fase" style="height: 90px;">
+                            </td>
+                        @endif
+                    </tr>
+                </table>
+            @empty
+                <p style="font-size: 0.7rem; color: #666;">No se han cargado pasos técnicos.</p>
+            @endforelse
         </div>
 
         <div class="card">
@@ -164,21 +203,22 @@
             @php $imgFinal = $project->images->where('fase', 'final')->first(); @endphp
             <table width="100%">
                 <tr>
-                    <td width="35%">
+                    <td width="30%">
                         @if($imgFinal)
-                            <img src="{{ public_path('storage/project_steps/' . $imgFinal->file_path) }}" class="img-fase" style="height: 110px;">
+                            <img src="{{ public_path('storage/project_steps/' . $imgFinal->file_path) }}" class="img-fase" style="height: 85px;">
                         @endif
                     </td>
-                    <td width="65%" style="padding-left: 15px; vertical-align: top;">
+                    <td width="70%" style="padding-left: 15px; vertical-align: top;">
                         <p style="margin: 0;">{{ $imgFinal->description ?? 'Descripción del resultado final.' }}</p>
                     </td>
                 </tr>
             </table>
         </div>
 
-        <div class="card" style="margin-bottom: 0;">
-            <h3 class="section-title uppercase">Presupuesto</h3>
-            <div style="text-align: center; font-size: 0.8rem; color: #4b5563;">
+        <div class="card">
+            <h3 class="section-title uppercase">Conclusión Final</h3>
+            <div class="conclusion-box">
+                <p style="margin: 0;">{{ $project->conclusion ?? 'No se ha redactado una conclusión para este proyecto.' }}</p>
             </div>
         </div>
     </div>

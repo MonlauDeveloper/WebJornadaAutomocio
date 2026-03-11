@@ -20,6 +20,7 @@ class Project extends Model
         'pdfURL',
         'moodleURL',
         'abstract',
+        'conclusion',
         // 'idProjectType',
         'idUbication',
         'numTribunal',
@@ -45,14 +46,38 @@ class Project extends Model
     {
         return $this->belongsTo(Team::class, 'team_id'); // Asumiendo que team_id es el campo de la relación
     }
-    public function projectType()
+    public function projectTypes()
     {
-        // Relación Muchos a Muchos 
-        return $this->belongsToMany(ProjectType::class, 'project_project_type', 'idProject', 'idProjectType');
+        return $this->belongsToMany(
+            ProjectType::class,
+            'project_project_type',
+            'idProject',        
+            'idProjectType'       
+        );
     }
     public function images()
+    {
+        return $this->hasMany(ProjectImage::class, 'idProject', 'idProject');
+    }
+
+    public function getEmbedVideoUrlAttribute()
 {
-    return $this->hasMany(ProjectImage::class, 'idProject', 'idProject');
+    if (!$this->videoURL) {
+        return null;
+    }
+
+    if (str_contains($this->videoURL, 'youtube.com') || str_contains($this->videoURL, 'youtu.be')) {
+        $videoId = "";
+        if (str_contains($this->videoURL, 'v=')) {
+            parse_str(parse_url($this->videoURL, PHP_URL_QUERY), $query);
+            $videoId = $query['v'] ?? '';
+        } else {
+            $videoId = last(explode('/', rtrim($this->videoURL, '/')));
+        }
+        return "https://www.youtube.com/embed/" . $videoId;
+    }
+    
+    return $this->videoURL;
 }
 
 }
