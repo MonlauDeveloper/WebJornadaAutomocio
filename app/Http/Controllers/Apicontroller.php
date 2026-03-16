@@ -27,7 +27,6 @@ class Apicontroller extends Controller
         return $user->createToken($request->user)->plainTextToken;
     }
 
-    // --- CONTADORES DE PÁGINAS ---
     public function pages_projects(int $limit)
     {
         return ceil(DB::table('projects')->count() / $limit);
@@ -49,7 +48,6 @@ class Apicontroller extends Controller
         return ceil(DB::table('students')->count() / $limit);
     }
 
-    // --- FUNCIONES DE PAGINACIÓN ---
     private function paginate(string $table, int $limit, int $page, string $order = "title")
     {
         $querry = DB::table($table)->offset(($page - 1) * $limit)->limit($limit)->orderBy($order)->get();
@@ -126,8 +124,6 @@ class Apicontroller extends Controller
         return $projects;
     }
 
-    // --- DETALLES INDIVIDUALES ---
-
     public function companie(int $id_companie)
     {
         return DB::table('companies')->where('idCompany', $id_companie)->join('users', 'companies.idUser', 'users.idUser')->orderBy('companyName')->first();
@@ -178,7 +174,6 @@ class Apicontroller extends Controller
         ]);
     }
 
-    // --- FILTROS ---
     public function projects_filter(int $limit, int $page, $filter, $value, string $order = "title")
     {
         if ($filter == "student") {
@@ -217,7 +212,6 @@ class Apicontroller extends Controller
         }
     }
 
-    // NUEVA FUNCIÓN: Búsqueda Global corregida con agrupación de condiciones
     public function search_projects_global(Request $request, $query)
     {
         $isMonlauTech = $request->query('monlauTech', '0');
@@ -295,7 +289,6 @@ class Apicontroller extends Controller
         }
     }
 
-    // --- PERFIL DE USUARIO ---
     public function myProfile(Request $request)
     {
         $user = $request->user();
@@ -349,7 +342,6 @@ class Apicontroller extends Controller
         return response()->json(['message' => 'Perfil no encontrado en teachers, students ni companies.'], 404);
     }
 
-    // --- GESTIÓN DE MESAS ---
     public function createCompanyTable(Request $request)
     {
         $request->validate([
@@ -380,7 +372,6 @@ class Apicontroller extends Controller
         return response()->json($tables);
     }
 
-    // --- GESTIÓN DE HORARIOS Y RESERVAS ---
     public function get_table_slots($idTable)
     {
         $ranges = [
@@ -392,8 +383,8 @@ class Apicontroller extends Controller
 
         $bookedSlots = DB::table('time_slots')
             ->where('idTable', $idTable)
-            ->join('students', 'time_slots.idStudent', '=', 'students.idStudent')
-            ->join('users', 'students.idUser', '=', 'users.idUser')
+            ->leftJoin('students', 'time_slots.idStudent', '=', 'students.idStudent')
+            ->leftJoin('users', 'students.idUser', '=', 'users.idUser')
             ->select(
                 'time_slots.start_time', 
                 'users.username', 
@@ -409,7 +400,7 @@ class Apicontroller extends Controller
             $bookedMap[$timeKey] = [
                 'username' => $slot->username,
                 'idStudent' => $slot->idStudent,
-                'fullName' => trim($slot->name . ' ' . $slot->surname1)
+                'fullName' => $slot->name ? trim($slot->name . ' ' . $slot->surname1) : null
             ];
         }
 
@@ -424,11 +415,14 @@ class Apicontroller extends Controller
                 $timeStr = date('H:i', $currentTime);
                 $isoDate = date('Y-m-d\TH:i:s', $currentTime);
                 $isBooked = array_key_exists($timeStr, $bookedMap);
+                $isBlocked = $isBooked && is_null($bookedMap[$timeStr]['idStudent']);
 
                 $slots[] = [
                     'time' => $isoDate,
                     'isBooked' => $isBooked,
-                    'bookedBy' => $isBooked ? ($bookedMap[$timeStr]['fullName'] ?: $bookedMap[$timeStr]['username']) : null,
+                    'isBlocked' => $isBlocked,
+                    'bookedBy' => ($isBooked && !$isBlocked) ? $bookedMap[$timeStr]['username'] : null,
+                    'bookedByName' => ($isBooked && !$isBlocked) ? $bookedMap[$timeStr]['fullName'] : null,
                     'idStudent' => $isBooked ? $bookedMap[$timeStr]['idStudent'] : null
                 ];
 
@@ -465,7 +459,7 @@ class Apicontroller extends Controller
             ->exists();
 
         if ($exists) {
-            return response()->json(['message' => 'Este horario ya está reservado por otro alumno.'], 409);
+            return response()->json(['message' => 'Este horario ya está reservado o bloqueado.'], 409);
         }
 
         $studentBusy = DB::table('time_slots')
@@ -523,13 +517,15 @@ class Apicontroller extends Controller
             return response()->json(['message' => 'No se encontró la reserva para cancelar'], 404);
         }
 
-        DB::table('cancellations')->insert([
-            'idTable' => $idTable,
-            'idStudent' => $slot->idStudent,
-            'reservation_time' => $bookingTime,
-            'reason' => $request->reason ?? 'Sin motivo especificado',
-            'cancelled_at' => now()
-        ]);
+        if (!is_null($slot->idStudent)) {
+            DB::table('cancellations')->insert([
+                'idTable' => $idTable,
+                'idStudent' => $slot->idStudent,
+                'reservation_time' => $bookingTime,
+                'reason' => $request->reason ?? 'Sin motivo especificado',
+                'cancelled_at' => now()
+            ]);
+        }
 
         $deleted = DB::table('time_slots')
             ->where('idTable', $idTable)
@@ -540,6 +536,55 @@ class Apicontroller extends Controller
             return response()->json(['message' => 'Reserva cancelada y motivo registrado'], 200);
         } else {
             return response()->json(['message' => 'Error al eliminar la reserva'], 500);
+        }
+    }
+
+    public function block_table_slot(Request $request, $idTable)
+    {
+        $request->validate([
+            'time' => 'required'
+        ]);
+
+        $bookingTime = date('Y-m-d H:i:s', strtotime($request->time));
+
+        $exists = DB::table('time_slots')
+            ->where('idTable', $idTable)
+            ->where('start_time', $bookingTime)
+            ->exists();
+
+        if ($exists) {
+            return response()->json(['message' => 'Este horario ya está ocupado o bloqueado.'], 409);
+        }
+
+        DB::table('time_slots')->insert([
+            'idTable' => $idTable,
+            'start_time' => $bookingTime,
+            'idStudent' => null, 
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        return response()->json(['message' => 'Horario bloqueado correctamente', 'success' => true], 200);
+    }
+
+    public function unblock_table_slot(Request $request, $idTable)
+    {
+        $request->validate([
+            'time' => 'required'
+        ]);
+
+        $bookingTime = date('Y-m-d H:i:s', strtotime($request->time));
+
+        $deleted = DB::table('time_slots')
+            ->where('idTable', $idTable)
+            ->where('start_time', $bookingTime)
+            ->whereNull('idStudent') 
+            ->delete();
+
+        if ($deleted) {
+            return response()->json(['message' => 'Horario desbloqueado correctamente', 'success' => true], 200);
+        } else {
+            return response()->json(['message' => 'No se encontró el bloqueo para cancelar'], 404);
         }
     }
 

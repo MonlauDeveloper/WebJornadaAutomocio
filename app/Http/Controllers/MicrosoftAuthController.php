@@ -73,46 +73,6 @@ class MicrosoftAuthController extends Controller
             $isMobile = str_contains($state, 'platform=mobile') ||
                         preg_match('/iPhone|iPad|Android|Mobile/i', $request->header('User-Agent'));
 
-            $esDePrimero = false;
-            $esDeSegundo = false;
-
-            foreach ($courses as $c) {
-                if (str_starts_with($c, '2') || $c === 'ONLINE') {
-                    $esDeSegundo = true;
-                }
-                if (str_starts_with($c, '1')) {
-                    $esDePrimero = true;
-                }
-            }
-
-            if ($esDePrimero && !$esDeSegundo && !$isTeacher) {
-                if ($isMobile) {
-                    $errorMsg = urlencode('Acceso denegado. App exclusiva para 2º año.');
-                    $appUrl = "appautomocion://login-callback?error=" . $errorMsg;
-                    return response()->make('
-                        <!DOCTYPE html>
-                        <html lang="es">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                            <title>Redirigiendo a la App...</title>
-                            <meta http-equiv="refresh" content="0;url=' . $appUrl . '">
-                        </head>
-                        <body style="font-family: Arial, sans-serif; text-align: center; padding-top: 50px; background-color: #f4f4f9;">
-                            <h2>Acceso Denegado</h2>
-                            <p style="color: #555; font-size: 16px;">Volviendo a la aplicación...</p>
-                            <script>
-                                setTimeout(function() {
-                                    window.location.href = "' . $appUrl . '";
-                                }, 800);
-                            </script>
-                        </body>
-                        </html>
-                    ');
-                }
-                return redirect('/')->with('error', 'Acceso denegado: Esta App es exclusiva para alumnos de 2º año.');
-            }
-
             $email = $userData['mail'] ?? $microsoftUser->email;
 
             $user = User::where('email', $email)->first();
@@ -136,9 +96,13 @@ class MicrosoftAuthController extends Controller
 
             if ($isStudent) {
                 $specializations = [
-                    '2CA-CM' => 1, '2CA-CS' => 4, '2CB-CM' => 1, '2CB-CS' => 4, '2CC-CM' => 1, '2CC-CS' => 4,
-                    '2CD-CM' => 1, '2CD-CS' => 4, '2CE-CM' => 1, '2CE-CS' => 4, '2CF-CM' => 1, '2CF-CS' => 4,
-                    '2CMA-CM' => 2, '2CR-CM' => 1, '2CR-CS' => 4, '2XA-CM' => 3, '2XB-CM' => 3, 'ONLINE' => 4
+                    '2CA-CM' => 1, '2AUTO A' => 4, '2CB-CM' => 1, '2AUTO B' => 4, '2CC-CM' => 1, '2AUTO C' => 4,
+                    '2CD-CM' => 1, '2AUTO D' => 4, '2CE-CM' => 1, '2AUTO E' => 4, '2CF-CM' => 1, '2AUTO F' => 4,
+                    '2CMA-CM' => 2, '2CR-CM' => 1, '2AUTO R' => 4, '2XA' => 3, '2XB' => 3, 'ONLINE' => 4,
+
+                    '1CA-CM' => 1, '1AUTO A' => 4, '1CB-CM' => 1, '1AUTO B' => 4, '1CC-CM' => 1, '1AUTO C' => 4,
+                    '1CD-CM' => 1, '1AUTO D' => 4, '1CE-CM' => 1, '1AUTO E' => 4, '1CF-CM' => 1, '1AUTO F' => 4,
+                    '1CMA-CM' => 2, '1CR-CM' => 1, '1AUTO R' => 4, '1XA' => 3, '1XB' => 3
                 ];
                 
                 $userSpec = 1; 

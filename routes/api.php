@@ -35,6 +35,9 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Moderación de Chat
     Route::post('chat/{messageId}/validate', [ChatMessageController::class, 'validateMessage']);
+
+    Route::post('/tables/{idTable}/block', [Apicontroller::class, 'block_table_slot']);
+    Route::post('/tables/{idTable}/unblock', [Apicontroller::class, 'unblock_table_slot']);
 });
 
 // --- ENDPOINTS PÚBLICOS ---
