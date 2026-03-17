@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Validator;
 
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
+use App\Models\Project;
+use App\Models\Vote;
+use Illuminate\Support\Facades\DB;
+
 class AdminController extends Controller
 {
     public function indexAceptadas()
@@ -299,6 +303,36 @@ class AdminController extends Controller
         // Redirigir con un mensaje de éxito
         return redirect()->route('admin.create')->with('success', 'Empresa creada correctamente.');
     }
+
+// Ver Ranking y Estado de votos
+public function votesIndex()
+{
+    // 1. Estado del botón
+    $votingStatus = \DB::table('settings')->where('key', 'voting_enabled')->value('value') == '1';
+
+    // 2. Consulta filtrada
+    $projects = \App\Models\Project::withCount('votes')
+        ->has('votes')
+        ->orderBy('votes_count', 'desc')
+        ->get();
+
+    return view('votes.index', compact('projects', 'votingStatus'));
+}
+
+// Activar/Desactivar
+public function toggleVoting() {
+    $current = DB::table('settings')->where('key', 'voting_enabled')->first();
+    $newValue = $current ? !$current->value : true;
+
+    DB::table('settings')->updateOrInsert(
+        ['key' => 'voting_enabled'],
+        ['value' => $newValue, 'updated_at' => now()]
+    );
+
+    return back()->with('success', 'Estado de las votaciones actualizado.');
+}
+
+
     
 
 }

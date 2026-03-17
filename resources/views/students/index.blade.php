@@ -71,7 +71,7 @@
                     <p class="text-gray-600 mt-2 text-center">{{ Str::limit($student->introduction, 100) }}</p>
                     <div class="mt-4 text-center">
                         <a href="{{ route('students.show', $student->idStudent) }}"
-                            class="text-white bg-blue-600 hover:bg-blue-700 py-2 px-4 rounded-lg">Ver Detalles</a>
+                            class="text-white bg-balue-600 hover:bg-blue-700 py-2 px-4 rounded-lg">Ver Detalles</a>
                         @if(auth()->user()->idRole === 1)
                             <a href="{{ route('students.edit', $student->idStudent) }}"
                                 class="text-white bg-yellow-800 hover:bg-yellow-900 py-2 px-4 rounded-lg">Editar</a>

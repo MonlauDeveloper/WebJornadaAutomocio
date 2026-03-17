@@ -40,6 +40,10 @@
                             :active="request()->routeIs('presentations.index')" class="whitespace-nowrap">
                             {{ __('Gestionar Ponencias') }}
                         </x-nav-link>
+                        <x-nav-link href="{{ route('admin.votes.index') }}"
+                            :active="request()->routeIs('admin.votes.index')" class="whitespace-nowrap">
+                            {{ __('Votos') }}
+                        </x-nav-link>
                     @endif
 
                     @if(auth()->user()->idRole === 4)

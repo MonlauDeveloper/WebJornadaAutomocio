@@ -55,22 +55,33 @@ class Apicontroller extends Controller
     }
 
     public function projects(int $limit, int $page, string $order = "title")
-    {
-        $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'numTribunal', 'curso');
-        $projects = DB::table('projects')
-            ->whereNot('projects.idSpecialization', 5)
-            ->offset(($page - 1) * $limit)
-            ->limit($limit)->orderBy($order)
-            ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
-            ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
-            ->select($columns)
-            ->get();
+{
+    $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'numTribunal', 'curso');
+    
+    $projects = DB::table('projects')
+        ->whereNot('projects.idSpecialization', 5)
+        ->offset(($page - 1) * $limit)
+        ->limit($limit)
+        ->orderBy($order)
+        ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
+        ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
+        ->select($columns)
+        ->get();
 
-        foreach ($projects as $p) {
-            $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
-        }
-        return $projects;
+    foreach ($projects as $p) {
+        // Obtenemos los estudiantes
+        $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
+        
+        // Obtenemos los NOMBRES de los tipos (El JOIN que decían tus compañeros)
+        $p->project_types = DB::table('project_types')
+            ->join('project_project_type', 'project_types.idProjectType', '=', 'project_project_type.idProjectType')
+            ->where('project_project_type.idProject', $p->idProject)
+            ->select('project_types.idProjectType', 'project_types.name')
+            ->get();
     }
+    
+    return $projects;
+}
 
     public function companies(int $limit, int $page, string $order = "companyName")
     {
@@ -149,30 +160,19 @@ class Apicontroller extends Controller
         return $query;
     }
     public function getProjectById(int $id)
-    {
-        $project = \App\Models\Project::with(['students', 'specialization', 'ubication'])
-            ->where('idProject', $id)
-            ->first();
+{
+    $project = \App\Models\Project::with(['students', 'specialization', 'ubication', 'projectTypes'])
+        ->where('idProject', $id)
+        ->first();
 
-        if (!$project) {
-            return response()->json(['message' => 'Proyecto no encontrado'], 404);
-        }
-
-        $atributosActuales = $project->getAttributes();
-        $columnasEnDB = array_keys($atributosActuales);
-
-        return response()->json([
-            'proyecto' => $project,
-            'DEBUG_INFO' => [
-                'mensaje' => 'Si no ves el campo curso dentro de "proyecto", revisa la lista de abajo',
-                'columnas_reales_en_tu_tabla' => $columnasEnDB,
-                'valor_detectado_en_columna_curso' => $project->curso ?? 'NULO O NO EXISTE',
-                'ayuda' => in_array('curso', $columnasEnDB)
-                    ? 'La columna existe. Si es null, el problema es el dato en la DB.'
-                    : 'La columna NO existe con el nombre "curso". Revisa si se llama diferente.'
-            ]
-        ]);
+    if (!$project) {
+        return response()->json(['message' => 'Proyecto no encontrado'], 404);
     }
+
+    return response()->json([
+        'proyecto' => $project
+    ]);
+}
 
     public function projects_filter(int $limit, int $page, $filter, $value, string $order = "title")
     {

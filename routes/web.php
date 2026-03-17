@@ -81,6 +81,8 @@ Route::middleware(['auth', 'idRole:1'])->group(function () {
     Route::get('/admin/solicitudes/edit/{idUser}', [AdminController::class, 'edit'])->name('admin.edit');
     Route::put('/admin/solicitudes/update/{idUser}', [AdminController::class, 'update'])->name('admin.update');
 
+    Route::get('/admin/votos', [AdminController::class, 'votesIndex'])->name('admin.votes.index');
+    Route::post('/admin/votos/toggle', [AdminController::class, 'toggleVoting'])->name('admin.votes.toggle');
     // --- GESTIÓN DE MESAS (CORREGIDO Y SIN DUPLICADOS) ---
 
     // 1. Ver página: Listar mesas y cargar empresas para el select

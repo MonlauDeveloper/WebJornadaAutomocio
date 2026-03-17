@@ -80,4 +80,9 @@ class Project extends Model
     return $this->videoURL;
 }
 
+public function votes()
+{
+    return $this->hasMany(Vote::class, 'project_id', 'idProject');
+}
+
 }

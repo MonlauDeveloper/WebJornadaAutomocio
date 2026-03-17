@@ -12,7 +12,12 @@ class ProjectType extends Model
     protected $fillable = ['name'];
 
     public function projects()
-    {
-        return $this->hasMany(Project::class, 'idProjectType', 'idProjectType');
-    }
+{
+    return $this->belongsToMany(
+        Project::class, 
+        'project_project_type', 
+        'idProjectType', 
+        'idProject'
+    );
+}
 }
