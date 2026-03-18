@@ -93,3 +93,13 @@ Route::prefix('presentations/{id}/chat')->group(function () {
     Route::get('/validated', [ChatMessageController::class, 'getValidated']);
     Route::middleware('auth:sanctum')->get('/all', [ChatMessageController::class, 'getAll']);
 });
+
+Route::get('/limpiar-cache-urgente', function() {
+    \Illuminate\Support\Facades\Artisan::call('route:clear');
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    \Illuminate\Support\Facades\Artisan::call('optimize:clear');
+    return 'Caché destruida y actualizada. Ya puedes probar la app.';
+});
+
+Route::post('/admin/toggle-voting', [Apicontroller::class, 'toggleVoting']);

@@ -55,33 +55,31 @@ class Apicontroller extends Controller
     }
 
     public function projects(int $limit, int $page, string $order = "title")
-{
-    $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'numTribunal', 'curso');
-    
-    $projects = DB::table('projects')
-        ->whereNot('projects.idSpecialization', 5)
-        ->offset(($page - 1) * $limit)
-        ->limit($limit)
-        ->orderBy($order)
-        ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
-        ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
-        ->select($columns)
-        ->get();
-
-    foreach ($projects as $p) {
-        // Obtenemos los estudiantes
-        $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
+    {
+        $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'numTribunal', 'curso');
         
-        // Obtenemos los NOMBRES de los tipos (El JOIN que decían tus compañeros)
-        $p->project_types = DB::table('project_types')
-            ->join('project_project_type', 'project_types.idProjectType', '=', 'project_project_type.idProjectType')
-            ->where('project_project_type.idProject', $p->idProject)
-            ->select('project_types.idProjectType', 'project_types.name')
+        $projects = DB::table('projects')
+            ->whereNot('projects.idSpecialization', 5)
+            ->offset(($page - 1) * $limit)
+            ->limit($limit)
+            ->orderBy($order)
+            ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
+            ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
+            ->select($columns)
             ->get();
+
+        foreach ($projects as $p) {
+            $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
+            
+            $p->project_types = DB::table('project_types')
+                ->join('project_project_type', 'project_types.idProjectType', '=', 'project_project_type.idProjectType')
+                ->where('project_project_type.idProject', $p->idProject)
+                ->select('project_types.idProjectType', 'project_types.name')
+                ->get();
+        }
+        
+        return $projects;
     }
-    
-    return $projects;
-}
 
     public function companies(int $limit, int $page, string $order = "companyName")
     {
@@ -160,19 +158,23 @@ class Apicontroller extends Controller
         return $query;
     }
     public function getProjectById(int $id)
-{
-    $project = \App\Models\Project::with(['students', 'specialization', 'ubication', 'projectTypes'])
-        ->where('idProject', $id)
-        ->first();
+    {
+        $project = \App\Models\Project::with(['students', 'specialization', 'ubication', 'projectTypes'])
+            ->where('idProject', $id)
+            ->first();
 
-    if (!$project) {
-        return response()->json(['message' => 'Proyecto no encontrado'], 404);
+        if (!$project) {
+            return response()->json(['message' => 'Proyecto no encontrado'], 404);
+        }
+
+        if ($project->pdfURL) {
+            $project->pdfURL = asset('storage/' . $project->pdfURL);
+        }
+
+        return response()->json([
+            'proyecto' => $project
+        ]);
     }
-
-    return response()->json([
-        'proyecto' => $project
-    ]);
-}
 
     public function projects_filter(int $limit, int $page, $filter, $value, string $order = "title")
     {
@@ -441,6 +443,7 @@ class Apicontroller extends Controller
         ]);
 
         $bookingTime = date('Y-m-d H:i:s', strtotime($request->time));
+        $timeOnly = date('H:i:s', strtotime($request->time));
         $user = User::where('username', $request->username)->first();
 
         if (!$user) {
@@ -455,7 +458,7 @@ class Apicontroller extends Controller
 
         $exists = DB::table('time_slots')
             ->where('idTable', $idTable)
-            ->where('start_time', $bookingTime)
+            ->whereTime('start_time', $timeOnly)
             ->exists();
 
         if ($exists) {
@@ -464,7 +467,7 @@ class Apicontroller extends Controller
 
         $studentBusy = DB::table('time_slots')
             ->where('idStudent', $student->idStudent)
-            ->where('start_time', $bookingTime)
+            ->whereTime('start_time', $timeOnly)
             ->exists();
 
         if ($studentBusy) {
@@ -507,10 +510,10 @@ class Apicontroller extends Controller
             'reason' => 'nullable|string' 
         ]);
 
-        $bookingTime = date('Y-m-d H:i:s', strtotime($request->time));
+        $timeOnly = date('H:i:s', strtotime($request->time));
         $slot = DB::table('time_slots')
             ->where('idTable', $idTable)
-            ->where('start_time', $bookingTime)
+            ->whereTime('start_time', $timeOnly)
             ->first();
 
         if (!$slot) {
@@ -521,7 +524,7 @@ class Apicontroller extends Controller
             DB::table('cancellations')->insert([
                 'idTable' => $idTable,
                 'idStudent' => $slot->idStudent,
-                'reservation_time' => $bookingTime,
+                'reservation_time' => $slot->start_time,
                 'reason' => $request->reason ?? 'Sin motivo especificado',
                 'cancelled_at' => now()
             ]);
@@ -529,7 +532,7 @@ class Apicontroller extends Controller
 
         $deleted = DB::table('time_slots')
             ->where('idTable', $idTable)
-            ->where('start_time', $bookingTime)
+            ->whereTime('start_time', $timeOnly)
             ->delete();
 
         if ($deleted) {
@@ -546,10 +549,11 @@ class Apicontroller extends Controller
         ]);
 
         $bookingTime = date('Y-m-d H:i:s', strtotime($request->time));
+        $timeOnly = date('H:i:s', strtotime($request->time));
 
         $exists = DB::table('time_slots')
             ->where('idTable', $idTable)
-            ->where('start_time', $bookingTime)
+            ->whereTime('start_time', $timeOnly)
             ->exists();
 
         if ($exists) {
@@ -573,11 +577,11 @@ class Apicontroller extends Controller
             'time' => 'required'
         ]);
 
-        $bookingTime = date('Y-m-d H:i:s', strtotime($request->time));
+        $timeOnly = date('H:i:s', strtotime($request->time));
 
         $deleted = DB::table('time_slots')
             ->where('idTable', $idTable)
-            ->where('start_time', $bookingTime)
+            ->whereTime('start_time', $timeOnly)
             ->whereNull('idStudent') 
             ->delete();
 
@@ -613,4 +617,17 @@ class Apicontroller extends Controller
 
         return response()->json($bookings);
     }
+
+    public function toggleVoting(Request $request) {
+    // Validamos que venga el estado
+    $request->validate(['enabled' => 'required|boolean']);
+
+    // Actualizamos o creamos el ajuste
+    DB::table('settings')->updateOrInsert(
+        ['key' => 'voting_enabled'],
+        ['value' => $request->enabled ? '1' : '0']
+    );
+
+    return response()->json(['success' => true, 'is_enabled' => $request->enabled]);
+}
 }

@@ -307,12 +307,13 @@ class AdminController extends Controller
 // Ver Ranking y Estado de votos
 public function votesIndex()
 {
-    // 1. Estado del botón
-    $votingStatus = \DB::table('settings')->where('key', 'voting_enabled')->value('value') == '1';
+    // 1. Estado del botón (tal cual lo tenías)
+    $votingStatus = DB::table('settings')->where('key', 'voting_enabled')->value('value') == '1';
 
-    // 2. Consulta filtrada
-    $projects = \App\Models\Project::withCount('votes')
+    // 2. Consulta filtrada: Solo proyectos QUE TENGAN votos
+    $projects = Project::with('specialization')
         ->has('votes')
+        ->withCount('votes')
         ->orderBy('votes_count', 'desc')
         ->get();
 
@@ -321,18 +322,20 @@ public function votesIndex()
 
 // Activar/Desactivar
 public function toggleVoting() {
-    $current = DB::table('settings')->where('key', 'voting_enabled')->first();
-    $newValue = $current ? !$current->value : true;
+    // 1. Obtenemos el valor actual
+    $currentValue = DB::table('settings')->where('key', 'voting_enabled')->value('value');
+    
+    // 2. Invertimos el valor
+    $newValue = ($currentValue == '1') ? '0' : '1';
 
+    // 3. Guardamos
     DB::table('settings')->updateOrInsert(
         ['key' => 'voting_enabled'],
         ['value' => $newValue, 'updated_at' => now()]
     );
 
-    return back()->with('success', 'Estado de las votaciones actualizado.');
+    $mensaje = ($newValue == '1') ? 'Votaciones activadas correctamente.' : 'Votaciones desactivadas.';
+
+    return back()->with('success', $mensaje);
 }
-
-
-    
-
 }
