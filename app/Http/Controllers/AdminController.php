@@ -139,36 +139,25 @@ class AdminController extends Controller
         return redirect()->route('admin.empresas_aceptadas')->with('success', 'Empresa actualizada correctamente.');
     }
 
-
-
-
-
-
-
     public function myProfile()
     {
         $company = auth()->user()->company;  // Obtienes solo la empresa asociada
-    
         if (!$company) {
             return redirect()->route('dashboard')->with('error', 'No se ha encontrado el perfil de empresa.');
         }
-    
         // Ahora pasas solo la empresa a la vista, no el usuario completo
         return view('admin.myProfile', compact('company'));
     }
     
-
     public function updateProfile(Request $request)
     {
         // Obtener el usuario autenticado
         $user = auth()->user();
         $company = $user->company;
-    
         // Verificar si la empresa existe
         if (!$company) {
             return redirect()->route('dashboard')->with('error', 'No se ha encontrado el perfil de empresa.');
         }
-    
         // Validación de los datos
         $request->validate([
             'companyName' => 'required|string|max:255',
@@ -180,7 +169,6 @@ class AdminController extends Controller
             'cargoAsistente' => 'required|string|max:255',
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-    
         // Manejo del logo si hay un nuevo archivo
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
@@ -228,10 +216,6 @@ class AdminController extends Controller
         // Redirigir con un mensaje de éxito
         return redirect()->route('admin.myProfile')->with('success', 'Perfil actualizado correctamente.');
     }
-    
-
-
-
 
     public function create()
     {
@@ -277,29 +261,21 @@ class AdminController extends Controller
         // Manejo del logo (si hay archivo)
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
-    
             // Crear el ImageManager
             $imgManager = new ImageManager(new Driver());
-    
             // Leer la imagen original
             $image = $imgManager->read($logo->getPathname());
-    
             // Redimensionar al 80% de su tamaño original
             $image->scale(95);
-    
             // Nombre del archivo convertido a WebP
             $logoName = time() . '_logo.webp';
-    
             // Guardar la imagen en storage/app/public/logos_empresas
             $image->save(storage_path('app/public/photos/logos_empresas/' . $logoName), 95, 'webp');
-    
             // Asignar la ruta del logo en la empresa
             $company->logo_url = 'logos_empresas/' . $logoName;
-    
             // Guardar los cambios de la empresa con el logo
             $company->save();
         }
-    
         // Redirigir con un mensaje de éxito
         return redirect()->route('admin.create')->with('success', 'Empresa creada correctamente.');
     }

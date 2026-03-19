@@ -11,7 +11,7 @@
         }
         .watermark {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('{{ public_path("images/Curriculum CV Fondo transparente.png") }}');
+            background-image: url('<?php echo e(public_path("images/Curriculum CV Fondo transparente.png")); ?>');
             background-size: cover; background-position: center; z-index: -1000;
         }
         .container { 
@@ -97,7 +97,7 @@
 
     <div class="container">
         <div class="header-project">
-            <h1 class="uppercase">{{ $project->title }}</h1>
+            <h1 class="uppercase"><?php echo e($project->title); ?></h1>
         </div>
 
         <div class="card">
@@ -108,64 +108,65 @@
                         
                         <p class="font-bold" style="font-size: 0.82rem; margin-bottom: 4px;">Equipo del proyecto:</p>
                         <div class="indent-content"> 
-                            @foreach($students->chunk(2) as $chunk)
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $students->chunk(2); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div style="width: 100%; margin-bottom: 2px;">
-                                    @foreach($chunk as $student)
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $chunk; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                         <span style="font-size: 0.78rem; display: inline-block; width: 48%;">
-                                            <span class="text-blue">•</span> {{ $student->name }} {{ $student->surname1 }}
+                                            <span class="text-blue">•</span> <?php echo e($student->name); ?> <?php echo e($student->surname1); ?>
+
                                         </span>
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                 </div>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
 
                         <p style="margin-top: 6px; font-size: 0.82rem;">
                             <strong>Especialidad:</strong> 
-                            <span class="text-blue" style="vertical-align: middle;">{{ $project->specialization->specialization }}</span>
+                            <span class="text-blue" style="vertical-align: middle;"><?php echo e($project->specialization->specialization); ?></span>
                         </p>
                         
                         <div style="margin-top: 2px; font-size: 0.82rem;">
                             <p><strong style="vertical-align: middle;">Tipo de proyecto:</strong> 
                             <span class="indent-content" style=" padding-left: 5px;">
-                                @forelse($project->projectTypes as $tipo)
-                                    <span class="badge-tipo">{{ $tipo->name }}</span>
-                                @empty
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $project->projectTypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tipo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                                    <span class="badge-tipo"><?php echo e($tipo->name); ?></span>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                                     <span class="text-blue">No definido</span>
-                                @endforelse
+                                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </span></p>
                         </div>
                     </td>
                     
-                    @php $imgHeader = $project->images->where('fase', 'header')->first(); @endphp
-                    @if($imgHeader)
+                    <?php $imgHeader = $project->images->where('fase', 'header')->first(); ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($imgHeader): ?>
                     <td width="30%" align="right" style="vertical-align: top;">
-                        <img src="{{ public_path('storage/project_steps/' . $imgHeader->file_path) }}" 
+                        <img src="<?php echo e(public_path('storage/project_steps/' . $imgHeader->file_path)); ?>" 
                              style="width: 190px; height: 120px; object-fit: cover; border-radius: 8px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                     </td>
-                    @endif
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </tr>
             </table>
         </div>
 
         <div class="card">
             <h3 class="section-title uppercase">Descripción</h3>
-            <p style="margin: 0;">{{ $project->abstract }}</p>
+            <p style="margin: 0;"><?php echo e($project->abstract); ?></p>
         </div>
 
         <div class="card">
             <h3 class="section-title uppercase">Estado Inicial</h3>
             <table width="100%">
                 <tr>
-                    @php $imgInitial = $project->images->where('fase', 'initial')->first(); @endphp
+                    <?php $imgInitial = $project->images->where('fase', 'initial')->first(); ?>
                     <td width="30%">
-                        @if($imgInitial)
-                            <img src="{{ public_path('storage/project_steps/' . $imgInitial->file_path) }}" class="img-fase" style="height: 85px;">
-                        @else
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($imgInitial): ?>
+                            <img src="<?php echo e(public_path('storage/project_steps/' . $imgInitial->file_path)); ?>" class="img-fase" style="height: 85px;">
+                        <?php else: ?>
                             <div style="width: 100%; height: 85px; background: #f3f4f6; text-align: center; line-height: 85px; color: #999; font-size: 0.6rem; border-radius: 6px;">SIN FOTO</div>
-                        @endif
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </td>
                     <td width="70%" style="padding-left: 15px; vertical-align: top;">
-                        <p style="margin: 0;">{{ $imgInitial->description ?? 'Descripción del estado previo.' }}</p>
+                        <p style="margin: 0;"><?php echo e($imgInitial->description ?? 'Descripción del estado previo.'); ?></p>
                     </td>
                 </tr>
             </table>
@@ -173,49 +174,49 @@
 
         <div class="card">
             <h3 class="section-title uppercase">Procedimiento Técnico</h3>
-            @php 
+            <?php 
                 $pasos = $project->images->where('fase', 'procedimiento')->sortBy('orden')->take(3)->values(); 
-            @endphp
+            ?>
             
-            @forelse($pasos as $index => $img)
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $pasos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                 <table style="width: 100%; margin-bottom: 8px; table-layout: fixed; border-collapse: collapse;">
                     <tr>
-                        @if($index % 2 == 0)
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($index % 2 == 0): ?>
                             <td width="35%" style="vertical-align: top;">
-                                <div class="step-header">PASO {{ $img->orden ?? ($index + 1) }}</div>
-                                <img src="{{ public_path('storage/project_steps/' . $img->file_path) }}" class="img-fase" style="height: 90px;">
+                                <div class="step-header">PASO <?php echo e($img->orden ?? ($index + 1)); ?></div>
+                                <img src="<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>" class="img-fase" style="height: 90px;">
                             </td>
                             <td width="65%" style="vertical-align: middle; padding-left: 15px; word-break: break-all;">
-    <div class="desc-tecnica">{{ $img->description }}</div>
+    <div class="desc-tecnica"><?php echo e($img->description); ?></div>
 </td>
-                        @else
+                        <?php else: ?>
                             <td width="65%" style="vertical-align: middle; padding-right: 15px;">
-                                <div class="desc-tecnica" style="text-align: justify;">{{ $img->description }}</div>
+                                <div class="desc-tecnica" style="text-align: justify;"><?php echo e($img->description); ?></div>
                             </td>
                             <td width="35%" style="vertical-align: top;">
-                                <div class="step-header" style="text-align: right;">PASO {{ $img->orden ?? ($index + 1) }}</div>
-                                <img src="{{ public_path('storage/project_steps/' . $img->file_path) }}" class="img-fase" style="height: 90px;">
+                                <div class="step-header" style="text-align: right;">PASO <?php echo e($img->orden ?? ($index + 1)); ?></div>
+                                <img src="<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>" class="img-fase" style="height: 90px;">
                             </td>
-                        @endif
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </tr>
                 </table>
-            @empty
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                 <p style="font-size: 0.7rem; color: #666;">No se han cargado pasos técnicos.</p>
-            @endforelse
+            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
         </div>
 
         <div class="card">
             <h3 class="section-title uppercase">Estado Final</h3>
-            @php $imgFinal = $project->images->where('fase', 'final')->first(); @endphp
+            <?php $imgFinal = $project->images->where('fase', 'final')->first(); ?>
             <table width="100%">
                 <tr>
                     <td width="30%">
-                        @if($imgFinal)
-                            <img src="{{ public_path('storage/project_steps/' . $imgFinal->file_path) }}" class="img-fase" style="height: 85px;">
-                        @endif
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($imgFinal): ?>
+                            <img src="<?php echo e(public_path('storage/project_steps/' . $imgFinal->file_path)); ?>" class="img-fase" style="height: 85px;">
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </td>
                     <td width="70%" style="padding-left: 15px; vertical-align: top;">
-                        <p style="margin: 0;">{{ $imgFinal->description ?? 'Descripción del resultado final.' }}</p>
+                        <p style="margin: 0;"><?php echo e($imgFinal->description ?? 'Descripción del resultado final.'); ?></p>
                     </td>
                 </tr>
             </table>
@@ -224,9 +225,9 @@
         <div class="card">
             <h3 class="section-title uppercase">Conclusión Final</h3>
             <div class="conclusion-box">
-                <p style="margin: 0;">{{ $project->conclusion ?? 'No se ha redactado una conclusión para este proyecto.' }}</p>
+                <p style="margin: 0;"><?php echo e($project->conclusion ?? 'No se ha redactado una conclusión para este proyecto.'); ?></p>
             </div>
         </div>
     </div>
 </body>
-</html>
+</html><?php /**PATH /var/www/jornada-automocion-api/resources/views/students/projectPDF.blade.php ENDPATH**/ ?>

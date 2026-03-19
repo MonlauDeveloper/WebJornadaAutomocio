@@ -12,19 +12,31 @@ class Apicontroller extends Controller
 {
     public function login_API(Request $request)
     {
-        $request->validate([
-            'user' => 'required',
+        $loginField = $request->has('user') ? 'user' : 'email';
+
+        $credentials = $request->validate([
+            $loginField => 'required',
             'password' => 'required',
         ]);
-        $user = User::where('username', $request->user)->first();
-        // $user->tokens()->delete(); 
 
+        $user = User::where('email', $request->$loginField)
+                    ->orWhere('username', $request->$loginField)
+                    ->first();
+
+        // Verificamos usuario y contraseña (el hash que pusimos en HeidiSQL)
         if (!$user || !Hash::check($request->password, $user->password)) {
-            throw ValidationException::withMessages([
-                'user' => ['The provided credentials are incorrect.'],
-            ]);
+            return response()->json(['message' => 'Credenciales no válidas'], 401);
         }
-        return $user->createToken($request->user)->plainTextToken;
+
+        // Generamos el token de Sanctum para Flutter
+        $token = $user->createToken('auth_token')->plainTextToken;
+
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+            'idRole' => $user->idRole,
+            'user' => $user
+        ]);
     }
 
     public function pages_projects(int $limit)
@@ -158,23 +170,23 @@ class Apicontroller extends Controller
         return $query;
     }
     public function getProjectById(int $id)
-    {
-        $project = \App\Models\Project::with(['students', 'specialization', 'ubication', 'projectTypes'])
-            ->where('idProject', $id)
-            ->first();
+{
+    $project = \App\Models\Project::with(['students', 'specialization', 'ubication', 'projectTypes'])
+        ->where('idProject', $id)
+        ->first();
 
-        if (!$project) {
-            return response()->json(['message' => 'Proyecto no encontrado'], 404);
-        }
-
-        if ($project->pdfURL) {
-            $project->pdfURL = asset('storage/' . $project->pdfURL);
-        }
-
-        return response()->json([
-            'proyecto' => $project
-        ]);
+    if (!$project) {
+        return response()->json(['message' => 'Proyecto no encontrado'], 404);
     }
+
+    if ($project->pdfURL && !str_starts_with($project->pdfURL, 'http')) {
+        $project->pdfURL = asset('storage/' . $project->pdfURL);
+    }
+
+    return response()->json([
+        'proyecto' => $project
+    ]);
+}
 
     public function projects_filter(int $limit, int $page, $filter, $value, string $order = "title")
     {
