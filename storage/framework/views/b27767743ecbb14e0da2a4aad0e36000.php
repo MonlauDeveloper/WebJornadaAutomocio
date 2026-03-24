@@ -1,41 +1,40 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container mx-auto p-6">
     <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
         <h1 class="text-4xl font-bold text-blue-600 text-center">Editar Datos</h1>
 
-        @if(session('success'))
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(session('success')): ?>
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mt-4 mb-4">
-                {{ session('success') }}
-            </div>
-        @endif
+                <?php echo e(session('success')); ?>
 
-        @if ($errors->any())
+            </div>
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($errors->any()): ?>
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
                 <ul class="list-disc pl-5">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <li><?php echo e($error); ?></li>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </ul>
             </div>
-        @endif
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
-        <form action="{{ route('admin.updateProfile', $company->idUser) }}" method="POST" enctype="multipart/form-data" class="space-y-6 mt-4">
-            @csrf
-            @method('PUT')
+        <form action="<?php echo e(route('admin.updateProfile', $company->idUser)); ?>" method="POST" enctype="multipart/form-data" class="space-y-6 mt-4">
+            <?php echo csrf_field(); ?>
+            <?php echo method_field('PUT'); ?>
 
             <!-- Nombre de la Empresa -->
             <div>
                 <label for="companyName" class="block text-sm font-medium text-gray-600">Nombre de la Empresa</label>
-                <input type="text" name="companyName" id="companyName" value="{{ old('companyName', $company->companyName) }}"
+                <input type="text" name="companyName" id="companyName" value="<?php echo e(old('companyName', $company->companyName)); ?>"
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
             </div>
 
             <!-- Página Web -->
             <div>
                 <label for="companyWeb" class="block text-sm font-medium text-gray-600">Página Web</label>
-                <input type="url" name="companyWeb" id="companyWeb" value="{{ old('companyWeb', $company->companyWeb) }}"
+                <input type="url" name="companyWeb" id="companyWeb" value="<?php echo e(old('companyWeb', $company->companyWeb)); ?>"
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
 
@@ -43,12 +42,12 @@
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label for="asistenteNombre" class="block text-sm font-medium text-gray-600">Nombre del Asistente</label>
-                    <input type="text" name="asistenteNombre" id="asistenteNombre" value="{{ old('asistenteNombre', $company->asistenteNombre) }}"
+                    <input type="text" name="asistenteNombre" id="asistenteNombre" value="<?php echo e(old('asistenteNombre', $company->asistenteNombre)); ?>"
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
                 </div>
                 <div>
                     <label for="asistenteApellidos" class="block text-sm font-medium text-gray-600">Apellidos</label>
-                    <input type="text" name="asistenteApellidos" id="asistenteApellidos" value="{{ old('asistenteApellidos', $company->asistenteApellidos) }}"
+                    <input type="text" name="asistenteApellidos" id="asistenteApellidos" value="<?php echo e(old('asistenteApellidos', $company->asistenteApellidos)); ?>"
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
                 </div>
             </div>
@@ -57,12 +56,12 @@
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label for="telefonoAsistente" class="block text-sm font-medium text-gray-600">Teléfono</label>
-                    <input type="text" name="telefonoAsistente" id="telefonoAsistente" value="{{ old('telefonoAsistente', $company->telefonoAsistente) }}"
+                    <input type="text" name="telefonoAsistente" id="telefonoAsistente" value="<?php echo e(old('telefonoAsistente', $company->telefonoAsistente)); ?>"
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
                 </div>
                 <div>
                     <label for="emailAsistente" class="block text-sm font-medium text-gray-600">Email</label>
-                    <input type="email" name="emailAsistente" id="emailAsistente" value="{{ old('emailAsistente', $company->emailAsistente) }}"
+                    <input type="email" name="emailAsistente" id="emailAsistente" value="<?php echo e(old('emailAsistente', $company->emailAsistente)); ?>"
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
                 </div>
             </div>
@@ -70,7 +69,7 @@
             <!-- Cargo -->
             <div>
                 <label for="cargoAsistente" class="block text-sm font-medium text-gray-600">Cargo</label>
-                <input type="text" name="cargoAsistente" id="cargoAsistente" value="{{ old('cargoAsistente', $company->cargoAsistente) }}"
+                <input type="text" name="cargoAsistente" id="cargoAsistente" value="<?php echo e(old('cargoAsistente', $company->cargoAsistente)); ?>"
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
             </div>
 
@@ -79,16 +78,16 @@
                 <label for="logo" class="block text-sm font-medium text-gray-600">Logo de la Empresa</label>
                 <input type="file" name="logo" id="logo" 
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-               @if($company->logo_url)
+               <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($company->logo_url): ?>
     <div class="mt-4">
         <p class="text-xs text-gray-400 mb-2">Logo actual:</p>
         <div class="w-40 h-40 bg-gray-50 border border-gray-100 rounded-xl flex items-center justify-center p-2 overflow-hidden shadow-inner">
-            <img src="{{ asset('storage/photos/' . $company->logo_url) }}" 
+            <img src="<?php echo e(asset('storage/photos/' . $company->logo_url)); ?>" 
                  alt="Logo" 
                  class="max-w-full max-h-full object-contain rounded-lg">
         </div>
     </div>
-@endif
+<?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
 
             <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-lg transition">
@@ -97,4 +96,6 @@
         </form>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /var/www/jornada-automocion-api/resources/views/admin/myProfile.blade.php ENDPATH**/ ?>

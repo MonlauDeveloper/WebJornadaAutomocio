@@ -88,37 +88,45 @@
                             </button>
                         </div>
 
-                        {{--Desplegable de las horas --}}
-                        <div x-show="mostrarHoras" x-cloak x-transition class="mb-4 space-y-2 max-h-52 overflow-y-auto pr-1 bg-indigo-50/50 p-2 rounded-xl border border-indigo-100">
-                            @php
-                                $citas = collect($table->interviews ?? [])->keyBy(function($i) {
-                                    return \Carbon\Carbon::parse($i->hour)->format('H:i');
-                                });
-                                $inicio = \Carbon\Carbon::createFromTime(10, 0);
-                                $fin = \Carbon\Carbon::createFromTime(14, 0);
-                            @endphp
+                        <div x-show="mostrarHoras" x-cloak x-transition class="mb-4 space-y-1 max-h-60 overflow-y-auto pr-1 bg-gray-50 p-2 rounded-xl border border-gray-200">
+    @php
+        // Organizamos las citas por hora para buscarlas rápido
+        $citas = collect($table->interviews ?? [])->keyBy(function($i) {
+            return \Carbon\Carbon::parse($i->hour)->format('H:i');
+        });
 
-                            @while($inicio <= $fin)
-                                @php 
-                                    $horaActual = $inicio->format('H:i');
-                                    $cita = $citas->get($horaActual);
-                                @endphp
-                                <div class="flex items-center justify-between p-2 rounded-lg text-[11px] {{ $cita ? 'bg-white border border-indigo-200 shadow-sm' : 'bg-gray-50/50 border border-transparent text-gray-400' }}">
-                                    <span class="font-bold {{ $cita ? 'text-indigo-900' : '' }}">
-                                        {{ $horaActual }}
-                                    </span>
-                                    @if($cita)
-                                        <div class="text-right">
-                                            <span class="text-indigo-700 font-semibold block leading-none">{{ $cita->studentName ?? 'Ocupado' }}</span>
-                                            <span class="text-[8px] text-green-500 font-bold uppercase">Confirmado</span>
-                                        </div>
-                                    @else
-                                        <span class="uppercase text-[8px] tracking-tighter">Disponible</span>
-                                    @endif
-                                </div>
-                                @php $inicio->addMinutes(30); @endphp
-                            @endwhile
-                        </div>
+        // Definimos el horario (Igual que en la App)
+        $hora = \Carbon\Carbon::createFromTime(9, 30);
+        $fin = \Carbon\Carbon::createFromTime(13, 30);
+    @endphp
+
+    @while($hora <= $fin)
+        @php 
+            $horaActual = $hora->format('H:i');
+            $cita = $citas->get($horaActual);
+            
+            // Saltamos el tiempo de descanso si lo deseas (opcional)
+            // if($horaActual == '10:40') { $hora->addMinutes(20); continue; }
+        @endphp
+
+        <div class="flex items-center justify-between p-2 rounded-lg text-xs {{ $cita ? 'bg-blue-50 border border-blue-200' : 'bg-white border border-transparent text-gray-400' }}">
+            <span class="font-bold {{ $cita ? 'text-blue-700' : '' }}">
+                {{ $horaActual }}
+            </span>
+
+            @if($cita)
+                <div class="text-right">
+                    <span class="text-blue-800 font-bold block leading-none">{{ $cita->studentName }}</span>
+                    <span class="text-[9px] text-blue-500 uppercase font-black">Reservado</span>
+                </div>
+            @else
+                <span class="text-[9px] uppercase tracking-tighter opacity-50 text-gray-400">Libre</span>
+            @endif
+        </div>
+
+        @php $hora->addMinutes(10); @endphp
+    @endwhile
+</div>
 
                         <div class="mt-1 h-1.5 w-full bg-indigo-100 rounded-full overflow-hidden">
                             @php 

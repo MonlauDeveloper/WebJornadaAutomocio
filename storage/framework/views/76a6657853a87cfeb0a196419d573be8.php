@@ -7,29 +7,31 @@
             <form method="GET" action="<?php echo e(route('students.index')); ?>"
                 class="flex flex-col md:flex-row items-center justify-center gap-4">
                 <select name="specialization"
-                    class="w-full md:w-auto border rounded-lg text-gray-700 p-2 pr-10 bg-white appearance-none cursor-pointer"
-                    onchange="this.form.submit()">
-                    <option value="">Todas las especializaciones</option>
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $specializations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $specialization): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($specialization->idSpecialization); ?>" 
-                            <?php echo e(request('specialization') == $specialization->idSpecialization ? 'selected' : ''); ?>>
-                            <?php echo e($specialization->specialization); ?>
+    class="w-full md:w-auto border rounded-lg text-gray-700 p-2 pr-10 bg-white appearance-none cursor-pointer shadow-sm"
+    style="background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 fill%3D%22none%22 viewBox%3D%220 0 20 20%22%3E%3Cpath stroke%3D%22%236b7280%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%221.5%22 d%3D%22m6 8 4 4 4-4%22%2F%3E%3C%2Fsvg%3E'); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em;"
+    onchange="this.form.submit()">
+    <option value="">Todas las especializaciones</option>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $specializations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $specialization): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <option value="<?php echo e($specialization->idSpecialization); ?>" 
+            <?php echo e(request('specialization') == $specialization->idSpecialization ? 'selected' : ''); ?>>
+            <?php echo e($specialization->specialization); ?>
 
-                        </option>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                </select>
+        </option>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+</select>
 
-                <select name="curso"
-                    class="w-full md:w-auto border rounded-lg text-gray-700 p-2 pr-10 bg-white appearance-none cursor-pointer"
-                    onchange="this.form.submit()">
-                    <option value="">Todos los cursos</option>
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $cursos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $curso): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($curso); ?>" <?php echo e(request('curso') == $curso ? 'selected' : ''); ?>>
-                            Curso <?php echo e($curso); ?>
+<select name="curso"
+    class="w-full md:w-auto border rounded-lg text-gray-700 p-2 pr-10 bg-white appearance-none cursor-pointer shadow-sm"
+    style="background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 fill%3D%22none%22 viewBox%3D%220 0 20 20%22%3E%3Cpath stroke%3D%22%236b7280%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%221.5%22 d%3D%22m6 8 4 4 4-4%22%2F%3E%3C%2Fsvg%3E'); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em;"
+    onchange="this.form.submit()">
+    <option value="">Todos los cursos</option>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $cursos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $curso): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <option value="<?php echo e($curso); ?>" <?php echo e(request('curso') == $curso ? 'selected' : ''); ?>>
+            Curso <?php echo e($curso); ?>
 
-                        </option>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                </select>
+        </option>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+</select>
 
                 <div class="flex w-full md:w-auto gap-2">
                     <input type="text" name="search" value="<?php echo e(request('search')); ?>" placeholder="Buscar por nombre"

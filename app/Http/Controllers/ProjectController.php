@@ -536,5 +536,27 @@ class ProjectController extends Controller
 
         return redirect()->back()->with('success', 'Foto eliminada. Se ha restaurado la imagen por defecto.');
     }
+
+    public function showPublic($id)
+{
+    // Buscamos el proyecto con sus relaciones (estudiantes, categoría, etc.)
+    $project = \App\Models\Project::with(['students', 'specialization', 'ubication'])
+        ->where('idProject', $id)
+        ->firstOrFail();
+
+    // Procesamos la URL del video para que se pueda insertar (el método que creamos antes)
+    $project->embed_video_url = $this->parseVideoUrl($project->videoURL);
+
+    // Retornamos la nueva vista pública que creamos
+    return view('projects.public', compact('project'));
+}
+
+private function parseVideoUrl($url)
+{
+    if (!$url) return null;
+    preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match);
+    $youtube_id = $match[1] ?? null;
+    return $youtube_id ? "https://www.youtube.com/embed/" . $youtube_id : $url;
+}
 }
 

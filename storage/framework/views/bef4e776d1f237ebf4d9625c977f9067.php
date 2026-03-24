@@ -106,7 +106,7 @@
                     <td width="70%" style="vertical-align: top;">
                         <h3 class="section-title uppercase">Datos del Proyecto</h3>
                         
-                        <p class="font-bold" style="font-size: 0.82rem; margin-bottom: 4px;">Equipo del proyecto:</p>
+                        <p class="font-bold" style="font-size: 0.82rem; margin-bottom: 4px;">Alumnos:</p>
                         <div class="indent-content"> 
                             <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $students->chunk(2); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $chunk): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div style="width: 100%; margin-bottom: 2px;">

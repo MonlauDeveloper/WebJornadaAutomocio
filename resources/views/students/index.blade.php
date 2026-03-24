@@ -9,27 +9,29 @@
             <form method="GET" action="{{ route('students.index') }}"
                 class="flex flex-col md:flex-row items-center justify-center gap-4">
                 <select name="specialization"
-                    class="w-full md:w-auto border rounded-lg text-gray-700 p-2 pr-10 bg-white appearance-none cursor-pointer"
-                    onchange="this.form.submit()">
-                    <option value="">Todas las especializaciones</option>
-                    @foreach($specializations as $specialization)
-                        <option value="{{ $specialization->idSpecialization }}" 
-                            {{ request('specialization') == $specialization->idSpecialization ? 'selected' : '' }}>
-                            {{ $specialization->specialization }}
-                        </option>
-                    @endforeach
-                </select>
+    class="w-full md:w-auto border rounded-lg text-gray-700 p-2 pr-10 bg-white appearance-none cursor-pointer shadow-sm"
+    style="background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 fill%3D%22none%22 viewBox%3D%220 0 20 20%22%3E%3Cpath stroke%3D%22%236b7280%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%221.5%22 d%3D%22m6 8 4 4 4-4%22%2F%3E%3C%2Fsvg%3E'); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em;"
+    onchange="this.form.submit()">
+    <option value="">Todas las especializaciones</option>
+    @foreach($specializations as $specialization)
+        <option value="{{ $specialization->idSpecialization }}" 
+            {{ request('specialization') == $specialization->idSpecialization ? 'selected' : '' }}>
+            {{ $specialization->specialization }}
+        </option>
+    @endforeach
+</select>
 
-                <select name="curso"
-                    class="w-full md:w-auto border rounded-lg text-gray-700 p-2 pr-10 bg-white appearance-none cursor-pointer"
-                    onchange="this.form.submit()">
-                    <option value="">Todos los cursos</option>
-                    @foreach($cursos as $curso)
-                        <option value="{{ $curso }}" {{ request('curso') == $curso ? 'selected' : '' }}>
-                            Curso {{ $curso }}
-                        </option>
-                    @endforeach
-                </select>
+<select name="curso"
+    class="w-full md:w-auto border rounded-lg text-gray-700 p-2 pr-10 bg-white appearance-none cursor-pointer shadow-sm"
+    style="background-image: url('data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22 fill%3D%22none%22 viewBox%3D%220 0 20 20%22%3E%3Cpath stroke%3D%22%236b7280%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22 stroke-width%3D%221.5%22 d%3D%22m6 8 4 4 4-4%22%2F%3E%3C%2Fsvg%3E'); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em;"
+    onchange="this.form.submit()">
+    <option value="">Todos los cursos</option>
+    @foreach($cursos as $curso)
+        <option value="{{ $curso }}" {{ request('curso') == $curso ? 'selected' : '' }}>
+            Curso {{ $curso }}
+        </option>
+    @endforeach
+</select>
 
                 <div class="flex w-full md:w-auto gap-2">
                     <input type="text" name="search" value="{{ request('search') }}" placeholder="Buscar por nombre"

@@ -107,7 +107,7 @@
     </div>
     <div class="mt-6 text-center">
         <a href="<?php echo e(route('students.descargar', $student->idStudent)); ?>" class="mr-2 ml-2 text-white bg-blue-600 hover:bg-blue-700 py-3 px-6 rounded-lg">
-            Descargar Currículum
+            Ver Currículum
         </a>
         <a href="<?php echo e(route('projects.show', $student->idProject)); ?>" class="mr-2 ml-2 text-white bg-blue-600 hover:bg-blue-700 py-3 px-6 rounded-lg">
             Ver Proyecto

@@ -553,4 +553,15 @@ class StudentController extends Controller
 
         return $pdf->stream('Ficha_' . $project->idProject . '.pdf');
     }
+
+    public function showPublic($id)
+    {
+        // 1. Buscamos al alumno con sus relaciones
+        $student = Student::with(['project', 'specialization'])
+            ->where('idStudent', $id)
+            ->firstOrFail();
+
+        // 2. Enviamos a la vista pública
+        return view('students.public', compact('student'));
+    }
 }

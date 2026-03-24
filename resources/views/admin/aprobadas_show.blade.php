@@ -23,11 +23,14 @@
                 <p><strong class="font-bold text-gray-700">Cargo del Asistente:</strong> {{ $user->company->cargoAsistente }}</p>
             </div>
         </div>
-        <h2 class="text-l font-semibold text-center text-gray-800 mt-4 mb-4">Logo:</h2>
-        <img class="w-32 h-32 object-cover mx-auto" 
-                 src="{{ asset('storage/photos/' . $user->company->logo_url) }}" 
-                 alt="{{ $user->username }}">
-
+       <div class="mt-8">
+            <h2 class="text-sm font-bold text-center text-gray-400 uppercase tracking-widest mb-4">Logo Oficial</h2>
+            <div class="w-full h-48 bg-gray-50 rounded-xl border border-gray-100 flex items-center justify-center p-6 shadow-inner overflow-hidden">
+                <img class="max-w-full max-h-full object-contain" 
+                     src="{{ asset('storage/photos/' . $user->company->logo_url) }}" 
+                     alt="{{ $user->username }}">
+            </div>
+        </div>
     </div>
 
     <!-- Botones de acción -->

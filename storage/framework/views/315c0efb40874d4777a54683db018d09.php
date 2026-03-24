@@ -423,7 +423,7 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->idProject): ?>
                         <a href="<?php echo e(route('project.pdf', $project->idProject)); ?>"
                             class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow text-center">
-                            Descargar PDF
+                            Ver ficha técnica
                         </a>
                     <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 

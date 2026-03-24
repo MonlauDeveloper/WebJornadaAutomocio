@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="container mx-auto p-6">
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
             <h1 class="text-4xl font-bold text-blue-600 text-center">Mi Perfil</h1>
@@ -8,40 +6,43 @@
             <!-- Foto y Nombre -->
             <div class="text-center mt-6">
                 <img class="w-32 h-32 object-cover rounded-full mx-auto"
-                    src="{{ asset('storage/' . $student->photoName) }}" alt="{{ $student->name }}" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                    src="<?php echo e(asset('storage/' . $student->photoName)); ?>" alt="<?php echo e($student->name); ?>" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
                 <h2 class="text-2xl font-semibold text-gray-800 mt-4">
-                    {{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}
+                    <?php echo e($student->name); ?> <?php echo e($student->surname1); ?> <?php echo e($student->surname2); ?>
+
                 </h2>
             </div>
 
             <!-- Mostrar mensajes de éxito o error -->
-            @if(session('success'))
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(session('success')): ?>
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mt-4 mb-4">
-                    {{ session('success') }}
+                    <?php echo e(session('success')); ?>
+
                 </div>
-            @endif
+            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
             <!-- Configuración contraseña -->
             <div class="mt-8">
                 <h2 class="text-3xl font-semibold text-blue-600">Configura tu Contraseña</h2>
-                <form action="{{ route('students.updatePassword') }}" method="POST" class="space-y-6 mt-4">
-                    @csrf
+                <form action="<?php echo e(route('students.updatePassword')); ?>" method="POST" class="space-y-6 mt-4">
+                    <?php echo csrf_field(); ?>
 
-                    @if(session('error'))
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(session('error')): ?>
                         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
-                            {{ session('error') }}
-                        </div>
-                    @endif
+                            <?php echo e(session('error')); ?>
 
-                    @if ($errors->any())
+                        </div>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($errors->any()): ?>
                         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
                             <ul class="list-disc pl-5">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $errors->all(); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $error): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <li><?php echo e($error); ?></li>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </ul>
                         </div>
-                    @endif
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
                     <!-- Contraseña actual -->
                     <div>
@@ -79,8 +80,8 @@
             <!-- Configuración del Currículum -->
             <div class="mt-8 mb-4">
                 <h2 class="text-3xl font-semibold text-blue-600">Configura tu Currículum</h2>
-                <form action="{{ route('students.updateProfile') }}" method="POST" class="space-y-6 mt-4">
-                    @csrf
+                <form action="<?php echo e(route('students.updateProfile')); ?>" method="POST" class="space-y-6 mt-4">
+                    <?php echo csrf_field(); ?>
 
                     <!-- Introducción -->
                     <div>
@@ -88,23 +89,23 @@
                         <textarea id="introduction" name="introduction"
                             placeholder="Buenos días, soy Juanjo y me apasiona..."
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                            rows="3">{{ old('introduction', $student->introduction) }}</textarea>
+                            rows="3"><?php echo e(old('introduction', $student->introduction)); ?></textarea>
                     </div>
 
                     <!-- Educación -->
                     <div>
                         <label for="education" class="block text-sm font-medium text-gray-600">Formación</label>
                         <div id="education-container" class="space-y-2">
-                            @foreach($student->educations as $education)
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $student->educations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $education): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="flex items-center">
                                     <input type="text" name="education[]"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                                        value="{{ $education->education }}" placeholder="Añadir Formación">
+                                        value="<?php echo e($education->education); ?>" placeholder="Añadir Formación">
                                     <button type="button" class="ml-2 text-red-500 hover:text-red-700 remove-input">
                                         ✖
                                     </button>
                                 </div>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
                         <button type="button" id="add-education" class="mt-2 text-blue-500 hover:text-blue-700">+ Agregar
                             más estudios</button>
@@ -114,16 +115,16 @@
                     <div>
                         <label for="languages" class="block text-sm font-medium text-gray-600">Idiomas</label>
                         <div id="languages-container" class="space-y-2">
-                            @foreach($student->languages as $language)
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $student->languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="flex items-center">
                                     <input type="text" name="languages[]"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                                        value="{{ $language->language }}" placeholder="Añadir idioma">
+                                        value="<?php echo e($language->language); ?>" placeholder="Añadir idioma">
                                     <button type="button" class="ml-2 text-red-500 hover:text-red-700 remove-input">
                                         ✖
                                     </button>
                                 </div>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
                         <button type="button" id="add-language" class="mt-2 text-blue-500 hover:text-blue-700">+ Agregar más
                             idiomas</button>
@@ -134,17 +135,17 @@
                         <label for="work_experience" class="block text-sm font-medium text-gray-600">Experiencia
                             Laboral</label>
                         <div id="experience-container" class="space-y-2">
-                            @foreach($student->workExperiences as $experience)
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $student->workExperiences; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $experience): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="flex items-center">
                                     <input type="text" name="work_experience[]"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                                        value="{{ $experience->work_experience }}"
+                                        value="<?php echo e($experience->work_experience); ?>"
                                         placeholder="Añadir experiencia (Fecha Inicio - Fecha Fin) (Nombre Empresa) (Función Desarrollada)">
                                     <button type="button" class="ml-2 text-red-500 hover:text-red-700 remove-input">
                                         ✖
                                     </button>
                                 </div>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
                         <button type="button" id="add-experience" class="mt-2 text-blue-500 hover:text-blue-700">+ Agregar
                             más experiencia</button>
@@ -154,16 +155,16 @@
                     <div>
                         <label for="contact" class="block text-sm font-medium text-gray-600">Contacto</label>
                         <div id="contact-container" class="space-y-2">
-                            @foreach($student->contacts as $contact)
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $student->contacts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <div class="flex items-center">
                                     <input type="text" name="contact[]"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                                        value="{{ $contact->contact }}" placeholder="Añadir contacto">
+                                        value="<?php echo e($contact->contact); ?>" placeholder="Añadir contacto">
                                     <button type="button" class="ml-2 text-red-500 hover:text-red-700 remove-input">
                                         ✖
                                     </button>
                                 </div>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
                         <button type="button" id="add-contact" class="mt-2 text-blue-500 hover:text-blue-700">+ Agregar más
                             contacto</button>
@@ -182,8 +183,8 @@
                     </button>
                 </form>
             </div>
-            <a href="{{ route('students.descargar', $student->idStudent) }}"
-                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition">Ver
+            <a href="<?php echo e(route('students.descargar', $student->idStudent)); ?>"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition">Descargar
                 Currículum</a>
 
         </div>
@@ -223,4 +224,5 @@
             }
         });
     </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /var/www/jornada-automocion-api/resources/views/students/myProfile.blade.php ENDPATH**/ ?>

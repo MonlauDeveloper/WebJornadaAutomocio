@@ -47,7 +47,7 @@
 
     <!-- Estudiantes Involucrados -->
     <div class="mt-8 bg-white p-6 rounded-lg shadow-lg">
-        <h2 class="text-3xl font-semibold text-blue-600">Estudiantes Involucrados</h2>
+        <h2 class="text-3xl font-semibold text-blue-600">Alumnos</h2>
 
         <?php if($project->students->isNotEmpty()): ?>
             <ul class="mt-4 space-y-4">

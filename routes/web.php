@@ -83,25 +83,41 @@ Route::middleware(['auth', 'idRole:1'])->group(function () {
 
     Route::get('/admin/votos', [AdminController::class, 'votesIndex'])->name('admin.votes.index');
     Route::post('/admin/votos/toggle', [AdminController::class, 'toggleVoting'])->name('admin.votes.toggle');
-    // --- GESTIÓN DE MESAS (CORREGIDO Y SIN DUPLICADOS) ---
 
-    // 1. Ver página: Listar mesas y cargar empresas para el select
-    Route::get('/mesas', function () {
-        // A. Mesas existentes
-        $tables = DB::table('company_tables')
-            ->join('companies', 'company_tables.idCompany', '=', 'companies.idCompany')
-            ->select('company_tables.*', 'companies.companyName')
-            ->orderBy('idTable', 'desc')
+    // Reiniciar votaciones
+    Route::post('/admin/votos/reiniciar', [AdminController::class, 'reiniciarVotaciones'])->name('admin.votes.reset');
+    
+    // --- GESTIÓN DE MESAS ---
+Route::get('/mesas', function () {
+    // 1. Traemos las mesas con el nombre de la empresa
+    $tables = DB::table('company_tables')
+        ->join('companies', 'company_tables.idCompany', '=', 'companies.idCompany')
+        ->select('company_tables.*', 'companies.companyName')
+        ->orderBy('idTable', 'desc')
+        ->get();
+
+    // 2. Por cada mesa, buscamos sus reservas en la tabla time_slots
+    foreach ($tables as $table) {
+        $table->interviews = DB::table('time_slots')
+            ->join('students', 'time_slots.idStudent', '=', 'students.idStudent')
+            ->where('time_slots.idTable', $table->idTable)
+            ->select(
+                'time_slots.start_time as hour', 
+                DB::raw("CONCAT(students.name, ' ', students.surname1) as studentName")
+            )
             ->get();
+    }
 
-        // B. Lista de empresas para el desplegable
-        $companies = DB::table('companies')
-            ->select('idCompany', 'companyName')
-            ->orderBy('companyName', 'asc')
-            ->get();
+    // 3. Calculamos el total de entrevistas para los contadores de arriba
+    $totalInterviews = DB::table('time_slots')->whereNotNull('idStudent')->count();
 
-        return view('mesas.index', compact('tables', 'companies'));
-    })->name('mesas.index');
+    $companies = DB::table('companies')
+        ->select('idCompany', 'companyName')
+        ->orderBy('companyName', 'asc')
+        ->get();
+
+    return view('mesas.index', compact('tables', 'companies', 'totalInterviews'));
+})->name('mesas.index');
 
     // 2. Guardar nueva mesa
     Route::post('/mesas', function (Illuminate\Http\Request $request) {
@@ -219,3 +235,12 @@ Route::middleware(['auth', 'check.status'])->group(function () {
     Route::delete('/project-images/{id}', [ProjectController::class, 'destroyImage'])->name('projects.image.destroy');
     Route::delete('/projects/{project}/photo', [ProjectController::class, 'destroyPhoto'])->name('projects.photo.destroy');
 });
+
+
+// Ruta pública para compartir proyectos (Sin Login)
+Route::get('/p/{id}', [ProjectController::class, 'showPublic'])
+    ->name('projects.public');
+
+// Ruta pública para el perfil del alumno (Sin Login)
+Route::get('/s/{id}', [StudentController::class, 'showPublic'])
+    ->name('students.public');

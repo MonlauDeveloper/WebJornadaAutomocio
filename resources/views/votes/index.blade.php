@@ -22,7 +22,11 @@
     @endif
 
     <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-        <h1 class="text-2xl md:text-3xl font-semibold text-blue-600 text-center md:text-left">Ranking de Votos</h1>
+    <h1 class="text-2xl md:text-3xl font-semibold text-blue-600 text-center md:text-left">
+        Ranking de Votos
+    </h1>
+    
+    <div class="flex flex-col md:flex-row gap-3 w-full md:w-auto">
         
         <form action="{{ route('admin.votes.toggle') }}" method="POST" class="w-full md:w-auto text-center">
             @csrf
@@ -31,41 +35,52 @@
                 {{ $votingStatus ? 'Desactivar Votaciones' : 'Activar Votaciones' }}
             </button>
         </form>
+
+        <form action="{{ route('admin.votes.reset') }}" method="POST" class="w-full md:w-auto" 
+              onsubmit="return confirm('⚠️ ¿ESTÁS SEGURO? Se borrarán TODOS los votos permanentemente.');">
+            @csrf
+            <button type="submit" 
+                class="w-full md:w-auto px-6 py-2 rounded-lg font-bold text-white transition bg-blue-600 shadow-md hover:bg-blue-700">
+                Reiniciar Votaciones
+            </button>
+        </form>
+        
     </div>
+</div>
 
     <div class="bg-white shadow-md rounded-lg border border-gray-200 overflow-x-auto">
-        <table class="w-full border-collapse min-w-[600px] md:min-w-full"> <thead>
-                <tr class="bg-gray-100 text-gray-700 text-xs md:text-sm uppercase">
-                    <th class="border-b p-3 md:p-4 text-center">#</th>
-                    <th class="border-b p-3 md:p-4 text-left">Proyecto</th>
-                    <th class="border-b p-3 md:p-4 text-center">Votos</th>
-                </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200">
-                @forelse($projects as $index => $project)
-                <tr class="hover:bg-gray-50">
-                    <td class="p-3 md:p-4 text-center font-bold text-base md:text-lg text-gray-500">
-                        {{ $index + 1 }}
-                    </td>
-                    <td class="p-3 md:p-4">
-                        <div class="font-semibold text-sm md:text-base text-gray-800 break-words">{{ $project->title }}</div>
-                        <div class="text-[10px] md:text-xs text-gray-500 italic">{{ $project->specialization->specialization ?? '' }}</div>
-                    </td>
-                    <td class="p-3 md:p-4 text-center">
-                        <span class="inline-block bg-blue-100 text-blue-700 px-3 py-1 md:px-4 md:py-1 rounded-md font-black text-lg md:text-xl">
-                            {{ $project->votes_count }}
-                        </span>
-                    </td>
-                </tr>
-                @empty
-                <tr>
-                    <td colspan="3" class="p-10 text-center text-gray-400 italic">
-                        No hay proyectos con votos registrados.
-                    </td>
-                </tr>
-                @endforelse
-            </tbody>
-        </table>
+        <table class="min-w-full bg-white rounded-lg overflow-hidden shadow-md">
+    <thead class="bg-blue-100">
+        <tr>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Posición</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Proyecto</th>
+            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Votos</th>
+            <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Detalles</th>
+        </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+        @foreach($projects as $index => $project)
+        <tr>
+            <td class="px-6 py-4 font-bold text-blue-600">#{{ $index + 1 }}</td>
+            <td class="px-6 py-4">
+                <div class="font-medium text-gray-900">{{ $project->title }}</div>
+                <div class="text-sm text-gray-500">{{ $project->specialization->specialization }}</div>
+            </td>
+            <td class="px-6 py-4">
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full font-bold">
+                    {{ $project->votes_count }} votos
+                </span>
+            </td>
+            <td class="px-6 py-4 text-center">
+                <a href="{{ route('projects.show', $project->idProject) }}" 
+                   class="inline-flex items-center px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-bold rounded transition">
+                   Ver Proyecto
+                </a>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
     </div>
 </div>
 @endsection

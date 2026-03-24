@@ -283,7 +283,7 @@ class AdminController extends Controller
 // Ver Ranking y Estado de votos
 public function votesIndex()
 {
-    // 1. Estado del botón (tal cual lo tenías)
+    // 1. Estado del botón 
     $votingStatus = DB::table('settings')->where('key', 'voting_enabled')->value('value') == '1';
 
     // 2. Consulta filtrada: Solo proyectos QUE TENGAN votos
@@ -313,5 +313,14 @@ public function toggleVoting() {
     $mensaje = ($newValue == '1') ? 'Votaciones activadas correctamente.' : 'Votaciones desactivadas.';
 
     return back()->with('success', $mensaje);
+}
+public function reiniciarVotaciones()
+{
+    try {
+        DB::table('votes')->delete(); 
+        return back()->with('success', 'Todas las votaciones han sido eliminadas correctamente.');
+    } catch (\Exception $e) {
+        return back()->with('error', 'Hubo un error al reiniciar los votos: ' . $e->getMessage());
+    }
 }
 }

@@ -70,6 +70,7 @@ Route::get('/projects/{limit}/{page}/{order}', [Apicontroller::class, 'projects'
 // Empresas
 Route::get('/companies/{limit}/{page}', [Apicontroller::class, 'companies'])->whereNumber('limit')->whereNumber('page');
 Route::get('/companies/{limit}/{page}/{order}', [Apicontroller::class, 'companies'])->whereNumber('limit')->whereNumber('page');
+Route::get('/companies/{id}/photos', [Apicontroller::class, 'getCompanyPhotos']);
 
 // MonlauTech / DynamicTest
 Route::get('/dynamicTest/{limit}/{page}', [Apicontroller::class, 'dynamictestings'])->whereNumber('limit')->whereNumber('page');

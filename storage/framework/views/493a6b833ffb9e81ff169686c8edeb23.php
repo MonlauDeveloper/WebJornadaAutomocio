@@ -1,44 +1,56 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="container mx-auto p-6">
         <div class="bg-white p-6 rounded-lg shadow-lg max-w-7xl mx-auto">
             <h1 class="text-4xl font-bold text-blue-600 text-center">Mi Proyecto</h1>
 
             <!-- Mostrar el ícono de exclamación roja si el proyecto está incompleto -->
-            @if($projectIncomplete)
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($projectIncomplete): ?>
                 <div class="text-center text-red-500 mt-4">
                     <span class="text-5xl">❗</span>
                     <p class="mt-2">Tu proyecto está incompleto. Por favor, completa todos los campos.</p>
                 </div>
-            @endif
+            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
-            <form action="{{ route('projects.update', $project->idProject) }}" method="POST" enctype="multipart/form-data"
+            <form action="<?php echo e(route('projects.update', $project->idProject)); ?>" method="POST" enctype="multipart/form-data"
                 class="bg-white p-6 rounded-lg shadow-lg">
-                @csrf
-                @method('PUT')
+                <?php echo csrf_field(); ?>
+                <?php echo method_field('PUT'); ?>
 
                 <div class="mb-4">
                     <label for="title" class="block text-gray-700 font-semibold mb-2">Título del Proyecto</label>
                     <input type="text" name="title" id="title" 
-       value="{{ old('title', $project->title) }}" 
+       value="<?php echo e(old('title', $project->title)); ?>" 
        maxlength="100" 
        class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
        <p class="text-gray-500 text-xs mt-1">Máximo 100 caracteres</p>
-                    @error('title')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['title'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="text-red-500 text-sm"><?php echo e($message); ?></span>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
 
                 <div class="mb-4">
                     <label for="abstract" class="block text-gray-700 font-semibold mb-2">Descripción</label>
                     <textarea name="abstract" id="abstract" rows="4" placeholder="Escribe aqui tu descripción del proyecto"
                         class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-                        style="word-break: break-all;" maxlength="300">{{ old('abstract', $project->abstract) }}</textarea>
+                        style="word-break: break-all;" maxlength="300"><?php echo e(old('abstract', $project->abstract)); ?></textarea>
                     <p class="text-gray-500 text-xs mt-1">Máximo 300 caracteres</p>
-                    @error('abstract')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['abstract'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="text-red-500 text-sm"><?php echo e($message); ?></span>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
 
 
@@ -46,15 +58,23 @@
                     <label for="idSpecialization" class="block text-gray-700 font-semibold mb-2">Especialización</label>
                     <select name="idSpecialization" id="idSpecialization"
                         class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                        @foreach($specializations as $specialization)
-                            <option value="{{ $specialization->idSpecialization }}" {{ old('idSpecialization', $project->idSpecialization) == $specialization->idSpecialization ? 'selected' : '' }}>
-                                {{ $specialization->specialization }}
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $specializations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $specialization): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($specialization->idSpecialization); ?>" <?php echo e(old('idSpecialization', $project->idSpecialization) == $specialization->idSpecialization ? 'selected' : ''); ?>>
+                                <?php echo e($specialization->specialization); ?>
+
                             </option>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </select>
-                    @error('idSpecialization')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['idSpecialization'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="text-red-500 text-sm"><?php echo e($message); ?></span>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
     -->
                 <div class="mb-6">
@@ -65,39 +85,53 @@
 
                     <div class="border border-gray-300 rounded-lg p-4 bg-white max-h-60 overflow-y-auto shadow-inner">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-1">
-                            @foreach($projectTypes as $type)
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $projectTypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $type): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <label
                                     class="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded cursor-pointer transition">
-                                    <input type="checkbox" name="tipos[]" value="{{ $type->idProjectType }}"
+                                    <input type="checkbox" name="tipos[]" value="<?php echo e($type->idProjectType); ?>"
                                         class="form-checkbox h-5 w-5 text-blue-600 rounded border-gray-300 focus:ring-blue-500 project-type-checkbox"
-                                        onclick="checkLimit(this)" {{ $project->projectTypes && $project->projectTypes->contains('idProjectType', $type->idProjectType) ? 'checked' : '' }}>
-                                    <span class="text-gray-700 font-medium ml-3">{{ $type->name }}</span>
+                                        onclick="checkLimit(this)" <?php echo e($project->projectTypes && $project->projectTypes->contains('idProjectType', $type->idProjectType) ? 'checked' : ''); ?>>
+                                    <span class="text-gray-700 font-medium ml-3"><?php echo e($type->name); ?></span>
                                 </label>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
                     </div>
 
                     <p id="limit-message" class="text-xs text-gray-500 mt-2 font-semibold">
                         Seleccionados: <span
-                            id="count-display">{{ $project->projectTypes ? $project->projectTypes->count() : 0 }}</span>/3
+                            id="count-display"><?php echo e($project->projectTypes ? $project->projectTypes->count() : 0); ?></span>/3
                     </p>
 
-                    @error('tipos')
-                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
-                    @enderror
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['tipos'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <p class="text-red-500 text-xs mt-1"><?php echo e($message); ?></p>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
 
                 <!--            <div class="mb-4">
                     <label for="curso" class="block text-gray-700 font-semibold mb-2">Curso</label>
                     <select name="curso" id="curso"
                         class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                        @foreach(['A', 'B', 'C', 'D', 'E', 'F', 'R', 'ONLINE'] as $c)
-                            <option value="{{ $c }}" {{ old('curso', $project->curso) == $c ? 'selected' : '' }}>{{ $c }}</option>
-                        @endforeach
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = ['A', 'B', 'C', 'D', 'E', 'F', 'R', 'ONLINE']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($c); ?>" <?php echo e(old('curso', $project->curso) == $c ? 'selected' : ''); ?>><?php echo e($c); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </select>
-                    @error('curso')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['curso'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="text-red-500 text-sm"><?php echo e($message); ?></span>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
     -->
                 <div class="mb-4">
@@ -107,7 +141,7 @@
                         <input type="file" id="photoName" name="photoName"
                             class="p-3 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
-                        @if ($project->photoName && $project->photoName !== 'por_defecto/proyecto_default.png')
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->photoName && $project->photoName !== 'por_defecto/proyecto_default.png'): ?>
                             <button type="button"
                                 onclick="if(confirm('¿Quieres eliminar esta foto y restaurar la imagen por defecto?')) document.getElementById('delete-main-photo-form').submit();"
                                 class="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white p-3 rounded-lg border border-blue-200 transition flex items-center justify-center"
@@ -117,55 +151,77 @@
                                         d="M3 10h10a8 8 0 018 8v2M3 10l6 6m-6-6l6-6"></path>
                                 </svg>
                             </button>
-                        @endif
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </div>
 
-                    @if ($project->photoName)
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->photoName): ?>
                         <div class="mt-3 flex items-center gap-4 p-2 border rounded-lg bg-gray-50">
-                            @php
+                            <?php
                                 $isCloudinary = str_contains($project->photoName, 'cloudinary.com');
                                 $photoUrl = $isCloudinary ? $project->photoName : asset('storage/photos/' . $project->photoName);
-                            @endphp
-                            <img src="{{ $photoUrl }}" alt="Foto actual" class="h-16 w-16 object-cover rounded border">
+                            ?>
+                            <img src="<?php echo e($photoUrl); ?>" alt="Foto actual" class="h-16 w-16 object-cover rounded border">
                             <div class="flex flex-col">
                                 <span class="text-[10px] font-bold text-blue-600 uppercase">Archivo actual:</span>
-                                <span class="text-[10px] text-gray-500 truncate max-w-xs">{{ $project->photoName }}</span>
+                                <span class="text-[10px] text-gray-500 truncate max-w-xs"><?php echo e($project->photoName); ?></span>
                             </div>
                         </div>
-                    @endif
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
 
                 <div class="mb-4">
                     <label for="videoURL" class="block text-gray-700 font-semibold mb-2">Vídeo URL</label>
-                    <input type="text" name="videoURL" id="videoURL" value="{{ old('videoURL', $project->videoURL) }}"
+                    <input type="text" name="videoURL" id="videoURL" value="<?php echo e(old('videoURL', $project->videoURL)); ?>"
                         class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                    @error('videoURL')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['videoURL'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="text-red-500 text-sm"><?php echo e($message); ?></span>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
 
                 <div class="mb-4">
                     <label for="moodleURL" class="block text-gray-700 font-semibold mb-2">URL de Moodle</label>
-                    <input type="url" name="moodleURL" id="moodleURL" value="{{ old('moodleURL', $project->moodleURL) }}"
+                    <input type="url" name="moodleURL" id="moodleURL" value="<?php echo e(old('moodleURL', $project->moodleURL)); ?>"
                         class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                    @error('moodleURL')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['moodleURL'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="text-red-500 text-sm"><?php echo e($message); ?></span>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
 
                 <!--        <div class="mb-4">
                     <label for="idUbication" class="block text-gray-700 font-semibold mb-2">Ubicación</label>
                     <select name="idUbication" id="idUbication"
                         class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                        @foreach($ubications as $ubication)
-                            <option value="{{ $ubication->idUbication }}" {{ old('idUbication', $project->idUbication) == $ubication->idUbication ? 'selected' : '' }}>
-                                {{ $ubication->ubicationName }}
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $ubications; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $ubication): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($ubication->idUbication); ?>" <?php echo e(old('idUbication', $project->idUbication) == $ubication->idUbication ? 'selected' : ''); ?>>
+                                <?php echo e($ubication->ubicationName); ?>
+
                             </option>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </select>
-                    @error('idUbication')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['idUbication'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="text-red-500 text-sm"><?php echo e($message); ?></span>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
     -->
 
@@ -173,14 +229,22 @@
                     <label for="numTribunal" class="block text-gray-700 font-semibold mb-2">Número de Tribunal</label>
                     <select name="numTribunal" id="numTribunal"
                         class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                        @for ($i = 1; $i <= 20; $i++)
-                            <option value="{{ $i }}" {{ old('numTribunal', $project->numTribunal) == $i ? 'selected' : '' }}>{{ $i }}
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php for($i = 1; $i <= 20; $i++): ?>
+                            <option value="<?php echo e($i); ?>" <?php echo e(old('numTribunal', $project->numTribunal) == $i ? 'selected' : ''); ?>><?php echo e($i); ?>
+
                             </option>
-                        @endfor
+                        <?php endfor; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </select>
-                    @error('numTribunal')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['numTribunal'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                        <span class="text-red-500 text-sm"><?php echo e($message); ?></span>
+                    <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
     -->
                 <div class="mb-6">
@@ -193,28 +257,29 @@
                         Galería y Pasos del Proyecto
                     </label>
 
-                    @php $totalFotos = $project->images->count(); @endphp
+                    <?php $totalFotos = $project->images->count(); ?>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                         <div class="lg:col-span-1 bg-white p-5 rounded-lg border border-gray-300 shadow-sm h-fit">
                             <div class="flex justify-between items-center mb-4 border-b pb-2">
                                 <h3 class="text-sm font-bold text-gray-800 uppercase">Nueva Imagen</h3>
                                 <span
-                                    class="text-[10px] font-bold {{ $totalFotos >= 6 ? 'text-red-500' : 'text-green-600' }}">
-                                    {{ $totalFotos }}/6
+                                    class="text-[10px] font-bold <?php echo e($totalFotos >= 6 ? 'text-red-500' : 'text-green-600'); ?>">
+                                    <?php echo e($totalFotos); ?>/6
                                 </span>
                             </div>
 
-                            @if($totalFotos >= 6)
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($totalFotos >= 6): ?>
                                 <div class="bg-red-50 border border-red-200 text-red-700 p-2 rounded text-[10px] mb-4">
                                     <strong>Límite alcanzado.</strong> Borra una imagen para subir otra.
                                 </div>
-                            @endif
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
-                            <div class="space-y-4 {{ $totalFotos >= 6 ? 'opacity-40 pointer-events-none' : '' }}">
+                            <div class="space-y-4 <?php echo e($totalFotos >= 6 ? 'opacity-40 pointer-events-none' : ''); ?>">
                                 <div>
                                     <label class="block text-xs font-bold text-gray-500 uppercase mb-2">1. Archivo</label>
-                                    <input type="file" name="new_project_image" id="file_input_project" {{ $totalFotos >= 6 ? 'disabled' : '' }}
+                                    <input type="file" name="new_project_image" id="file_input_project" <?php echo e($totalFotos >= 6 ? 'disabled' : ''); ?>
+
                                         class="block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white cursor-pointer">
                                 </div>
 
@@ -269,14 +334,14 @@
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        @foreach($project->images as $img)
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $project->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="relative bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col">
                 <div class="rounded overflow-hidden aspect-video bg-gray-100 mb-2">
-                    <img src="{{ asset('storage/project_steps/' . $img->file_path) }}"
+                    <img src="<?php echo e(asset('storage/project_steps/' . $img->file_path)); ?>"
                         class="w-full h-full object-cover">
                 </div>
 
-                @php
+                <?php
                     $badgeColor = match ($img->fase) {
                         'header' => 'bg-purple-100 text-purple-700 border-purple-200',
                         'initial' => 'bg-amber-100 text-amber-700 border-amber-200',
@@ -291,32 +356,33 @@
                         'final' => 'ESTADO FINAL',
                         default => strtoupper($img->fase)
                     };
-                @endphp
+                ?>
 
-                <span class="block text-[7px] font-bold text-center py-0.5 rounded border {{ $badgeColor }} uppercase mb-2">
-                    {{ $label }}
+                <span class="block text-[7px] font-bold text-center py-0.5 rounded border <?php echo e($badgeColor); ?> uppercase mb-2">
+                    <?php echo e($label); ?>
+
                 </span>
 
-                @if($img->fase !== 'header')
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($img->fase !== 'header'): ?>
                     <div class="mt-auto">
-                        <textarea name="image_descriptions[{{ $img->id }}]" rows="3" maxlength="300"
+                        <textarea name="image_descriptions[<?php echo e($img->id); ?>]" rows="3" maxlength="300"
                             class="w-full text-[9px] border-gray-200 rounded p-1 leading-tight focus:ring-1 focus:ring-blue-400"
-                            placeholder="Descripción técnica...">{{ $img->description }}</textarea>
+                            placeholder="Descripción técnica..."><?php echo e($img->description); ?></textarea>
                         
-                        <button type="button" onclick="saveImageText(this, {{ $img->id }})" 
+                        <button type="button" onclick="saveImageText(this, <?php echo e($img->id); ?>)" 
     class="mt-1 w-full bg-blue-500 hover:bg-blue-600 text-white text-[8px] font-bold py-1 rounded transition uppercase">
     <span class="btn-text">Guardar texto</span>
 </button>
                     </div>
-                @endif
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
                 <button type="button"
-                    onclick="if(confirm('¿Eliminar imagen?')) document.getElementById('delete-img-{{ $img->id }}').submit();"
+                    onclick="if(confirm('¿Eliminar imagen?')) document.getElementById('delete-img-<?php echo e($img->id); ?>').submit();"
                     class="absolute -top-1.5 -right-1.5 bg-red-500 text-white rounded-full h-4 w-4 flex items-center justify-center border border-white shadow hover:bg-red-700 transition-colors">
                     <span class="text-[10px]">&times;</span>
                 </button>
             </div>
-        @endforeach
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     </div>
 </div>
                     </div>
@@ -327,7 +393,7 @@
     <textarea name="conclusion" id="conclusion" rows="4"
         class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
         placeholder="Escribe aquí el resultado final del proyecto..."
-        maxlength="300">{{ old('conclusion', $project->conclusion) }}</textarea>
+        maxlength="300"><?php echo e(old('conclusion', $project->conclusion)); ?></textarea>
 </div>
 
                 <div class="mt-8 pt-6 border-t">
@@ -338,12 +404,12 @@
             Guardar Cambios
         </button>
 
-        @if ($project->idProject)
-            <a href="{{ route('project.pdf', $project->idProject) }}"
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->idProject): ?>
+            <a href="<?php echo e(route('project.pdf', $project->idProject)); ?>"
                 class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow text-center">
-                Ver Ficha Técnica
+                Ver ficha técnica
             </a>
-        @endif
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
         <a href="javascript:history.back()"
             class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded shadow text-center">
@@ -378,7 +444,7 @@
 
                             <div
                                 class="absolute inset-0 opacity-5 pointer-events-none flex items-center justify-center p-10">
-                                <img src="{{ asset('images/Curriculum CV Fondo transparente.png') }}" class="w-full">
+                                <img src="<?php echo e(asset('images/Curriculum CV Fondo transparente.png')); ?>" class="w-full">
                             </div>
 
                             <div
@@ -386,25 +452,26 @@
                                 <div class="w-2/3">
                                     <h1 id="modal-preview-title"
                                         class="text-3xl font-bold text-blue-800 uppercase italic leading-tight">
-                                        {{ $project->title }}
+                                        <?php echo e($project->title); ?>
+
                                     </h1>
                                     <p class="text-[10px] text-gray-400 mt-2 tracking-widest uppercase">Ficha Técnica de
                                         Proyecto</p>
                                 </div>
                                 <div class="w-1/3 flex justify-end">
-                                    @php $portada = $project->images->where('fase', 'header')->first(); @endphp
-                                    @if($portada)
+                                    <?php $portada = $project->images->where('fase', 'header')->first(); ?>
+                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($portada): ?>
                                         <div
                                             class="border-4 border-white shadow-lg transform rotate-2 overflow-hidden w-40 bg-gray-100">
-                                            <img src="{{ asset('storage/project_steps/' . $portada->file_path) }}"
+                                            <img src="<?php echo e(asset('storage/project_steps/' . $portada->file_path)); ?>"
                                                 class="w-full h-auto object-cover">
                                         </div>
-                                    @else
+                                    <?php else: ?>
                                         <div
                                             class="w-40 h-28 border-2 border-dashed border-gray-200 flex items-center justify-center text-[10px] text-gray-300 italic text-center px-4">
                                             Sin imagen de portada seleccionada
                                         </div>
-                                    @endif
+                                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                                 </div>
                             </div>
 
@@ -414,33 +481,35 @@
                                     Resumen del Proyecto</h3>
                                 <p id="modal-preview-abstract"
                                     class="text-sm text-justify leading-relaxed break-words italic">
-                                    {{ $project->abstract }}
+                                    <?php echo e($project->abstract); ?>
+
                                 </p>
                             </div>
 
                             <div id="modal-preview-steps" class="space-y-8 relative z-10">
-                                @php $pasos = $project->images->where('fase', 'procedimiento')->sortBy('orden')->take(3)->values(); @endphp
-                                @foreach($pasos as $index => $img)
-                                    <div class="flex gap-6 items-center {{ $index % 2 != 0 ? 'flex-row-reverse' : '' }}">
+                                <?php $pasos = $project->images->where('fase', 'procedimiento')->sortBy('orden')->take(3)->values(); ?>
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $pasos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <div class="flex gap-6 items-center <?php echo e($index % 2 != 0 ? 'flex-row-reverse' : ''); ?>">
                                         <div class="w-2/5 border p-1 rounded bg-white shadow-sm">
                                             <span
                                                 class="text-[9px] font-bold text-blue-700 block border-b mb-1 uppercase tracking-tighter">Paso
-                                                Técnico {{ $img->orden ?? ($index + 1) }}</span>
-                                            <img src="{{ asset('storage/project_steps/' . $img->file_path) }}"
+                                                Técnico <?php echo e($img->orden ?? ($index + 1)); ?></span>
+                                            <img src="<?php echo e(asset('storage/project_steps/' . $img->file_path)); ?>"
                                                 class="w-full h-36 object-contain bg-gray-50">
                                         </div>
                                         <div class="w-3/5">
                                             <p class="text-[11px] text-gray-600 text-justify italic step-desc-preview"
-                                                data-id="{{ $img->id }}">
-                                                {{ $img->description ?? 'Sin descripción técnica...' }}
+                                                data-id="<?php echo e($img->id); ?>">
+                                                <?php echo e($img->description ?? 'Sin descripción técnica...'); ?>
+
                                             </p>
                                         </div>
                                     </div>
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                             </div>
 
-                            @php $final = $project->images->where('fase', 'final')->first(); @endphp
-                            @if($final)
+                            <?php $final = $project->images->where('fase', 'final')->first(); ?>
+                            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($final): ?>
                                 <div class="mt-12 pt-8 border-t-2 border-dashed border-gray-100 relative z-10">
                                     <div class="flex items-center gap-6">
                                         <div class="w-3/4">
@@ -450,12 +519,13 @@
                                                 Estado final
                                             </h3>
                                             <p class="text-[11px] text-gray-500 italic step-desc-preview"
-                                                data-id="{{ $final->id }}">
-                                                {{ $final->description ?? 'El proyecto se ha completado según los objetivos previstos...' }}
+                                                data-id="<?php echo e($final->id); ?>">
+                                                <?php echo e($final->description ?? 'El proyecto se ha completado según los objetivos previstos...'); ?>
+
                                             </p>
                                         </div>
                                         <div class="w-1/4">
-                                            <img src="{{ asset('storage/project_steps/' . $final->file_path) }}"
+                                            <img src="<?php echo e(asset('storage/project_steps/' . $final->file_path)); ?>"
                                                 class="w-full border-2 border-white shadow-md rounded-sm">
                                         </div>
                                     </div>
@@ -464,10 +534,11 @@
     Conclusión final
 </h3>
 <p id="modal-preview-conclusion" class="text-[11px] text-gray-500 italic">
-    {{ $project->conclusion ?? 'El proyecto se ha completado según los objetivos previstos...' }}
+    <?php echo e($project->conclusion ?? 'El proyecto se ha completado según los objetivos previstos...'); ?>
+
 </p>
                                 </div>
-                            @endif
+                            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         </div>
                     </div>
 
@@ -478,14 +549,14 @@
                 </div>
             </div>
 
-            <form id="delete-project-form" action="{{ route('projects.destroy', $project->idProject) }}" method="POST"
-                class="hidden">@csrf @method('DELETE')</form>
-            <form id="delete-main-photo-form" action="{{ route('projects.photo.destroy', $project->idProject) }}"
-                method="POST" class="hidden">@csrf @method('DELETE')</form>
-            @foreach($project->images as $img)
-                <form id="delete-img-{{ $img->id }}" action="{{ route('projects.image.destroy', $img->id) }}" method="POST"
-                    class="hidden">@csrf @method('DELETE')</form>
-            @endforeach
+            <form id="delete-project-form" action="<?php echo e(route('projects.destroy', $project->idProject)); ?>" method="POST"
+                class="hidden"><?php echo csrf_field(); ?> <?php echo method_field('DELETE'); ?></form>
+            <form id="delete-main-photo-form" action="<?php echo e(route('projects.photo.destroy', $project->idProject)); ?>"
+                method="POST" class="hidden"><?php echo csrf_field(); ?> <?php echo method_field('DELETE'); ?></form>
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $project->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <form id="delete-img-<?php echo e($img->id); ?>" action="<?php echo e(route('projects.image.destroy', $img->id)); ?>" method="POST"
+                    class="hidden"><?php echo csrf_field(); ?> <?php echo method_field('DELETE'); ?></form>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
         </div>
 
         <script>
@@ -564,10 +635,10 @@
     button.innerHTML = "Guardando...";
 
     // Enviamos los datos mediante Fetch (AJAX)
-    fetch("{{ route('projects.update', $project->idProject) }}", {
+    fetch("<?php echo e(route('projects.update', $project->idProject)); ?>", {
         method: 'POST',
         headers: {
-            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            'X-CSRF-TOKEN': '<?php echo e(csrf_token()); ?>',
             'Content-Type': 'application/json',
             'Accept': 'application/json'
         },
@@ -602,4 +673,5 @@
     });
 }
         </script>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /var/www/jornada-automocion-api/resources/views/students/myProject.blade.php ENDPATH**/ ?>
