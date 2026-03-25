@@ -56,7 +56,7 @@
                     </div>
                 @else
                     <div class="bg-slate-50 rounded-2xl p-12 text-center border-2 border-dashed border-slate-200">
-                        <p class="text-slate-400 italic font-medium">Material audiovisual no disponible</p>
+                        <p class="text-slate-400 italic font-medium">Vídeo no disponible</p>
                     </div>
                 @endif
             </div>
@@ -88,14 +88,14 @@
                     </div>
 
                     <div>
-                        <p class="font-bold text-slate-800 text-lg group-hover:text-blue-600 transition-colors">
+                        <p class="font-bold text-slate-800 text-lg">
                             {{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}
                         </p>
                         
                         @if ($student->isTeamLeader)
                             <span class="inline-block mt-1 text-[10px] px-2 py-0.5 bg-amber-500 text-white rounded font-black uppercase tracking-tighter">Líder</span>
                         @else
-                            <span class="text-xs text-slate-400 font-medium group-hover:text-slate-500">Ver perfil profesional →</span>
+                            <span class="text-xs text-slate-400 font-medium">Ver perfil</span>
                         @endif
                     </div>
                 </a>

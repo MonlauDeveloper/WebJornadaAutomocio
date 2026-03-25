@@ -21,7 +21,7 @@ class AdminController extends Controller
         $solicitudes = User::where('status', 'approved')
             ->whereHas('company') // Solo usuarios que tienen una empresa asociada
             ->with('company') // Eager load de la relación 'company'
-            ->paginate(10); // Cambia a paginate(10) para paginar
+            ->paginate(11); // Cambia a paginate(10) para paginar
 
         return view('admin.empresas_aceptadas', compact('solicitudes'));
     }
@@ -100,24 +100,16 @@ class AdminController extends Controller
         $company = $user->company;
     
         if ($request->hasFile('logo')) {
+            // 1. Cogemos el archivo
             $logo = $request->file('logo');
-    
-            // Crear el ImageManager
-            $imgManager = new ImageManager(new Driver());
-    
-            // Leer la imagen original
-            $image = $imgManager->read($logo->getPathname());
-    
-            // Redimensionar al 80% de su tamaño original
-            $image->scale(95);
-    
-            // Nombre del archivo convertido a WebP
-            $logoName = time() . '_logo.webp';
-    
-            // Guardar la imagen en storage/app/public/logos_empresas
-            $image->save(storage_path('app/public/photos/logos_empresas/' . $logoName), 95, 'webp');
-    
-            // Guardar la ruta en la base de datos
+
+            // 2. Le ponemos un nombre único
+            $logoName = time() . '_' . $logo->getClientOriginalName();
+
+            // 3.Guardar el archivo original sin tocarlo
+            $logo->storeAs('photos/logos_empresas', $logoName, 'public');
+
+            // 4. Guardar la ruta en la base de datos
             $company->logo_url = 'logos_empresas/' . $logoName;
         }
     

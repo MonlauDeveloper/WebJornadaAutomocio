@@ -57,7 +57,7 @@
                     </div>
                 <?php else: ?>
                     <div class="bg-slate-50 rounded-2xl p-12 text-center border-2 border-dashed border-slate-200">
-                        <p class="text-slate-400 italic font-medium">Material audiovisual no disponible</p>
+                        <p class="text-slate-400 italic font-medium">Video no disponible</p>
                     </div>
                 <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
@@ -89,7 +89,7 @@
                     </div>
 
                     <div>
-                        <p class="font-bold text-slate-800 text-lg group-hover:text-blue-600 transition-colors">
+                        <p class="font-bold text-slate-800 text-lg">
                             <?php echo e($student->name); ?> <?php echo e($student->surname1); ?> <?php echo e($student->surname2); ?>
 
                         </p>
@@ -97,7 +97,7 @@
                         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->isTeamLeader): ?>
                             <span class="inline-block mt-1 text-[10px] px-2 py-0.5 bg-amber-500 text-white rounded font-black uppercase tracking-tighter">Líder</span>
                         <?php else: ?>
-                            <span class="text-xs text-slate-400 font-medium group-hover:text-slate-500">Ver perfil profesional →</span>
+                            <span class="text-xs text-slate-400 font-medium">Ver perfil</span>
                         <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </div>
                 </a>
