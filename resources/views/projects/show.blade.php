@@ -5,9 +5,6 @@
     <div class="container mx-auto p-6">
         <div class="bg-white p-6 rounded-lg shadow-xl text-center border border-gray-100">
             <div class="flex items-center justify-center gap-4">
-                @if ($project->idSpecialization == 5)
-                    <img src="{{ asset('storage/photos/' . $logo) }}" alt="Logo del equipo" class="w-12 h-12 rounded-full shadow-sm">
-                @endif
                 <h1 class="text-5xl font-extrabold text-slate-800 tracking-tight">{{ $project->title }}</h1>
             </div>
 
@@ -16,7 +13,7 @@
             </p>
             <p class="text-slate-500 mt-2 text-lg">
                 <strong class="text-slate-700">Ubicación: </strong>{{ $project->ubication ? $project->ubication->ubicationName : '' }},
-                <strong class="text-slate-700"> Tribunal: </strong>{{ $project->numTribunal }}
+                <strong class="text-slate-700">Tribunal: </strong>{{ $project->numTribunal }}
             </p>
             
             <img class="w-3xl h-auto object-cover rounded-xl mt-6 mx-auto shadow-md border border-gray-200"

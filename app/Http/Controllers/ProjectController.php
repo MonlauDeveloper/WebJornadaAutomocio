@@ -453,7 +453,7 @@ class ProjectController extends Controller
                                     'idProject' => $project->idProject,
                                     'idSpecialization' => $idSpecialization,
                                     'curso' => $cursoFormatted,
-                                    'photoName' => "https://res.cloudinary.com/monlaujornadas/image/upload/FotosOrla2025/" . $this->normalizarNombreArchivo("$nombre $apellido1 $apellido2") . ".jpg"
+                                    'photoName' => "students_photos/FotosOrla2025/" . $this->normalizarNombreArchivo("$nombre $apellido1 $apellido2") . ".jpg"
                                 ]
                             );
                             $student->cvLink = 'https://jornadaautomocion.alumnes-monlau.com/pdfVer/' . $student->idStudent;

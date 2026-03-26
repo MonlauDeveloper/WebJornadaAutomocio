@@ -184,7 +184,7 @@
                 </form>
             </div>
             <a href="<?php echo e(route('students.descargar', $student->idStudent)); ?>"
-                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition">Descargar
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition">Ver
                 Currículum</a>
 
         </div>

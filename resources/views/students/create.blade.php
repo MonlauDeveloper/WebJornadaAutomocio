@@ -67,8 +67,18 @@
 
         <!-- Equipo -->
         <div class="mb-4">
-            <label for="team" class="block text-gray-700 font-semibold mb-2">Equipo (opcional)</label>
-            <input type="text" name="team" id="team" value="{{ old('team') }}" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
+            <label for="idTeam" class="block text-gray-700 font-semibold mb-2">Equipo (opcional)</label>
+            <select name="team" id="idTeam" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
+                <option value="">-- Sin equipo --</option>
+                @foreach($teams as $team)
+                    <option value="{{ $team->idTeam }}" {{ old('team') == $team->idTeam ? 'selected' : '' }}>
+                        {{ $team->teamName }}
+                    </option>
+                @endforeach
+            </select>
+            @error('team')
+                <span class="text-red-500 text-sm">{{ $message }}</span>
+            @enderror
         </div>
 
         <!-- Proyecto -->

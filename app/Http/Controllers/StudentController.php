@@ -79,8 +79,9 @@ class StudentController extends Controller
         $specializations = Specialization::all();
         $projects = Project::all();
         $ubications = Ubication::all();
+        $teams = \App\Models\Team::all();
 
-        return view('students.create', compact('specializations', 'projects', 'ubications'));
+        return view('students.create', compact('specializations', 'projects', 'ubications', 'teams'));
     }
 
     public function store(Request $request)
@@ -92,7 +93,7 @@ class StudentController extends Controller
             'surname2' => 'nullable|string|max:255',
             'idSpecialization' => 'required|integer|exists:specializations,idSpecialization',
             'course' => 'required|string|in:A,B,C,D,E,F,R,ONLINE',
-            'team' => 'nullable|string|max:255',
+            'team' => 'nullable|integer|exists:teams,idTeam',
             'idProject' => 'nullable|string|max:255',
             'project_title' => 'nullable|required_if:idProject,new_project|string|max:255',
             'project_specialization' => 'nullable|required_if:idProject,new_project|integer|exists:specializations,idSpecialization',
@@ -127,7 +128,7 @@ class StudentController extends Controller
         $apellido2 = $surname2;
 
         $nombreFoto = $this->normalizarNombreArchivo("{$nombre} {$apellido1} {$apellido2}");
-        $photoUrl = "https://res.cloudinary.com/monlaujornadas/image/upload/FotosOrla2025/{$nombreFoto}.jpg";
+        $photoUrl = "students_photos/FotosOrla2025/{$nombreFoto}.jpg";
 
         // Genera el username con los nombres y apellidos sin acentos
         $nombreSinAcentos = str_replace($accents, $accentsReplacement, $nombre);
@@ -198,9 +199,10 @@ class StudentController extends Controller
         // Obtener las especializaciones para el select
         $specializations = Specialization::all(); // Ajusta esto si necesitas un filtro específico
         $projects = Project::all(); // Ajusta esto si necesitas un filtro específico
+        $teams = \App\Models\Team::all();
 
         // Retornar la vista con los datos del estudiante
-        return view('students.edit', compact('student', 'specializations', 'projects'));
+        return view('students.edit', compact('student', 'specializations', 'projects', 'teams'));
     }
 
     public function update(Request $request, $idStudent)
@@ -305,32 +307,21 @@ class StudentController extends Controller
         $videoURL = $project->videoURL;
         $pdfURL = $project->pdfURL;
 
-        // Manejar la carga de la imagen con conversión a WebP
+        // Manejar la carga de la imagen con MÁXIMA CALIDAD
         if ($request->hasFile('photoName') && $request->file('photoName')->isValid()) {
             $photo = $request->file('photoName');
-
-            // Crear el ImageManager
             $imgManager = new ImageManager(new Driver());
-
-            // Leer la imagen original
             $image = $imgManager->read($photo->getPathname());
 
-            // Obtener dimensiones originales
-            $originalWidth = $image->width();
-            $originalHeight = $image->height();
+            // 1. En lugar de reducir un 80%, escalamos a un ancho fijo nítido (ej. 1200px)
+            // Si la imagen es más pequeña, no la estirará.
+            $image->scale(width: 1200); 
 
-            // Reducir el tamaño en un 80%
-            $newWidth = intval($originalWidth * 0.8);
-            $newHeight = intval($originalHeight * 0.8);
-
-            // Redimensionar la imagen manteniendo la proporción
-            $image->resize($newWidth, $newHeight);
-
-            // Nombre del archivo convertido a WebP
+            // 2. Nombre del archivo
             $photoName = time() . '_photo.webp';
 
-            // Guardar la imagen redimensionada en storage/app/public/photos
-            $image->save(storage_path('app/public/photos/' . $photoName), 80, 'webp');
+            // 3. Guardar con calidad 100% (Quitamos el "80" que tenías)
+            $image->toWebp(100)->save(storage_path('app/public/photos/' . $photoName));
         }
 
         // Manejar el enlace de YouTube

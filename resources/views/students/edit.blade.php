@@ -4,7 +4,8 @@
 <div class="container mx-auto p-6">
     <h1 class="text-3xl font-semibold text-center text-blue-600 mb-8">Editar Estudiante</h1>
 
-    <form action="{{ route('students.update', $student->idStudent) }}" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-lg">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <form id="edit-form" action="{{ route('students.update', $student->idStudent) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -123,19 +124,30 @@
         <!-- Equipo -->
         <div class="mb-4">
             <label for="idTeam" class="block text-gray-700 font-semibold mb-2">Equipo</label>
-            <input type="text" name="idTeam" id="idTeam" value="{{ old('idTeam', $student->idTeam) }}" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
+            <select name="idTeam" id="idTeam" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
+                <option value="">-- Sin equipo --</option>
+                @foreach($teams as $team)
+                    <option value="{{ $team->idTeam }}" {{ old('idTeam', $student->idTeam) == $team->idTeam ? 'selected' : '' }}>
+                        {{ $team->teamName }}
+                    </option>
+                @endforeach
+            </select>
             @error('idTeam')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
         </div>
+        
+
+
+        </form>
 
         <!-- Botones -->
         <div class="mt-8 pt-6 border-t">
-    <div class="flex flex-row flex-wrap gap-4">
+            <div class="flex flex-row flex-wrap gap-4">
         
-        <button type="submit" form="tu-formulario-de-edicion" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
-            Guardar Cambios
-        </button>
+                <button type="submit" form="edit-form" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
+                    Guardar Cambios
+                </button>
 
         <form action="{{ route('students.destroy', $student->idStudent) }}" method="POST" class="inline">
             @csrf
@@ -150,6 +162,7 @@
             Volver
         </a>
 
+    </div>
     </div>
 </div>
 @endsection

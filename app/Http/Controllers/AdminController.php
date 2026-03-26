@@ -13,6 +13,8 @@ use Intervention\Image\Drivers\Gd\Driver;
 use App\Models\Project;
 use App\Models\Vote;
 use Illuminate\Support\Facades\DB;
+use App\Models\Student;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {

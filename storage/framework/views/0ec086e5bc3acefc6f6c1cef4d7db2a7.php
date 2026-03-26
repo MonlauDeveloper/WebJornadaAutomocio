@@ -57,7 +57,7 @@
                     </div>
                 <?php else: ?>
                     <div class="bg-slate-50 rounded-2xl p-12 text-center border-2 border-dashed border-slate-200">
-                        <p class="text-slate-400 italic font-medium">Video no disponible</p>
+                        <p class="text-slate-400 italic font-medium">Vídeo no disponible</p>
                     </div>
                 <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>

@@ -3,9 +3,6 @@
     <div class="container mx-auto p-6">
         <div class="bg-white p-6 rounded-lg shadow-xl text-center border border-gray-100">
             <div class="flex items-center justify-center gap-4">
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->idSpecialization == 5): ?>
-                    <img src="<?php echo e(asset('storage/photos/' . $logo)); ?>" alt="Logo del equipo" class="w-12 h-12 rounded-full shadow-sm">
-                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 <h1 class="text-5xl font-extrabold text-slate-800 tracking-tight"><?php echo e($project->title); ?></h1>
             </div>
 
@@ -15,7 +12,7 @@
             </p>
             <p class="text-slate-500 mt-2 text-lg">
                 <strong class="text-slate-700">Ubicación: </strong><?php echo e($project->ubication ? $project->ubication->ubicationName : ''); ?>,
-                <strong class="text-slate-700"> Tribunal: </strong><?php echo e($project->numTribunal); ?>
+                <strong class="text-slate-700">Tribunal: </strong><?php echo e($project->numTribunal); ?>
 
             </p>
             

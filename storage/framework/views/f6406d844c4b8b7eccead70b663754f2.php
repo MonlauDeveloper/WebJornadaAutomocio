@@ -2,7 +2,8 @@
 <div class="container mx-auto p-6">
     <h1 class="text-3xl font-semibold text-center text-blue-600 mb-8">Editar Estudiante</h1>
 
-    <form action="<?php echo e(route('students.update', $student->idStudent)); ?>" method="POST" enctype="multipart/form-data" class="bg-white p-6 rounded-lg shadow-lg">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <form id="edit-form" action="<?php echo e(route('students.update', $student->idStudent)); ?>" method="POST" enctype="multipart/form-data">
         <?php echo csrf_field(); ?>
         <?php echo method_field('PUT'); ?>
 
@@ -193,7 +194,15 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
         <!-- Equipo -->
         <div class="mb-4">
             <label for="idTeam" class="block text-gray-700 font-semibold mb-2">Equipo</label>
-            <input type="text" name="idTeam" id="idTeam" value="<?php echo e(old('idTeam', $student->idTeam)); ?>" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
+            <select name="idTeam" id="idTeam" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
+                <option value="">-- Sin equipo --</option>
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $teams; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $team): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <option value="<?php echo e($team->idTeam); ?>" <?php echo e(old('idTeam', $student->idTeam) == $team->idTeam ? 'selected' : ''); ?>>
+                        <?php echo e($team->teamName); ?>
+
+                    </option>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+            </select>
             <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['idTeam'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -205,14 +214,18 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
         </div>
+        
+
+
+        </form>
 
         <!-- Botones -->
         <div class="mt-8 pt-6 border-t">
-    <div class="flex flex-row flex-wrap gap-4">
+            <div class="flex flex-row flex-wrap gap-4">
         
-        <button type="submit" form="tu-formulario-de-edicion" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
-            Guardar Cambios
-        </button>
+                <button type="submit" form="edit-form" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
+                    Guardar Cambios
+                </button>
 
         <form action="<?php echo e(route('students.destroy', $student->idStudent)); ?>" method="POST" class="inline">
             <?php echo csrf_field(); ?>
@@ -227,6 +240,7 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
             Volver
         </a>
 
+    </div>
     </div>
 </div>
 <?php $__env->stopSection(); ?>
