@@ -62,7 +62,7 @@
         </div>
 
         <div class="mt-8 bg-white p-6 rounded-lg shadow-lg border border-gray-100">
-            <h2 class="text-2xl font-bold text-slate-800 mb-6">Alumnos</h2>
+            <h2 class="text-2xl font-bold text-slate-800 mb-6">Equipo del proyecto</h2>
 
             <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($project->students->isNotEmpty()): ?>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
