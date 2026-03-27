@@ -144,45 +144,6 @@
                     @enderror
                 </div>
 
-                <div class="mb-4">
-                    <label for="moodleURL" class="block text-gray-700 font-semibold mb-2">URL de Moodle</label>
-                    <input type="url" name="moodleURL" id="moodleURL" value="{{ old('moodleURL', $project->moodleURL) }}"
-                        class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                    @error('moodleURL')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-
-                <!--        <div class="mb-4">
-                    <label for="idUbication" class="block text-gray-700 font-semibold mb-2">Ubicación</label>
-                    <select name="idUbication" id="idUbication"
-                        class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                        @foreach($ubications as $ubication)
-                            <option value="{{ $ubication->idUbication }}" {{ old('idUbication', $project->idUbication) == $ubication->idUbication ? 'selected' : '' }}>
-                                {{ $ubication->ubicationName }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('idUbication')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-    -->
-
-                <!--        <div class="mb-4">
-                    <label for="numTribunal" class="block text-gray-700 font-semibold mb-2">Número de Tribunal</label>
-                    <select name="numTribunal" id="numTribunal"
-                        class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                        @for ($i = 1; $i <= 20; $i++)
-                            <option value="{{ $i }}" {{ old('numTribunal', $project->numTribunal) == $i ? 'selected' : '' }}>{{ $i }}
-                            </option>
-                        @endfor
-                    </select>
-                    @error('numTribunal')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-    -->
                 <div class="mb-6">
                     <label class="block text-gray-700 font-bold mb-3 flex items-center">
                         <svg class="w-5 h-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
