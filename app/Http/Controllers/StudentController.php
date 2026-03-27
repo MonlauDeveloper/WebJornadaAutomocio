@@ -75,11 +75,10 @@ class StudentController extends Controller
 
     public function create()
     {
-        // Obtener especializaciones, ubicaciones y proyectos
-        $specializations = Specialization::all();
-        $projects = Project::all();
-        $ubications = Ubication::all();
-        $teams = \App\Models\Team::all();
+        $specializations = Specialization::orderBy('specialization', 'asc')->get();
+        $projects = Project::orderBy('title', 'asc')->get();
+        $ubications = Ubication::orderBy('ubicationName', 'asc')->get();
+        $teams = \App\Models\Team::orderBy('teamName', 'asc')->get();
 
         return view('students.create', compact('specializations', 'projects', 'ubications', 'teams'));
     }

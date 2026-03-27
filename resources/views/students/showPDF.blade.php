@@ -193,11 +193,6 @@
                     <span
                         class="text-blue-600 font-bold">{{ $student->specialization->specialization ?? 'No especificada' }}</span>
                 </p>
-
-                <p class="text-gray-600 mt-2">
-                    <strong>Equipo:</strong>
-                    <span class="text-black font-medium">{{ $student->team->teamName ?? 'Sin equipo asignado' }}</span>
-                </p>
                 <p class="text-gray-600 mt-2">
                     <strong>Contacto:</strong>
                     <span class="text-black font-medium">@forelse($student->contacts as $contact)

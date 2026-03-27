@@ -44,6 +44,10 @@
                             :active="request()->routeIs('admin.votes.index')" class="whitespace-nowrap">
                             {{ __('Votos') }}
                         </x-nav-link>
+                        <x-nav-link href="{{ route('admin.teams.index') }}"
+                            :active="request()->routeIs('admin.teams.index')" class="whitespace-nowrap">
+                            {{ __('Equipos') }}
+                        </x-nav-link>
                     @endif
 
                     @if(auth()->user()->idRole === 4)
@@ -108,8 +112,7 @@
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none transition">
                     <svg class="size-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16" />
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -152,6 +155,10 @@
                     :active="request()->routeIs('admin.votes.index')">
                     {{ __('Votos') }}
                 </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('admin.teams.index') }}"
+                    :active="request()->routeIs('admin.teams.index')">
+                    {{ __('Equipos') }}
+                </x-responsive-nav-link>
             @endif
 
             @if(auth()->user()->idRole === 4)
@@ -171,7 +178,6 @@
                     {{ __('Mi Currículum') }}
                 </x-responsive-nav-link>
             @endif
-
             @if(auth()->user()->idRole === 5)
                 <x-responsive-nav-link href="{{ route('admin.myProfile') }}"
                     :active="request()->routeIs('admin.myProfile')">

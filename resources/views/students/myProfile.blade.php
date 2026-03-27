@@ -90,6 +90,43 @@
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             rows="3">{{ old('introduction', $student->introduction) }}</textarea>
                     </div>
+                    
+                    <!-- Contacto -->
+                    <div>
+                        <label for="contact" class="block text-sm font-medium text-gray-600">Contacto</label>
+                        <div id="contact-container" class="space-y-2">
+                            @foreach($student->contacts as $contact)
+                                <div class="flex items-center">
+                                    <input type="text" name="contact[]"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                                        value="{{ $contact->contact }}" placeholder="Añadir contacto">
+                                    <button type="button" class="ml-2 text-red-500 hover:text-red-700 remove-input">
+                                        ✖
+                                    </button>
+                                </div>
+                            @endforeach
+                        </div>
+                        <button type="button" id="add-contact" class="mt-2 text-blue-500 hover:text-blue-700">+ Agregar más
+                            contacto</button>
+                    </div>
+
+                    <!-- Codigo postal y Poblacion -->
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label for="postal_code" class="block text-sm font-semibold text-gray-600 mb-1">Código Postal</label>
+                            <input type="text" name="postal_code" id="postal_code"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition shadow-sm"
+                                value="{{ old('postal_code', $student->postal_code) }}" placeholder="Ej: 08020">
+                        </div>
+
+                        <div>
+                            <label for="city" class="block text-sm font-semibold text-gray-600 mb-1">Población</label>
+                            <input type="text" name="city" id="city"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 focus:outline-none transition shadow-sm"
+                                value="{{ old('city', $student->city) }}" placeholder="Ej: Barcelona">
+                        </div>
+                    </div>
 
                     <!-- Educación -->
                     <div>
@@ -109,26 +146,7 @@
                         <button type="button" id="add-education" class="mt-2 text-blue-500 hover:text-blue-700">+ Agregar
                             más estudios</button>
                     </div>
-
-                    <!-- Idiomas -->
-                    <div>
-                        <label for="languages" class="block text-sm font-medium text-gray-600">Idiomas</label>
-                        <div id="languages-container" class="space-y-2">
-                            @foreach($student->languages as $language)
-                                <div class="flex items-center">
-                                    <input type="text" name="languages[]"
-                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                                        value="{{ $language->language }}" placeholder="Añadir idioma">
-                                    <button type="button" class="ml-2 text-red-500 hover:text-red-700 remove-input">
-                                        ✖
-                                    </button>
-                                </div>
-                            @endforeach
-                        </div>
-                        <button type="button" id="add-language" class="mt-2 text-blue-500 hover:text-blue-700">+ Agregar más
-                            idiomas</button>
-                    </div>
-
+                    
                     <!-- Experiencia Laboral -->
                     <div>
                         <label for="work_experience" class="block text-sm font-medium text-gray-600">Experiencia
@@ -150,25 +168,47 @@
                             más experiencia</button>
                     </div>
 
-                    <!-- Contacto -->
+                    <!-- Linkedin -->
+                    <div class="mb-4 space-y-1">
+                        <label for="linkedin" class="block text-sm font-bold text-gray-700 ml-1">Perfil de LinkedIn</label>
+                        <div class="relative group">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <i class="fab fa-linkedin text-blue-600 text-lg group-focus-within:text-blue-700"></i>
+                            </div>
+                            <input type="url" name="linkedin" id="linkedin"
+                                class="block w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg bg-white text-gray-900 text-sm shadow-sm
+                                placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 
+                                transition duration-200"
+                                placeholder="https://www.linkedin.com/in/tu-usuario"
+                                value="{{ old('linkedin', $student->linkedin ?? '') }}">
+                        </div>
+
+                        @error('linkedin')
+                            <p class="mt-1 text-xs text-red-500 font-medium">
+                                <i class="fas fa-times-circle mr-1"></i> {{ $message }}
+                            </p>
+                        @enderror
+                    </div>
+
+                    <!-- Idiomas -->
                     <div>
-                        <label for="contact" class="block text-sm font-medium text-gray-600">Contacto</label>
-                        <div id="contact-container" class="space-y-2">
-                            @foreach($student->contacts as $contact)
+                        <label for="languages" class="block text-sm font-medium text-gray-600">Idiomas</label>
+                        <div id="languages-container" class="space-y-2">
+                            @foreach($student->languages as $language)
                                 <div class="flex items-center">
-                                    <input type="text" name="contact[]"
+                                    <input type="text" name="languages[]"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                                        value="{{ $contact->contact }}" placeholder="Añadir contacto">
+                                        value="{{ $language->language }}" placeholder="Añadir idioma">
                                     <button type="button" class="ml-2 text-red-500 hover:text-red-700 remove-input">
                                         ✖
                                     </button>
                                 </div>
                             @endforeach
                         </div>
-                        <button type="button" id="add-contact" class="mt-2 text-blue-500 hover:text-blue-700">+ Agregar más
-                            contacto</button>
+                        <button type="button" id="add-language" class="mt-2 text-blue-500 hover:text-blue-700">+ Agregar más
+                            idiomas</button>
                     </div>
-
+                    
                     <!-- Aviso legal -->
                     <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 mb-4" role="alert">
                         <p class="font-bold">Aviso Importante</p>

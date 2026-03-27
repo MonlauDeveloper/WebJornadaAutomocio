@@ -12,6 +12,7 @@ use App\Http\Controllers\PresentationController;
 use App\Http\Middleware\CheckUserStatus;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\MicrosoftAuthController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\DB; // Necesario para las consultas directas en rutas
 
 Route::get('/', function () {
@@ -180,6 +181,11 @@ Route::get('/mesas', function () {
     Route::get('/students/edit/{idStudent}', [StudentController::class, 'edit'])->name('students.edit');
     Route::put('/students/update/{idStudent}', [StudentController::class, 'update'])->name('students.update');
     Route::delete('/students/delete/{idStudent}', [StudentController::class, 'destroy'])->name('students.destroy');
+
+    Route::get('/admin/teams', [TeamController::class, 'index'])->name('admin.teams.index');
+    Route::post('/admin/teams', [TeamController::class, 'store'])->name('admin.teams.store');
+    Route::put('/admin/teams/{id}', [TeamController::class, 'update'])->name('admin.teams.update');
+    Route::delete('/admin/teams/{id}', [TeamController::class, 'destroy'])->name('admin.teams.destroy');
 });
 
 // Rutas Empresa (Role 5)

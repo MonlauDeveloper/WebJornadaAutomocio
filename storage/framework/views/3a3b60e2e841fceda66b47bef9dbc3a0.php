@@ -195,11 +195,6 @@
                     <span
                         class="text-blue-600 font-bold"><?php echo e($student->specialization->specialization ?? 'No especificada'); ?></span>
                 </p>
-
-                <p class="text-gray-600 mt-2">
-                    <strong>Equipo:</strong>
-                    <span class="text-black font-medium"><?php echo e($student->team->teamName ?? 'Sin equipo asignado'); ?></span>
-                </p>
                 <p class="text-gray-600 mt-2">
                     <strong>Contacto:</strong>
                     <span class="text-black font-medium"><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $student->contacts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
