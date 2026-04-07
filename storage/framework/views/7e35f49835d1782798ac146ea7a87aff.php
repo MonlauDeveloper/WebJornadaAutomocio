@@ -22,12 +22,14 @@
             </div>
             <div>
                 <label class="font-semibold text-blue-500">Foto:</label>
-                <div class="flex">
-                    <span class="mr-1 <?php echo e($student->photoName ? 'text-green-500' : 'text-red-500'); ?>">
+                <div class="flex items-center mt-1">
+                    <span class="mr-2 <?php echo e($student->photoName ? 'text-green-500' : 'text-red-500'); ?>">
                         <i class="fas fa-<?php echo e($student->photoName ? 'check-circle' : 'exclamation-circle'); ?>"></i>
                     </span>
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->photoName): ?>
-                        <img class="w-32 h-32 object-cover rounded-full" src="<?php echo e($student->photoName); ?>" alt="<?php echo e($student->name); ?>" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                        <img class="w-32 h-32 object-contain border-2 border-gray-100 rounded-full" src="<?php echo e(asset('storage/' . $student->photoName)); ?>"
+                            alt="<?php echo e($student->name); ?>"
+                            onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
                     <?php else: ?>
                         <span class="text-gray-500">No proporcionado</span>
                     <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>

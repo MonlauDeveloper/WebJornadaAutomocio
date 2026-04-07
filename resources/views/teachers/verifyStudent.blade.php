@@ -23,12 +23,14 @@
             </div>
             <div>
                 <label class="font-semibold text-blue-500">Foto:</label>
-                <div class="flex">
-                    <span class="mr-1 {{ $student->photoName ? 'text-green-500' : 'text-red-500' }}">
+                <div class="flex items-center mt-1">
+                    <span class="mr-2 {{ $student->photoName ? 'text-green-500' : 'text-red-500' }}">
                         <i class="fas fa-{{ $student->photoName ? 'check-circle' : 'exclamation-circle' }}"></i>
                     </span>
                     @if ($student->photoName)
-                        <img class="w-32 h-32 object-cover rounded-full" src="{{ $student->photoName }}" alt="{{ $student->name }}" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                        <img class="w-32 h-32 object-contain border-2 border-gray-100 rounded-full" src="{{ asset('storage/' . $student->photoName) }}"
+                            alt="{{ $student->name }}"
+                            onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
                     @else
                         <span class="text-gray-500">No proporcionado</span>
                     @endif

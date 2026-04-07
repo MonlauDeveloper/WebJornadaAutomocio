@@ -86,7 +86,7 @@
                 <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr class="border">
                     <td class="border p-3 text-center">
-                        <img class="w-16 h-16 object-cover rounded-full mx-auto" src="<?php echo e($student->photoName); ?>" alt="<?php echo e($student->name); ?>" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                        <img class="w-16 h-16 object-cover object-top rounded-full mx-auto" src="<?php echo e($student->photoName); ?>" alt="<?php echo e($student->name); ?>" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
                     </td>
                     <td class="border p-3"><?php echo e($student->name); ?> <?php echo e($student->surname1); ?> <?php echo e($student->surname2); ?></td>
                     <td class="border p-3 text-center"><?php echo e($student->curso); ?></td>

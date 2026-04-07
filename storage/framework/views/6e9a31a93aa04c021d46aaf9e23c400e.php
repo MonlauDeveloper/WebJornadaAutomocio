@@ -14,7 +14,7 @@
     
     <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 text-center mb-8">
         <div class="relative inline-block">
-            <img class="w-32 h-32 object-cover rounded-full mx-auto border-4 border-blue-50 shadow-md" 
+            <img class="w-32 h-32 object-cover object-top rounded-full mx-auto border-4 border-blue-50 shadow-md" 
                  src="<?php echo e(asset('storage/' . $student->photoName)); ?>" 
                  alt="<?php echo e($student->name); ?>"
                  onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">

@@ -20,34 +20,34 @@
                     </x-nav-link>
 
                     @if(auth()->user()->idRole === 1)
-                        <x-nav-link href="{{ route('mesas.index') }}" :active="request()->routeIs('mesas.index')"
-                            class="whitespace-nowrap">
-                            {{ __('Mesas') }}
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('projects.upload_csv') }}"
-                            :active="request()->routeIs('projects.upload_csv')" class="whitespace-nowrap">
-                            {{ __('Subir Proyectos') }}
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('admin.solicitudes') }}"
-                            :active="request()->routeIs('admin.solicitudes')" class="whitespace-nowrap">
-                            {{ __('Solicitudes Empresa') }}
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('admin.empresas_aceptadas') }}"
-                            :active="request()->routeIs('admin.empresas_aceptadas')" class="whitespace-nowrap">
-                            {{ __('Empresas Aceptadas') }}
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('presentations.index') }}"
-                            :active="request()->routeIs('presentations.index')" class="whitespace-nowrap">
-                            {{ __('Gestionar Ponencias') }}
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('admin.votes.index') }}"
-                            :active="request()->routeIs('admin.votes.index')" class="whitespace-nowrap">
-                            {{ __('Votos') }}
-                        </x-nav-link>
-                        <x-nav-link href="{{ route('admin.teams.index') }}"
-                            :active="request()->routeIs('admin.teams.index')" class="whitespace-nowrap">
-                            {{ __('Equipos') }}
-                        </x-nav-link>
+                        <div class="ms-3 relative flex items-center h-full">
+                            <x-dropdown align="left" width="48">
+                                <x-slot name="trigger">
+                                    <span class="inline-flex rounded-md h-full items-center">
+                                        <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                            {{ __('Administración') }}
+                                            <svg class="ms-2 -me-0.5 size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                            </svg>
+                                        </button>
+                                    </span>
+                                </x-slot>
+
+                                <x-slot name="content">
+                                    <div class="block px-4 py-2 text-xs text-gray-400">General</div>
+                                    <x-dropdown-link href="{{ route('mesas.index') }}">{{ __('Mesas') }}</x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.teams.index') }}">{{ __('Equipos') }}</x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('projects.upload_csv') }}">{{ __('Subir Proyectos') }}</x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('presentations.index') }}">{{ __('Ponencias') }}</x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.votes.index') }}">{{ __('Votos') }}</x-dropdown-link>
+                                    
+                                    <div class="border-t border-gray-200 mt-2 mb-2"></div>
+                                    <div class="block px-4 py-2 text-xs text-gray-400">Empresas</div>
+                                    <x-dropdown-link href="{{ route('admin.solicitudes') }}">{{ __('Nuevas Solicitudes') }}</x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.empresas_aceptadas') }}">{{ __('Empresas Aceptadas') }}</x-dropdown-link>
+                                </x-slot>
+                            </x-dropdown>
+                        </div>
                     @endif
 
                     @if(auth()->user()->idRole === 4)
@@ -112,7 +112,8 @@
                     class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none transition">
                     <svg class="size-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"d="M4 6h16M4 12h16M4 18h16" />
+                            stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round"
                             stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -178,6 +179,7 @@
                     {{ __('Mi Currículum') }}
                 </x-responsive-nav-link>
             @endif
+
             @if(auth()->user()->idRole === 5)
                 <x-responsive-nav-link href="{{ route('admin.myProfile') }}"
                     :active="request()->routeIs('admin.myProfile')">

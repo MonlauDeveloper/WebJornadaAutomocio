@@ -20,11 +20,8 @@
 
                 <div class="mb-4">
                     <label for="title" class="block text-gray-700 font-semibold mb-2">Título del Proyecto</label>
-                    <input type="text" name="title" id="title" 
-       value="{{ old('title', $project->title) }}" 
-       maxlength="100" 
-       class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-       <p class="text-gray-500 text-xs mt-1">Máximo 100 caracteres</p>
+                    <input type="text" name="title" id="title" value="{{ old('title', $project->title) }}" maxlength="100" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
+                    <p class="text-gray-500 text-xs mt-1">Máximo 100 caracteres</p>
                     @error('title')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                     @enderror
@@ -41,26 +38,10 @@
                     @enderror
                 </div>
 
-
-                <!--        <div class="mb-4">
-                    <label for="idSpecialization" class="block text-gray-700 font-semibold mb-2">Especialización</label>
-                    <select name="idSpecialization" id="idSpecialization"
-                        class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                        @foreach($specializations as $specialization)
-                            <option value="{{ $specialization->idSpecialization }}" {{ old('idSpecialization', $project->idSpecialization) == $specialization->idSpecialization ? 'selected' : '' }}>
-                                {{ $specialization->specialization }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('idSpecialization')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-    -->
                 <div class="mb-6">
                     <label class="block text-gray-700 font-semibold mb-7">
                         Tipos de Proyecto
-                        <span class="text-sm text-gray-500 font-normal">(Máximo 3 opciones)</span>
+                        <span class="text-sm text-gray-500 font-normal">(Mínimo 1, máximo 3)</span>
                     </label>
 
                     <div class="border border-gray-300 rounded-lg p-4 bg-white max-h-60 overflow-y-auto shadow-inner">
@@ -87,19 +68,6 @@
                     @enderror
                 </div>
 
-                <!--            <div class="mb-4">
-                    <label for="curso" class="block text-gray-700 font-semibold mb-2">Curso</label>
-                    <select name="curso" id="curso"
-                        class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                        @foreach(['A', 'B', 'C', 'D', 'E', 'F', 'R', 'ONLINE'] as $c)
-                            <option value="{{ $c }}" {{ old('curso', $project->curso) == $c ? 'selected' : '' }}>{{ $c }}</option>
-                        @endforeach
-                    </select>
-                    @error('curso')
-                        <span class="text-red-500 text-sm">{{ $message }}</span>
-                    @enderror
-                </div>
-    -->
                 <div class="mb-4">
                     <label for="photoName" class="block text-gray-700 font-semibold mb-2">Foto del Proyecto (Portada
                         Orla)</label>
@@ -265,9 +233,9 @@
                             placeholder="Descripción técnica...">{{ $img->description }}</textarea>
                         
                         <button type="button" onclick="saveImageText(this, {{ $img->id }})" 
-    class="mt-1 w-full bg-blue-500 hover:bg-blue-600 text-white text-[8px] font-bold py-1 rounded transition uppercase">
-    <span class="btn-text">Guardar texto</span>
-</button>
+                            class="mt-1 w-full bg-blue-500 hover:bg-blue-600 text-white text-[8px] font-bold py-1 rounded transition uppercase">
+                            <span class="btn-text">Guardar texto</span>
+                        </button>
                     </div>
                 @endif
 
@@ -284,41 +252,40 @@
                 </div>
 
                 <div class="mb-4 p-4 border rounded-lg bg-gray-50">
-    <label for="conclusion" class="block text-gray-700 font-semibold mb-2">Conclusión Final</label>
-    <textarea name="conclusion" id="conclusion" rows="4"
-        class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-        placeholder="Escribe aquí el resultado final del proyecto..."
-        maxlength="300">{{ old('conclusion', $project->conclusion) }}</textarea>
-</div>
+                    <label for="conclusion" class="block text-gray-700 font-semibold mb-2">Conclusión Final</label>
+                    <textarea name="conclusion" id="conclusion" rows="4"
+                        class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
+                        placeholder="Escribe aquí el resultado final del proyecto..."
+                        maxlength="300">{{ old('conclusion', $project->conclusion) }}</textarea>
+                </div>
 
                 <div class="mt-8 pt-6 border-t">
-    <div class="flex flex-row flex-wrap gap-3 items-center">
-        
-        <button type="submit"
-            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
-            Guardar Cambios
-        </button>
+                    <div class="flex flex-row flex-wrap gap-3 items-center">
+                        <button type="submit"
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow">
+                            Guardar Cambios
+                        </button>
 
-        @if ($project->idProject)
-            <a href="{{ route('project.pdf', $project->idProject) }}"
-                class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow text-center">
-                Ver Ficha Técnica
-            </a>
-        @endif
+                        @if ($project->idProject)
+                            <a href="{{ route('project.pdf', $project->idProject) }}"
+                                class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow text-center">
+                                Ver Ficha Técnica
+                            </a>
+                        @endif
 
-        <a href="javascript:history.back()"
-            class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded shadow text-center">
-            Volver
-        </a>
+                        <a href="javascript:history.back()"
+                            class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded shadow text-center">
+                            Volver
+                        </a>
 
-        <button type="button"
-            onclick="if(confirm('¿Eliminar proyecto y asociados?')) document.getElementById('delete-project-form').submit();"
-            class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded shadow">
-            Eliminar Proyecto
-        </button>
+                        <button type="button"
+                            onclick="if(confirm('¿Eliminar proyecto y asociados?')) document.getElementById('delete-project-form').submit();"
+                            class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded shadow">
+                            Eliminar Proyecto
+                        </button>
 
-    </div>
-</div>
+                    </div>
+                </div>
             </form>
 
             <div id="previewModal"
@@ -421,12 +388,12 @@
                                         </div>
                                     </div>
                                     <h3 class="text-green-700 font-bold uppercase text-[10px] tracking-widest mb-2 flex items-center gap-2">
-    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-    Conclusión final
-</h3>
-<p id="modal-preview-conclusion" class="text-[11px] text-gray-500 italic">
-    {{ $project->conclusion ?? 'El proyecto se ha completado según los objetivos previstos...' }}
-</p>
+                                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                                        Conclusión final
+                                    </h3>
+                                    <p id="modal-preview-conclusion" class="text-[11px] text-gray-500 italic">
+                                        {{ $project->conclusion ?? 'El proyecto se ha completado según los objetivos previstos...' }}
+                                    </p>
                                 </div>
                             @endif
                         </div>
@@ -451,13 +418,22 @@
 
         <script>
             function checkLimit(checkbox) {
-                const checkboxes = document.querySelectorAll('.project-type-checkbox:checked');
-                if (checkboxes.length > 3) {
-                    checkbox.checked = false;
+                const checkedCheckboxes = document.querySelectorAll('.project-type-checkbox:checked');
+                const totalChecked = checkedCheckboxes.length;
+
+                if (totalChecked === 0) {
+                    checkbox.checked = true; 
+                    alert('Debes seleccionar al menos 1 tipo de proyecto.');
+                } 
+                else if (totalChecked > 3) {
+                    checkbox.checked = false; 
                     alert('¡Máximo 3 tipos!');
                 }
+
                 const display = document.getElementById('count-display');
-                if (display) display.innerText = document.querySelectorAll('.project-type-checkbox:checked').length;
+                if (display) {
+                    display.innerText = document.querySelectorAll('.project-type-checkbox:checked').length;
+                }
             }
 
             function updateStepNumber(selectElement) {

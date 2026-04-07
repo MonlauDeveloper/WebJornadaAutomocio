@@ -7,13 +7,14 @@
 
             <!-- Foto y Nombre -->
             <div class="text-center mt-6">
-                <img class="w-32 h-32 object-cover rounded-full mx-auto"
+                <img class="w-32 h-32 object-cover object-top rounded-full mx-auto"
                     src="{{ asset('storage/' . $student->photoName) }}" alt="{{ $student->name }}" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
                 <h2 class="text-2xl font-semibold text-gray-800 mt-4">
                     {{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}
                 </h2>
             </div>
 
+            
             <!-- Mostrar mensajes de éxito o error -->
             @if(session('success'))
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mt-4 mb-4">

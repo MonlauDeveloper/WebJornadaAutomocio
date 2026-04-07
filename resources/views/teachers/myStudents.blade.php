@@ -86,7 +86,7 @@
                 @foreach($students as $student)
                 <tr class="border">
                     <td class="border p-3 text-center">
-                        <img class="w-16 h-16 object-cover rounded-full mx-auto" src="{{ $student->photoName }}" alt="{{ $student->name }}" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                        <img class="w-16 h-16 object-cover object-top rounded-full mx-auto" src="{{ $student->photoName }}" alt="{{ $student->name }}" onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
                     </td>
                     <td class="border p-3">{{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}</td>
                     <td class="border p-3 text-center">{{ $student->curso }}</td>

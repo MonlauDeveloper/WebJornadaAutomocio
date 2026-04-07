@@ -169,8 +169,13 @@
         </div>
 
         <!-- Botón -->
-        <div class="mt-6">
-            <button type="submit" class="text-white bg-blue-600 hover:bg-blue-700 py-2.5 px-4 rounded-lg">Crear Estudiante</button>
+        <div class="mt-6 flex gap-4">
+            <button type="submit" class="text-white bg-blue-600 hover:bg-blue-700 py-2.5 px-4 rounded-lg shadow transition">
+                Crear Estudiante
+            </button>
+            <button id="createProjectBtn" type="button" onclick="showNewProjectForm()" class="text-white bg-green-600 hover:bg-green-700 py-2.5 px-4 rounded-lg shadow transition">
+                Crear Proyecto
+            </button>
         </div>
 
     </form>
@@ -185,6 +190,12 @@
         } else {
             newProjectForm.classList.add('hidden');
         }
+    }
+    function showNewProjectForm() {
+        var projectSelect = document.getElementById('idProject');
+        projectSelect.value = 'new_project';
+        toggleProjectForm();
+        document.getElementById('newProjectForm').scrollIntoView({ behavior: 'smooth' });
     }
 </script>
 @endsection
