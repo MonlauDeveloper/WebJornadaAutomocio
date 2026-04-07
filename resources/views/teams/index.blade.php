@@ -7,8 +7,7 @@
     
     <div class="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight text-center md:text-left">Gestión de Equipos</h1>
-            <p class="mt-2 text-sm text-gray-500 text-center md:text-left">Administra los equipos disponibles para asignar a los alumnos.</p>
+            <h1 class="text-2xl md:text-3xl font-semibold text-center text-blue-600 mb-6 md:mb-8">Gestión de Equipos</h1>
         </div>
     </div>
 
@@ -45,7 +44,7 @@
                     <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <i class="fas fa-users text-gray-400"></i>
                     </div>
-                    <input type="text" name="teamName" id="teamName" placeholder="Ej: Equipo A..." 
+                    <input type="text" name="teamName" id="teamName" placeholder="Introduce el nombre" 
                            class="pl-10 w-full border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base" required>
                 </div>
             </div>
@@ -115,12 +114,6 @@
                 </tbody>
             </table>
         </div>
-        
-        @if($teams->hasPages())
-        <div class="bg-gray-50 px-6 py-4 border-t border-gray-200">
-            {{ $teams->links() }}
-        </div>
-        @endif
     </div>
 </div>
 @endsection
