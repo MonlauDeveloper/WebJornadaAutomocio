@@ -93,7 +93,7 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
             <div class="mb-6">
                 <label class="block text-gray-700 font-semibold mb-7">
                     Tipos de Proyecto
-                    <span class="text-sm text-gray-500 font-normal">(Máximo 3 opciones)</span>
+                    <span class="text-sm text-gray-500 font-normal">(Mínimo 1, máximo 3)</span>
                 </label>
 
                 <div class="border border-gray-300 rounded-lg p-4 bg-white max-h-60 overflow-y-auto shadow-inner">
@@ -297,18 +297,15 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
                                 <div>
                                     <label class="block text-xs font-bold text-gray-500 uppercase mb-2">2. Sección</label>
                                     <select name="new_image_fase" id="image_fase_selector"
-                                        class="block w-full rounded border-gray-300 text-xs shadow-sm focus:ring-blue-500 focus:border-blue-500"
-                                        onchange="updateStepNumber(this)">
+                                        class="block w-full rounded border-gray-300 text-xs shadow-sm focus:ring-blue-500 focus:border-blue-500">
                                         <option value="header">Portada</option>
                                         <option value="initial">Estado Inicial</option>
-                                        <option value="procedimiento" data-orden="1">Paso Técnico 1</option>
-                                        <option value="procedimiento" data-orden="2">Paso Técnico 2</option>
-                                        <option value="procedimiento" data-orden="3">Paso Técnico 3</option>
+                                        <option value="procedimiento_1">Paso Técnico 1</option>
+                                        <option value="procedimiento_2">Paso Técnico 2</option>
+                                        <option value="procedimiento_3">Paso Técnico 3</option>
                                         <option value="final">Estado Final</option>
                                     </select>
                                 </div>
-
-                                <input type="hidden" name="new_image_orden" id="new_image_orden" value="1">
 
                                 <div class="w-full">
                                     <button type="submit" name="action" value="upload_image"

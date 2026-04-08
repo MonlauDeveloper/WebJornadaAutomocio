@@ -213,8 +213,26 @@ class ProjectController extends Controller
             return redirect()->back()->with('error', 'Límite de 6 imágenes alcanzado.');
         }
 
+        \Log::info("UPLOAD IMAGE REQUEST", $request->all());
+
         $file = $request->file('new_project_image');
-        $fase = $request->input('new_image_fase', 'procedimiento');
+        $faseInput = $request->input('new_image_fase', 'procedimiento_1');
+        
+        $fase = $faseInput;
+        $orden = 1;
+
+        if (str_starts_with($faseInput, 'procedimiento_')) {
+            $fase = 'procedimiento';
+            $orden = (int) str_replace('procedimiento_', '', $faseInput);
+            
+            // Borramos el anterior 'procedimiento' con este mismo orden, si existe
+            $oldImg = $project->images()->where('fase', 'procedimiento')->where('orden', $orden)->first();
+            if ($oldImg) {
+                \Storage::disk('public')->delete('project_steps/' . $oldImg->file_path);
+                $oldImg->delete();
+            }
+        }
+
         $fileName = time() . '_' . $file->getClientOriginalName();
 
         // Borrar anterior si es fase única
@@ -235,7 +253,7 @@ class ProjectController extends Controller
         $project->images()->create([
             'file_path' => $fileName,
             'fase' => $fase,
-            'orden' => $request->input('new_image_orden', 1),
+            'orden' => $orden,
             'description' => ''
         ]);
 

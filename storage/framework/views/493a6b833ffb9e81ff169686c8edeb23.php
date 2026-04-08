@@ -169,113 +169,111 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
                             <div class="space-y-4 <?php echo e($totalFotos >= 6 ? 'opacity-40 pointer-events-none' : ''); ?>">
                                 <div>
                                     <label class="block text-xs font-bold text-gray-500 uppercase mb-2">1. Archivo</label>
-                                    <input type="file" name="new_project_image" id="file_input_project" <?php echo e($totalFotos >= 6 ? 'disabled' : ''); ?>
-
-                                        class="block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white cursor-pointer">
+                                    <input type="file" name="new_project_image" id="file_input_project" 
+                                        class="block w-full text-xs text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-bold file:bg-blue-600 file:text-white cursor-pointer"
+                                    <?php echo e($totalFotos >= 6 ? 'disabled' : ''); ?>>
                                 </div>
 
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 items-end">
-    <div>
-        <label class="block text-xs font-bold text-gray-500 uppercase mb-2">2. Sección</label>
-        <select name="new_image_fase" id="image_fase_selector" 
-            class="block w-full rounded border-gray-300 text-xs shadow-sm focus:ring-blue-500 focus:border-blue-500" 
-            onchange="updateStepNumber(this)">
-            <option value="header">Portada</option>
-            <option value="initial">Estado Inicial</option>
-            <option value="procedimiento" data-orden="1">Paso Técnico 1</option>
-            <option value="procedimiento" data-orden="2">Paso Técnico 2</option>
-            <option value="procedimiento" data-orden="3">Paso Técnico 3</option>
-            <option value="final">Estado Final</option>
-        </select>
-    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 uppercase mb-2">2. Sección</label>
+                                        <select name="new_image_fase" id="image_fase_selector" 
+                                            class="block w-full rounded border-gray-300 text-xs shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                                            <option value="header">Portada</option>
+                                            <option value="initial">Estado Inicial</option>
+                                            <option value="procedimiento_1">Paso Técnico 1</option>
+                                            <option value="procedimiento_2">Paso Técnico 2</option>
+                                            <option value="procedimiento_3">Paso Técnico 3</option>
+                                            <option value="final">Estado Final</option>
+                                        </select>
+                                    </div>
 
-    <input type="hidden" name="new_image_orden" id="new_image_orden" value="1">
 
-    <div class="w-full">
-        <button type="submit" name="action" value="upload_image" 
-            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded text-xs transition shadow-sm uppercase">
-            Subir esta Imagen
-        </button>
-    </div>
-</div>
+                                    <div class="w-full">
+                                        <button type="submit" name="action" value="upload_image" 
+                                            class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 rounded text-xs transition shadow-sm uppercase">
+                                            Subir esta Imagen
+                                        </button>
+                                    </div>
+                                </div>
 
-<div id="save-warning" class="hidden mt-3 p-2 bg-amber-50 border border-amber-200 rounded animate-pulse text-center">
-    <p class="text-[9px] text-amber-700 font-bold uppercase flex items-center justify-center">
-        <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
-        </svg>
-        ¡Archivo listo! Pulsa "Subir esta Imagen" arriba.
-    </p>
-</div>
+                                <div id="save-warning" class="hidden mt-3 p-2 bg-amber-50 border border-amber-200 rounded text-center">
+                                    <p class="text-[9px] text-amber-700 font-bold uppercase flex items-center justify-center">
+                                        <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                                        </svg>
+                                        ¡Archivo listo! Pulsa "Subir esta Imagen".
+                                    </p>
+                                </div>
                             </div>
                         </div>
 
 
                         <div class="lg:col-span-2 bg-gray-50 p-5 rounded-lg border border-gray-300">
-    <div class="flex items-center justify-between mb-4">
-        <h3 class="text-sm font-bold text-gray-600 uppercase">Imágenes guardadas</h3>
-        <button type="button" onclick="openPreviewModal()"
-            class="bg-blue-500 hover:bg-blue-700 text-white text-[10px] font-bold py-1.5 px-3 rounded shadow-sm transition flex items-center gap-2 uppercase">
-            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-            Previsualizar PDF
-        </button>
-    </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-sm font-bold text-gray-600 uppercase">Imágenes guardadas</h3>
+                                <button type="button" onclick="openPreviewModal()"
+                                    class="bg-blue-500 hover:bg-blue-700 text-white text-[10px] font-bold py-1.5 px-3 rounded shadow-sm transition flex items-center gap-2 uppercase">
+                                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                    Previsualizar PDF
+                                </button>
+                            </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $project->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="relative bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col">
-                <div class="rounded overflow-hidden aspect-video bg-gray-100 mb-2">
-                    <img src="<?php echo e(asset('storage/project_steps/' . $img->file_path)); ?>"
-                        class="w-full h-full object-cover">
-                </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $project->images; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <div class="relative bg-white p-2 rounded border border-gray-200 shadow-sm flex flex-col">
+                                        <div class="rounded overflow-hidden aspect-video bg-gray-100 mb-2">
+                                            <img src="<?php echo e(asset('storage/project_steps/' . $img->file_path)); ?>"
+                                                class="w-full h-full object-cover">
+                                        </div>
 
-                <?php
-                    $badgeColor = match ($img->fase) {
-                        'header' => 'bg-purple-100 text-purple-700 border-purple-200',
-                        'initial' => 'bg-amber-100 text-amber-700 border-amber-200',
-                        'procedimiento' => 'bg-blue-100 text-blue-700 border-blue-200',
-                        'final' => 'bg-green-100 text-green-700 border-green-200',
-                        default => 'bg-gray-100 text-gray-600'
-                    };
-                    $label = match ($img->fase) {
-                        'header' => 'PORTADA',
-                        'initial' => 'ESTADO INICIAL',
-                        'procedimiento' => 'PASO ' . ($img->orden ?? ''),
-                        'final' => 'ESTADO FINAL',
-                        default => strtoupper($img->fase)
-                    };
-                ?>
+                                        <?php
+                                            $badgeColor = match ($img->fase) {
+                                                'header' => 'bg-purple-100 text-purple-700 border-purple-200',
+                                                'initial' => 'bg-amber-100 text-amber-700 border-amber-200',
+                                                'procedimiento' => 'bg-blue-100 text-blue-700 border-blue-200',
+                                                'final' => 'bg-green-100 text-green-700 border-green-200',
+                                                default => 'bg-gray-100 text-gray-600'
+                                            };
+                                            $label = match ($img->fase) {
+                                                'header' => 'PORTADA',
+                                                'initial' => 'ESTADO INICIAL',
+                                                'procedimiento' => 'PASO ' . ($img->orden ?? ''),
+                                                'final' => 'ESTADO FINAL',
+                                                default => strtoupper($img->fase)
+                                            };
+                                        ?>
 
-                <span class="block text-[7px] font-bold text-center py-0.5 rounded border <?php echo e($badgeColor); ?> uppercase mb-2">
-                    <?php echo e($label); ?>
+                                        <span class="block text-[7px] font-bold text-center py-0.5 rounded border <?php echo e($badgeColor); ?> uppercase mb-2">
+                                            <?php echo e($label); ?>
 
-                </span>
+                                        </span>
 
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($img->fase !== 'header'): ?>
-                    <div class="mt-auto">
-                        <textarea name="image_descriptions[<?php echo e($img->id); ?>]" rows="3" maxlength="300"
-                            class="w-full text-[9px] border-gray-200 rounded p-1 leading-tight focus:ring-1 focus:ring-blue-400"
-                            placeholder="Descripción técnica..."><?php echo e($img->description); ?></textarea>
-                        
-                        <button type="button" onclick="saveImageText(this, <?php echo e($img->id); ?>)" 
-                            class="mt-1 w-full bg-blue-500 hover:bg-blue-600 text-white text-[8px] font-bold py-1 rounded transition uppercase">
-                            <span class="btn-text">Guardar texto</span>
-                        </button>
-                    </div>
-                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($img->fase !== 'header'): ?>
+                                            <div class="mt-auto">
+                                                <textarea name="image_descriptions[<?php echo e($img->id); ?>]" rows="3" maxlength="300"
+                                                    class="w-full text-[9px] border-gray-200 rounded p-1 leading-tight focus:ring-1 focus:ring-blue-400"
+                                                    placeholder="Descripción técnica..."><?php echo e($img->description); ?></textarea>
+                                                
+                                                <button type="button" onclick="saveImageText(this, <?php echo e($img->id); ?>)" 
+                                                    class="mt-1 w-full bg-blue-500 hover:bg-blue-600 text-white text-[8px] font-bold py-1 rounded transition uppercase">
+                                                    <span class="btn-text">Guardar texto</span>
+                                                </button>
+                                            </div>
+                                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
-                <button type="button"
-                    onclick="if(confirm('¿Eliminar imagen?')) document.getElementById('delete-img-<?php echo e($img->id); ?>').submit();"
-                    class="absolute -top-1.5 -right-1.5 bg-red-500 text-white rounded-full h-4 w-4 flex items-center justify-center border border-white shadow hover:bg-red-700 transition-colors">
-                    <span class="text-[10px]">&times;</span>
-                </button>
-            </div>
-        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-    </div>
-</div>
+                                        <button type="button"
+                                            onclick="if(confirm('¿Eliminar imagen?')) document.getElementById('delete-img-<?php echo e($img->id); ?>').submit();"
+                                            class="absolute -top-1.5 -right-1.5 bg-red-500 text-white rounded-full h-4 w-4 flex items-center justify-center border border-white shadow hover:bg-red-700 transition-colors">
+                                            <span class="text-[10px]">&times;</span>
+                                        </button>
+                                    </div>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -469,16 +467,6 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
                 }
             }
 
-            function updateStepNumber(selectElement) {
-                const orderInput = document.getElementById('new_image_orden');
-                const selectedOption = selectElement.options[selectElement.selectedIndex];
-
-                if (selectedOption.getAttribute('data-orden')) {
-                    orderInput.value = selectedOption.getAttribute('data-orden');
-                } else {
-                    orderInput.value = 1;
-                }
-            }
 
             // 2. Añade esto para que el aviso de "Subir Imagen" aparezca al elegir archivo:
             document.addEventListener('change', function (e) {
