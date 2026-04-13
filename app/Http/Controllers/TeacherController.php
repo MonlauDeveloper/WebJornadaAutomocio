@@ -46,7 +46,7 @@ class TeacherController extends Controller
         }
 
         // Determinar el número de elementos por página según la vista seleccionada
-        $perPage = $request->has('view') && $request->view === 'list' ? 35 : 6;
+        $perPage = $request->has('view') && $request->view === 'list' ? 15 : 9;
 
         // Cargar las relaciones necesarias para la verificación
         $students = $query->with(['languages', 'educations', 'workExperiences', 'contacts', 'project'])->paginate($perPage);

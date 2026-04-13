@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 <div class="container mx-auto p-4 md:p-8 min-h-screen">
     <div class="text-center mb-10">
         <h1 class="text-3xl md:text-4xl font-extrabold text-blue-600 tracking-tight">Panel de Profesores</h1>
@@ -8,37 +6,39 @@
 
     <!-- Filtros: Especialización, Curso, Verificación y Búsqueda -->
     <div class="p-6 mb-8">
-        <form method="GET" action="{{ route('teachers.myStudents') }}" class="flex flex-col lg:flex-row items-center gap-4">
+        <form method="GET" action="<?php echo e(route('teachers.myStudents')); ?>" class="flex flex-col lg:flex-row items-center gap-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full lg:w-3/4">
                 <select name="specialization" onchange="this.form.submit()"
                     class="w-full border-gray-200 rounded-xl text-gray-600 p-3 bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all cursor-pointer shadow-sm">
                     <option value="">Todas las especializaciones</option>
-                    @foreach($specializations as $specialization)
-                        <option value="{{ $specialization->idSpecialization }}" {{ request('specialization') == $specialization->idSpecialization ? 'selected' : '' }}>
-                            {{ $specialization->specialization }}
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $specializations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $specialization): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($specialization->idSpecialization); ?>" <?php echo e(request('specialization') == $specialization->idSpecialization ? 'selected' : ''); ?>>
+                            <?php echo e($specialization->specialization); ?>
+
                         </option>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </select>
 
                 <select name="curso" onchange="this.form.submit()"
                     class="w-full border-gray-200 rounded-xl text-gray-600 p-3 bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all cursor-pointer shadow-sm">
                     <option value="">Todos los cursos</option>
-                    @foreach($cursos as $curso)
-                        <option value="{{ $curso }}" {{ request('curso') == $curso ? 'selected' : '' }}>
-                            Curso {{ $curso }}
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $cursos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $curso): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <option value="<?php echo e($curso); ?>" <?php echo e(request('curso') == $curso ? 'selected' : ''); ?>>
+                            Curso <?php echo e($curso); ?>
+
                         </option>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </select>
 
                 <select name="verification_status" onchange="this.form.submit()"
                     class="w-full border-gray-200 rounded-xl text-gray-600 p-3 bg-gray-50 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all cursor-pointer shadow-sm">
                     <option value="">Todos los estados</option>
-                    <option value="pending" {{ request('verification_status') == 'pending' ? 'selected' : '' }}>Pendientes de Verificación</option>
+                    <option value="pending" <?php echo e(request('verification_status') == 'pending' ? 'selected' : ''); ?>>Pendientes de Verificación</option>
                 </select>
             </div>
 
             <div class="flex flex-col sm:flex-row w-full lg:w-1/4 gap-2">
-                <input type="text" name="search" value="{{ request('search') }}" placeholder="Buscar..."
+                <input type="text" name="search" value="<?php echo e(request('search')); ?>" placeholder="Buscar..."
                     class="flex-grow w-full border-gray-200 rounded-xl px-4 py-3 text-gray-700 bg-gray-50 focus:ring-2 focus:ring-blue-500 shadow-sm">
                 <button type="submit" class="w-full sm:w-auto bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-xl font-medium transition-all transform active:scale-95 shadow-md">
                     Buscar
@@ -56,41 +56,42 @@
     </div>
 
     <!-- Vista de cuadrícula -->
-    <div id="gridView" class="{{ request('view') == 'list' ? 'hidden' : '' }} grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        @forelse($students as $student)
+    <div id="gridView" class="<?php echo e(request('view') == 'list' ? 'hidden' : ''); ?> grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300">
                 <div class="w-32 h-32 overflow-hidden rounded-full mx-auto bg-gray-100 border-2 border-gray-200 shadow-sm mb-4">
                     <img class="w-full h-auto object-contain" 
-                        src="{{ $student->photoName ? asset('storage/' . $student->photoName) : asset('storage/photos/por_defecto/user_default.png') }}"
-                        alt="{{ $student->name }}"
-                        onerror="this.onerror=null; this.src='{{ asset('storage/photos/por_defecto/user_default.png') }}';">
+                        src="<?php echo e($student->photoName ? asset('storage/' . $student->photoName) : asset('storage/photos/por_defecto/user_default.png')); ?>"
+                        alt="<?php echo e($student->name); ?>"
+                        onerror="this.onerror=null; this.src='<?php echo e(asset('storage/photos/por_defecto/user_default.png')); ?>';">
                 </div>
                 
                 <h2 class="text-xl font-bold text-blue-600 text-center leading-tight">
-                    {{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}
+                    <?php echo e($student->name); ?> <?php echo e($student->surname1); ?> <?php echo e($student->surname2); ?>
+
                 </h2>
                 
                 <!-- Mostrar estado de verificación -->
                 <div class="flex justify-center mt-3">
-                    <i class="fas fa-{{ $student->verification_status }} text-2xl {{ $student->verification_status == 'check-circle' ? 'text-green-500' : 'text-gray-400' }}"></i>
+                    <i class="fas fa-<?php echo e($student->verification_status); ?> text-2xl <?php echo e($student->verification_status == 'check-circle' ? 'text-green-500' : 'text-gray-400'); ?>"></i>
                 </div>
 
                 <div class="mt-6 flex flex-col gap-2">
-                    <a href="{{ route('professor.verifyDetails', $student->idStudent) }}"
+                    <a href="<?php echo e(route('professor.verifyDetails', $student->idStudent)); ?>"
                         class="text-center bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white py-2.5 rounded-xl font-semibold transition-colors text-sm">
                         Verificar
                     </a>
                 </div>
             </div>
-        @empty
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
             <div class="col-span-full bg-white p-12 rounded-2xl text-center shadow-sm border border-dashed border-gray-300">
                 <p class="text-gray-400">No se encontraron estudiantes pendientes de verificación o con los filtros seleccionados.</p>
             </div>
-        @endforelse
+        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
     </div>
 
     <!-- Vista de lista compacta (oculta por defecto) -->
-    <div id="listView" class="{{ request('view') == 'list' ? '' : 'hidden' }} overflow-x-auto rounded-2xl shadow-sm border border-gray-200">
+    <div id="listView" class="<?php echo e(request('view') == 'list' ? '' : 'hidden'); ?> overflow-x-auto rounded-2xl shadow-sm border border-gray-200">
         <table class="w-full text-left bg-white border-collapse">
             <thead class="bg-gray-50 border-b border-gray-200">
                 <tr>
@@ -101,54 +102,57 @@
                 </tr>
             </thead>
             <tbody class="divide-y divide-gray-100">
-                @forelse($students as $student)
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                     <tr class="hover:bg-blue-50 transition-colors">
                         <td class="p-4 align-middle">
                             <div class="flex items-center gap-4">
                                 <div class="w-16 h-16 overflow-hidden rounded-full bg-white border border-gray-200 shadow-sm flex-shrink-0">
                                     <img class="w-full h-auto object-contain" 
-                                         src="{{ $student->photoName ? asset('storage/' . $student->photoName) : asset('storage/photos/por_defecto/user_default.png') }}"
-                                         alt="{{ $student->name }}"
-                                         onerror="this.onerror=null; this.src='{{ asset('storage/photos/por_defecto/user_default.png') }}';">
+                                         src="<?php echo e($student->photoName ? asset('storage/' . $student->photoName) : asset('storage/photos/por_defecto/user_default.png')); ?>"
+                                         alt="<?php echo e($student->name); ?>"
+                                         onerror="this.onerror=null; this.src='<?php echo e(asset('storage/photos/por_defecto/user_default.png')); ?>';">
                                 </div>
                                 <div>
                                     <p class="text-base font-bold text-gray-800 leading-tight">
-                                        {{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}
+                                        <?php echo e($student->name); ?> <?php echo e($student->surname1); ?> <?php echo e($student->surname2); ?>
+
                                     </p>
                                 </div>
                             </div>
                         </td>
                         <td class="p-4 align-middle">
                             <span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-bold tracking-wide">
-                                {{ $student->curso }}
+                                <?php echo e($student->curso); ?>
+
                             </span>
                         </td>
                         <td class="p-4 align-middle text-center">
-                            <i class="fas fa-{{ $student->verification_status }} text-2xl {{ $student->verification_status == 'check-circle' ? 'text-green-500' : 'text-gray-400' }}"></i>
+                            <i class="fas fa-<?php echo e($student->verification_status); ?> text-2xl <?php echo e($student->verification_status == 'check-circle' ? 'text-green-500' : 'text-gray-400'); ?>"></i>
                         </td>
                         <td class="p-4 text-right align-middle space-x-3">
-                            <a href="{{ route('professor.verifyDetails', $student->idStudent) }}" 
+                            <a href="<?php echo e(route('professor.verifyDetails', $student->idStudent)); ?>" 
                                class="text-blue-600 text-sm font-bold hover:text-blue-800 transition-colors">Verificar</a>
                         </td>
                     </tr>
-                @empty
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                     <tr>
                         <td colspan="4" class="p-12 text-center text-gray-400">No hay datos para mostrar.</td>
                     </tr>
-                @endforelse
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </tbody>
         </table>
     </div>
 
     <!-- Paginación con vista persistente -->
     <div class="mt-10">
-        {{ $students->appends(['specialization' => request('specialization'), 'curso' => request('curso'), 'search' => request('search'), 'verification_status' => request('verification_status'), 'view' => request('view')])->links() }}
+        <?php echo e($students->appends(['specialization' => request('specialization'), 'curso' => request('curso'), 'search' => request('search'), 'verification_status' => request('verification_status'), 'view' => request('view')])->links()); ?>
+
     </div>
 
     <!-- Script para alternar entre vistas -->
     <script>
         document.getElementById('toggleView').addEventListener('click', function () {
-            let currentView = "{{ request('view', 'grid') }}";
+            let currentView = "<?php echo e(request('view', 'grid')); ?>";
             let newView = currentView === 'grid' ? 'list' : 'grid';
 
             let url = new URL(window.location.href);
@@ -158,4 +162,6 @@
     </script>
 
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /var/www/jornada-automocion-api/resources/views/teachers/myStudents.blade.php ENDPATH**/ ?>

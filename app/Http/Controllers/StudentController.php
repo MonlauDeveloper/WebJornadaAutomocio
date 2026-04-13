@@ -374,11 +374,17 @@ class StudentController extends Controller
             'work_experience.*' => 'nullable|string|max:255',
             'introduction' => 'nullable|string|max:5000',
             'contact.*' => 'nullable|string|max:255',
+            'postal_code' => 'nullable|string|max:20',
+            'city' => 'nullable|string|max:255',
+            'linkedin' => 'nullable|string|max:255',
         ]);
 
         if ($student) {
             $student->cvLink = 'https://jornadaautomocion.alumnes-monlau.com/pdfVer/' . $student->idStudent;
             $student->introduction = $request->introduction;
+            $student->postal_code = $request->postal_code;
+            $student->city = $request->city;
+            $student->Linkedin = $request->linkedin;
             $student->save();
         }
 

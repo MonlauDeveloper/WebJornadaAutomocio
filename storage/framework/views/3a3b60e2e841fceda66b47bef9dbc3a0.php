@@ -29,7 +29,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('{{ public_path("images/Curriculum CV Fondo transparente.png") }}');
+            background-image: url('<?php echo e(public_path("images/Curriculum CV Fondo transparente.png")); ?>');
             background-size: cover;
             background-position: left top;
             background-repeat: no-repeat;
@@ -176,46 +176,48 @@
     <div class="container mx-auto p-6">
         <div class="bg-white p-6 rounded-lg shadow-lg text-center">
             <div class="avatar-container">
-                <img src="{{ $imageBase64 }}" alt="{{ $student->name }}"
+                <img src="<?php echo e($imageBase64); ?>" alt="<?php echo e($student->name); ?>"
                     style="width: auto; height: 100%; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
             </div>
 
-            <h1 class="text-4xl font-bold text-blue-600 mt-4">{{ $student->name }} {{ $student->surname1 }}
-                {{ $student->surname2 }}
+            <h1 class="text-4xl font-bold text-blue-600 mt-4"><?php echo e($student->name); ?> <?php echo e($student->surname1); ?>
+
+                <?php echo e($student->surname2); ?>
+
             </h1>
 
             <div class="card">
                 <p class="text-gray-600 mt-2">
                     <strong>Especialización:</strong>
                     <span
-                        class="text-blue-600 font-bold">{{ $student->specialization->specialization ?? 'No especificada' }}</span>
+                        class="text-blue-600 font-bold"><?php echo e($student->specialization->specialization ?? 'No especificada'); ?></span>
                 </p>
                 
-                {{-- NUEVO: POBLACIÓN Y CP --}}
+                
                 <p class="text-gray-600 mt-2">
                     <strong>Ubicación:</strong>
                     <span class="text-black font-medium">
-                        {{ $student->city ?? 'No especificada' }} 
-                        @if($student->postal_code) ({{ $student->postal_code }}) @endif
+                        <?php echo e($student->city ?? 'No especificada'); ?> 
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->postal_code): ?> (<?php echo e($student->postal_code); ?>) <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </span>
                 </p>
 
                 <p class="text-gray-600 mt-2">
                     <strong>Contacto:</strong>
-                    <span class="text-black font-medium">@forelse($student->contacts as $contact)
-                        {{ $contact->contact }}@if(!$loop->last), @endif
-                    @empty
+                    <span class="text-black font-medium"><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $student->contacts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                        <?php echo e($contact->contact); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!$loop->last): ?>, <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                             No especificado
-                        @endforelse
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </span>
                 </p>
 
-                @if($student->linkedin)
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->linkedin): ?>
                     <p class="text-gray-600 mt-2">
                         <strong>LinkedIn:</strong>
-                        <span class="text-blue-600 font-medium">{{ $student->linkedin }}</span>
+                        <span class="text-blue-600 font-medium"><?php echo e($student->linkedin); ?></span>
                     </p>
-                @endif
+                <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>
         </div>
 
@@ -224,7 +226,7 @@
             <div class="card">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-blue-600">Sobre mí</h3>
-                    <p class="text-gray-700">{{ $student->introduction ?? 'No especificada' }}</p>
+                    <p class="text-gray-700"><?php echo e($student->introduction ?? 'No especificada'); ?></p>
                 </div>
             </div>
 
@@ -232,11 +234,11 @@
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-blue-600">Formación</h3>
                     <ul class="cv-list">
-                        @forelse($student->educations as $education)
-                        <li class="text-gray-700">{{ $education->education }}</li>
-                        @empty
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $student->educations; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $education): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                        <li class="text-gray-700"><?php echo e($education->education); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <li class="text-gray-700">No especificada</li>
-                        @endforelse
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </ul>
                 </div>
             </div>
@@ -245,11 +247,11 @@
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-blue-600">Experiencia Laboral</h3>
                     <ul class="cv-list">
-                        @forelse($student->workExperiences as $experience)
-                        <li class="text-gray-700">{{ $experience->work_experience }}</li>
-                        @empty
+                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $student->workExperiences; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $experience): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                        <li class="text-gray-700"><?php echo e($experience->work_experience); ?></li>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                         <li class="text-gray-700">No especificada</li>
-                        @endforelse
+                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </ul>
                 </div>
             </div>
@@ -257,11 +259,11 @@
             <div class="card">
                 <div class="bg-white p-6 rounded-lg shadow-lg language-section">
                     <h3 class="text-xl font-semibold text-blue-600">Idiomas</h3>
-                    @forelse($student->languages as $language)
-                    <p class="text-gray-700">{{ $language->language }}</p>
-                    @empty
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $student->languages; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $language): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                    <p class="text-gray-700"><?php echo e($language->language); ?></p>
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
                     <p class="text-gray-700">No especificado</p>
-                    @endforelse
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
             </div>
 
@@ -269,4 +271,4 @@
     </div>
 </body>
 
-</html>
+</html><?php /**PATH /var/www/jornada-automocion-api/resources/views/students/showPDF.blade.php ENDPATH**/ ?>
