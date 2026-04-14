@@ -186,47 +186,44 @@
 
             </h1>
 
-            <div class="card">
-                <p class="text-gray-600 mt-2">
-                    <strong>Especialización:</strong>
-                    <span
-                        class="text-blue-600 font-bold"><?php echo e($student->specialization->specialization ?? 'No especificada'); ?></span>
-                </p>
-                
-                
-                <p class="text-gray-600 mt-2">
-                    <strong>Ubicación:</strong>
-                    <span class="text-black font-medium">
-                        <?php echo e($student->city ?? 'No especificada'); ?> 
-                        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->postal_code): ?> (<?php echo e($student->postal_code); ?>) <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                    </span>
-                </p>
+    <div class="card" style="padding: 12px 6px;">
+        <div style="text-align: center; line-height: 2.2;">
+            <span style="display: inline-block; background-color: #eff6ff; color: #1d4ed8; padding: 2px 14px; border-radius: 20px; font-size: 14px; margin: 4px 6px; border: 1px solid #bfdbfe;">
+                <strong>Especialización:</strong> <?php echo e($student->specialization->specialization ?? 'No especificada'); ?>
 
-                <p class="text-gray-600 mt-2">
-                    <strong>Contacto:</strong>
-                    <span class="text-black font-medium"><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $student->contacts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                        <?php echo e($contact->contact); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!$loop->last): ?>, <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
-                            No especificado
-                        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                    </span>
-                </p>
+            </span>
+            
+            <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->Linkedin): ?>
+            <span style="display: inline-block; background-color: #eff6ff; color: #1d4ed8; padding: 2px 14px; border-radius: 20px; font-size: 14px; margin: 4px 6px; border: 1px solid #bfdbfe;">
+                <strong>LinkedIn:</strong> <?php echo e($student->Linkedin); ?>
 
-                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->linkedin): ?>
-                    <p class="text-gray-600 mt-2">
-                        <strong>LinkedIn:</strong>
-                        <span class="text-blue-600 font-medium"><?php echo e($student->linkedin); ?></span>
-                    </p>
+            </span>
+            <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+            <span style="display: inline-block; background-color: #f3f4f6; color: #374151; padding: 2px 14px; border-radius: 20px; font-size: 14px; margin: 4px 6px; border: 1px solid #d1d5db;">
+                <strong>Contacto:</strong> 
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $student->contacts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
+                    <?php echo e($contact->contact); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!$loop->last): ?>, <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
+                    No especificado
                 <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-            </div>
+            </span>
+
+            <span style="display: inline-block; background-color: #f3f4f6; color: #374151; padding: 2px 14px; border-radius: 20px; font-size: 14px; margin: 4px 6px; border: 1px solid #d1d5db;">
+                <strong>Localidad:</strong> 
+                <?php echo e($student->city ?? 'No especificada'); ?> 
+                <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->postal_code): ?> (<?php echo e($student->postal_code); ?>) <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+            </span>
         </div>
+    </div>
+</div>
 
         <div class="mt-8 text-justify">
 
             <div class="card">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-blue-600">Sobre mí</h3>
-                    <p class="text-gray-700"><?php echo e($student->introduction ?? 'No especificada'); ?></p>
+                    <p class="text-gray-700" style="word-wrap: break-word; word-break: break-all;"><?php echo e($student->introduction ?? 'No especificada'); ?></p>
                 </div>
             </div>
 

@@ -184,47 +184,42 @@
                 {{ $student->surname2 }}
             </h1>
 
-            <div class="card">
-                <p class="text-gray-600 mt-2">
-                    <strong>Especialización:</strong>
-                    <span
-                        class="text-blue-600 font-bold">{{ $student->specialization->specialization ?? 'No especificada' }}</span>
-                </p>
-                
-                {{-- NUEVO: POBLACIÓN Y CP --}}
-                <p class="text-gray-600 mt-2">
-                    <strong>Ubicación:</strong>
-                    <span class="text-black font-medium">
-                        {{ $student->city ?? 'No especificada' }} 
-                        @if($student->postal_code) ({{ $student->postal_code }}) @endif
-                    </span>
-                </p>
+    <div class="card" style="padding: 12px 6px;">
+        <div style="text-align: center; line-height: 2.2;">
+            <span style="display: inline-block; background-color: #eff6ff; color: #1d4ed8; padding: 2px 14px; border-radius: 20px; font-size: 14px; margin: 4px 6px; border: 1px solid #bfdbfe;">
+                <strong>Especialización:</strong> {{ $student->specialization->specialization ?? 'No especificada' }}
+            </span>
+            
+            @if($student->Linkedin)
+            <span style="display: inline-block; background-color: #eff6ff; color: #1d4ed8; padding: 2px 14px; border-radius: 20px; font-size: 14px; margin: 4px 6px; border: 1px solid #bfdbfe;">
+                <strong>LinkedIn:</strong> {{ $student->Linkedin }}
+            </span>
+            @endif
 
-                <p class="text-gray-600 mt-2">
-                    <strong>Contacto:</strong>
-                    <span class="text-black font-medium">@forelse($student->contacts as $contact)
-                        {{ $contact->contact }}@if(!$loop->last), @endif
-                    @empty
-                            No especificado
-                        @endforelse
-                    </span>
-                </p>
+            <span style="display: inline-block; background-color: #f3f4f6; color: #374151; padding: 2px 14px; border-radius: 20px; font-size: 14px; margin: 4px 6px; border: 1px solid #d1d5db;">
+                <strong>Contacto:</strong> 
+                @forelse($student->contacts as $contact)
+                    {{ $contact->contact }}@if(!$loop->last), @endif
+                @empty
+                    No especificado
+                @endforelse
+            </span>
 
-                @if($student->linkedin)
-                    <p class="text-gray-600 mt-2">
-                        <strong>LinkedIn:</strong>
-                        <span class="text-blue-600 font-medium">{{ $student->linkedin }}</span>
-                    </p>
-                @endif
-            </div>
+            <span style="display: inline-block; background-color: #f3f4f6; color: #374151; padding: 2px 14px; border-radius: 20px; font-size: 14px; margin: 4px 6px; border: 1px solid #d1d5db;">
+                <strong>Localidad:</strong> 
+                {{ $student->city ?? 'No especificada' }} 
+                @if($student->postal_code) ({{ $student->postal_code }}) @endif
+            </span>
         </div>
+    </div>
+</div>
 
         <div class="mt-8 text-justify">
 
             <div class="card">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-xl font-semibold text-blue-600">Sobre mí</h3>
-                    <p class="text-gray-700">{{ $student->introduction ?? 'No especificada' }}</p>
+                    <p class="text-gray-700" style="word-wrap: break-word; word-break: break-all;">{{ $student->introduction ?? 'No especificada' }}</p>
                 </div>
             </div>
 

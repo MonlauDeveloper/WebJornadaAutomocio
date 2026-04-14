@@ -85,9 +85,10 @@
 
                     <!-- Introducción -->
                     <div>
-                        <label for="introduction" class="block text-sm font-medium text-gray-600">Sobre mí</label>
+                        <label for="introduction" class="block text-sm font-medium text-gray-600">Sobre mí (Máx. 300 caracteres)</label>
                         <textarea id="introduction" name="introduction"
-                            placeholder="Buenos días, soy Juanjo y me apasiona..."
+                            maxlength="300"
+                            placeholder="Escribe aquí una breve descripción personal (intereses, experiencia, objetivos)…"
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
                             rows="3">{{ old('introduction', $student->introduction) }}</textarea>
                     </div>
@@ -235,6 +236,14 @@
         function addInput(containerId, inputName) {
             const container = document.getElementById(containerId);
 
+            if (containerId === 'contact-container') {
+                const currentContacts = container.querySelectorAll('input').length;
+                if (currentContacts >= 2) {
+                    alert('Solo puedes añadir un máximo de 2 contactos.');
+                    return;
+                }
+            }
+
             let placeholderText = '';
             if (inputName === 'education') placeholderText = 'Añadir Formación (Fecha Inicio - Fecha Fin) (Nivel de Estudios) (Nombre Escuela)';
             if (inputName === 'languages') placeholderText = 'Añadir idioma (Idioma - Nivel)';
@@ -250,6 +259,23 @@
                 <button type="button" class="ml-2 text-red-500 hover:text-red-700 remove-input">✖</button>
             `;
             container.appendChild(inputGroup);
+            
+            if (containerId === 'contact-container') {
+                updateContactButtonVisibility();
+            }
+        }
+
+        function updateContactButtonVisibility() {
+            const container = document.getElementById('contact-container');
+            const button = document.getElementById('add-contact');
+            if (container && button) {
+                const currentContacts = container.querySelectorAll('input').length;
+                if (currentContacts >= 2) {
+                    button.style.display = 'none';
+                } else {
+                    button.style.display = 'inline-block';
+                }
+            }
         }
 
         document.getElementById('add-education').addEventListener('click', () => addInput('education-container', 'education'));
@@ -261,7 +287,13 @@
         document.addEventListener('click', function (e) {
             if (e.target && e.target.classList.contains('remove-input')) {
                 e.target.parentElement.remove();
+                updateContactButtonVisibility();
             }
+        });
+
+        // Comprobar on load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateContactButtonVisibility();
         });
     </script>
 @endsection
