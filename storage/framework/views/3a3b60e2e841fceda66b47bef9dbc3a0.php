@@ -48,16 +48,10 @@
 
         .card {
             margin-left: 13px;
-            background-color: rgba(255, 255, 255, 0.85);
             padding: 1px;
-            border-radius: 12px;
             margin-bottom: 1px;
-            border: 1px solid rgba(255, 255, 255, 0.6);
         }
 
-        .bg-white {
-            background-color: #fbf9f9;
-        }
 
         .p-6 {
             padding: 2px 24px;
