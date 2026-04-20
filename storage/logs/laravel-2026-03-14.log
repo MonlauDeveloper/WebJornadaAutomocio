@@ -1,6 +1,0 @@
-[2026-03-14 06:31:09] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
-{"error":"invalid_grant","error_description":"AADSTS70008: The provided authorization code or refresh token has expired  (truncated...)
-  
-[2026-03-14 06:31:09] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
-{"error":"invalid_grant","error_description":"AADSTS70008: The provided authorization code or refresh token has expired  (truncated...)
-  

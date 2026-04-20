@@ -35,7 +35,6 @@
         .header-project h1 { 
             display: inline-block;
             padding: 5px 20px; font-size: 1.4rem; color: #1e40af; 
-            border-bottom: 2px solid #1e40af;
         }
         
         .section-title {
@@ -49,10 +48,11 @@
         }
         
         .img-fase {
-            width: 100%; height: 110px; 
-            object-fit: contain;
+            width: 100%; 
             border-radius: 6px; border: 1px solid #ddd;
-            background: #fff;
+            background-color: #fff;
+            background-size: cover;
+            background-position: center;
         }
         
         .desc-tecnica, .card p {
@@ -140,8 +140,7 @@
                     <?php $imgHeader = $project->images->where('fase', 'header')->first(); ?>
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($imgHeader): ?>
                     <td width="30%" align="right" style="vertical-align: top;">
-                        <img src="<?php echo e(public_path('storage/project_steps/' . $imgHeader->file_path)); ?>" 
-                             style="width: 190px; height: 120px; object-fit: cover; border-radius: 8px; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <div style="width: 190px; height: 120px; background-image: url('<?php echo e(public_path('storage/project_steps/' . $imgHeader->file_path)); ?>'); background-size: cover; background-position: center; border-radius: 8px; border: 2px solid white;"></div>
                     </td>
                     <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </tr>
@@ -160,7 +159,7 @@
                     <?php $imgInitial = $project->images->where('fase', 'initial')->first(); ?>
                     <td width="30%">
                         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($imgInitial): ?>
-                            <img src="<?php echo e(public_path('storage/project_steps/' . $imgInitial->file_path)); ?>" class="img-fase" style="height: 85px;">
+                            <div class="img-fase" style="height: 85px; background-image: url('<?php echo e(public_path('storage/project_steps/' . $imgInitial->file_path)); ?>');"></div>
                         <?php else: ?>
                             <div style="width: 100%; height: 85px; background: #f3f4f6; text-align: center; line-height: 85px; color: #999; font-size: 0.6rem; border-radius: 6px;">SIN FOTO</div>
                         <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
@@ -184,7 +183,7 @@
                         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($index % 2 == 0): ?>
                             <td width="35%" style="vertical-align: top;">
                                 <div class="step-header">PASO <?php echo e($img->orden ?? ($index + 1)); ?></div>
-                                <img src="<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>" class="img-fase" style="height: 90px;">
+                                <div class="img-fase" style="height: 90px; background-image: url('<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>');"></div>
                             </td>
                             <td width="65%" style="vertical-align: middle; padding-left: 15px; word-break: break-all;">
     <div class="desc-tecnica"><?php echo e($img->description); ?></div>
@@ -195,7 +194,7 @@
                             </td>
                             <td width="35%" style="vertical-align: top;">
                                 <div class="step-header" style="text-align: right;">PASO <?php echo e($img->orden ?? ($index + 1)); ?></div>
-                                <img src="<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>" class="img-fase" style="height: 90px;">
+                                <div class="img-fase" style="height: 90px; background-image: url('<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>');"></div>
                             </td>
                         <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </tr>
@@ -212,7 +211,7 @@
                 <tr>
                     <td width="30%">
                         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($imgFinal): ?>
-                            <img src="<?php echo e(public_path('storage/project_steps/' . $imgFinal->file_path)); ?>" class="img-fase" style="height: 85px;">
+                            <div class="img-fase" style="height: 85px; background-image: url('<?php echo e(public_path('storage/project_steps/' . $imgFinal->file_path)); ?>');"></div>
                         <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </td>
                     <td width="70%" style="padding-left: 15px; vertical-align: top;">

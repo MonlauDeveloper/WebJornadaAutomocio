@@ -69,7 +69,7 @@ class ProjectController extends Controller
         }
 
         // Importante: withQueryString() mantiene los filtros al cambiar de página
-        $projects = $query->paginate(6)->withQueryString();
+        $projects = $query->paginate(9)->withQueryString();
 
         return view('projects.index', compact('projects', 'specializations', 'cursos', 'ubications', 'tipos'));
     }

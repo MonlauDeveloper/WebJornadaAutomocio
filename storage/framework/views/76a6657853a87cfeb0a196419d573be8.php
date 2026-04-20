@@ -58,33 +58,37 @@
         </button>
     </div>
 
-    <div id="gridView" class="<?php echo e(request('view') == 'list' ? 'hidden' : ''); ?> grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="gridView" class="<?php echo e(request('view') == 'list' ? 'hidden' : ''); ?> grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300">
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 flex flex-col justify-between">
                 
-<div class="w-32 h-32 overflow-hidden rounded-full mx-auto bg-gray-100 border-2 border-gray-200 shadow-sm">
+                <div>
+                    <div class="w-20 mx-auto bg-white rounded-full shadow-sm border-4 border-white overflow-hidden mb-3">
                         <img class="w-full h-auto object-contain" 
                             src="<?php echo e($student->photoName ? asset('storage/' . $student->photoName) : asset('storage/photos/por_defecto/user_default.png')); ?>"
                             alt="<?php echo e($student->name); ?>"
                             onerror="this.onerror=null; this.src='<?php echo e(asset('storage/photos/por_defecto/user_default.png')); ?>';">
                     </div>
-                <h2 class="text-xl font-bold text-gray-800 text-center leading-tight">
-                    <?php echo e($student->name); ?><br>
-                    <span class="text-blue-500"><?php echo e($student->surname1); ?> <?php echo e($student->surname2); ?></span>
-                </h2>
-                <p class="text-gray-500 mt-3 text-center text-sm leading-relaxed">
-                    <?php echo e(Str::limit($student->introduction, 90)); ?>
 
-                </p>
+                    <h2 class="text-lg font-bold text-gray-800 text-center leading-tight">
+                        <?php echo e($student->name); ?><br>
+                        <span class="text-blue-500 text-sm"><?php echo e($student->surname1); ?> <?php echo e(Str::limit($student->surname2, 1, '.')); ?></span>
+                    </h2>
+                    
+                    <p class="text-gray-500 mt-2 text-center text-xs leading-snug">
+                        <?php echo e(Str::limit($student->introduction, 60)); ?>
+
+                    </p>
+                </div>
                 
-                <div class="mt-6 flex flex-col gap-2">
+                <div class="mt-4 flex flex-col gap-1.5">
                     <a href="<?php echo e(route('students.show', $student->idStudent)); ?>"
-                        class="text-center bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white py-2.5 rounded-xl font-semibold transition-colors">
+                        class="text-center bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white py-1.5 rounded-lg text-xs font-bold transition-colors">
                         Ver Perfil
                     </a>
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->user()->idRole === 1): ?>
                         <a href="<?php echo e(route('students.edit', $student->idStudent)); ?>"
-                            class="text-center bg-yellow-50 text-yellow-800 hover:bg-yellow-800 hover:text-white py-2.5 rounded-xl font-semibold transition-colors text-sm">
+                            class="text-center bg-yellow-50 text-yellow-800 hover:bg-yellow-800 hover:text-white py-1.5 rounded-lg font-bold transition-colors text-[10px] uppercase">
                             Editar 
                         </a>
                     <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
@@ -112,8 +116,8 @@
                 <tr class="hover:bg-blue-50/50 transition-colors">
                     <td class="p-4 align-middle">
                         <div
-                            class="w-16 h-16 overflow-hidden rounded-full mx-auto bg-gray-50 border border-gray-100 shadow-sm">
-                            <img class="w-full h-full object-contain"
+                            class="w-16 mx-auto bg-white rounded-full shadow-sm border-4 border-white overflow-hidden">
+                            <img class="w-full h-auto object-contain"
                                 src="<?php echo e($student->photoName ? asset('storage/' . $student->photoName) : asset('storage/photos/por_defecto/user_default.png')); ?>" 
                                 alt="<?php echo e($student->name); ?>"
                                 onerror="this.onerror=null; this.src='<?php echo e(asset('storage/photos/por_defecto/user_default.png')); ?>';">

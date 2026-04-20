@@ -16,7 +16,7 @@
 
             </p>
             
-            <img class="w-3xl h-auto object-cover rounded-xl mt-6 mx-auto shadow-md border border-gray-200"
+            <img class="max-h-80 w-auto object-contain rounded-xl mt-6 mx-auto shadow-md border border-gray-200"
                 src="<?php echo e(asset('storage/photos/' . $project->photoName)); ?>" alt="<?php echo e($project->title); ?>">
 
             <p class="text-gray-600 mt-6 text-lg max-w-3xl mx-auto leading-relaxed break-words"><?php echo e($project->abstract); ?></p>
@@ -69,11 +69,9 @@
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $project->students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
                             <a href="<?php echo e(route('students.show', $student->idStudent)); ?>" class="flex items-center group">
-                                <div class="w-12 h-12 overflow-hidden rounded-full mr-4 bg-slate-100 border-2 border-white shadow-sm ring-1 ring-slate-200">
-                                    <img class="w-full h-full object-cover object-top"
-                                        src="<?php echo e(asset('storage/' . $student->photoName)); ?>" alt="<?php echo e($student->name); ?>"
-                                        onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
-                                </div>
+                                <img class="w-16 h-auto object-contain rounded-full shadow-sm mr-4 border-4 border-white bg-white"
+                                    src="<?php echo e(asset('storage/' . $student->photoName)); ?>" alt="<?php echo e($student->name); ?>"
+                                    onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
                                 <div>
                                     <p class="font-bold text-slate-700 group-hover:text-blue-600 transition-colors">
                                         <?php echo e($student->name); ?> <?php echo e($student->surname1); ?> <?php echo e($student->surname2); ?>

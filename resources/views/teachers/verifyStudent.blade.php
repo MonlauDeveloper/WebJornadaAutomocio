@@ -28,7 +28,7 @@
                         <i class="fas fa-{{ $student->photoName ? 'check-circle' : 'exclamation-circle' }}"></i>
                     </span>
                     @if ($student->photoName)
-                        <img class="w-32 h-32 object-contain border-2 border-gray-100 rounded-full" src="{{ asset('storage/' . $student->photoName) }}"
+                        <img class="w-28 h-auto object-contain border-4 border-white rounded-full shadow-sm bg-white" src="{{ asset('storage/' . $student->photoName) }}"
                             alt="{{ $student->name }}"
                             onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
                     @else

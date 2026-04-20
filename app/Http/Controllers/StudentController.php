@@ -57,7 +57,7 @@ class StudentController extends Controller
         }
 
         // Determinar el número de elementos por página según la vista seleccionada
-        $perPage = $request->has('view') && $request->view === 'list' ? 12 : 9;
+        $perPage = $request->has('view') && $request->view === 'list' ? 12 : 12;
 
         $students = $query->with('specialization', 'team')->paginate($perPage);
 
