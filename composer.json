@@ -9,6 +9,7 @@
         "php": "^8.2",
         "barryvdh/laravel-dompdf": "^3.0",
         "barryvdh/laravel-snappy": "^1.0",
+        "doctrine/dbal": "^4.4",
         "intervention/image": "^3.11",
         "intervention/image-laravel": "^1.4",
         "its404/php-puppeteer": "^0.1.1",

@@ -58,12 +58,22 @@
             color: #374151;
         }
         .cv-list li { margin-bottom: 2px; line-height: 1.4; }
-        .info-field { margin-bottom: 4px; color: #4b5563; }
+        .info-field { 
+            display: table; 
+            width: 100%; 
+            margin-bottom: 6px; 
+            color: #4b5563; 
+        }
         .info-label {
             font-weight: bold;
             color: #374151;
-            min-width: 100px;
-            display: inline-block;
+            display: table-cell; 
+            width: 85px; 
+            vertical-align: top;
+        }
+        .info-value {
+            display: table-cell;
+            vertical-align: top;
         }
     </style>
 </head>
@@ -95,7 +105,7 @@
                 
                 <div class="info-field">
                     <span class="info-label">Contacto:</span>
-                    <span style="color: #374151;">
+                    <span class="info-value">
                         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $student->contacts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $contact): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                             <?php echo e($contact->contact); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(!$loop->last): ?>, <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -106,7 +116,7 @@
 
                 <div class="info-field">
                     <span class="info-label">Localidad:</span>
-                    <span>
+                    <span class="info-value">
                         <?php echo e($student->city ?? 'No especificada'); ?> 
                         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->postal_code): ?> (<?php echo e($student->postal_code); ?>) <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                     </span>
@@ -115,7 +125,7 @@
                 <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->Linkedin): ?>
                     <div class="info-field">
                         <span class="info-label">LinkedIn:</span>
-                        <span style="color: #2563eb; font-size: 14px;"><?php echo e($student->Linkedin); ?></span>
+                        <span class="info-value" style="color: #2563eb;"><?php echo e($student->Linkedin); ?></span>
                     </div>
                 <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
             </div>

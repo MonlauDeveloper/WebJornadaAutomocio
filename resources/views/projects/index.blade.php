@@ -73,7 +73,7 @@
 
                 <select name="numTribunal" class="w-full sm:w-auto border-gray-300 rounded-xl text-gray-600 text-sm py-2.5 pl-4 pr-10 bg-gray-50 focus:ring-2 focus:ring-blue-500 transition cursor-pointer" onchange="this.form.submit()">
                     <option value="">Todos los tribunales</option>
-                    @for ($i = 1; $i <= 20; $i++)
+                    @for ($i = 1; $i <= 25; $i++) {{-- Para aumentar los tribunales --}}
                     <option value="{{ $i }}" {{ request('numTribunal') == $i ? 'selected' : '' }}>
                         Tribunal {{ $i }}
                     </option>
@@ -126,8 +126,8 @@
                             <div class="flex flex-col gap-1">
                                 <label class="text-[10px] font-bold text-blue-400 uppercase tracking-widest ml-1">Tribunal</label>
                                 <select name="numTribunal" class="border-gray-200 rounded-lg text-xs py-1.5 pl-2 pr-8 w-full bg-white focus:ring-2 focus:ring-blue-400" onchange="this.form.submit()">
-                                    <option value="">No asignado</option>
-                                    @for ($i = 1; $i <= 20; $i++)
+                                    <option value="">No asignado</option> {{-- Opción para desasignar --}}
+                                    @for ($i = 1; $i <= 25; $i++) {{-- Para aumentar los tribunales --}}
                                     <option value="{{ $i }}" {{ $project->numTribunal == $i ? 'selected' : '' }}>Tribunal {{ $i }}</option>
                                     @endfor
                                 </select>

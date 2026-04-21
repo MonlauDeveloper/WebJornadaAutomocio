@@ -89,7 +89,7 @@ class AdminController extends Controller
     {
         $request->validate([
             'companyName' => 'required|string|max:255',
-            'companyWeb' => 'nullable|url|max:255',
+        'companyWeb' => 'nullable|url|max:255',
             'asistenteNombre' => 'required|string|max:255',
             'asistenteApellidos' => 'required|string|max:255',
             'telefonoAsistente' => 'required|string|max:15',
@@ -222,7 +222,7 @@ class AdminController extends Controller
         // Validación de los datos
         $request->validate([
             'companyName' => 'required|string|max:255',
-            'companyWeb' => 'nullable|url|max:255',
+        'companyWeb' => 'nullable|url|max:255',
             'asistenteNombre' => 'required|string|max:255',
             'asistenteApellidos' => 'required|string|max:255',
             'telefonoAsistente' => 'required|string|max:15',

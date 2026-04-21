@@ -184,7 +184,7 @@
                 <label for="numTribunal" class="block text-gray-700 font-semibold mb-2">Número de Tribunal</label>
                 <select name="numTribunal" id="numTribunal"
                     class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                    @for ($i = 1; $i <= 20; $i++)
+                    @for ($i = 1; $i <= 25; $i++) {{-- Cambiado de 20 a 25 --}}
                         <option value="{{ $i }}" {{ old('numTribunal', $project->numTribunal) == $i ? 'selected' : '' }}>{{ $i }}
                         </option>
                     @endfor

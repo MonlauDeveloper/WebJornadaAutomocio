@@ -18,68 +18,77 @@ class ProjectController extends Controller
 {
     // Mostrar la lista de proyectos
     public function index(Request $request)
-    {
-        $specializations = \App\Models\Specialization::all();
-        $cursos = ['A', 'B', 'C', 'D', 'E', 'F', 'R', 'ONLINE'];
-        $ubications = \App\Models\Ubication::whereNotNull('UbicationName')->get();
-        $tipos = \App\Models\ProjectType::pluck('name', 'idProjectType');
+{
+    $specializations = \App\Models\Specialization::all();
+    $cursos = ['A', 'B', 'C', 'D', 'E', 'F', 'R', 'ONLINE'];
+    $tipos = \App\Models\ProjectType::pluck('name', 'idProjectType');
 
-        // Cargamos también la relación 'projectTypes' para evitar consultas extra en la vista
-        $query = Project::query()->with(['students', 'ubication', 'projectTypes']);
+    // 1. Definimos las ubicaciones con el ORDEN PERSONALIZADO
+    // (He borrado la línea que tenías repetida arriba)
+    $ubications = \App\Models\Ubication::whereNotNull('UbicationName')
+        ->get()
+        ->sortBy(function($ubication) {
+            return match($ubication->idUbication) {
+                1 => 1, // Naranja primero
+                2 => 2, // Verde segundo
+                3 => 3, // Morado tercero
+                4 => 4, // Expositores cuarto
+                6 => 5, // Ponencias quinto
+                7 => 6, // ID 7 sexta
+                default => 99
+            };
+        });
 
-        // 1. Filtrar por especialización
-        if ($request->filled('specialization')) {
-            $query->where('idSpecialization', $request->specialization);
-        }
+    $query = Project::query()->with(['students', 'ubication', 'projectTypes']);
 
-        // 2. BUSCADOR (Acumulativo)
-        if ($request->filled('search')) {
-            $search = $request->search;
-            $query->where(function ($q) use ($search) {
-                $q->where('title', 'like', '%' . $search . '%')
-                    ->orWhereHas('students', function ($sq) use ($search) {
-                        $sq->where('name', 'like', '%' . $search . '%')
-                            ->orWhere('surname1', 'like', '%' . $search . '%')
-                            ->orWhere('surname2', 'like', '%' . $search . '%');
-                    });
-            });
-        }
+    // --- FILTROS ---
 
-        // 3. Filtrar por curso
-        if ($request->filled('curso')) {
-            $query->where('curso', $request->curso);
-        }
-
-        // 4. FILTRO POR TIPO PROYECTO (MÚLTIPLE)
-        // Cambiamos 'tipo' por 'tipos' que es el nombre del array en tu vista
-        if ($request->filled('tipos') && is_array($request->tipos)) {
-            $query->whereHas('projectTypes', function ($q) use ($request) {
-                $q->whereIn('project_types.idProjectType', $request->tipos);
-            });
-        }
-
-        // 5. Filtrar por número de tribunal
-        if ($request->filled('numTribunal')) {
-            $query->where('numTribunal', $request->numTribunal);
-        }
-
-        // 6. Filtrar por ubicación
-        if ($request->filled('idUbication')) {
-            $query->where('idUbication', $request->idUbication);
-        }
-
-        // Importante: withQueryString() mantiene los filtros al cambiar de página
-        $projects = $query->paginate(9)->withQueryString();
-
-        return view('projects.index', compact('projects', 'specializations', 'cursos', 'ubications', 'tipos'));
+    if ($request->filled('specialization')) {
+        $query->where('idSpecialization', $request->specialization);
     }
+
+    if ($request->filled('search')) {
+        $search = $request->search;
+        $query->where(function ($q) use ($search) {
+            $q->where('title', 'like', '%' . $search . '%')
+                ->orWhereHas('students', function ($sq) use ($search) {
+                    $sq->where('name', 'like', '%' . $search . '%')
+                        ->orWhere('surname1', 'like', '%' . $search . '%')
+                        ->orWhere('surname2', 'like', '%' . $search . '%');
+                });
+        });
+    }
+
+    if ($request->filled('curso')) {
+        $query->where('curso', $request->curso);
+    }
+
+    if ($request->filled('tipos') && is_array($request->tipos)) {
+        $query->whereHas('projectTypes', function ($q) use ($request) {
+            $q->whereIn('project_types.idProjectType', $request->tipos);
+        });
+    }
+
+    if ($request->filled('numTribunal')) {
+        $query->where('numTribunal', $request->numTribunal);
+    }
+
+    // Filtro por ubicación (el que ejecuta la búsqueda)
+    if ($request->filled('idUbication')) {
+        $query->where('idUbication', $request->idUbication);
+    }
+
+    $projects = $query->paginate(9)->withQueryString();
+
+    return view('projects.index', compact('projects', 'specializations', 'cursos', 'ubications', 'tipos'));
+}
     //EDITAR TRIBUNAL Y UBICACION
     public function updateTribunalUbication(Request $request)
     {
         // Validar la solicitud
         $request->validate([
-            'idProject' => 'required|exists:projects,idProject',
-            'numTribunal' => 'nullable|integer|min:1|max:20',
+            'idProject' => 'required|exists:projects,idProject', // Asegúrate de que el proyecto exista
+            'numTribunal' => 'nullable|integer|min:1|max:25', // Rango extendido
             'idUbication' => 'nullable|exists:ubications,idUbication'
         ]);
 
@@ -264,6 +273,8 @@ class ProjectController extends Controller
     $request->validate([
         'title' => 'required|string|max:255',
         'abstract' => 'nullable|string|max:1500',
+        'idUbication' => 'required|exists:ubications,idUbication',
+        'numTribunal' => 'required|integer|min:1|max:25',
         'tipos' => 'nullable|array|max:3',
         'photoName' => 'nullable|image|max:20480',
         'image_descriptions.*' => 'nullable|string|max:500', // Validamos todos los textos
@@ -274,6 +285,8 @@ class ProjectController extends Controller
     $project->conclusion = $request->conclusion;
     $project->videoURL = $request->videoURL;
     $project->moodleURL = $request->moodleURL;
+    $project->idUbication = $request->idUbication; 
+$project->numTribunal = $request->numTribunal;
 
     // Manejo de Foto de Portada con COMPRESIÓN
     if ($request->hasFile('photoName')) {
@@ -577,4 +590,3 @@ private function parseVideoUrl($url)
     return $youtube_id ? "https://www.youtube.com/embed/" . $youtube_id : $url;
 }
 }
-

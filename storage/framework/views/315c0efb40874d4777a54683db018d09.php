@@ -240,7 +240,7 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
                 <label for="numTribunal" class="block text-gray-700 font-semibold mb-2">Número de Tribunal</label>
                 <select name="numTribunal" id="numTribunal"
                     class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php for($i = 1; $i <= 20; $i++): ?>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php for($i = 1; $i <= 25; $i++): ?> 
                         <option value="<?php echo e($i); ?>" <?php echo e(old('numTribunal', $project->numTribunal) == $i ? 'selected' : ''); ?>><?php echo e($i); ?>
 
                         </option>

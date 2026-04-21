@@ -29,7 +29,7 @@
             <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-6 text-slate-500 text-lg">
                 <p><strong class="text-slate-800 font-bold">Categoría:</strong> {{ $project->specialization->specialization ?? 'N/A' }}</p>
                 <p><strong class="text-slate-800 font-bold">Ubicación:</strong> {{ $project->ubication->ubicationName ?? 'N/A' }}</p>
-                <p><strong class="text-slate-800 font-bold">Tribunal:</strong> {{ $project->numTribunal }}</p>
+                <p><strong class="text-slate-800 font-bold">Tribunal:</strong> {{ $project->numTribunal ?? 'N/A' }}</p>
             </div>
             
             <div class="relative group mt-8">

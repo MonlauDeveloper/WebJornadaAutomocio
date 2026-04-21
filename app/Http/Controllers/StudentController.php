@@ -98,7 +98,7 @@ class StudentController extends Controller
             'project_specialization' => 'nullable|required_if:idProject,new_project|integer|exists:specializations,idSpecialization',
             'project_course' => 'nullable|required_if:idProject,new_project|string|in:A,B,C,D,E,F,R,ONLINE',
             'project_ubication' => 'nullable|integer|exists:ubications,idUbication',
-            'project_numTribunal' => 'nullable|integer|between:1,20',
+            'project_numTribunal' => 'nullable|integer|between:1,25',
         ]);
 
         // Si se seleccionó "Crear proyecto nuevo", crear el proyecto
