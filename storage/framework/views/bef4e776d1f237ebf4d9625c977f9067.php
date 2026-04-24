@@ -26,8 +26,8 @@
         
         .card {
             margin: 0;
-            padding: 2px 0;
-            margin-bottom: 4px;
+            padding: 1px 0;
+            margin-bottom: 2px;
             page-break-inside: avoid;
         }
         
@@ -49,7 +49,7 @@
         
         .img-box {
             width: 100%;
-            height: 150px;
+            height: 140px; 
             border-radius: 6px;
             border: 1px solid #f3f4f6;
             background-color: #ffffff;
@@ -88,6 +88,7 @@
             border: 0.5px solid #d1d5db;
             display: inline-block;
             vertical-align: middle;
+            margin-top: 10px;
         }
 
         .indent-content { padding-left: 12px; }
@@ -125,18 +126,6 @@
             color: #374151;
             line-height: 1.5;
         }
-        .badge-tipo {
-            background-color: #f3f4f6;
-            color: #1e40af;
-            padding: 1px 6px;
-            border-radius: 4px;
-            font-size: 0.65rem;
-            margin-right: 4px;
-            border: 0.5px solid #d1d5db;
-            display: inline-block;
-            vertical-align: middle; 
-            margin-top: 10px; 
-        }
     </style>
 </head>
 <body>
@@ -172,7 +161,7 @@
                         
                         <div class="info-field">
                             <span class="info-label">Tipo de proyecto:</span>
-                            <span class="info-value">
+                            <span class="info-value ">
                                 <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $project->projectTypes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tipo): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
                                     <span class="badge-tipo"><?php echo e($tipo->name); ?></span>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>
@@ -225,24 +214,23 @@
             ?>
             
             <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $pasos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index => $img): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
-                <table style="width: 100%; margin-bottom: 12px;">
-                    <tr>
+                <table style="width: 100%; margin-bottom: 4px;"> <tr>
                         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($index % 2 == 0): ?>
                             <td width="42%" style="vertical-align: top;">
                                 <div class="step-header">PASO <?php echo e($img->orden ?? ($index + 1)); ?></div>
                                 <div class="img-box">
-                                    <img src="<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>" alt="Paso <?php echo e($img->orden ?? ($index + 1)); ?>">
+                                    <img src="<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>" alt="Paso">
                                 </div>
                             </td>
-                            <td width="58%" style="vertical-align: top; padding-left: 18px; padding-top: 15px;">
-                                <div class="desc-tecnica" style="line-height: 1.4;">
+                            <td width="58%" style="vertical-align: middle; padding-left: 15px;">
+                                <div class="desc-tecnica" style="line-height: 1.2;">
                                     <?php echo e($img->description); ?>
 
                                 </div>
                             </td>
                         <?php else: ?>
-                            <td width="58%" style="vertical-align: top; padding-right: 18px; padding-top: 15px;">
-                                <div class="desc-tecnica" style="text-align: left; line-height: 1.4;">
+                            <td width="58%" style="vertical-align: middle; padding-right: 15px;">
+                                <div class="desc-tecnica" style="text-align: left; line-height: 1.2;">
                                     <?php echo e($img->description); ?>
 
                                 </div>
@@ -250,7 +238,7 @@
                             <td width="42%" style="vertical-align: top;">
                                 <div class="step-header" style="text-align: right;">PASO <?php echo e($img->orden ?? ($index + 1)); ?></div>
                                 <div class="img-box">
-                                    <img src="<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>" alt="Paso <?php echo e($img->orden ?? ($index + 1)); ?>">
+                                    <img src="<?php echo e(public_path('storage/project_steps/' . $img->file_path)); ?>" alt="Paso">
                                 </div>
                             </td>
                         <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>

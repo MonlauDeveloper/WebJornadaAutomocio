@@ -59,7 +59,7 @@
     <div id="gridView" class="<?php echo e(request('view') == 'list' ? 'hidden' : ''); ?> grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__empty_1 = true; $__currentLoopData = $students; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $student): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); $__empty_1 = false; ?>
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition-all duration-300">
-                <div class="w-32 h-32 overflow-hidden rounded-full mx-auto bg-gray-100 border-2 border-gray-200 shadow-sm mb-4">
+                <div class="w-28 mx-auto bg-white rounded-full shadow-sm border-4 border-white overflow-hidden mb-4">
                     <img class="w-full h-auto object-contain" 
                         src="<?php echo e($student->photoName ? asset('storage/' . $student->photoName) : asset('storage/photos/por_defecto/user_default.png')); ?>"
                         alt="<?php echo e($student->name); ?>"
@@ -106,7 +106,7 @@
                     <tr class="hover:bg-blue-50 transition-colors">
                         <td class="p-4 align-middle">
                             <div class="flex items-center gap-4">
-                                <div class="w-16 h-16 overflow-hidden rounded-full bg-white border border-gray-200 shadow-sm flex-shrink-0">
+                                <div class="w-16 flex-shrink-0 bg-white rounded-full shadow-sm border-4 border-white overflow-hidden">
                                     <img class="w-full h-auto object-contain" 
                                          src="<?php echo e($student->photoName ? asset('storage/' . $student->photoName) : asset('storage/photos/por_defecto/user_default.png')); ?>"
                                          alt="<?php echo e($student->name); ?>"

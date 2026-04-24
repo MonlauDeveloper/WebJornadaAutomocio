@@ -27,7 +27,7 @@
                         <i class="fas fa-<?php echo e($student->photoName ? 'check-circle' : 'exclamation-circle'); ?>"></i>
                     </span>
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($student->photoName): ?>
-                        <img class="w-32 h-32 object-contain border-2 border-gray-100 rounded-full" src="<?php echo e(asset('storage/' . $student->photoName)); ?>"
+                        <img class="w-28 h-auto object-contain border-4 border-white rounded-full shadow-sm bg-white" src="<?php echo e(asset('storage/' . $student->photoName)); ?>"
                             alt="<?php echo e($student->name); ?>"
                             onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
                     <?php else: ?>
