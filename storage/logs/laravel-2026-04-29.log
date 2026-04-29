@@ -1,0 +1,28 @@
+[2026-04-29 09:17:08] production.INFO: UPLOAD IMAGE REQUEST {"_token":"VRcatZiqUVWtjURtNNAp3hisgr2hBfqL1mR4Fh1u","_method":"PUT","title":"Restauración 307","abstract":"Reparar fuga de aceite sellando los culatines de arboles de levas y cuerpo filtro de aceite.
+
+Cambio de aceite, filtro de aceite, bujías, filtro gasolina, filtro aire, filtro polen y liquido de frenos.
+
+Sustituir kit distribución, bomba de agua y liquido refrigerante.
+
+Sustituir correa de accesorios y rodillos.
+
+Sustituir caja de cambios y kit de embrague.
+
+Sustituir llanta y neumáticos.
+
+Sustituir amortiguadores de portón maletero.
+
+Sustituir moqueta maletero.
+
+Sustituir cinturón delantero izquierdo.
+
+Sustituir cable apertura asiento acompañante. 
+
+Reparar mando a distancia.
+
+Reparar tapizado techo.
+
+Reparar bollos y pintar.","idSpecialization":"4","tipos":["1","7","9"],"curso":"ONLINE","videoURL":null,"moodleURL":null,"idUbication":"1","numTribunal":"8","new_image_fase":"header","action":"upload_image","image_descriptions":{"153":"El vehiculo tenia golpes y ralladas por todo su contorno, Le faltaba una moldura. Equipaba llantas de chapa. Tenia daños estéticos en el interior y varias averías de mecánica.","154":"Comencé por las reparaciones de mecánica. Reparando las fugas de aceite, cambiar caja de cambios, kit de embrague, kit distribución, bomba de agua, correas y mantenimiento.","155":"El siguiente paso fue reparar todos los daños estéticos del interior del vehiculo.","156":"Por ultimo he procedido a reparar todos lo daños exteriores  de chapa y pintura."},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php7qhQhS"}} 
+[2026-04-29 09:59:05] production.INFO: UPLOAD IMAGE REQUEST {"_token":"zPfNc4dEyNFQ7XnjAo4r8Yo261ou1F4k7ZSt6FQC","_method":"PUT","title":"Equipo 2","abstract":null,"idSpecialization":"5","curso":"E","videoURL":null,"moodleURL":null,"idUbication":"3","numTribunal":"1","new_image_fase":"procedimiento_1","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php91zZrx"}} 
+[2026-04-29 09:59:19] production.INFO: UPLOAD IMAGE REQUEST {"_token":"zPfNc4dEyNFQ7XnjAo4r8Yo261ou1F4k7ZSt6FQC","_method":"PUT","title":"Equipo 2","abstract":null,"idSpecialization":"5","curso":"E","videoURL":null,"moodleURL":null,"idUbication":"3","numTribunal":"1","new_image_fase":"header","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpd355Vt"}} 
+[2026-04-29 09:59:45] production.INFO: UPLOAD IMAGE REQUEST {"_token":"zPfNc4dEyNFQ7XnjAo4r8Yo261ou1F4k7ZSt6FQC","_method":"PUT","title":"Equipo 2","abstract":null,"idSpecialization":"5","curso":"E","videoURL":null,"moodleURL":null,"idUbication":"3","numTribunal":"1","new_image_fase":"header","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpkLBlfH"}} 

@@ -39,7 +39,7 @@
         
         .section-title {
             font-size: 0.85rem; font-weight: bold; color: #1d4ed8;
-            margin-bottom: 4px; border-bottom: 1px solid #d5d6da; display: block;
+            margin-top: 6px; margin-bottom: 4px; border-bottom: 1px solid #d5d6da; display: block;
         }
         
         .step-header {
@@ -47,6 +47,24 @@
             border-bottom: 1px solid #c7d2fe; margin-bottom: 2px;
         }
         
+        .img-header-box {
+            width: 100%;
+            height: 160px; 
+            border-radius: 6px;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .img-header-box img {
+            max-height: 100%;
+            max-width: 100%;
+            height: 160px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
         .img-box {
             width: 100%;
             height: 140px; 
@@ -56,6 +74,7 @@
             overflow: hidden;
             text-align: center;
         }
+        
         .img-box img {
             max-height: 100%;
             max-width: 100%;
@@ -174,7 +193,9 @@
                     <?php $imgHeader = $project->images->where('fase', 'header')->first(); ?>
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($imgHeader): ?>
                     <td width="30%" align="right" style="vertical-align: top;">
-                        <div style="width: 160px; height: 100px; background-image: url('<?php echo e(public_path('storage/project_steps/' . $imgHeader->file_path)); ?>'); background-size: cover; background-position: center; border-radius: 8px; border: 1px solid #eee;"></div>
+                        <div class="img-header-box">
+                            <img src="<?php echo e(public_path('storage/project_steps/' . $imgHeader->file_path)); ?>" alt="Portada">
+                        </div>
                     </td>
                     <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </tr>

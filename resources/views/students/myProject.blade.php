@@ -94,7 +94,7 @@
                                 $isCloudinary = str_contains($project->photoName, 'cloudinary.com');
                                 $photoUrl = $isCloudinary ? $project->photoName : asset('storage/photos/' . $project->photoName);
                             @endphp
-                            <img src="{{ $photoUrl }}" alt="Foto actual" class="h-16 w-16 object-cover rounded border">
+                            <img src="{{ $photoUrl }}" alt="Foto actual" class="h-16 w-16 object-contain bg-white rounded border">
                             <div class="flex flex-col">
                                 <span class="text-[10px] font-bold text-blue-600 uppercase">Archivo actual:</span>
                                 <span class="text-[10px] text-gray-500 truncate max-w-xs">{{ $project->photoName }}</span>

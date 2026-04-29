@@ -1,0 +1,4 @@
+[2026-04-27 09:16:16] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"AADSTS70008: The provided authorization code or refresh token has expired  (truncated...)
+  
+[2026-04-27 21:05:07] production.INFO: UPLOAD IMAGE REQUEST {"_token":"XyvLb4IRJnvPHLwpsp4I5TzquVzIsXWdfsX2FFIG","_method":"PUT","title":"Restauración y modificación A3 8L","abstract":"Puesta a punto de un A3 8l mediante diferentes trabajos de mantenimiento y mejora. Se han realizado cambios de piezas como el embrague, distribución, frenos y aceite, además de mejoras en la suspensión con cuerpo roscado, escape y estética general del coche.","tipos":["1","9"],"videoURL":null,"new_image_fase":"header","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpaeN5MK"}} 
