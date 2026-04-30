@@ -270,23 +270,43 @@ class ProjectController extends Controller
     }
 
     // --- ACCIÓN POR DEFECTO: Guardar Cambios Generales (Botón Azul) ---
-    $request->validate([
+    $rules = [
         'title' => 'required|string|max:255',
         'abstract' => 'nullable|string|max:1500',
-        'idUbication' => 'required|exists:ubications,idUbication',
-        'numTribunal' => 'required|integer|min:1|max:25',
         'tipos' => 'nullable|array|max:3',
         'photoName' => 'nullable|image|max:20480',
         'image_descriptions.*' => 'nullable|string|max:500', // Validamos todos los textos
-    ]);
+    ];
+
+    if ($request->has('idUbication')) {
+        $rules['idUbication'] = 'required|exists:ubications,idUbication';
+    }
+    if ($request->has('numTribunal')) {
+        $rules['numTribunal'] = 'required|integer|min:1|max:25';
+    }
+
+    $request->validate($rules);
 
     $project->title = $request->title;
-    $project->abstract = $request->abstract;
-    $project->conclusion = $request->conclusion;
-    $project->videoURL = $request->videoURL;
-    $project->moodleURL = $request->moodleURL;
-    $project->idUbication = $request->idUbication; 
-$project->numTribunal = $request->numTribunal;
+    
+    if ($request->has('abstract')) {
+        $project->abstract = $request->abstract;
+    }
+    if ($request->has('conclusion')) {
+        $project->conclusion = $request->conclusion;
+    }
+    if ($request->has('videoURL')) {
+        $project->videoURL = $request->videoURL;
+    }
+    if ($request->has('moodleURL')) {
+        $project->moodleURL = $request->moodleURL;
+    }
+    if ($request->has('idUbication')) {
+        $project->idUbication = $request->idUbication; 
+    }
+    if ($request->has('numTribunal')) {
+        $project->numTribunal = $request->numTribunal;
+    }
 
     // Manejo de Foto de Portada con COMPRESIÓN
     if ($request->hasFile('photoName')) {

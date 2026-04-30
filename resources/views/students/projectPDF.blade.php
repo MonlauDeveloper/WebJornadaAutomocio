@@ -162,11 +162,22 @@
                         <h3 class="section-title uppercase">Datos del Proyecto</h3>
                         
                         <div class="info-field">
-                            <span class="info-label">Equipo:</span>
+                            <span class="info-label" style="vertical-align: top; padding-top: 2px;">Equipo:</span>
                             <span class="info-value">
-                                @foreach($students as $student)
-                                    {{ $student->name }} {{ $student->surname1 }}@if(!$loop->last), @endif
-                                @endforeach
+                                <table style="width: 100%; border-collapse: collapse;">
+                                    @foreach($students->chunk(2) as $chunk)
+                                        <tr>
+                                            @foreach($chunk as $student)
+                                                <td style="width: 50%; vertical-align: top; padding-bottom: 2px;">
+                                                    &bull; <b>{{ $student->name }}</b> {{ $student->surname1 }}
+                                                </td>
+                                            @endforeach
+                                            @if($chunk->count() < 2)
+                                                <td style="width: 50%;"></td>
+                                            @endif
+                                        </tr>
+                                    @endforeach
+                                </table>
                             </span>
                         </div>
 

@@ -7,11 +7,24 @@
 
             <!-- Mostrar el ícono de exclamación roja si el proyecto está incompleto -->
             @if($projectIncomplete)
-                <div class="text-center text-red-500 mt-4">
+                <div class="text-center text-red-500 mt-4 mb-4">
                     <span class="text-5xl">❗</span>
                     <p class="mt-2">Tu proyecto está incompleto. Por favor, completa todos los campos.</p>
                 </div>
             @endif
+
+            <!-- Mensajes de feedback -->
+@if(session('success'))
+    <div id="success-message" class="js-feedback-message bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6 text-center font-semibold animate-fade-in">
+        <i class="fas fa-check-circle mr-2"></i>{{ session('success') }}
+    </div>
+@endif
+
+@if(session('error'))
+    <div id="error-message" class="js-feedback-message bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6 text-center font-semibold animate-fade-in">
+        <i class="fas fa-times-circle mr-2"></i>{{ session('error') }}
+    </div>
+@endif
 
             <form action="{{ route('projects.update', $project->idProject) }}" method="POST" enctype="multipart/form-data"
                 class="bg-white p-6 rounded-lg shadow-lg">
@@ -416,116 +429,127 @@
         </div>
 
         <script>
-            function checkLimit(checkbox) {
-                const checkedCheckboxes = document.querySelectorAll('.project-type-checkbox:checked');
-                const totalChecked = checkedCheckboxes.length;
+        // --- NUEVA FUNCIÓN: AUTO-OCULTADO DE MENSAJES ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackMessages = document.querySelectorAll('.js-feedback-message');
+            feedbackMessages.forEach(function(message) {
+                setTimeout(function() {
+                    message.style.transition = "opacity 0.5s ease";
+                    message.style.opacity = "0";
+                    setTimeout(function() {
+                        message.remove();
+                    }, 500);
+                }, 3000); // 3 segundos visible
+            });
+        });
 
-                if (totalChecked === 0) {
-                    checkbox.checked = true; 
-                    alert('Debes seleccionar al menos 1 tipo de proyecto.');
-                } 
-                else if (totalChecked > 3) {
-                    checkbox.checked = false; 
-                    alert('¡Máximo 3 tipos!');
-                }
+        // --- TUS FUNCIONES EXISTENTES ---
+        function checkLimit(checkbox) {
+            const checkedCheckboxes = document.querySelectorAll('.project-type-checkbox:checked');
+            const totalChecked = checkedCheckboxes.length;
 
-                const display = document.getElementById('count-display');
-                if (display) {
-                    display.innerText = document.querySelectorAll('.project-type-checkbox:checked').length;
-                }
+            if (totalChecked === 0) {
+                checkbox.checked = true; 
+                alert('Debes seleccionar al menos 1 tipo de proyecto.');
+            } 
+            else if (totalChecked > 3) {
+                checkbox.checked = false; 
+                alert('¡Máximo 3 tipos!');
             }
 
+            const display = document.getElementById('count-display');
+            if (display) {
+                display.innerText = document.querySelectorAll('.project-type-checkbox:checked').length;
+            }
+        }
 
-            // 2. Añade esto para que el aviso de "Subir Imagen" aparezca al elegir archivo:
-            document.addEventListener('change', function (e) {
-                if (e.target && e.target.id === 'file_input_project') {
-                    const warning = document.getElementById('save-warning');
-                    if (e.target.files.length > 0) warning.classList.remove('hidden');
-                    else warning.classList.add('hidden');
+        document.addEventListener('change', function (e) {
+            if (e.target && e.target.id === 'file_input_project') {
+                const warning = document.getElementById('save-warning');
+                if (e.target.files.length > 0) warning.classList.remove('hidden');
+                else warning.classList.add('hidden');
+            }
+        });
+
+        function openPreviewModal() {
+            document.getElementById('modal-preview-title').innerText = document.getElementById('title').value || 'SIN TÍTULO';
+            document.getElementById('modal-preview-abstract').innerText = document.getElementById('abstract').value || 'Sin descripción...';
+
+            if(document.getElementById('modal-preview-conclusion')) {
+                document.getElementById('modal-preview-conclusion').innerText = document.getElementById('conclusion').value || 'Sin conclusión...';
+            }
+
+            document.querySelectorAll('textarea[name^="image_descriptions"]').forEach(textarea => {
+                const idMatch = textarea.name.match(/\[(\d+)\]/);
+                if (idMatch) {
+                    const id = idMatch[1];
+                    const targetP = document.querySelector(`.step-desc-preview[data-id="${id}"]`);
+                    if (targetP) targetP.innerText = textarea.value;
                 }
             });
 
-            function openPreviewModal() {
-                document.getElementById('modal-preview-title').innerText = document.getElementById('title').value || 'SIN TÍTULO';
-                document.getElementById('modal-preview-abstract').innerText = document.getElementById('abstract').value || 'Sin descripción...';
-
-                if(document.getElementById('modal-preview-conclusion')) {
-                    document.getElementById('modal-preview-conclusion').innerText = document.getElementById('conclusion').value || 'Sin conclusión...';
-                }
-
-                document.querySelectorAll('textarea[name^="image_descriptions"]').forEach(textarea => {
-                    const idMatch = textarea.name.match(/\[(\d+)\]/);
-                    if (idMatch) {
-                        const id = idMatch[1];
-                        const targetP = document.querySelector(`.step-desc-preview[data-id="${id}"]`);
-                        if (targetP) targetP.innerText = textarea.value;
-                    }
-                });
-
-                const modal = document.getElementById('previewModal');
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closePreviewModal() {
-                const modal = document.getElementById('previewModal');
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = 'auto';
-            }
-
-            window.onclick = function (event) {
-                const modal = document.getElementById('previewModal');
-                if (event.target == modal) closePreviewModal();
-            }
-            function saveImageText(button, imageId) {
-    // Buscamos el textarea que está justo antes del botón
-    const textarea = button.closest('div').querySelector('textarea');
-    const text = textarea.value;
-    const originalText = button.innerHTML;
-
-    // Feedback visual de que está guardando
-    button.disabled = true;
-    button.innerHTML = "Guardando...";
-
-    // Enviamos los datos mediante Fetch (AJAX)
-    fetch("{{ route('projects.update', $project->idProject) }}", {
-        method: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': '{{ csrf_token() }}',
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-            action: 'update_text_' + imageId,
-            image_descriptions: {
-                [imageId]: text
-            },
-            _method: 'PUT' 
-        })
-    })
-    .then(response => {
-        if (response.ok) {
-            button.innerHTML = "¡Guardado!";
-            button.classList.replace('bg-blue-500', 'bg-green-500');
-            setTimeout(() => {
-                button.innerHTML = originalText;
-                button.classList.replace('bg-green-500', 'bg-blue-500');
-                button.disabled = false;
-            }, 2000);
-        } else {
-            alert("Error al guardar el texto.");
-            button.innerHTML = originalText;
-            button.disabled = false;
+            const modal = document.getElementById('previewModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert("Error de conexión.");
-        button.innerHTML = originalText;
-        button.disabled = false;
-    });
-}
-        </script>
+
+        function closePreviewModal() {
+            const modal = document.getElementById('previewModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('previewModal');
+            if (event.target == modal) closePreviewModal();
+        }
+
+        function saveImageText(button, imageId) {
+            const textarea = button.closest('div').querySelector('textarea');
+            const text = textarea.value;
+            const originalText = button.innerHTML;
+
+            button.disabled = true;
+            button.innerHTML = "Guardando...";
+
+            fetch("{{ route('projects.update', $project->idProject) }}", {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    action: 'update_text_' + imageId,
+                    image_descriptions: {
+                        [imageId]: text
+                    },
+                    _method: 'PUT' 
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    button.innerHTML = "¡Guardado!";
+                    button.classList.replace('bg-blue-500', 'bg-green-500');
+                    setTimeout(() => {
+                        button.innerHTML = originalText;
+                        button.classList.replace('bg-green-500', 'bg-blue-500');
+                        button.disabled = false;
+                    }, 2000);
+                } else {
+                    alert("Error al guardar el texto.");
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("Error de conexión.");
+                button.innerHTML = originalText;
+                button.disabled = false;
+            });
+        }
+    </script>
 @endsection

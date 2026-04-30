@@ -72,12 +72,9 @@
 
                     <h2 class="text-lg font-bold text-gray-800 text-center leading-tight">
                         {{ $student->name }}<br>
-                        <span class="text-blue-500 text-sm">{{ $student->surname1 }} {{ Str::limit($student->surname2, 1, '.') }}</span>
+                        <span class="text-blue-500 text-sm">{{ $student->surname1 }}</span>
                     </h2>
                     
-                    <p class="text-gray-500 mt-2 text-center text-xs leading-snug">
-                        {{ Str::limit($student->introduction, 60) }}
-                    </p>
                 </div>
                 
                 <div class="mt-4 flex flex-col gap-1.5">

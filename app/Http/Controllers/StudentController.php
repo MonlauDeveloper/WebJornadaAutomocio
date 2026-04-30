@@ -460,29 +460,27 @@ class StudentController extends Controller
     {
         $student = Student::with(['team', 'specialization', 'project'])->findOrFail($idStudent);
 
-        // 1. Construir la ruta física en el servidor (más rápido y seguro)
         $path = storage_path('app/public/' . $student->photoName);
 
-        // 2. Verificar existencia y convertir a Base64
+        // Redimensionamiento rápido y recorte perfecto en cuadrado (300x300) con Intervention Image
         if (!empty($student->photoName) && file_exists($path)) {
-            $imageContent = file_get_contents($path);
-            $mime = mime_content_type($path);
-            $imageBase64 = 'data:' . $mime . ';base64,' . base64_encode($imageContent);
+            $imgManager = new \Intervention\Image\ImageManager(new \Intervention\Image\Drivers\Gd\Driver());
+            $image = $imgManager->read($path)->cover(300, 300); // Convierte a cuadrado 1:1
+            $imageBase64 = $image->toJpeg(80)->toDataUri();
         } else {
-            // Imagen por defecto si la del alumno no existe
             $defaultPath = public_path('storage/photos/por_defecto/user_default.png');
-            $imageContent = file_exists($defaultPath) ? file_get_contents($defaultPath) : '';
-            $imageBase64 = 'data:image/png;base64,' . base64_encode($imageContent);
+            if (file_exists($defaultPath)) {
+                $imgManager = new \Intervention\Image\ImageManager(new \Intervention\Image\Drivers\Gd\Driver());
+                $image = $imgManager->read($defaultPath)->cover(300, 300);
+                $imageBase64 = $image->toJpeg(80)->toDataUri();
+            } else {
+                $imageBase64 = '';
+            }
         }
 
         $pdf = PDF::loadView('students.showPDF', compact('student', 'imageBase64'))
             ->setPaper('a4', 'portrait')
             ->setOption(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
-
-        // Ejemplo de redimensionamiento rápido si usas Intervention Image
-        $imgManager = new \Intervention\Image\ImageManager(new \Intervention\Image\Drivers\Gd\Driver());
-        $image = $imgManager->read($path)->cover(300, 300); // Reduce a 300x300px
-        $imageBase64 = $image->toJpeg(80)->toDataUri();
 
         return $pdf->stream('curriculum-' . $student->idStudent . '.pdf');
     }
@@ -491,19 +489,22 @@ class StudentController extends Controller
     {
         $student = Student::with(['team', 'specialization', 'project'])->findOrFail($idStudent);
 
-        // 1. Construir la ruta física en el servidor (más rápido y seguro)
         $path = storage_path('app/public/' . $student->photoName);
 
-        // 2. Verificar existencia y convertir a Base64
+        // Redimensionamiento rápido y recorte perfecto en cuadrado (300x300) con Intervention Image
         if (!empty($student->photoName) && file_exists($path)) {
-            $imageContent = file_get_contents($path);
-            $mime = mime_content_type($path);
-            $imageBase64 = 'data:' . $mime . ';base64,' . base64_encode($imageContent);
+            $imgManager = new \Intervention\Image\ImageManager(new \Intervention\Image\Drivers\Gd\Driver());
+            $image = $imgManager->read($path)->cover(300, 300); // Convierte a cuadrado 1:1
+            $imageBase64 = $image->toJpeg(80)->toDataUri();
         } else {
-            // Imagen por defecto si la del alumno no existe
             $defaultPath = public_path('storage/photos/por_defecto/user_default.png');
-            $imageContent = file_exists($defaultPath) ? file_get_contents($defaultPath) : '';
-            $imageBase64 = 'data:image/png;base64,' . base64_encode($imageContent);
+            if (file_exists($defaultPath)) {
+                $imgManager = new \Intervention\Image\ImageManager(new \Intervention\Image\Drivers\Gd\Driver());
+                $image = $imgManager->read($defaultPath)->cover(300, 300);
+                $imageBase64 = $image->toJpeg(80)->toDataUri();
+            } else {
+                $imageBase64 = '';
+            }
         }
 
         $pdf = PDF::loadView('students.showPDF', compact('student', 'imageBase64'))

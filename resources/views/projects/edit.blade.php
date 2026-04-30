@@ -28,6 +28,19 @@
     <div class="container mx-auto p-6">
         <h1 class="text-3xl font-semibold text-center text-blue-600 mb-8">Editar Proyecto</h1>
 
+        <!-- Mensajes de feedback -->
+        @if(session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-6 text-center font-semibold animate-fade-in">
+                <i class="fas fa-check-circle mr-2"></i>{{ session('success') }}
+            </div>
+        @endif
+
+        @if(session('error'))
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-6 text-center font-semibold animate-fade-in">
+                <i class="fas fa-times-circle mr-2"></i>{{ session('error') }}
+            </div>
+        @endif
+
         <form action="{{ route('projects.update', $project->idProject) }}" method="POST" enctype="multipart/form-data"
             class="bg-white p-6 rounded-lg shadow-lg">
             @csrf
