@@ -74,11 +74,14 @@
 
                 <select name="numTribunal" class="w-full sm:w-auto border-gray-300 rounded-xl text-gray-600 text-sm py-2.5 pl-4 pr-10 bg-gray-50 focus:ring-2 focus:ring-blue-500 transition cursor-pointer" onchange="this.form.submit()">
                     <option value="">Todos los tribunales</option>
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php for($i = 1; $i <= 25; $i++): ?> 
-                    <option value="<?php echo e($i); ?>" <?php echo e(request('numTribunal') == $i ? 'selected' : ''); ?>>
-                        Tribunal <?php echo e($i); ?>
-
+                    <option value="sin_asignar" <?php echo e(request('numTribunal') == 'sin_asignar' ? 'selected' : ''); ?>>
+                        Sin tribunal asignado
                     </option>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php for($i = 1; $i <= 25; $i++): ?>
+                        <option value="<?php echo e($i); ?>" <?php echo e(request('numTribunal') == "$i" ? 'selected' : ''); ?>>
+                            Tribunal <?php echo e($i); ?>
+
+                        </option>
                     <?php endfor; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </select>
 

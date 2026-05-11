@@ -174,7 +174,7 @@ class StudentController extends Controller
             return redirect()->back()->with('error', 'Error al crear el estudiante.');
         }
 
-        $student->cvLink = 'https://jornadaautomocion.alumnes-monlau.com/pdfVer/' . $student->idStudent;
+        $student->cvLink = route('students.showPDF', $student->idStudent);
         $student->save();
 
         // Enviar éxito
@@ -192,15 +192,14 @@ class StudentController extends Controller
 
     public function edit($idStudent)
     {
-        // Buscar el estudiante por su ID
         $student = Student::findOrFail($idStudent);
 
-        // Obtener las especializaciones para el select
-        $specializations = Specialization::all(); // Ajusta esto si necesitas un filtro específico
-        $projects = Project::all(); // Ajusta esto si necesitas un filtro específico
-        $teams = \App\Models\Team::all();
+        $specializations = Specialization::orderBy('specialization', 'asc')->get();
 
-        // Retornar la vista con los datos del estudiante
+        $projects = Project::orderBy('title', 'asc')->get();
+
+        $teams = \App\Models\Team::orderBy('teamName', 'asc')->get();
+
         return view('students.edit', compact('student', 'specializations', 'projects', 'teams'));
     }
 
@@ -380,7 +379,7 @@ class StudentController extends Controller
         ]);
 
         if ($student) {
-            $student->cvLink = 'https://jornadaautomocion.alumnes-monlau.com/pdfVer/' . $student->idStudent;
+            $student->cvLink = route('students.showPDF', $student->idStudent);
             $student->introduction = $request->introduction;
             $student->postal_code = $request->postal_code;
             $student->city = $request->city;

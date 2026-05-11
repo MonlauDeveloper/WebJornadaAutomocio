@@ -1,0 +1,21 @@
+[2026-05-11 06:20:11] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"AADSTS54005: OAuth2 Authorization code was already redeemed, please retry  (truncated...)
+  
+[2026-05-11 06:20:22] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"AADSTS54005: OAuth2 Authorization code was already redeemed, please retry  (truncated...)
+  
+[2026-05-11 06:20:58] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"AADSTS54005: OAuth2 Authorization code was already redeemed, please retry  (truncated...)
+  
+[2026-05-11 06:21:04] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"AADSTS54005: OAuth2 Authorization code was already redeemed, please retry  (truncated...)
+  
+[2026-05-11 06:21:11] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"AADSTS54005: OAuth2 Authorization code was already redeemed, please retry  (truncated...)
+  
+[2026-05-11 06:22:11] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"AADSTS54005: OAuth2 Authorization code was already redeemed, please retry  (truncated...)
+  
+[2026-05-11 07:09:31] production.INFO: UPLOAD IMAGE REQUEST {"_token":"yQY2pYTjRRX0s83mFgGRzorN4S4JGuGpCjCAKDpO","_method":"PUT","title":"Golf gti mk2 restoration","abstract":"Basically, I started by dismounting the whole front part of the car (bumper, radiators, lights...), then when I had that I took off the gearbox and the engine off the car. The plan is to restore engine bay, the whole electric instalation, rebuilt the engine and change the front subframe with all it's components (steering knuckle, driveshafts, brakes...), the rear axle with also the brakes and all the things. The plan is to change it for the golf gti mk3 parts. 
+
+The last thing to do is to pint the car.","idSpecialization":"4","curso":"A","videoURL":null,"moodleURL":null,"idUbication":"1","numTribunal":"2","new_image_fase":"initial","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php7JJggQ"}} 

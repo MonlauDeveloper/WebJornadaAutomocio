@@ -23,8 +23,6 @@ class ProjectController extends Controller
     $cursos = ['A', 'B', 'C', 'D', 'E', 'F', 'R', 'ONLINE'];
     $tipos = \App\Models\ProjectType::pluck('name', 'idProjectType');
 
-    // 1. Definimos las ubicaciones con el ORDEN PERSONALIZADO
-    // (He borrado la línea que tenías repetida arriba)
     $ubications = \App\Models\Ubication::whereNotNull('UbicationName')
         ->get()
         ->sortBy(function($ubication) {
@@ -69,11 +67,17 @@ class ProjectController extends Controller
         });
     }
 
+    // --- FILTRO DE TRIBUNAL (MODIFICADO) ---
     if ($request->filled('numTribunal')) {
-        $query->where('numTribunal', $request->numTribunal);
+        if ($request->numTribunal === 'sin_asignar') {
+            // Filtra los que tienen el campo numTribunal vacío o nulo
+            $query->whereNull('numTribunal');
+        } else {
+            // Filtra por el número seleccionado (1-25)
+            $query->where('numTribunal', $request->numTribunal);
+        }
     }
 
-    // Filtro por ubicación (el que ejecuta la búsqueda)
     if ($request->filled('idUbication')) {
         $query->where('idUbication', $request->idUbication);
     }
@@ -507,7 +511,7 @@ class ProjectController extends Controller
                                     'photoName' => "students_photos/FotosOrla2025/" . $this->normalizarNombreArchivo("$nombre $apellido1 $apellido2") . ".jpg"
                                 ]
                             );
-                            $student->cvLink = 'https://jornadaautomocion.alumnes-monlau.com/pdfVer/' . $student->idStudent;
+                            $student->cvLink = route('students.showPDF', $student->idStudent);
                             $student->save();
                         }
                         $importados++;

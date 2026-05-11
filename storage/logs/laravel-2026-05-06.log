@@ -1,0 +1,410 @@
+[2026-05-06 07:50:16] production.INFO: UPLOAD IMAGE REQUEST {"_token":"e1AP33c4xy1eaSWrLupJUIqKEi9u8PiZG4ytNyOp","_method":"PUT","title":"PEUGEOT 206 URBAN PROJECT","abstract":"He realizado una puesta a punto en mi Peugeot 206 1.6 16V del 2001; ya que lo compré entero de serie y le he realizado modificaciones mecánicas y estéticas para transformarlo en un coche tramero y deportivo. He reparado por completo la parte mecánica, la chapa, el interior y he pintado el coche.","tipos":["1","2","7"],"videoURL":null,"new_image_fase":"initial","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php5KGE4a"}} 
+[2026-05-06 07:50:56] production.INFO: UPLOAD IMAGE REQUEST {"_token":"e1AP33c4xy1eaSWrLupJUIqKEi9u8PiZG4ytNyOp","_method":"PUT","title":"Proyecto 206","abstract":"Proyecto total mecánica, restauración chapa, pintura entera, modificaciones interior y exterior con extras tipo rally, también llantas y otros aspectos.","videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"239":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php7j0LJh"}} 
+[2026-05-06 07:53:46] production.INFO: UPLOAD IMAGE REQUEST {"_token":"e1AP33c4xy1eaSWrLupJUIqKEi9u8PiZG4ytNyOp","_method":"PUT","title":"Proyecto 206","abstract":"Proyecto total mecánica, restauración chapa, pintura entera, modificaciones interior y exterior con extras tipo rally, también llantas y otros aspectos.","videoURL":null,"new_image_fase":"procedimiento_2","action":"upload_image","image_descriptions":{"239":null,"240":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php1rMq6m"}} 
+[2026-05-06 08:21:41] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"header","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpJ81HBP"}} 
+[2026-05-06 08:21:49] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"header","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpo1Rxvn"}} 
+[2026-05-06 08:22:03] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"header","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php5yhAtC"}} 
+[2026-05-06 08:23:18] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"initial","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpGG87Yw"}} 
+[2026-05-06 08:25:04] production.INFO: UPLOAD IMAGE REQUEST {"_token":"mffkFYK5GzzZB0ppvkdQXY7Q9d5ePjALh4eE3VzU","_method":"PUT","title":"Seat Ibiza TDI 6L","abstract":"Reparación de un Seat Ibiza, el cual se le ha cambiado motor, caja y su perspectiva preparación a 250cv aprox.
+
+En este proyecto se ha realizado toda la mecánica, adaptación de diferentes modificaciones para su preparación.
+
+En este Proyecto se ha realizado en dos Ibizas, el primero fue Siniestro....","tipos":["1","9"],"videoURL":null,"new_image_fase":"initial","action":"upload_image","conclusion":null,"photoName":{"Illuminate\\Http\\UploadedFile":"/tmp/phpzgT4ym"},"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php3A2IWx"}} 
+[2026-05-06 08:25:15] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"245":"Se puede apreciar en esta imagen, como el impacto lo recibió la llanta y desplazo las horquillas hacia atrás."},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpfmSjDy"}} 
+[2026-05-06 08:25:37] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"245":"Se puede apreciar en esta imagen, como el impacto lo recibió la llanta y desplazo las horquillas hacia atrás."},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpswpXCN"}} 
+[2026-05-06 08:25:49] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"245":"Se puede apreciar en esta imagen, como el impacto lo recibió la llanta y desplazo las horquillas hacia atrás."},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpmjnTZR"}} 
+[2026-05-06 08:26:02] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"final","action":"upload_image","image_descriptions":{"245":"Se puede apreciar en esta imagen, como el impacto lo recibió la llanta y desplazo las horquillas hacia atrás."},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpJqWDbu"}} 
+[2026-05-06 08:28:00] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"procedimiento_2","action":"upload_image","image_descriptions":{"245":"Se puede apreciar en esta imagen, como el impacto lo recibió la llanta y desplazo las horquillas hacia atrás.","250":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php8Dww20"}} 
+[2026-05-06 08:28:25] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"245":"Se puede apreciar en esta imagen, como el impacto lo recibió la llanta y desplazo las horquillas hacia atrás.","250":null,"251":"Montaje"},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpIZX5RK"}} 
+[2026-05-06 08:28:44] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"header","action":"upload_image","image_descriptions":{"245":"Se puede apreciar en esta imagen, como el impacto lo recibió la llanta y desplazo las horquillas hacia atrás.","250":null,"251":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpGhJTgB"}} 
+[2026-05-06 08:29:48] production.INFO: UPLOAD IMAGE REQUEST {"_token":"mffkFYK5GzzZB0ppvkdQXY7Q9d5ePjALh4eE3VzU","_method":"PUT","title":"SEAT IBIZA 6L TDI","abstract":"Reparación de un Seat Ibiza el cual se le ha cambiado motor, caja y su perspectiva preparación a 250cv.
+
+El proyecto se ha realizado sobre 2 Ibizas ya que el primero fue siniestrado y tuve que realizar otro.","tipos":["1","9"],"videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"246":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php0UXFUt"}} 
+[2026-05-06 08:30:55] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Se ha adquirido una Ktm duke 390 de donante, se ha desmontado entera la Ktm duke 125. En el siniestro toco chasis horquillas sub chasis, llanta etc.. 
+
+Se ha vuelto a montar desde cero soldando soportes de motor nuevos en el otro chasis, etc etc","videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"245":"Se puede apreciar en esta imagen, como el impacto lo recibió la llanta y desplazo las horquillas hacia atrás.","250":null,"251":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpzSGmmr"}} 
+[2026-05-06 08:33:29] production.INFO: UPLOAD IMAGE REQUEST {"_token":"mffkFYK5GzzZB0ppvkdQXY7Q9d5ePjALh4eE3VzU","_method":"PUT","title":"SEAT IBIZA 6L TDI","abstract":"Reparación de un Seat Ibiza el cual se le ha cambiado motor, caja y su perspectiva preparación a 250cv.
+
+El proyecto se ha realizado sobre 2 Ibizas ya que el primero fue siniestrado y tuve que realizar otro.","tipos":["1","9"],"videoURL":null,"new_image_fase":"procedimiento_2","action":"upload_image","image_descriptions":{"246":null,"254":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpNQlpb3"}} 
+[2026-05-06 08:34:52] production.INFO: UPLOAD IMAGE REQUEST {"_token":"mffkFYK5GzzZB0ppvkdQXY7Q9d5ePjALh4eE3VzU","_method":"PUT","title":"SEAT IBIZA 6L TDI","abstract":"Reparación de un Seat Ibiza el cual se le ha cambiado motor, caja y su perspectiva preparación a 250cv.
+
+El proyecto se ha realizado sobre 2 Ibizas ya que el primero fue siniestrado y tuve que realizar otro.","tipos":["1","9"],"videoURL":null,"new_image_fase":"procedimiento_3","action":"upload_image","image_descriptions":{"246":"SINIESTRO PROYECTO INICIAL","254":"MOTOR EN PREPARACION","256":"MOTOR LISTO"},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php0tKshZ"}} 
+[2026-05-06 08:35:28] production.INFO: UPLOAD IMAGE REQUEST {"_token":"mffkFYK5GzzZB0ppvkdQXY7Q9d5ePjALh4eE3VzU","_method":"PUT","title":"SEAT IBIZA 6L TDI","abstract":"Reparación de un Seat Ibiza el cual se le ha cambiado motor, caja y su perspectiva preparación a 250cv.
+
+El proyecto se ha realizado sobre 2 Ibizas ya que el primero fue siniestrado y tuve que realizar otro.","tipos":["1","9"],"videoURL":null,"new_image_fase":"final","action":"upload_image","image_descriptions":{"246":"SINIESTRO PROYECTO INICIAL","254":"MOTOR EN PREPARACION","256":"MOTOR LISTO","257":"ACABANDO DE PREPARAR"},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php5jzZxa"}} 
+[2026-05-06 08:57:14] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"initial","action":"upload_image","image_descriptions":{"245":"Se puede apreciar en esta imagen, como el impacto lo recibió la llanta y desplazo las horquillas hacia atrás.","250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","251":"Montaje de la moto","255":"En esta imagen se puede apreciar, una de las reparaciones del chasis donante, que tuve que soldar un soporte motor, que estaba partido, lo recuperé del chasis dañado lo corte y soldé en el nuevo."},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpOyQ1wf"}} 
+[2026-05-06 08:57:28] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"header","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","251":"Montaje de la moto","255":"En esta imagen se puede apreciar, una de las reparaciones del chasis donante, que tuve que soldar un soporte motor, que estaba partido, lo recuperé del chasis dañado lo corte y soldé en el nuevo.","259":null},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php4pz8oe"}} 
+[2026-05-06 08:58:18] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"initial","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","251":"Montaje de la moto","255":"En esta imagen se puede apreciar, una de las reparaciones del chasis donante, que tuve que soldar un soporte motor, que estaba partido, lo recuperé del chasis dañado lo corte y soldé en el nuevo."},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpAXwAcO"}} 
+[2026-05-06 08:58:35] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","251":"Montaje de la moto","255":"En esta imagen se puede apreciar, una de las reparaciones del chasis donante, que tuve que soldar un soporte motor, que estaba partido, lo recuperé del chasis dañado lo corte y soldé en el nuevo.","261":"Este es"},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpHCMLm3"}} 
+[2026-05-06 08:59:38] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","251":"Montaje de la moto","261":"Esta imagen muestra la moto dañada desmontada por completo en el suelo se puede observarla matrícula y de fondo la moto donante"},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpQpxlER"}} 
+[2026-05-06 08:59:50] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","251":"Montaje de la moto","261":"Esta imagen muestra la moto dañada desmontada por completo en el suelo se puede observarla matrícula y de fondo la moto donante"},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpJss3bG"}} 
+[2026-05-06 09:00:05] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","251":"Montaje de la moto","261":"Esta imagen muestra la moto dañada desmontada por completo en el suelo se puede observarla matrícula y de fondo la moto donante"},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpwL1G4d"}} 
+[2026-05-06 09:01:40] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","251":"Montaje de la moto","261":"Esta imagen muestra la moto dañada desmontada por completo en el suelo se puede observarla matrícula y de fondo la moto donante","265":"En este paso se soldó el soporte motor que recuperé del chasis dañado, lo corté y soldé en el chasis donante"},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpDrbiyX"}} 
+[2026-05-06 09:01:41] production.INFO: UPLOAD IMAGE REQUEST {"_token":"gib9t2DoSXRWb8xmQFenuSJugYnknKlf6qZJZTOY","_method":"PUT","title":"Restauració y modificació A3 8L","abstract":"Este proyecto consiste en la puesta a punto de un vehículo mediante diferentes trabajos de mantenimiento y mejora. Se han realizado cambios de piezas como el embrague, distribución, frenos y aceite, además de mejoras en la suspensión, escape y estética del coche.","tipos":["1","9"],"videoURL":null,"new_image_fase":"header","action":"upload_image","image_descriptions":{"232":"El coche estéticamente estaba bien pero de mecánica tenía muchas cosas por hacer: Embrague, distribución, frenos, etc.","233":"Se cambió la suspensión por una roscada, para mejorar tanto la estética del coche, como mejorar su comportamiento dinámico sobre todo en curvas.","234":"Cambié el tramo intermedio para mejorar el sonido del escape, pero sin que llegara a ser molesto, i para eso tuve que cortar el intermedio original.","235":"Uno de los problemas más grandes que tenía el coche era que el embrague estaba muy gastado, por lo tanto, tuve que cambiarlo, mejorando así muchísimo el comportamiento del colche.","236":"Resultado final mejorando notablemente la estética del vehículo, y también la mecánica, haciendo que un coche que tenía todos los mantenimientos de peso por hacer, pasara de ser un coche viejo, a un coche renovado y con un look más deportivo"},"conclusion":"En conclusión, este proyecto ha permitido mejorar el estado general del vehículo, tanto a nivel mecánico como estético. Gracias a los trabajos realizados, el coche ha ganado en fiabilidad, seguridad y comportamiento en carretera, además de mejorar su apariencia.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpXPJUyk"}} 
+[2026-05-06 09:02:03] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"procedimiento_2","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","266":"Esta imagen muestra la moto dañada desmontada por completo en el suelo se puede observarla matrícula y de fondo la moto donante"},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpsPPLk0"}} 
+[2026-05-06 09:02:54] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"procedimiento_3","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","266":"Esta imagen muestra la moto dañada desmontada por completo en el suelo se puede observarla matrícula y de fondo la moto donante","268":"En este paso se soldó el soporte motor al chasis, lo recuperé del chasis dañado, se cortó y soldó en el chasis donante."},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpaiIoVU"}} 
+[2026-05-06 09:03:09] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"procedimiento_3","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","266":"Esta imagen muestra la moto dañada desmontada por completo en el suelo se puede observarla matrícula y de fondo la moto donante","268":"En este paso se soldó el soporte motor al chasis, lo recuperé del chasis dañado, se cortó y soldó en el chasis donante."},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpZqJ0Kd"}} 
+[2026-05-06 09:04:36] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"header","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","266":"Esta imagen muestra la moto dañada desmontada por completo en el suelo se puede observar su  matrícula y de fondo la moto donante","268":"En este paso se soldó el soporte motor al chasis, lo recuperé del chasis dañado, se cortó y soldó en el chasis donante.","270":"Montaje"},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpalg0pH"}} 
+[2026-05-06 09:07:18] production.INFO: UPLOAD IMAGE REQUEST {"_token":"YRPhK1HKTGdSScJ6GQeiCd8FjFafO7QLvsXEbpg3","_method":"PUT","title":"Restauración Siniestro Ktm duke 125 2023","abstract":"Reparación y restauración de una KTM Duke 125 (2023) tras un accidente grave, utilizando una moto donante para sustituir piezas. Se realiza desmontaje, reparación, montaje completo y puesta a punto, logrando recuperar la motocicleta con un coste reducido.","tipos":["1","7","8"],"videoURL":null,"new_image_fase":"initial","action":"upload_image","image_descriptions":{"250":"Y este es su estado final, ha quedado perfecta y igual que cuando la estrené el primer día.","266":"Esta imagen muestra la moto dañada desmontada por completo en el suelo se puede observar su  matrícula y de fondo la moto donante","268":"En este paso se soldó el soporte motor al chasis, lo recuperé del chasis dañado, se cortó y soldó en el chasis donante.","270":"Montaje"},"conclusion":"Con este proyecto he comprendido la importancia de confiar en uno mismo y intentarlo da igual los errores que cometas, al contrario contra mas fallos se cometan más experiencia ganas. 
+
+Me ha ayudado mucho a ganar confianza en cuanto a mecánica de motos y  buscar soluciones.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpcfiiNF"}} 
+[2026-05-06 13:02:25] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"AADSTS70008: The provided authorization code or refresh token has expired  (truncated...)
+  
+[2026-05-06 15:12:10] production.DEBUG: From: Jornada =?utf-8?Q?automoci=C3=B3n?= <hello@example.com>
+To: rogervenrom@campus.monlau.com
+Subject: Reset Password Notification
+MIME-Version: 1.0
+Date: Wed, 06 May 2026 15:12:10 +0000
+Message-ID: <d41098defd8161ff6bf0042323407531@example.com>
+Content-Type: multipart/alternative; boundary=B0IcNvgg
+
+--B0IcNvgg
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Jornada automoción: https://jornadaautomocion.monlau.com
+
+# Hello!
+
+You are receiving this email because we received a password reset request for your account.
+
+Reset Password: https://jornadaautomocion.monlau.com/reset-password/9f5b4f8b3c6c6ef6c9510415a3247fd7c8978a1321f976036d6b135079eb5040?email=rogervenrom%40campus.monlau.com
+
+This password reset link will expire in 60 minutes.
+
+If you did not request a password reset, no further action is required.
+
+Regards,
+Jornada automoción
+
+If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
+into your web browser: [https://jornadaautomocion.monlau.com/reset-password/9f5b4f8b3c6c6ef6c9510415a3247fd7c8978a1321f976036d6b135079eb5040?email=rogervenrom%40campus.monlau.com](https://jornadaautomocion.monlau.com/reset-password/9f5b4f8b3c6c6ef6c9510415a3247fd7c8978a1321f976036d6b135079eb5040?email=rogervenrom%40campus.monlau.com)
+
+© 2026 Jornada automoción. All rights reserved.
+
+--B0IcNvgg
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Jornada automoción</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<style>
+@media only screen and (max-width: 600px) {
+.inner-body {
+width: 100% !important;
+}
+
+.footer {
+width: 100% !important;
+}
+}
+
+@media only screen and (max-width: 500px) {
+.button {
+width: 100% !important;
+}
+}
+</style>
+
+</head>
+<body style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #718096; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">
+
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td class="header" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text-align: center;">
+<a href="https://jornadaautomocion.monlau.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 19px; font-weight: bold; text-decoration: none; display: inline-block;">
+Jornada automoción
+</a>
+</td>
+</tr>
+
+<!-- Email Body -->
+<tr>
+<td class="body" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; border-bottom: 1px solid #edf2f7; border-top: 1px solid #edf2f7; margin: 0; padding: 0; width: 100%; border: hidden !important;">
+<table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; background-color: #ffffff; border-color: #e8e5ef; border-radius: 2px; border-width: 1px; box-shadow: 0 2px 0 rgba(0, 0, 150, 0.025), 2px 4px 0 rgba(0, 0, 150, 0.015); margin: 0 auto; padding: 0; width: 570px;">
+<!-- Body content -->
+<tr>
+<td class="content-cell" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<h1 style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 18px; font-weight: bold; margin-top: 0; text-align: left;">Hello!</h1>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">You are receiving this email because we received a password reset request for your account.</p>
+<table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%; float: unset;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<a href="https://jornadaautomocion.monlau.com/reset-password/9f5b4f8b3c6c6ef6c9510415a3247fd7c8978a1321f976036d6b135079eb5040?email=rogervenrom%40campus.monlau.com" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748; border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748; border-right: 18px solid #2d3748; border-top: 8px solid #2d3748; word-break: break-all;">Reset Password</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">This password reset link will expire in 60 minutes.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">If you did not request a password reset, no further action is required.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Regards,<br>
+Jornada automoción</p>
+
+
+<table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; border-top: 1px solid #e8e5ef; margin-top: 25px; padding-top: 25px;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 14px;">If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
+into your web browser: <span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; word-break: break-all;"><a href="https://jornadaautomocion.monlau.com/reset-password/9f5b4f8b3c6c6ef6c9510415a3247fd7c8978a1321f976036d6b135079eb5040?email=rogervenrom%40campus.monlau.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3869d4; word-break: break-all;">https://jornadaautomocion.monlau.com/reset-password/9f5b4f8b3c6c6ef6c9510415a3247fd7c8978a1321f976036d6b135079eb5040?email=rogervenrom%40campus.monlau.com</a></span></p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; margin: 0 auto; padding: 0; text-align: center; width: 570px;">
+<tr>
+<td class="content-cell" align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; color: #b0adc5; font-size: 12px; text-align: center;">© 2026 Jornada automoción. All rights reserved.</p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+--B0IcNvgg--
+  
+[2026-05-06 15:14:39] production.DEBUG: From: Jornada =?utf-8?Q?automoci=C3=B3n?= <hello@example.com>
+To: rogervenrom@campus.monlau.com
+Subject: Reset Password Notification
+MIME-Version: 1.0
+Date: Wed, 06 May 2026 15:14:39 +0000
+Message-ID: <4dcdbb778b4215db34dfe3a828de98a1@example.com>
+Content-Type: multipart/alternative; boundary=U5H9504x
+
+--U5H9504x
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Jornada automoción: https://jornadaautomocion.monlau.com
+
+# Hello!
+
+You are receiving this email because we received a password reset request for your account.
+
+Reset Password: https://jornadaautomocion.monlau.com/reset-password/eb9136149726ebbf25e23ef371a55267f68020e75a1562399b183249f976877d?email=rogervenrom%40campus.monlau.com
+
+This password reset link will expire in 60 minutes.
+
+If you did not request a password reset, no further action is required.
+
+Regards,
+Jornada automoción
+
+If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
+into your web browser: [https://jornadaautomocion.monlau.com/reset-password/eb9136149726ebbf25e23ef371a55267f68020e75a1562399b183249f976877d?email=rogervenrom%40campus.monlau.com](https://jornadaautomocion.monlau.com/reset-password/eb9136149726ebbf25e23ef371a55267f68020e75a1562399b183249f976877d?email=rogervenrom%40campus.monlau.com)
+
+© 2026 Jornada automoción. All rights reserved.
+
+--U5H9504x
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Jornada automoción</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<style>
+@media only screen and (max-width: 600px) {
+.inner-body {
+width: 100% !important;
+}
+
+.footer {
+width: 100% !important;
+}
+}
+
+@media only screen and (max-width: 500px) {
+.button {
+width: 100% !important;
+}
+}
+</style>
+
+</head>
+<body style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #718096; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">
+
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td class="header" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text-align: center;">
+<a href="https://jornadaautomocion.monlau.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 19px; font-weight: bold; text-decoration: none; display: inline-block;">
+Jornada automoción
+</a>
+</td>
+</tr>
+
+<!-- Email Body -->
+<tr>
+<td class="body" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; border-bottom: 1px solid #edf2f7; border-top: 1px solid #edf2f7; margin: 0; padding: 0; width: 100%; border: hidden !important;">
+<table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; background-color: #ffffff; border-color: #e8e5ef; border-radius: 2px; border-width: 1px; box-shadow: 0 2px 0 rgba(0, 0, 150, 0.025), 2px 4px 0 rgba(0, 0, 150, 0.015); margin: 0 auto; padding: 0; width: 570px;">
+<!-- Body content -->
+<tr>
+<td class="content-cell" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<h1 style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 18px; font-weight: bold; margin-top: 0; text-align: left;">Hello!</h1>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">You are receiving this email because we received a password reset request for your account.</p>
+<table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%; float: unset;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<a href="https://jornadaautomocion.monlau.com/reset-password/eb9136149726ebbf25e23ef371a55267f68020e75a1562399b183249f976877d?email=rogervenrom%40campus.monlau.com" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748; border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748; border-right: 18px solid #2d3748; border-top: 8px solid #2d3748; word-break: break-all;">Reset Password</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">This password reset link will expire in 60 minutes.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">If you did not request a password reset, no further action is required.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Regards,<br>
+Jornada automoción</p>
+
+
+<table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; border-top: 1px solid #e8e5ef; margin-top: 25px; padding-top: 25px;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 14px;">If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
+into your web browser: <span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; word-break: break-all;"><a href="https://jornadaautomocion.monlau.com/reset-password/eb9136149726ebbf25e23ef371a55267f68020e75a1562399b183249f976877d?email=rogervenrom%40campus.monlau.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3869d4; word-break: break-all;">https://jornadaautomocion.monlau.com/reset-password/eb9136149726ebbf25e23ef371a55267f68020e75a1562399b183249f976877d?email=rogervenrom%40campus.monlau.com</a></span></p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; margin: 0 auto; padding: 0; text-align: center; width: 570px;">
+<tr>
+<td class="content-cell" align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; color: #b0adc5; font-size: 12px; text-align: center;">© 2026 Jornada automoción. All rights reserved.</p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+--U5H9504x--
+  
+[2026-05-06 15:43:50] production.INFO: UPLOAD IMAGE REQUEST {"_token":"6PfPmwCFJYaUn0wNkb2hYpgdnuP1LyzxuoA9QNF7","_method":"PUT","title":"Restauració Peugeot Movesa 125cc","abstract":"En aquest projecte s'ha dut a terme una restauració al complert d'una motocicleta Peugeot Movesa 125cc de l'any 1955, la motocicleta s'ha desmuntat al complet i s'han reparat i sutituit peces. Els àmbits que he treballat han estat la part mecànica, la part elèctrica i reparar i pintar la carrocería .","tipos":["1","6","7"],"videoURL":null,"new_image_fase":"initial","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpEIWor0"}} 
+[2026-05-06 16:17:11] production.INFO: UPLOAD IMAGE REQUEST {"_token":"6PfPmwCFJYaUn0wNkb2hYpgdnuP1LyzxuoA9QNF7","_method":"PUT","title":"Restauració Peugeot Movesa 125cc","abstract":"En aquest projecte s'ha dut a terme una restauració al complert d'una motocicleta Peugeot Movesa 125cc de l'any 1955, la motocicleta s'ha desmuntat al complet i s'han reparat i sutituit peces. Els àmbits que he treballat han estat la part mecànica, la part elèctrica, reparar i pintar la carrocería .","tipos":["1","6","7"],"videoURL":null,"new_image_fase":"final","action":"upload_image","image_descriptions":{"273":"La moto presentava un estat bastant castigat, amb desgast general per falta de manteniment. La pintura estava apagada i amb algun desperfecte
+
+El motor estava complet però brut i sense posar a punt, amb possible desgast intern. La instal·lació elèctrica es trobava en mal estat, amb cablejat vell."},"conclusion":"Amb aquest projecte he aconseguit donar una segona vida a la moto, que estava bastant deteriorada. Amb paciència, he anat resolent problemes i millorant la part elèctrica, mecànica i estètica. Ha estat un projecte que m`ha ajudat a posar en pràctica els meus coneixaments.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpP5TS9a"}} 
+[2026-05-06 17:09:42] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Hemos desmontado el motor de un Renault Laguna 1009 dci del 2002, y hemos puesto varios recambios nuevos de mantenimiento que le hacían falta: kit de         embrague, kit de distribución, frenos, etc.","tipos":["1","9"],"videoURL":null,"new_image_fase":"header","action":"upload_image","conclusion":null,"photoName":{"Illuminate\\Http\\UploadedFile":"/tmp/phprKDRim"},"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpmOiAxp"}} 
+[2026-05-06 17:13:09] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Desmontar el motor, distribución, reglaje de válvulas, sustituir embrague, cambio reten varilla selectora, frenos, encontrar causa de fuga de aceite sin goteo en el motor, sustituir turbo, inspeccionar EGR y ver si hay que cambiarla, sustituir suspensiones, mantenimiento básico.","videoURL":null,"new_image_fase":"procedimiento_1","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php27M6Vy"}} 
+[2026-05-06 17:28:09] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Hemos sacado el motor de un Renault Laguna 1900 dci del 2002. Hemos aprovechado que teníamos el motor fuera para poner recambios de mantenimiento que hacían falta poner al coche: kit de embrague, kit de distribución, frenos, fuelles de palier, etc. También hemos solucionado una perdida de aceite.","tipos":["1","9"],"videoURL":null,"new_image_fase":"procedimiento_2","action":"upload_image","image_descriptions":{"276":"Desconectar tuberías, desmontar todos los periféricos y extraer el motor."},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php7bIgC9"}} 
+[2026-05-06 17:28:23] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Hemos sacado el motor de un Renault Laguna 1900 dci del 2002. Hemos aprovechado que teníamos el motor fuera para poner recambios de mantenimiento que hacían falta poner al coche: kit de embrague, kit de distribución, frenos, fuelles de palier, etc. También hemos solucionado una perdida de aceite.","tipos":["1","9"],"videoURL":null,"new_image_fase":"procedimiento_2","action":"upload_image","image_descriptions":{"276":"Desconectar tuberías, desmontar todos los periféricos y extraer el motor.","277":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpXbZ4zw"}} 
+[2026-05-06 17:28:44] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Hemos sacado el motor de un Renault Laguna 1900 dci del 2002. Hemos aprovechado que teníamos el motor fuera para poner recambios de mantenimiento que hacían falta poner al coche: kit de embrague, kit de distribución, frenos, fuelles de palier, etc. También hemos solucionado una perdida de aceite.","tipos":["1","9"],"videoURL":null,"new_image_fase":"header","action":"upload_image","image_descriptions":{"276":"Desconectar tuberías, desmontar todos los periféricos y extraer el motor.","278":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php61aRBQ"}} 
+[2026-05-06 17:28:58] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Hemos sacado el motor de un Renault Laguna 1900 dci del 2002. Hemos aprovechado que teníamos el motor fuera para poner recambios de mantenimiento que hacían falta poner al coche: kit de embrague, kit de distribución, frenos, fuelles de palier, etc. También hemos solucionado una perdida de aceite.","tipos":["1","9"],"videoURL":null,"new_image_fase":"header","action":"upload_image","image_descriptions":{"276":"Desconectar tuberías, desmontar todos los periféricos y extraer el motor.","278":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpJB8aPD"}} 
+[2026-05-06 17:29:31] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Hemos sacado el motor de un Renault Laguna 1900 dci del 2002. Hemos aprovechado que teníamos el motor fuera para poner recambios de mantenimiento que hacían falta poner al coche: kit de embrague, kit de distribución, frenos, fuelles de palier, etc. También hemos solucionado una perdida de aceite.","tipos":["1","9"],"videoURL":null,"new_image_fase":"procedimiento_2","action":"upload_image","image_descriptions":{"276":"Desconectar tuberías, desmontar todos los periféricos y extraer el motor.","278":null},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpOpooni"}} 
+[2026-05-06 17:46:00] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Hemos sacado el motor de un Renault Laguna 1900 dci del 2002. Hemos aprovechado que teníamos el motor fuera para poner recambios de mantenimiento que hacían falta poner al coche: kit de embrague, kit de distribución, frenos, fuelles de palier, etc. También hemos solucionado una perdida de aceite.","tipos":["1","9"],"videoURL":null,"new_image_fase":"procedimiento_3","action":"upload_image","image_descriptions":{"276":"Desconectar tuberías, desmontar todos los periféricos y extraer el motor. Fue durante este procedimiento que localizamos la fuga de aceite.","281":"Con el motor fuera poner los recambios nuevos: kit de embrague, kit de distribución, fuelles de palier."},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phph6wDUE"}} 
+[2026-05-06 17:51:42] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Hemos sacado el motor de un Renault Laguna 1900 dci del 2002. Hemos aprovechado que teníamos el motor fuera para poner recambios de mantenimiento que hacían falta poner al coche: kit de embrague, kit de distribución, frenos, fuelles de palier, etc. También hemos solucionado una perdida de aceite.","tipos":["1","9"],"videoURL":null,"new_image_fase":"final","action":"upload_image","image_descriptions":{"276":"Desconectar tuberías, desmontar todos los periféricos y extraer el motor. Fue durante este procedimiento que localizamos la fuga de aceite.","281":"Con el motor fuera poner los recambios nuevos: kit de embrague, kit de distribución, fuelles de palier.","282":"Una vez puestos los recambios, volver a montar el motor. Teniendo mucho cuidado con el apartado eléctrico. A parte montar otros recambios como: soporte trasero del motor, soportes de la línea de escape,  bieletas de suspensión. Una vez todo montado. Poner los líquidos, agua refrigerante, etc."},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpGA36Ik"}} 
+[2026-05-06 18:11:53] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Hemos sacado el motor de un Renault Laguna 1900 dci del 2002. Hemos aprovechado que teníamos el motor fuera para poner recambios de mantenimiento que hacían falta poner al coche: kit de embrague, kit de distribución, frenos, fuelles de palier, etc. También hemos solucionado una perdida de aceite.","tipos":["1","9"],"videoURL":null,"new_image_fase":"header","action":"upload_image","image_descriptions":{"276":"Desconectar tuberías, desmontar todos los periféricos y extraer el motor. Fue durante este procedimiento que localizamos la fuga de aceite.","281":"Con el motor fuera poner los recambios nuevos: kit de embrague, kit de distribución, fuelles de palier.","282":"Una vez puestos los recambios, volver a montar el motor. Teniendo mucho cuidado con el apartado eléctrico. A parte montar otros recambios como: soporte trasero del motor, soportes de la línea de escape,  bieletas de suspensión. Una vez todo montado. Poner los líquidos, agua refrigerante, etc.","283":"Arrancar el motor. Buscar posibles fallos con la máquina de diagnósis y solucionarlos. Una vez hacemos todo esto, la parte práctica del trabajo esta finalizada."},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/php8ekomN"}} 
+[2026-05-06 18:15:03] production.INFO: UPLOAD IMAGE REQUEST {"_token":"CEKJ0LPXs73v9dN22TEtetlx1LSamEk7HrwzmUh9","_method":"PUT","title":"Reparación Renault Laguna","abstract":"Hemos sacado el motor de un Renault Laguna 1900 dci del 2002. Hemos aprovechado que teníamos el motor fuera para poner recambios de mantenimiento que hacían falta poner al coche: kit de embrague, kit de distribución, frenos, fuelles de palier, etc. También hemos solucionado una perdida de aceite.","tipos":["1","9"],"videoURL":null,"new_image_fase":"initial","action":"upload_image","image_descriptions":{"276":"Desconectar tuberías, desmontar todos los periféricos y extraer el motor. Fue durante este procedimiento que localizamos la fuga de aceite.","281":"Con el motor fuera poner los recambios nuevos: kit de embrague, kit de distribución, fuelles de palier.","282":"Una vez puestos los recambios, volver a montar el motor. Teniendo mucho cuidado con el apartado eléctrico. A parte montar otros recambios como: soporte trasero del motor, soportes de la línea de escape,  bieletas de suspensión. Una vez todo montado. Poner los líquidos, agua refrigerante, etc.","283":"Arrancar el motor. Buscar posibles fallos con la máquina de diagnósis y solucionarlos. Una vez hacemos todo esto, la parte práctica del trabajo esta finalizada."},"conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpJNUUqH"}} 
+[2026-05-06 18:21:21] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"AADSTS54005: OAuth2 Authorization code was already redeemed, please retry  (truncated...)
+  
+[2026-05-06 21:06:59] production.INFO: UPLOAD IMAGE REQUEST {"_token":"ufBdnwYgi9g6KxcoKU7PMTPsImXs0tqeo9DL9LTl","_method":"PUT","title":"Restauración de chapa e Interior Golf 3","abstract":"El coche ha estado casi abandonado por un tiempo donde no se utilizaba para nada y ahora tiene varios desgastes de chapa donde solucionare, tema mecánica tiene perdidas de aceite donde intentaré solucionar todas, tema electricidad ese modelo pecaba de cortes de cables y donde le voy hacer la instalación completa de nuevo de los elevalunas traseros donde los tiene cortados y tema de estética, las llantas las tiene bastante ralladas donde me gustaria volverlas a pintar y que tomen su forma original y donde en el interior hay varios asientos que de tapicería se están abriendo","tipos":["1","2","6"],"videoURL":null,"new_image_fase":"initial","action":"upload_image","image_descriptions":{"205":"Seguidamente, lo que hice fue desmontar todo el salpicadero para llegar al grupo de calefacción, donde lo tuve que descolgar para poder sacar el radiador de calefacción y volver a realizar la instalación nueva y, ya al desmontar, aprovechar y poder reparar las trampillas del aire.","207":"Lo primero que le realicé al coche fue la instalación completamente nueva de las dos puertas traseras, ya que, como se puede apreciar en la foto, estos modelos sufrían de esto mucho y, con el paso de los años y de cerrar y abrir puerta, se cortaban.","208":"Por último, después de hacer toda la parte de mecánica, estética y eléctrica, lo último fue dejarlo bien de chapa y pintura, donde con los años han ido saliendo roces, picadas y leves golpes por todo el coche y donde el proceso fue el siguiente: lijar, repararlo, pintarlo y barnizarlo.","209":"Coche acabado y listo para presentarse el día 27/5/26 y poder volver a utilizarlo sin preocupaciones."},"conclusion":"El coche a final de proyecto ha cumplido todos los objetivos que me puse por realizar y donde ahora queda un coche de nuevo al día y para poder disfrutar nuevamente como se merece.","new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpDpGPKy"}} 

@@ -75,7 +75,14 @@ class MicrosoftAuthController extends Controller
 
             $email = $userData['mail'] ?? $microsoftUser->email;
 
-            $user = User::where('email', $email)->first();
+            // Extraer el prefijo del correo electrónico
+            $usernamePrefix = explode('@', $email)[0];
+
+            // Buscar si el usuario existe con el correo exacto, con campus.monlau.com o con onmicrosoft.com
+            $user = User::where('email', $email)
+                ->orWhere('email', $usernamePrefix . '@campus.monlau.com')
+                ->orWhere('email', 'LIKE', $usernamePrefix . '@%onmicrosoft.com')
+                ->first();
 
             if (!$user) {
                 $user = new User();
@@ -128,7 +135,7 @@ class MicrosoftAuthController extends Controller
                 );
 
                 if(empty($student->cvLink)) {
-                    $student->cvLink = 'https://jornadaautomocion.alumnes-monlau.com/pdfVer/' . $student->idStudent;
+                    $student->cvLink = route('students.showPDF', $student->idStudent);
                     $student->save();
                 }
             }
