@@ -199,7 +199,7 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
 {
     $action = $request->input('action');
-
+    
     // --- ACCIÓN 1: Actualizar descripción de una imagen específica ---
     if (str_starts_with($action, 'update_text_')) {
         $imageId = str_replace('update_text_', '', $action);
@@ -492,7 +492,7 @@ class ProjectController extends Controller
                             $user = \App\Models\User::updateOrCreate(
                                 ['email' => strtolower($email)],
                                 [
-                                    'username' => strtolower(str_replace(" ", "", $nombre . $apellido1)),
+                                    'username' => strstr($email, '@', true),
                                     'password' => bcrypt('Monlau2025'),
                                     'idRole' => 3,
                                     'status' => 'approved'

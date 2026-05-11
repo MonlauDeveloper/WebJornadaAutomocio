@@ -375,7 +375,7 @@ class StudentController extends Controller
             'contact.*' => 'nullable|string|max:255',
             'postal_code' => 'nullable|string|max:20',
             'city' => 'nullable|string|max:255',
-            'linkedin' => 'nullable|string|max:255',
+            'linkedin' => 'nullable|string|max:500',
         ]);
 
         if ($student) {
