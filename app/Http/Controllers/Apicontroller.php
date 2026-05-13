@@ -67,33 +67,33 @@ class Apicontroller extends Controller
     }
 
     public function projects(int $limit, int $page, string $order = "title")
-{
-    $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'numTribunal', 'curso');
-    
-    $projects = DB::table('projects')
-        ->whereNot('projects.idSpecialization', 5)
-        ->offset(($page - 1) * $limit)
-        ->limit($limit)
-        ->orderBy($order)
-        ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
-        ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
-        ->select($columns)
-        ->get();
-
-    foreach ($projects as $p) {
-        $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
+    {
+        $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'numTribunal', 'curso');
         
-        $p->share_url = route('projects.public', $p->idProject);
-
-        $p->project_types = DB::table('project_types')
-            ->join('project_project_type', 'project_types.idProjectType', '=', 'project_project_type.idProjectType')
-            ->where('project_project_type.idProject', $p->idProject)
-            ->select('project_types.idProjectType', 'project_types.name')
+        $projects = DB::table('projects')
+            ->whereNot('projects.idSpecialization', 5)
+            ->offset(($page - 1) * $limit)
+            ->limit($limit)
+            ->orderBy($order)
+            ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
+            ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
+            ->select($columns)
             ->get();
+
+        foreach ($projects as $p) {
+            $p->students = DB::table('students')->where('idProject', $p->idProject)->get();
+            
+            $p->share_url = route('projects.public', $p->idProject);
+
+            $p->project_types = DB::table('project_types')
+                ->join('project_project_type', 'project_types.idProjectType', '=', 'project_project_type.idProjectType')
+                ->where('project_project_type.idProject', $p->idProject)
+                ->select('project_types.idProjectType', 'project_types.name')
+                ->get();
+        }
+        
+        return $projects;
     }
-    
-    return $projects;
-}
 
     public function companies(int $limit, int $page, string $order = "companyName")
     {
@@ -101,18 +101,18 @@ class Apicontroller extends Controller
     }
 
     public function getCompanyPhotos($id)
-{
-    $company = \App\Models\Company::find($id);
+    {
+        $company = \App\Models\Company::find($id);
 
-    if (!$company) {
-        return response()->json(['error' => 'Empresa no encontrada'], 404);
+        if (!$company) {
+            return response()->json(['error' => 'Empresa no encontrada'], 404);
+        }
+        $photos = [
+            'main_photo' => asset('storage/' . $company->photo),
+        ];
+
+        return response()->json($photos);
     }
-    $photos = [
-        'main_photo' => asset('storage/' . $company->photo),
-    ];
-
-    return response()->json($photos);
-}
 
     public function presentations(int $limit, int $page, string $order = "presentationName")
     {
@@ -143,7 +143,7 @@ class Apicontroller extends Controller
 
     public function dynamictestings(int $limit, int $page, string $order = "title")
     {
-        $columns = array('idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'teams.logo', 'curso');
+        $columns = array('projects.idProject', 'abstract', 'moodleURL', 'pdfURL', 'photoName', 'specialization', 'title', 'ubicationName', 'videoURL', 'teams.logo', 'curso');
         $projects = DB::table('projects')
             ->where('projects.idSpecialization', 5)
             ->offset(($page - 1) * $limit)
@@ -151,7 +151,7 @@ class Apicontroller extends Controller
             ->orderBy($order)
             ->join('specializations', 'specializations.idSpecialization', 'projects.idSpecialization')
             ->join('ubications', 'ubications.idUbication', 'projects.idUbication')
-            ->join('teams', 'teams.teamName', '=', 'projects.title')
+            ->leftJoin('teams', 'teams.teamName', '=', 'projects.title')
             ->select($columns)
             ->get();
 
@@ -186,25 +186,25 @@ class Apicontroller extends Controller
         return $query;
     }
     public function getProjectById(int $id)
-{
-    $project = \App\Models\Project::with(['students', 'specialization', 'ubication', 'projectTypes'])
-        ->where('idProject', $id)
-        ->first();
+    {
+        $project = \App\Models\Project::with(['students', 'specialization', 'ubication', 'projectTypes'])
+            ->where('idProject', $id)
+            ->first();
 
-    if (!$project) {
-        return response()->json(['message' => 'Proyecto no encontrado'], 404);
+        if (!$project) {
+            return response()->json(['message' => 'Proyecto no encontrado'], 404);
+        }
+
+        $project->share_url = route('projects.public', $project->idProject);
+
+        if ($project->pdfURL && !str_starts_with($project->pdfURL, 'http')) {
+            $project->pdfURL = asset('storage/' . $project->pdfURL);
+        }
+
+        return response()->json([
+            'proyecto' => $project
+        ]);
     }
-
-    $project->share_url = route('projects.public', $project->idProject);
-
-    if ($project->pdfURL && !str_starts_with($project->pdfURL, 'http')) {
-        $project->pdfURL = asset('storage/' . $project->pdfURL);
-    }
-
-    return response()->json([
-        'proyecto' => $project
-    ]);
-}
 
     public function projects_filter(int $limit, int $page, $filter, $value, string $order = "title")
     {
@@ -649,15 +649,15 @@ class Apicontroller extends Controller
     }
 
     public function toggleVoting(Request $request) {
-    // Validamos que venga el estado
-    $request->validate(['enabled' => 'required|boolean']);
+        // Validamos que venga el estado
+        $request->validate(['enabled' => 'required|boolean']);
 
-    // Actualizamos o creamos el ajuste
-    DB::table('settings')->updateOrInsert(
-        ['key' => 'voting_enabled'],
-        ['value' => $request->enabled ? '1' : '0']
-    );
+        // Actualizamos o creamos el ajuste
+        DB::table('settings')->updateOrInsert(
+            ['key' => 'voting_enabled'],
+            ['value' => $request->enabled ? '1' : '0']
+        );
 
-    return response()->json(['success' => true, 'is_enabled' => $request->enabled]);
-}
+        return response()->json(['success' => true, 'is_enabled' => $request->enabled]);
+    }
 }

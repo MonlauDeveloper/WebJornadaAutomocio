@@ -1,0 +1,1242 @@
+[2026-05-12 07:00:56] production.DEBUG: From: Jornada =?utf-8?Q?automoci=C3=B3n?= <hello@example.com>
+To: luciaferisl@campus.monlau.com
+Subject: Reset Password Notification
+MIME-Version: 1.0
+Date: Tue, 12 May 2026 07:00:56 +0000
+Message-ID: <cdd5009c501edc88cf030dfb538e212b@example.com>
+Content-Type: multipart/alternative; boundary=0hW47hs3
+
+--0hW47hs3
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Jornada automoción: https://jornadaautomocion.monlau.com
+
+# Hello!
+
+You are receiving this email because we received a password reset request for your account.
+
+Reset Password: https://jornadaautomocion.monlau.com/reset-password/42f1dfd04b6f80bd3623ae6c08af0ef56046878bad6ed018253178ac28cdc98a?email=luciaferisl%40campus.monlau.com
+
+This password reset link will expire in 60 minutes.
+
+If you did not request a password reset, no further action is required.
+
+Regards,
+Jornada automoción
+
+If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
+into your web browser: [https://jornadaautomocion.monlau.com/reset-password/42f1dfd04b6f80bd3623ae6c08af0ef56046878bad6ed018253178ac28cdc98a?email=luciaferisl%40campus.monlau.com](https://jornadaautomocion.monlau.com/reset-password/42f1dfd04b6f80bd3623ae6c08af0ef56046878bad6ed018253178ac28cdc98a?email=luciaferisl%40campus.monlau.com)
+
+© 2026 Jornada automoción. All rights reserved.
+
+--0hW47hs3
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Jornada automoción</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<style>
+@media only screen and (max-width: 600px) {
+.inner-body {
+width: 100% !important;
+}
+
+.footer {
+width: 100% !important;
+}
+}
+
+@media only screen and (max-width: 500px) {
+.button {
+width: 100% !important;
+}
+}
+</style>
+
+</head>
+<body style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #718096; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">
+
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td class="header" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text-align: center;">
+<a href="https://jornadaautomocion.monlau.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 19px; font-weight: bold; text-decoration: none; display: inline-block;">
+Jornada automoción
+</a>
+</td>
+</tr>
+
+<!-- Email Body -->
+<tr>
+<td class="body" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; border-bottom: 1px solid #edf2f7; border-top: 1px solid #edf2f7; margin: 0; padding: 0; width: 100%; border: hidden !important;">
+<table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; background-color: #ffffff; border-color: #e8e5ef; border-radius: 2px; border-width: 1px; box-shadow: 0 2px 0 rgba(0, 0, 150, 0.025), 2px 4px 0 rgba(0, 0, 150, 0.015); margin: 0 auto; padding: 0; width: 570px;">
+<!-- Body content -->
+<tr>
+<td class="content-cell" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<h1 style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 18px; font-weight: bold; margin-top: 0; text-align: left;">Hello!</h1>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">You are receiving this email because we received a password reset request for your account.</p>
+<table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%; float: unset;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<a href="https://jornadaautomocion.monlau.com/reset-password/42f1dfd04b6f80bd3623ae6c08af0ef56046878bad6ed018253178ac28cdc98a?email=luciaferisl%40campus.monlau.com" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748; border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748; border-right: 18px solid #2d3748; border-top: 8px solid #2d3748; word-break: break-all;">Reset Password</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">This password reset link will expire in 60 minutes.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">If you did not request a password reset, no further action is required.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Regards,<br>
+Jornada automoción</p>
+
+
+<table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; border-top: 1px solid #e8e5ef; margin-top: 25px; padding-top: 25px;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 14px;">If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
+into your web browser: <span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; word-break: break-all;"><a href="https://jornadaautomocion.monlau.com/reset-password/42f1dfd04b6f80bd3623ae6c08af0ef56046878bad6ed018253178ac28cdc98a?email=luciaferisl%40campus.monlau.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3869d4; word-break: break-all;">https://jornadaautomocion.monlau.com/reset-password/42f1dfd04b6f80bd3623ae6c08af0ef56046878bad6ed018253178ac28cdc98a?email=luciaferisl%40campus.monlau.com</a></span></p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; margin: 0 auto; padding: 0; text-align: center; width: 570px;">
+<tr>
+<td class="content-cell" align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; color: #b0adc5; font-size: 12px; text-align: center;">© 2026 Jornada automoción. All rights reserved.</p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+--0hW47hs3--
+  
+[2026-05-12 07:33:38] production.DEBUG: From: Jornada =?utf-8?Q?automoci=C3=B3n?= <hello@example.com>
+To: luciaferisl@campus.monlau.com
+Subject: Reset Password Notification
+MIME-Version: 1.0
+Date: Tue, 12 May 2026 07:33:38 +0000
+Message-ID: <f97069ac760d868fc1c6535bf413764f@example.com>
+Content-Type: multipart/alternative; boundary=0ZbKQFM8
+
+--0ZbKQFM8
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Jornada automoción: https://jornadaautomocion.monlau.com
+
+# Hello!
+
+You are receiving this email because we received a password reset request for your account.
+
+Reset Password: https://jornadaautomocion.monlau.com/reset-password/f988a3c239023aa74f707f7ecced5b9b33bd39f24b080c59227b54627142acf0?email=luciaferisl%40campus.monlau.com
+
+This password reset link will expire in 60 minutes.
+
+If you did not request a password reset, no further action is required.
+
+Regards,
+Jornada automoción
+
+If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
+into your web browser: [https://jornadaautomocion.monlau.com/reset-password/f988a3c239023aa74f707f7ecced5b9b33bd39f24b080c59227b54627142acf0?email=luciaferisl%40campus.monlau.com](https://jornadaautomocion.monlau.com/reset-password/f988a3c239023aa74f707f7ecced5b9b33bd39f24b080c59227b54627142acf0?email=luciaferisl%40campus.monlau.com)
+
+© 2026 Jornada automoción. All rights reserved.
+
+--0ZbKQFM8
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Jornada automoción</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<style>
+@media only screen and (max-width: 600px) {
+.inner-body {
+width: 100% !important;
+}
+
+.footer {
+width: 100% !important;
+}
+}
+
+@media only screen and (max-width: 500px) {
+.button {
+width: 100% !important;
+}
+}
+</style>
+
+</head>
+<body style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #718096; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">
+
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td class="header" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text-align: center;">
+<a href="https://jornadaautomocion.monlau.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 19px; font-weight: bold; text-decoration: none; display: inline-block;">
+Jornada automoción
+</a>
+</td>
+</tr>
+
+<!-- Email Body -->
+<tr>
+<td class="body" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; border-bottom: 1px solid #edf2f7; border-top: 1px solid #edf2f7; margin: 0; padding: 0; width: 100%; border: hidden !important;">
+<table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; background-color: #ffffff; border-color: #e8e5ef; border-radius: 2px; border-width: 1px; box-shadow: 0 2px 0 rgba(0, 0, 150, 0.025), 2px 4px 0 rgba(0, 0, 150, 0.015); margin: 0 auto; padding: 0; width: 570px;">
+<!-- Body content -->
+<tr>
+<td class="content-cell" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<h1 style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 18px; font-weight: bold; margin-top: 0; text-align: left;">Hello!</h1>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">You are receiving this email because we received a password reset request for your account.</p>
+<table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%; float: unset;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<a href="https://jornadaautomocion.monlau.com/reset-password/f988a3c239023aa74f707f7ecced5b9b33bd39f24b080c59227b54627142acf0?email=luciaferisl%40campus.monlau.com" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748; border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748; border-right: 18px solid #2d3748; border-top: 8px solid #2d3748; word-break: break-all;">Reset Password</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">This password reset link will expire in 60 minutes.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">If you did not request a password reset, no further action is required.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Regards,<br>
+Jornada automoción</p>
+
+
+<table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; border-top: 1px solid #e8e5ef; margin-top: 25px; padding-top: 25px;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 14px;">If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
+into your web browser: <span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; word-break: break-all;"><a href="https://jornadaautomocion.monlau.com/reset-password/f988a3c239023aa74f707f7ecced5b9b33bd39f24b080c59227b54627142acf0?email=luciaferisl%40campus.monlau.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3869d4; word-break: break-all;">https://jornadaautomocion.monlau.com/reset-password/f988a3c239023aa74f707f7ecced5b9b33bd39f24b080c59227b54627142acf0?email=luciaferisl%40campus.monlau.com</a></span></p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; margin: 0 auto; padding: 0; text-align: center; width: 570px;">
+<tr>
+<td class="content-cell" align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; color: #b0adc5; font-size: 12px; text-align: center;">© 2026 Jornada automoción. All rights reserved.</p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+--0ZbKQFM8--
+  
+[2026-05-12 07:44:44] production.ERROR: Missing required parameter for [Route: projects.show] [URI: projects/{project}] [Missing parameter: project]. (View: /var/www/jornada-automocion-api/resources/views/students/show.blade.php) {"userId":1,"exception":"[object] (Illuminate\\View\\ViewException(code: 0): Missing required parameter for [Route: projects.show] [URI: projects/{project}] [Missing parameter: project]. (View: /var/www/jornada-automocion-api/resources/views/students/show.blade.php) at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Exceptions/UrlGenerationException.php:35)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(58): Illuminate\\View\\Engines\\CompilerEngine->handleViewException()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(60): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->handleViewException()
+#2 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(22): Illuminate\\View\\Engines\\PhpEngine->evaluatePath()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(75): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->evaluatePath()
+#4 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(10): Illuminate\\View\\Engines\\CompilerEngine->get()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(209): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->get()
+#6 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(192): Illuminate\\View\\View->getContents()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(161): Illuminate\\View\\View->renderContents()
+#8 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(79): Illuminate\\View\\View->render()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(920): Illuminate\\Http\\Response->__construct()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(887): Illuminate\\Routing\\Router::toResponse()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Routing\\Router->prepareResponse()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#14 /var/www/jornada-automocion-api/app/Http/Middleware/CheckUserStatus.php(17): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): App\\Http\\Middleware\\CheckUserStatus->handle()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Session\\Middleware\\StartSession->handle()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#38 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#45 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#46 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#47 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#48 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#49 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#50 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#51 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#52 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#53 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#54 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#55 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#56 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#57 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#58 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#59 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#60 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#61 {main}
+
+[previous exception] [object] (Illuminate\\Routing\\Exceptions\\UrlGenerationException(code: 0): Missing required parameter for [Route: projects.show] [URI: projects/{project}] [Missing parameter: project]. at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Exceptions/UrlGenerationException.php:35)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/RouteUrlGenerator.php(90): Illuminate\\Routing\\Exceptions\\UrlGenerationException::forMissingParameters()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php(544): Illuminate\\Routing\\RouteUrlGenerator->to()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php(509): Illuminate\\Routing\\UrlGenerator->toRoute()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(853): Illuminate\\Routing\\UrlGenerator->route()
+#4 /var/www/jornada-automocion-api/storage/framework/views/711cdeebaed72fdfe76d0a8f5d16ac34.php(112): route()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(123): require('...')
+#6 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
+#8 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(22): Illuminate\\View\\Engines\\PhpEngine->evaluatePath()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(75): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->evaluatePath()
+#10 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(10): Illuminate\\View\\Engines\\CompilerEngine->get()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(209): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->get()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(192): Illuminate\\View\\View->getContents()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(161): Illuminate\\View\\View->renderContents()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(79): Illuminate\\View\\View->render()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(920): Illuminate\\Http\\Response->__construct()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(887): Illuminate\\Routing\\Router::toResponse()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Routing\\Router->prepareResponse()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#20 /var/www/jornada-automocion-api/app/Http/Middleware/CheckUserStatus.php(17): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): App\\Http\\Middleware\\CheckUserStatus->handle()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Session\\Middleware\\StartSession->handle()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#44 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#45 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#46 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#47 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#48 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#49 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#50 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#51 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#52 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#53 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#54 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#55 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#56 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#57 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#58 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#59 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#60 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#61 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#62 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#63 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#64 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#65 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#66 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#67 {main}
+"} 
+[2026-05-12 08:06:07] production.ERROR: Missing required parameter for [Route: projects.show] [URI: projects/{project}] [Missing parameter: project]. (View: /var/www/jornada-automocion-api/resources/views/students/show.blade.php) {"userId":1,"exception":"[object] (Illuminate\\View\\ViewException(code: 0): Missing required parameter for [Route: projects.show] [URI: projects/{project}] [Missing parameter: project]. (View: /var/www/jornada-automocion-api/resources/views/students/show.blade.php) at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Exceptions/UrlGenerationException.php:35)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(58): Illuminate\\View\\Engines\\CompilerEngine->handleViewException()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(60): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->handleViewException()
+#2 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(22): Illuminate\\View\\Engines\\PhpEngine->evaluatePath()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(75): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->evaluatePath()
+#4 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(10): Illuminate\\View\\Engines\\CompilerEngine->get()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(209): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->get()
+#6 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(192): Illuminate\\View\\View->getContents()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(161): Illuminate\\View\\View->renderContents()
+#8 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(79): Illuminate\\View\\View->render()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(920): Illuminate\\Http\\Response->__construct()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(887): Illuminate\\Routing\\Router::toResponse()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Routing\\Router->prepareResponse()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#14 /var/www/jornada-automocion-api/app/Http/Middleware/CheckUserStatus.php(17): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): App\\Http\\Middleware\\CheckUserStatus->handle()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Session\\Middleware\\StartSession->handle()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#38 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#45 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#46 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#47 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#48 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#49 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#50 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#51 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#52 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#53 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#54 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#55 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#56 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#57 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#58 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#59 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#60 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#61 {main}
+
+[previous exception] [object] (Illuminate\\Routing\\Exceptions\\UrlGenerationException(code: 0): Missing required parameter for [Route: projects.show] [URI: projects/{project}] [Missing parameter: project]. at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Exceptions/UrlGenerationException.php:35)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/RouteUrlGenerator.php(90): Illuminate\\Routing\\Exceptions\\UrlGenerationException::forMissingParameters()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php(544): Illuminate\\Routing\\RouteUrlGenerator->to()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php(509): Illuminate\\Routing\\UrlGenerator->toRoute()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(853): Illuminate\\Routing\\UrlGenerator->route()
+#4 /var/www/jornada-automocion-api/storage/framework/views/711cdeebaed72fdfe76d0a8f5d16ac34.php(112): route()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(123): require('...')
+#6 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
+#8 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(22): Illuminate\\View\\Engines\\PhpEngine->evaluatePath()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(75): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->evaluatePath()
+#10 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(10): Illuminate\\View\\Engines\\CompilerEngine->get()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(209): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->get()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(192): Illuminate\\View\\View->getContents()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(161): Illuminate\\View\\View->renderContents()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(79): Illuminate\\View\\View->render()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(920): Illuminate\\Http\\Response->__construct()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(887): Illuminate\\Routing\\Router::toResponse()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Routing\\Router->prepareResponse()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#20 /var/www/jornada-automocion-api/app/Http/Middleware/CheckUserStatus.php(17): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): App\\Http\\Middleware\\CheckUserStatus->handle()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Session\\Middleware\\StartSession->handle()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#44 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#45 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#46 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#47 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#48 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#49 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#50 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#51 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#52 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#53 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#54 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#55 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#56 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#57 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#58 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#59 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#60 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#61 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#62 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#63 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#64 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#65 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#66 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#67 {main}
+"} 
+[2026-05-12 08:07:05] production.ERROR: Missing required parameter for [Route: projects.show] [URI: projects/{project}] [Missing parameter: project]. (View: /var/www/jornada-automocion-api/resources/views/students/show.blade.php) {"userId":1,"exception":"[object] (Illuminate\\View\\ViewException(code: 0): Missing required parameter for [Route: projects.show] [URI: projects/{project}] [Missing parameter: project]. (View: /var/www/jornada-automocion-api/resources/views/students/show.blade.php) at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Exceptions/UrlGenerationException.php:35)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(58): Illuminate\\View\\Engines\\CompilerEngine->handleViewException()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(60): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->handleViewException()
+#2 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(22): Illuminate\\View\\Engines\\PhpEngine->evaluatePath()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(75): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->evaluatePath()
+#4 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(10): Illuminate\\View\\Engines\\CompilerEngine->get()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(209): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->get()
+#6 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(192): Illuminate\\View\\View->getContents()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(161): Illuminate\\View\\View->renderContents()
+#8 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(79): Illuminate\\View\\View->render()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(920): Illuminate\\Http\\Response->__construct()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(887): Illuminate\\Routing\\Router::toResponse()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Routing\\Router->prepareResponse()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#14 /var/www/jornada-automocion-api/app/Http/Middleware/CheckUserStatus.php(17): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): App\\Http\\Middleware\\CheckUserStatus->handle()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Session\\Middleware\\StartSession->handle()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#38 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#44 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#45 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#46 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#47 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#48 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#49 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#50 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#51 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#52 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#53 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#54 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#55 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#56 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#57 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#58 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#59 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#60 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#61 {main}
+
+[previous exception] [object] (Illuminate\\Routing\\Exceptions\\UrlGenerationException(code: 0): Missing required parameter for [Route: projects.show] [URI: projects/{project}] [Missing parameter: project]. at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Exceptions/UrlGenerationException.php:35)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/RouteUrlGenerator.php(90): Illuminate\\Routing\\Exceptions\\UrlGenerationException::forMissingParameters()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php(544): Illuminate\\Routing\\RouteUrlGenerator->to()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/UrlGenerator.php(509): Illuminate\\Routing\\UrlGenerator->toRoute()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php(853): Illuminate\\Routing\\UrlGenerator->route()
+#4 /var/www/jornada-automocion-api/storage/framework/views/711cdeebaed72fdfe76d0a8f5d16ac34.php(112): route()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(123): require('...')
+#6 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Filesystem/Filesystem.php(124): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire()
+#8 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(22): Illuminate\\View\\Engines\\PhpEngine->evaluatePath()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Engines/CompilerEngine.php(75): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->evaluatePath()
+#10 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Mechanisms/ExtendBlade/ExtendedCompilerEngine.php(10): Illuminate\\View\\Engines\\CompilerEngine->get()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(209): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->get()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(192): Illuminate\\View\\View->getContents()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/View.php(161): Illuminate\\View\\View->renderContents()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(79): Illuminate\\View\\View->render()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Response.php(35): Illuminate\\Http\\Response->setContent()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(920): Illuminate\\Http\\Response->__construct()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(887): Illuminate\\Routing\\Router::toResponse()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Routing\\Router->prepareResponse()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#20 /var/www/jornada-automocion-api/app/Http/Middleware/CheckUserStatus.php(17): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): App\\Http\\Middleware\\CheckUserStatus->handle()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php(64): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Auth\\Middleware\\Authenticate->handle()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/View/Middleware/ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Session\\Middleware\\StartSession->handle()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Cookie/Middleware/EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#44 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#45 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#46 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#47 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#48 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#49 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#50 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#51 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#52 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#53 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#54 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#55 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#56 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#57 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#58 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#59 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#60 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#61 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#62 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#63 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#64 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#65 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#66 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#67 {main}
+"} 
+[2026-05-12 14:49:30] production.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'order clause' (Connection: mysql, SQL: select `projects`.`idProject`, `abstract`, `moodleURL`, `pdfURL`, `photoName`, `specialization`, `title`, `ubicationName`, `videoURL`, `teams`.`logo`, `curso` from `projects` inner join `specializations` on `specializations`.`idSpecialization` = `projects`.`idSpecialization` inner join `ubications` on `ubications`.`idUbication` = `projects`.`idUbication` left join `teams` on `teams`.`teamName` = `projects`.`title` where `projects`.`idSpecialization` = 5 order by `password` asc limit 3 offset 0) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'order clause' (Connection: mysql, SQL: select `projects`.`idProject`, `abstract`, `moodleURL`, `pdfURL`, `photoName`, `specialization`, `title`, `ubicationName`, `videoURL`, `teams`.`logo`, `curso` from `projects` inner join `specializations` on `specializations`.`idSpecialization` = `projects`.`idSpecialization` inner join `ubications` on `ubications`.`idUbication` = `projects`.`idUbication` left join `teams` on `teams`.`teamName` = `projects`.`title` where `projects`.`idSpecialization` = 5 order by `password` asc limit 3 offset 0) at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php:825)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3106): Illuminate\\Database\\Connection->select()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(156): Illuminate\\Database\\Query\\Builder->get()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(47): App\\Http\\Controllers\\Apicontroller->dynamictestings()
+#8 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\Route->runController()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(808): Illuminate\\Routing\\Route->run()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#21 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#43 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#44 {main}
+
+[previous exception] [object] (PDOException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'order clause' at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php:407)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(407): PDO->prepare()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#4 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3106): Illuminate\\Database\\Connection->select()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#6 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#8 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(156): Illuminate\\Database\\Query\\Builder->get()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(47): App\\Http\\Controllers\\Apicontroller->dynamictestings()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\Route->runController()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(808): Illuminate\\Routing\\Route->run()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#23 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#44 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#45 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#46 {main}
+"} 
+[2026-05-12 14:49:41] production.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column '(SELECT email FROM users LIMIT 1)' in 'order clause' (Connection: mysql, SQL: select `projects`.`idProject`, `abstract`, `moodleURL`, `pdfURL`, `photoName`, `specialization`, `title`, `ubicationName`, `videoURL`, `teams`.`logo`, `curso` from `projects` inner join `specializations` on `specializations`.`idSpecialization` = `projects`.`idSpecialization` inner join `ubications` on `ubications`.`idUbication` = `projects`.`idUbication` left join `teams` on `teams`.`teamName` = `projects`.`title` where `projects`.`idSpecialization` = 5 order by `(SELECT email FROM users LIMIT 1)` asc limit 3 offset 0) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column '(SELECT email FROM users LIMIT 1)' in 'order clause' (Connection: mysql, SQL: select `projects`.`idProject`, `abstract`, `moodleURL`, `pdfURL`, `photoName`, `specialization`, `title`, `ubicationName`, `videoURL`, `teams`.`logo`, `curso` from `projects` inner join `specializations` on `specializations`.`idSpecialization` = `projects`.`idSpecialization` inner join `ubications` on `ubications`.`idUbication` = `projects`.`idUbication` left join `teams` on `teams`.`teamName` = `projects`.`title` where `projects`.`idSpecialization` = 5 order by `(SELECT email FROM users LIMIT 1)` asc limit 3 offset 0) at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php:825)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3106): Illuminate\\Database\\Connection->select()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(156): Illuminate\\Database\\Query\\Builder->get()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(47): App\\Http\\Controllers\\Apicontroller->dynamictestings()
+#8 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\Route->runController()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(808): Illuminate\\Routing\\Route->run()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#21 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#43 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#44 {main}
+
+[previous exception] [object] (PDOException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column '(SELECT email FROM users LIMIT 1)' in 'order clause' at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php:407)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(407): PDO->prepare()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#4 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3106): Illuminate\\Database\\Connection->select()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#6 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#8 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(156): Illuminate\\Database\\Query\\Builder->get()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(47): App\\Http\\Controllers\\Apicontroller->dynamictestings()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\Route->runController()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(808): Illuminate\\Routing\\Route->run()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#23 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#44 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#45 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#46 {main}
+"} 
+[2026-05-12 14:49:51] production.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'order clause' (Connection: mysql, SQL: select * from `companies` order by `password` asc limit 3 offset 0) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'order clause' (Connection: mysql, SQL: select * from `companies` order by `password` asc limit 3 offset 0) at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php:825)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3106): Illuminate\\Database\\Connection->select()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(65): Illuminate\\Database\\Query\\Builder->get()
+#7 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(100): App\\Http\\Controllers\\Apicontroller->paginate()
+#8 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(47): App\\Http\\Controllers\\Apicontroller->companies()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\Route->runController()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(808): Illuminate\\Routing\\Route->run()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#22 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#45 {main}
+
+[previous exception] [object] (PDOException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'order clause' at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php:407)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(407): PDO->prepare()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#4 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3106): Illuminate\\Database\\Connection->select()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#6 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#8 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(65): Illuminate\\Database\\Query\\Builder->get()
+#9 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(100): App\\Http\\Controllers\\Apicontroller->paginate()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(47): App\\Http\\Controllers\\Apicontroller->companies()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\Route->runController()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(808): Illuminate\\Routing\\Route->run()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#24 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#44 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#45 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#46 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#47 {main}
+"} 
+[2026-05-12 14:50:00] production.ERROR: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'order clause' (Connection: mysql, SQL: select * from `presentations` order by `password` asc limit 3 offset 0) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'order clause' (Connection: mysql, SQL: select * from `presentations` order by `password` asc limit 3 offset 0) at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php:825)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3106): Illuminate\\Database\\Connection->select()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#4 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#6 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(65): Illuminate\\Database\\Query\\Builder->get()
+#7 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(119): App\\Http\\Controllers\\Apicontroller->paginate()
+#8 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(47): App\\Http\\Controllers\\Apicontroller->presentations()
+#9 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\Route->runController()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(808): Illuminate\\Routing\\Route->run()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#22 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#24 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#44 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#45 {main}
+
+[previous exception] [object] (PDOException(code: 42S22): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'password' in 'order clause' at /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php:407)
+[stacktrace]
+#0 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(407): PDO->prepare()
+#1 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}()
+#2 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback()
+#3 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Connection.php(398): Illuminate\\Database\\Connection->run()
+#4 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3106): Illuminate\\Database\\Connection->select()
+#5 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3091): Illuminate\\Database\\Query\\Builder->runSelect()
+#6 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3676): Illuminate\\Database\\Query\\Builder->Illuminate\\Database\\Query\\{closure}()
+#7 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(3090): Illuminate\\Database\\Query\\Builder->onceWithColumns()
+#8 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(65): Illuminate\\Database\\Query\\Builder->get()
+#9 /var/www/jornada-automocion-api/app/Http/Controllers/Apicontroller.php(119): App\\Http\\Controllers\\Apicontroller->paginate()
+#10 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php(47): App\\Http\\Controllers\\Apicontroller->presentations()
+#11 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(266): Illuminate\\Routing\\ControllerDispatcher->dispatch()
+#12 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Route.php(212): Illuminate\\Routing\\Route->runController()
+#13 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(808): Illuminate\\Routing\\Route->run()
+#14 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}()
+#15 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#16 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle()
+#17 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#18 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(807): Illuminate\\Pipeline\\Pipeline->then()
+#19 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack()
+#20 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(750): Illuminate\\Routing\\Router->runRoute()
+#21 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Routing/Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute()
+#22 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(201): Illuminate\\Routing\\Router->dispatch()
+#23 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}()
+#24 /var/www/jornada-automocion-api/vendor/livewire/livewire/src/Features/SupportDisablingBackButtonCache/DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#25 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle()
+#26 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#27 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#28 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle()
+#29 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#30 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle()
+#31 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle()
+#32 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#33 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle()
+#34 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#35 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle()
+#36 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php(62): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#37 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle()
+#38 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#39 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle()
+#40 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#41 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle()
+#42 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}()
+#43 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then()
+#44 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter()
+#45 /var/www/jornada-automocion-api/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle()
+#46 /var/www/jornada-automocion-api/public/index.php(17): Illuminate\\Foundation\\Application->handleRequest()
+#47 {main}
+"} 
+[2026-05-12 17:12:08] production.DEBUG: From: Jornada =?utf-8?Q?automoci=C3=B3n?= <hello@example.com>
+To: ericgirsan@campus.monlau.com
+Subject: Reset Password Notification
+MIME-Version: 1.0
+Date: Tue, 12 May 2026 17:12:08 +0000
+Message-ID: <8c2c69aa26ce72ecf76926d172e43a87@example.com>
+Content-Type: multipart/alternative; boundary=eKcaVv38
+
+--eKcaVv38
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Jornada automoción: https://jornadaautomocion.monlau.com
+
+# Hello!
+
+You are receiving this email because we received a password reset request for your account.
+
+Reset Password: https://jornadaautomocion.monlau.com/reset-password/af32acd9d9ee052017870acd31abf084f78061cdfe2e53a23e227f295c076fd1?email=ericgirsan%40campus.monlau.com
+
+This password reset link will expire in 60 minutes.
+
+If you did not request a password reset, no further action is required.
+
+Regards,
+Jornada automoción
+
+If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
+into your web browser: [https://jornadaautomocion.monlau.com/reset-password/af32acd9d9ee052017870acd31abf084f78061cdfe2e53a23e227f295c076fd1?email=ericgirsan%40campus.monlau.com](https://jornadaautomocion.monlau.com/reset-password/af32acd9d9ee052017870acd31abf084f78061cdfe2e53a23e227f295c076fd1?email=ericgirsan%40campus.monlau.com)
+
+© 2026 Jornada automoción. All rights reserved.
+
+--eKcaVv38
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Jornada automoción</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="supported-color-schemes" content="light">
+<style>
+@media only screen and (max-width: 600px) {
+.inner-body {
+width: 100% !important;
+}
+
+.footer {
+width: 100% !important;
+}
+}
+
+@media only screen and (max-width: 500px) {
+.button {
+width: 100% !important;
+}
+}
+</style>
+
+</head>
+<body style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; background-color: #ffffff; color: #718096; height: 100%; line-height: 1.4; margin: 0; padding: 0; width: 100% !important;">
+
+<table class="wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 0; padding: 0; width: 100%;">
+<tr>
+<td class="header" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; padding: 25px 0; text-align: center;">
+<a href="https://jornadaautomocion.monlau.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 19px; font-weight: bold; text-decoration: none; display: inline-block;">
+Jornada automoción
+</a>
+</td>
+</tr>
+
+<!-- Email Body -->
+<tr>
+<td class="body" width="100%" cellpadding="0" cellspacing="0" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; background-color: #edf2f7; border-bottom: 1px solid #edf2f7; border-top: 1px solid #edf2f7; margin: 0; padding: 0; width: 100%; border: hidden !important;">
+<table class="inner-body" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; background-color: #ffffff; border-color: #e8e5ef; border-radius: 2px; border-width: 1px; box-shadow: 0 2px 0 rgba(0, 0, 150, 0.025), 2px 4px 0 rgba(0, 0, 150, 0.015); margin: 0 auto; padding: 0; width: 570px;">
+<!-- Body content -->
+<tr>
+<td class="content-cell" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<h1 style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 18px; font-weight: bold; margin-top: 0; text-align: left;">Hello!</h1>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">You are receiving this email because we received a password reset request for your account.</p>
+<table class="action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%; float: unset;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<a href="https://jornadaautomocion.monlau.com/reset-password/af32acd9d9ee052017870acd31abf084f78061cdfe2e53a23e227f295c076fd1?email=ericgirsan%40campus.monlau.com" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748; border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748; border-right: 18px solid #2d3748; border-top: 8px solid #2d3748; word-break: break-all;">Reset Password</a>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">This password reset link will expire in 60 minutes.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">If you did not request a password reset, no further action is required.</p>
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">Regards,<br>
+Jornada automoción</p>
+
+
+<table class="subcopy" width="100%" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; border-top: 1px solid #e8e5ef; margin-top: 25px; padding-top: 25px;">
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 14px;">If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
+into your web browser: <span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; word-break: break-all;"><a href="https://jornadaautomocion.monlau.com/reset-password/af32acd9d9ee052017870acd31abf084f78061cdfe2e53a23e227f295c076fd1?email=ericgirsan%40campus.monlau.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3869d4; word-break: break-all;">https://jornadaautomocion.monlau.com/reset-password/af32acd9d9ee052017870acd31abf084f78061cdfe2e53a23e227f295c076fd1?email=ericgirsan%40campus.monlau.com</a></span></p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+
+<tr>
+<td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+<table class="footer" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 570px; margin: 0 auto; padding: 0; text-align: center; width: 570px;">
+<tr>
+<td class="content-cell" align="center" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; max-width: 100vw; padding: 32px;">
+<p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; color: #b0adc5; font-size: 12px; text-align: center;">© 2026 Jornada automoción. All rights reserved.</p>
+
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+--eKcaVv38--
+  
