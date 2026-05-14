@@ -109,9 +109,9 @@
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 flex flex-col">
             <div class="relative h-48 w-full">
                 <img class="w-full h-full object-cover" 
-                    src="{{ $project->photoName ? asset('storage/photos/' . $project->photoName) : asset('images/logoMonlau2026(2).png') }}" 
+                    src="{{ ($project->photoName && $project->photoName !== 'por_defecto/proyecto_default.png') ? asset('storage/photos/' . $project->photoName) : asset('images/JornadaProyectos.jpg') }}" 
                     alt="{{ $project->title }}"
-                    onerror="this.onerror=null; this.src='{{ asset('images/logoMonlau2026(2).png') }}';">
+                    onerror="this.onerror=null; this.src='{{ asset('images/JornadaProyectos.jpg') }}';">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
             </div>
 

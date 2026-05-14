@@ -68,8 +68,6 @@
         .img-box {
             width: 100%;
             height: 140px; 
-            border-radius: 6px;
-            border: 1px solid #f3f4f6;
             background-color: #ffffff;
             overflow: hidden;
             text-align: center;

@@ -180,6 +180,9 @@ class ProjectController extends Controller
                 $logo = $team->logo;
             }
         }
+        
+        $project->embed_video_url = $this->parseVideoUrl($project->videoURL);
+
         // Pasar la información a la vista
         return view('projects.show', compact('project', 'logo'));
     }
@@ -586,7 +589,7 @@ class ProjectController extends Controller
             \Storage::disk('public')->delete('photos/' . $project->photoName);
         }
 
-        $project->photoName = 'por_defecto/proyecto_default.png';
+        $project->photoName = null;
         $project->save();
 
         return redirect()->back()->with('success', 'Foto eliminada. Se ha restaurado la imagen por defecto.');

@@ -132,7 +132,7 @@
                     <input type="file" id="photoName" name="photoName"
                         class="p-3 w-full rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">
 
-                    @if ($project->photoName && $project->photoName !== 'por_defecto/proyecto_default.png')
+                    @if ($project->photoName)
                         <button type="button"
                             onclick="if(confirm('¿Quieres eliminar esta foto y restaurar la imagen por defecto?')) document.getElementById('delete-main-photo-form').submit();"
                             class="bg-blue-50 text-blue-600 hover:bg-blue-600 hover:text-white p-3 rounded-lg border border-blue-200 transition flex items-center justify-center"
@@ -162,8 +162,9 @@
 
             <div class="mb-4">
                 <label for="videoURL" class="block text-gray-700 font-semibold mb-2">Vídeo URL</label>
-                <input type="text" name="videoURL" id="videoURL" value="{{ old('videoURL', $project->videoURL) }}"
-                    class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
+                <input type="url" name="videoURL" id="videoURL" value="{{ old('videoURL', $project->videoURL) }}"
+                    class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
+                    placeholder="Introduce tu video">
                 @error('videoURL')
                     <span class="text-red-500 text-sm">{{ $message }}</span>
                 @enderror

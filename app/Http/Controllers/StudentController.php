@@ -269,7 +269,13 @@ class StudentController extends Controller
         $project = $student->project; // Obtener el proyecto del estudiante
 
         if (!$project) {
-            return redirect()->back()->with('error', 'No tienes un proyecto asignado.');
+            return view('students.myProject', [
+                'project' => null, 
+                'projectIncomplete' => false,
+                'specializations' => [],
+                'projectTypes' => [],
+                'ubications' => []
+            ]);
         }
 
         // Verificar si algún campo del proyecto está vacío o nulo

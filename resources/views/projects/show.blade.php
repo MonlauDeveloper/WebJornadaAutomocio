@@ -1,104 +1,126 @@
 @extends('layouts.app')
 
 @section('content')
-    <link rel="stylesheet" href="{{ public_path('build/assets/app-Cvpg7NpT.css') }}">
-    <div class="container mx-auto p-6">
-        <div class="bg-white p-6 rounded-lg shadow-xl text-center border border-gray-100">
-            <div class="flex items-center justify-center gap-4">
-                <h1 class="text-5xl font-extrabold text-slate-800 tracking-tight">{{ $project->title }}</h1>
+    <div class="container mx-auto p-4 sm:p-6">
+        <!-- Tarjeta Principal -->
+        <div class="bg-white p-4 sm:p-8 rounded-2xl shadow-xl text-center border border-gray-100">
+            
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-800 tracking-tight leading-tight">
+                {{ $project->title }}
+            </h1>
+
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mt-4 text-slate-500 text-sm sm:text-lg">
+                <p><strong class="text-slate-700">Categoría: </strong>{{ $project->specialization->specialization ?? 'N/A' }}</p>
+                <p><strong class="text-slate-700">Ubicación: </strong>{{ $project->ubication->ubicationName ?? 'N/A' }}</p>
+                <p><strong class="text-slate-700">Tribunal: </strong>{{ $project->numTribunal }}</p>
+            </div>
+            
+            <!-- Imagen Principal -->
+            <div class="mt-8 flex justify-center">
+                <div class="max-w-full sm:max-w-md lg:max-w-lg"> 
+                    <img class="w-full h-auto max-h-64 sm:max-h-96 object-contain rounded-2xl shadow-lg border border-gray-100"
+                        src="{{ ($project->photoName && $project->photoName !== 'por_defecto/proyecto_default.png') ? asset('storage/photos/' . $project->photoName) : asset('images/JornadaProyectos.jpg') }}" 
+                        alt="{{ $project->title }}">
+                </div>
             </div>
 
-            <p class="text-slate-500 mt-4 text-lg">
-                <strong class="text-slate-700">Categoría: </strong>{{ $project->specialization ? $project->specialization->specialization : '' }}
-            </p>
-            <p class="text-slate-500 mt-2 text-lg">
-                <strong class="text-slate-700">Ubicación: </strong>{{ $project->ubication ? $project->ubication->ubicationName : '' }},
-                <strong class="text-slate-700">Tribunal: </strong>{{ $project->numTribunal }}
-            </p>
-            
-            <img class="max-h-80 w-auto object-contain rounded-xl mt-6 mx-auto shadow-md border border-gray-200"
-                src="{{ asset('storage/photos/' . $project->photoName) }}" alt="{{ $project->title }}">
+            <!-- Resumen -->
+            <div class="mt-8 max-w-3xl mx-auto">
+                <p class="text-gray-600 text-base sm:text-lg leading-relaxed break-words italic">
+                    "{{ $project->abstract }}"
+                </p>
+            </div>
 
-            <p class="text-gray-600 mt-6 text-lg max-w-3xl mx-auto leading-relaxed break-words">{{ $project->abstract }}</p>
-
+            <!-- Sección de Vídeo -->
             <div class="w-full max-w-3xl mt-10 mx-auto">
-                <p class="font-bold text-xl text-slate-800 border-b-2 border-slate-50 pb-2">Vídeo de presentación</p>
+                <h3 class="font-bold text-xl text-slate-800 border-b border-slate-100 pb-3 mb-4">Vídeo de presentación</h3>
 
                 @if ($project->videoURL)
-                    <div class="aspect-video w-full rounded-xl overflow-hidden bg-slate-900 mt-4 shadow-lg">
+                    <div class="aspect-video w-full rounded-2xl overflow-hidden bg-slate-900 shadow-2xl">
                         <iframe class="w-full h-full" src="{{ $project->embed_video_url }}" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
                         </iframe>
                     </div>
                 @else
-                    <div class="bg-slate-50 rounded-lg p-8 mt-4 text-center border-2 border-dashed border-slate-200">
-                        <p class="text-slate-400 italic">Vídeo no disponible</p>
+                    <div class="bg-slate-50 rounded-2xl p-10 text-center border-2 border-dashed border-slate-200">
+                        <p class="text-slate-400 italic">Vídeo promocional no disponible</p>
                     </div>
                 @endif
             </div>
 
-            <div class="mt-8 flex flex-col items-center gap-4">
+            <!-- Botones de Enlace (Documentación / Moodle) -->
+            <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
                 @if ($project->idProject)
-                    <div class="flex items-center gap-2">
-                        <span class="font-semibold text-slate-700">Documentación:</span>
-                        <a href="{{ route('project.pdf', $project->idProject) }}"
-                            class="text-white bg-emerald-600 hover:bg-emerald-700 transition-colors py-2 px-6 rounded-full text-sm font-medium shadow-sm">
-                            Ver Ficha Técnica
-                        </a>
-                    </div>
+                    <a href="{{ route('project.pdf', $project->idProject) }}"
+                        class="w-full sm:w-auto text-white bg-emerald-600 hover:bg-emerald-700 transition-all py-3 px-8 rounded-full text-sm font-bold shadow-md hover:scale-105">
+                        Ver Ficha Técnica
+                    </a>
                 @endif
 
                 @if((auth()->user()->idRole === 1 || auth()->user()->idRole === 4) && $project->moodleURL)
-                    <div class="flex items-center gap-2">
-                        <span class="font-semibold text-slate-700">Moodle:</span>
-                        <a href="{{ $project->moodleURL }}"
-                            class="inline-block bg-indigo-600 text-white py-2 px-6 rounded-full text-sm font-medium hover:bg-indigo-700 transition shadow-sm">
-                            Acceder al curso
-                        </a>
-                    </div>
+                    <a href="{{ $project->moodleURL }}" target="_blank"
+                        class="w-full sm:w-auto bg-indigo-600 text-white py-3 px-8 rounded-full text-sm font-bold hover:bg-indigo-700 transition-all shadow-md hover:scale-105">
+                        Acceder al curso Moodle
+                    </a>
                 @endif
             </div>
         </div>
 
-        <div class="mt-8 bg-white p-6 rounded-lg shadow-lg border border-gray-100">
-            <h2 class="text-2xl font-bold text-slate-800 mb-6">Equipo del proyecto</h2>
+        <!-- Sección de Equipo -->
+        <div class="mt-8 bg-white p-6 rounded-2xl shadow-lg border border-gray-50">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-2">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                Equipo del proyecto
+            </h2>
 
             @if($project->students->isNotEmpty())
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     @foreach ($project->students as $student)
-                        <div class="flex items-center justify-between p-3 rounded-xl hover:bg-slate-50 transition border border-transparent hover:border-slate-100">
-                            <a href="{{ route('students.show', $student->idStudent) }}" class="flex items-center group">
-                                <img class="w-16 h-auto object-contain rounded-full shadow-sm mr-4 border-4 border-white bg-white"
-                                    src="{{ asset('storage/' . $student->photoName) }}" alt="{{ $student->name }}"
-                                    onerror="this.onerror=null; this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
-                                <div>
+                        <div class="p-4 rounded-2xl hover:bg-blue-50 transition-all border border-slate-100 hover:border-blue-200 group">
+                            <a href="{{ route('students.show', $student->idStudent) }}" class="flex items-center">
+                                <div class="relative">
+                                    <img class="w-16 h-16 object-cover rounded-full shadow-md border-2 border-white"
+                                         src="{{ asset('storage/' . $student->photoName) }}" 
+                                         alt="{{ $student->name }}"
+                                         onerror="this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                                    @if ($student->isTeamLeader)
+                                        <span class="absolute -top-1 -right-1 bg-amber-400 text-white p-1 rounded-full shadow-sm" title="Líder del Proyecto">
+                                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                                        </span>
+                                    @endif
+                                </div>
+                                <div class="ml-4">
                                     <p class="font-bold text-slate-700 group-hover:text-blue-600 transition-colors">
                                         {{ $student->name }} {{ $student->surname1 }} {{ $student->surname2 }}
                                     </p>
                                     @if ($student->isTeamLeader)
-                                        <span class="text-xs px-2 py-0.5 bg-amber-100 text-amber-700 rounded-full font-semibold italic">Líder del Proyecto</span>
+                                        <span class="text-[10px] uppercase tracking-wider font-extrabold text-amber-600">Líder</span>
+                                    @else
+                                        <span class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Integrante</span>
                                     @endif
                                 </div>
+                                <svg class="ml-auto w-5 h-5 text-slate-300 group-hover:text-blue-400 transition-all transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                             </a>
                         </div>
                     @endforeach
                 </div>
             @else
-                <p class="text-slate-400 italic">No hay estudiantes asignados a este proyecto.</p>
+                <p class="text-slate-400 italic py-4">No hay estudiantes asignados a este proyecto.</p>
             @endif
         </div>
 
-       <div class="mt-8 flex justify-center gap-4">
-    <a href="javascript:history.back()" class="text-gray-500 bg-gray-100 hover:bg-gray-200 py-2 px-8 rounded-lg transition font-medium">
-        Volver al listado
-    </a>
-    @if(auth()->user()->idRole === 1)
-        <a href="{{ route('projects.edit', $project->idProject) }}"
-            class="text-white bg-blue-600 hover:bg-blue-700 py-2 px-8 rounded-lg transition font-medium shadow-md">
-            Editar Proyecto
-        </a>
-    @endif
-</div>
+        <!-- Botones de Navegación Final -->
+        <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
+            <a href="javascript:history.back()" class="order-2 sm:order-1 text-gray-500 bg-white border border-gray-200 hover:bg-gray-50 py-3 px-10 rounded-xl transition font-bold text-center">
+                Volver al listado
+            </a>
+            @if(auth()->user()->idRole === 1)
+                <a href="{{ route('projects.edit', $project->idProject) }}"
+                    class="order-1 sm:order-2 text-white bg-blue-600 hover:bg-blue-700 py-3 px-10 rounded-xl transition font-bold shadow-lg hover:shadow-blue-200 text-center">
+                    Editar Proyecto
+                </a>
+            @endif
+        </div>
     </div>
 @endsection

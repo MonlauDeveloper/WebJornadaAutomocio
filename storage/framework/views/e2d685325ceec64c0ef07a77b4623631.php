@@ -233,7 +233,7 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
                     </button>
                 </form>
             </div>
-            <a href="<?php echo e(route('students.descargar', $student->idStudent)); ?>"
+            <a href="<?php echo e(route('students.descargar', $student->idStudent)); ?>?t=<?php echo e(time()); ?>" target="_blank"
                 class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition">Ver
                 Currículum</a>
 

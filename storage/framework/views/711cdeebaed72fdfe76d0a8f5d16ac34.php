@@ -105,22 +105,30 @@
             </div>
         </div>
     </div>
-    <div class="mt-6 text-center">
-        <a href="<?php echo e(route('students.descargar', $student->idStudent)); ?>" class="mr-2 ml-2 text-white bg-blue-600 hover:bg-blue-700 py-3 px-6 rounded-lg">
-            Ver Currículum
-        </a>
-        <a href="<?php echo e(route('projects.show', $student->idProject)); ?>" class="mr-2 ml-2 text-white bg-blue-600 hover:bg-blue-700 py-3 px-6 rounded-lg">
-            Ver Proyecto
-        </a>
-        <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->user()->idRole === 1): ?>
-        <a href="<?php echo e(route('students.edit', $student->idStudent)); ?>" class="mr-2 ml-2 text-white bg-yellow-800 hover:bg-yellow-900 py-3 px-6 rounded-lg">
-            Editar
-        </a>
-        <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-        <a href="javascript:history.back()" class="text-white bg-gray-600 hover:bg-gray-700 py-3 px-6 rounded-lg">
-            Volver Atrás
-        </a>
-    </div>
+    <div class="mt-8 flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+    <a href="<?php echo e(route('students.descargar', $student->idStudent)); ?>?t=<?php echo e(time()); ?>" 
+       target="_blank" 
+       class="text-center text-white bg-blue-600 hover:bg-blue-700 py-3 px-6 rounded-lg transition-colors">
+        Ver Currículum
+    </a>
+
+    <a href="<?php echo e(route('projects.show', $student->idProject)); ?>" 
+       class="text-center text-white bg-blue-600 hover:bg-blue-700 py-3 px-6 rounded-lg transition-colors">
+        Ver Proyecto
+    </a>
+
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if(auth()->user()->idRole === 1): ?>
+    <a href="<?php echo e(route('students.edit', $student->idStudent)); ?>" 
+       class="text-center text-white bg-yellow-800 hover:bg-yellow-900 py-3 px-6 rounded-lg transition-colors">
+        Editar
+    </a>
+    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+
+    <a href="javascript:history.back()" 
+       class="text-center text-white bg-gray-600 hover:bg-gray-700 py-3 px-6 rounded-lg transition-colors">
+        Volver Atrás
+    </a>
+</div>
 
 
 </div>

@@ -224,7 +224,7 @@
                     </button>
                 </form>
             </div>
-            <a href="{{ route('students.descargar', $student->idStudent) }}"
+            <a href="{{ route('students.descargar', $student->idStudent) }}?t={{ time() }}" target="_blank"
                 class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition">Ver
                 Currículum</a>
 
