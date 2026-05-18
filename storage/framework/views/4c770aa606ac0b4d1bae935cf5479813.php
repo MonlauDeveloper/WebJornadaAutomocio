@@ -71,7 +71,7 @@
                         Un evento único para aprender, conectar y crecer. Más de 800 alumnos presentarán sus proyectos finales, junto con ponencias y demostraciones del mundo de la automoción.
                     </p>
                     <p class="text-xs md:text-md text-gray-600 font-bold bg-blue-100 py-2 px-4 rounded-full inline-block">
-                        📅 Miércoles 27 de mayo | 📍 Nürburgreen Indoor
+                        📅 Miércoles 3 de junio | 📍 Nürburgreen Indoor
                     </p>
                 </section>
 

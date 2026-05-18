@@ -80,10 +80,12 @@
                         <div class="p-4 rounded-2xl hover:bg-blue-50 transition-all border border-slate-100 hover:border-blue-200 group">
                             <a href="{{ route('students.show', $student->idStudent) }}" class="flex items-center">
                                 <div class="relative">
-                                    <img class="w-16 h-16 object-cover rounded-full shadow-md border-2 border-white"
-                                         src="{{ asset('storage/' . $student->photoName) }}" 
-                                         alt="{{ $student->name }}"
-                                         onerror="this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                                    <div class="w-16 h-16 bg-white rounded-full shadow-md border-2 border-white overflow-hidden flex items-center justify-center">
+                                        <img class="w-full h-auto object-contain"
+                                             src="{{ asset('storage/' . $student->photoName) }}" 
+                                             alt="{{ $student->name }}"
+                                             onerror="this.src='https://jornadaautomocion.alumnes-monlau.com/storage/photos/por_defecto/user_default.png';">
+                                    </div>
                                     @if ($student->isTeamLeader)
                                         <span class="absolute -top-1 -right-1 bg-amber-400 text-white p-1 rounded-full shadow-sm" title="Líder del Proyecto">
                                             <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
@@ -97,7 +99,7 @@
                                     @if ($student->isTeamLeader)
                                         <span class="text-[10px] uppercase tracking-wider font-extrabold text-amber-600">Líder</span>
                                     @else
-                                        <span class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Integrante</span>
+                                        <span class="text-[10px] uppercase tracking-wider font-semibold text-slate-400">Participante</span>
                                     @endif
                                 </div>
                                 <svg class="ml-auto w-5 h-5 text-slate-300 group-hover:text-blue-400 transition-all transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>

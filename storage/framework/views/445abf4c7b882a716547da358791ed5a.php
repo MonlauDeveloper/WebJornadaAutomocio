@@ -14,7 +14,7 @@
                     </p>
 
                     <p class="text-sm md:text-md text-gray-600 font-medium italic">
-                        ¡Te esperamos el miércoles 27 de mayo en Nürburgreen Indoor!
+                        ¡Te esperamos el miércoles 3 de junio en Nürburgreen Indoor!
                     </p>
                 </section>
 

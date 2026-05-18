@@ -137,7 +137,7 @@ unset($__errorArgs, $__bag); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendB
                     <label for="videoURL" class="block text-gray-700 font-semibold mb-2">Vídeo URL</label>
                     <input type="url" name="videoURL" id="videoURL" value="<?php echo e(old('videoURL', $project->videoURL)); ?>"
                         class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-                        placeholder="https://www.youtube.com/watch?v=...">
+                        placeholder="Introduce tu vídeo">
                     <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__errorArgs = ['videoURL'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
