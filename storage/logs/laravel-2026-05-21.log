@@ -1,0 +1,7 @@
+[2026-05-21 12:19:25] production.ERROR: Error Login Microsoft: Client error: `POST https://login.microsoftonline.com/common/oauth2/v2.0/token` resulted in a `400 Bad Request` response:
+{"error":"invalid_grant","error_description":"AADSTS70008: The provided authorization code or refresh token has expired  (truncated...)
+  
+[2026-05-21 18:39:03] production.INFO: UPLOAD IMAGE REQUEST {"_token":"trPPG2xCzVK3rcDWhpxOYu8ZpRLEnoxQkDXGnLPj","_method":"PUT","title":"Project Phoenix Condor","abstract":null,"tipos":["1","2","8"],"videoURL":null,"new_image_fase":"header","action":"upload_image","conclusion":null,"photoName":{"Illuminate\\Http\\UploadedFile":"/tmp/phpD6hdsm"},"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpuRlCoz"}} 
+[2026-05-21 18:39:55] production.INFO: UPLOAD IMAGE REQUEST {"_token":"trPPG2xCzVK3rcDWhpxOYu8ZpRLEnoxQkDXGnLPj","_method":"PUT","title":"Project Phoenix Condor","abstract":"He demontat totes les peces amb delicadesa y sent pulit, diagnosticat tot el funcionament de la moto per a veure el necesari per restaurarla correctament,
+
+Tambe netejar tot per obserbar el estat de cada un del components. La moto esta demontada completamente ara queda buscar els components necesaris","videoURL":null,"new_image_fase":"initial","action":"upload_image","conclusion":null,"new_project_image":{"Illuminate\\Http\\UploadedFile":"/tmp/phpXB5lUX"}} 

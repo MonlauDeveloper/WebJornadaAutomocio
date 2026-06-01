@@ -25,21 +25,25 @@
             @csrf
             @method('PUT')
 
-            <!-- Nombre de la Empresa -->
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-600 font-bold text-blue-600">Usuario de acceso (Para Login sin @)</label>
+                <input type="text" name="username" id="username" value="{{ old('username', $user->username) }}"
+                       class="w-full px-4 py-2 border border-blue-300 bg-blue-50/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none font-semibold" required>
+                <small class="text-gray-400 text-xs block mt-1">Este es el alias corto que usará la empresa para entrar. El sistema quitará los espacios automáticamente al guardar.</small>
+            </div>
+
             <div>
                 <label for="companyName" class="block text-sm font-medium text-gray-600">Nombre de la Empresa</label>
                 <input type="text" name="companyName" id="companyName" value="{{ old('companyName', $user->company->companyName) }}"
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
             </div>
 
-            <!-- Página Web -->
             <div>
                 <label for="companyWeb" class="block text-sm font-medium text-gray-600">Página Web</label>
                 <input type="url" name="companyWeb" id="companyWeb" value="{{ old('companyWeb', $user->company->companyWeb) }}"
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
             </div>
 
-            <!-- Asistente -->
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label for="asistenteNombre" class="block text-sm font-medium text-gray-600">Nombre del Asistente</label>
@@ -53,7 +57,6 @@
                 </div>
             </div>
 
-            <!-- Contacto -->
             <div class="grid grid-cols-2 gap-4">
                 <div>
                     <label for="telefonoAsistente" class="block text-sm font-medium text-gray-600">Teléfono</label>
@@ -67,14 +70,12 @@
                 </div>
             </div>
 
-            <!-- Cargo -->
             <div>
                 <label for="cargoAsistente" class="block text-sm font-medium text-gray-600">Cargo</label>
                 <input type="text" name="cargoAsistente" id="cargoAsistente" value="{{ old('cargoAsistente', $user->company->cargoAsistente) }}"
                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
             </div>
 
-            <!-- Logo -->
             <div>
                 <label for="logo" class="block text-sm font-medium text-gray-600 mb-2">Logo de la Empresa</label>
                 <input type="file" name="logo" id="logo" 

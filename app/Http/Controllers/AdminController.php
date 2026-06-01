@@ -88,8 +88,9 @@ class AdminController extends Controller
     public function update(Request $request, $idUser)
     {
         $request->validate([
+            'username' => 'required|string|max:255', 
             'companyName' => 'required|string|max:255',
-        'companyWeb' => 'nullable|url|max:255',
+            'companyWeb' => 'nullable|url|max:255',
             'asistenteNombre' => 'required|string|max:255',
             'asistenteApellidos' => 'required|string|max:255',
             'telefonoAsistente' => 'required|string|max:15',
@@ -102,22 +103,17 @@ class AdminController extends Controller
         $company = $user->company;
     
         if ($request->hasFile('logo')) {
-            // 1. Cogemos el archivo
             $logo = $request->file('logo');
-
-            // 2. Le ponemos un nombre único
             $logoName = time() . '_' . $logo->getClientOriginalName();
-
-            // 3.Guardar el archivo original sin tocarlo
             $logo->storeAs('photos/logos_empresas', $logoName, 'public');
-
-            // 4. Guardar la ruta en la base de datos
             $company->logo_url = 'logos_empresas/' . $logoName;
         }
     
+        $cleanUsername = str_replace([' ', '-', '_', '&'], '', $request->username);
+
         $user->update([
-            'username' => $request->companyName,
-            'email' => $request->emailAsistente,
+            'username' => $cleanUsername,
+            'email' => $cleanUsername . '@empresa.com', // 🌟 Se actualiza el login híbrido automáticamente
         ]);
 
         $company->update([
@@ -231,11 +227,14 @@ class AdminController extends Controller
             'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
     
+        // Limpiamos espacios y guiones del nombre para el login
+        $cleanCompanyName = str_replace([' ', '-', '_', '&'], '', $request['companyName']);
+
         // Crear el usuario asociado a la empresa
         $user = User::create([
-            'username' => $request['companyName'],
-            'email' => $request['emailAsistente'],
-            'password' => Hash::make('Monlau2025'),
+            'username' => $cleanCompanyName,
+            'email' => $cleanCompanyName . '@empresa.com', 
+            'password' => Hash::make('Mnl2026'),
             'status' => 'approved',
             'idRole' => 5,
         ]);

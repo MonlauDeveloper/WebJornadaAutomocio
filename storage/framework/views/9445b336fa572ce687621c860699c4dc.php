@@ -28,23 +28,23 @@
                 </div>
             <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 
-            <form method="POST" action="<?php echo e(route('login')); ?>" class="space-y-4">
+            <form method="POST" action="<?php echo e(route('login')); ?>" onsubmit="comprobarUsuario()" class="space-y-4">
                 <?php echo csrf_field(); ?>
                 <h2 class="text-xl font-bold text-center text-gray-800">Iniciar sesión</h2>
 
                 <div class="space-y-3">
                     <div class="space-y-1">
-                        <label for="email" class="block text-xs font-semibold text-gray-600 ml-4">Email</label>
+                        <label for="email" class="block text-xs font-semibold text-gray-600 ml-4">Usuario / Email</label>
                         <?php if (isset($component)) { $__componentOriginalc2fcfa88dc54fee60e0757a7e0572df1 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginalc2fcfa88dc54fee60e0757a7e0572df1 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.input','data' => ['id' => 'email','class' => 'w-full px-4 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm','type' => 'email','name' => 'email','value' => old('email'),'placeholder' => 'Introduce tu email','required' => true,'autofocus' => true,'autocomplete' => 'username']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.input','data' => ['id' => 'email','class' => 'w-full px-4 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm','type' => 'text','name' => 'email','value' => old('email'),'placeholder' => 'Nombre de empresa o email','required' => true,'autofocus' => true,'autocomplete' => 'username']] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('input'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['id' => 'email','class' => 'w-full px-4 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm','type' => 'email','name' => 'email','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(old('email')),'placeholder' => 'Introduce tu email','required' => true,'autofocus' => true,'autocomplete' => 'username']); ?>
+<?php $component->withAttributes(['id' => 'email','class' => 'w-full px-4 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm','type' => 'text','name' => 'email','value' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute(old('email')),'placeholder' => 'Nombre de empresa o email','required' => true,'autofocus' => true,'autocomplete' => 'username']); ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
 <?php if (isset($__attributesOriginalc2fcfa88dc54fee60e0757a7e0572df1)): ?>
@@ -167,6 +167,18 @@
     </div>
 
     <script>
+        function comprobarUsuario() {
+    const inputUsuario = document.getElementById('email');
+    if (inputUsuario.value) {
+        let valor = inputUsuario.value.trim();
+        
+        if (!valor.includes('@')) {
+            valor = valor.replace(/[\s\-_&]/g, '');
+            inputUsuario.value = valor + '@empresa.com';
+        }
+    }
+}
+
         function togglePassword() {
             const passwordInput = document.getElementById('password');
             const eyeIcon = document.getElementById('eyeIcon');

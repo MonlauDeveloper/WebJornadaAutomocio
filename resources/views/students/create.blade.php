@@ -158,7 +158,7 @@
                 <label for="project_numTribunal" class="block text-gray-700 font-semibold mb-2">Número de Tribunal (opcional)</label>
                 <select name="project_numTribunal" id="project_numTribunal" class="w-full border-gray-300 rounded-lg shadow-sm focus:ring focus:ring-blue-200">
                     <option value="">Seleccionar Tribunal</option>
-                    @for ($i = 1; $i <= 20; $i++)
+                    @for ($i = 1; $i <= 25; $i++)
                         <option value="{{ $i }}">Tribunal {{ $i }}</option>
                     @endfor
                 </select>

@@ -27,17 +27,17 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route('login') }}" class="space-y-4">
+            <form method="POST" action="{{ route('login') }}" onsubmit="comprobarUsuario()" class="space-y-4">
                 @csrf
                 <h2 class="text-xl font-bold text-center text-gray-800">Iniciar sesión</h2>
 
                 <div class="space-y-3">
                     <div class="space-y-1">
-                        <label for="email" class="block text-xs font-semibold text-gray-600 ml-4">Email</label>
+                        <label for="email" class="block text-xs font-semibold text-gray-600 ml-4">Usuario / Email</label>
                         <x-input id="email"
-                            class="w-full px-4 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm" 
-                            type="email" name="email" :value="old('email')" placeholder="Introduce tu email" required
-                            autofocus autocomplete="username" />
+                            class="w-full px-4 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm"
+                            type="text" name="email" :value="old('email')" placeholder="Nombre de empresa o email"
+                            required autofocus autocomplete="username" />
                     </div>
 
                     <div class="space-y-1">
@@ -45,7 +45,7 @@
                         <div class="relative">
                             <x-input id="password"
                                 class="w-full px-4 py-2.5 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition-all text-sm"
-                                type="password" name="password" placeholder="Introduce tu contraseña" required 
+                                type="password" name="password" placeholder="Introduce tu contraseña" required
                                 autocomplete="current-password" />
                             <span class="absolute inset-y-0 right-5 flex items-center text-gray-500 cursor-pointer"
                                 onclick="togglePassword()">
@@ -96,6 +96,18 @@
     </div>
 
     <script>
+        function comprobarUsuario() {
+    const inputUsuario = document.getElementById('email');
+    if (inputUsuario.value) {
+        let valor = inputUsuario.value.trim();
+        
+        if (!valor.includes('@')) {
+            valor = valor.replace(/[\s\-_&]/g, '');
+            inputUsuario.value = valor + '@empresa.com';
+        }
+    }
+}
+
         function togglePassword() {
             const passwordInput = document.getElementById('password');
             const eyeIcon = document.getElementById('eyeIcon');
