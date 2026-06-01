@@ -94,18 +94,34 @@
             return \Carbon\Carbon::parse($i->hour)->format('H:i');
         });
 
-        // Definimos el horario (Igual que en la App)
-        $hora = \Carbon\Carbon::createFromTime(9, 30);
-        $fin = \Carbon\Carbon::createFromTime(13, 30);
+        $ranges = [
+            ['start' => '09:45', 'end' => '10:55'],
+            ['start' => '11:15', 'end' => '13:00'],
+        ];
+
+        $allowedSlots = [];
+        foreach ($ranges as $range) {
+            $hora = \Carbon\Carbon::createFromTimeString($range['start']);
+            $fin = \Carbon\Carbon::createFromTimeString($range['end']);
+
+            while ($hora < $fin) {
+                $allowedSlots[] = $hora->format('H:i');
+                $hora->addMinutes(10);
+            }
+        }
+
+        $reservedSlots = $citas->keys()->all();
+        $slots = collect(array_merge($allowedSlots, $reservedSlots))
+            ->unique()
+            ->sort()
+            ->values()
+            ->all();
     ?>
 
-    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php while($hora <= $fin): ?>
+    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php $__currentLoopData = $slots; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $horaActual): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <?php 
-            $horaActual = $hora->format('H:i');
             $cita = $citas->get($horaActual);
-            
-            // Saltamos el tiempo de descanso si lo deseas (opcional)
-            // if($horaActual == '10:40') { $hora->addMinutes(20); continue; }
+            $isInvalid = !in_array($horaActual, $allowedSlots, true);
         ?>
 
         <div class="flex items-center justify-between p-2 rounded-lg text-xs <?php echo e($cita ? 'bg-blue-50 border border-blue-200' : 'bg-white border border-transparent text-gray-400'); ?>">
@@ -118,21 +134,22 @@
                 <div class="text-right">
                     <span class="text-blue-800 font-bold block leading-none"><?php echo e($cita->studentName); ?></span>
                     <span class="text-[9px] text-blue-500 uppercase font-black">Reservado</span>
+                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($isInvalid): ?>
+                        <span class="text-[8px] uppercase tracking-tighter text-red-500">Fuera de horario</span>
+                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
                 </div>
             <?php else: ?>
                 <span class="text-[9px] uppercase tracking-tighter opacity-50 text-gray-400">Libre</span>
             <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
         </div>
-
-        <?php $hora->addMinutes(10); ?>
-    <?php endwhile; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
 </div>
 
                         <div class="mt-1 h-1.5 w-full bg-indigo-100 rounded-full overflow-hidden">
                             <?php 
-                                $totalSlots = 7; 
+                                $totalSlots = count($slots);
                                 $ocupados = count($table->interviews ?? []);
-                                $porcentaje = ($ocupados / $totalSlots) * 100;
+                                $porcentaje = $totalSlots > 0 ? ($ocupados / $totalSlots) * 100 : 0;
                             ?>
                             <div class="h-full bg-indigo-600 rounded-full shadow-[0_0_8px_rgba(79,70,229,0.3)] transition-all duration-500" 
                                 style="width: <?php echo e($porcentaje); ?>%"></div>

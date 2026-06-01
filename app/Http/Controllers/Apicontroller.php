@@ -407,8 +407,8 @@ class Apicontroller extends Controller
     public function get_table_slots($idTable)
     {
         $ranges = [
-            ['start' => '09:30', 'end' => '10:30'],
-            ['start' => '11:00', 'end' => '13:30']
+            ['start' => '09:45', 'end' => '10:45'],
+            ['start' => '11:15', 'end' => '13:00']
         ];
 
         $interval = 10 * 60; 
